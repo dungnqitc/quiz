@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ôn thi Toán 6 – Cầu Giấy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#fbfdff;--line:#d3e6f3;--card:#fff;--tx:#1f2430;--mut:#667085;--pri:#2f6fed;--ok:#1a9b5a;--bad:#d64545;--bd:#e3e6ee;--box:#eef3ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1d27;--line:#1c3342;--card:#1d2028;--tx:#e8eaf0;--mut:#9aa3b5;--pri:#6c9bff;--ok:#4cc88a;--bad:#ff7b7b;--bd:#2d3240;--box:#232a3d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1d27;--line:#1c3342;--card:#1d2028;--tx:#e8eaf0;--mut:#9aa3b5;--pri:#6c9bff;--ok:#4cc88a;--bad:#ff7b7b;--bd:#2d3240;--box:#232a3d;color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0}
+body{background-color:var(--bg);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px;color:var(--tx);font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:0 14px 40px}
+.w{max-width:760px;margin:0 auto}
+h1{font-size:1.35rem;margin:18px 0 4px}p.s{color:var(--mut);margin:0 0 12px;font-size:.9rem}
+nav{display:flex;gap:6px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;z-index:5}
+nav button{flex:1;padding:9px 4px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;font-size:.9rem;cursor:pointer}
+nav button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:12px 0}
+.card h3{margin:0 0 6px;font-size:1.05rem}.card ul{margin:4px 0;padding-left:20px}
+.f{background:var(--box);border-radius:8px;padding:6px 10px;margin:6px 0;font-size:.93rem}
+.tag{font-size:.75rem;color:var(--mut)}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:9px;font-size:.95rem;cursor:pointer}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--card))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,var(--card))}
+.ex{display:none;margin-top:8px;font-size:.92rem;border-left:3px solid var(--pri);padding-left:10px}.ex.show{display:block}
+.btn{padding:7px 13px;border:1px solid var(--pri);background:transparent;color:var(--pri);border-radius:9px;cursor:pointer;font-size:.9rem;margin:6px 6px 0 0}
+.btn.fill{background:var(--pri);color:#fff}
+.sc{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.pg{display:none}.pg.on{display:block}
+.hist{margin:14px 0}.hist h3{font-size:1rem;margin:0 0 6px}.htbl{width:100%;border-collapse:collapse;font-size:.85rem}.htbl th,.htbl td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--bd)}.htbl th{color:var(--mut)}.linkbtn{background:none;border:0;color:var(--pri);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin-top:8px}
+</style></head><body><div class="w">
+<p style="margin:12px 0 0"><a href="index.html" style="color:var(--pri)">← Về trang chủ</a></p>
+<h1>🎓 Ôn thi vào lớp 6 – THCS Cầu Giấy</h1>
+<p class="s">Tổng hợp kiến thức & quiz từ bộ đề 2019–2026 (45 phút: trắc nghiệm, điền đáp số, 2 bài tự luận)</p>
+<nav><button class="on" data-t="k">📘 Kiến thức</button><button data-t="m">✅ Trắc nghiệm</button><button data-t="e">✍️ Tự luận</button></nav>
+
+<div id="k" class="pg on">
+<div class="card"><h3>1. Phân số – Số thập phân – Phần trăm</h3><ul>
+<li>Tìm x trong khoảng: đổi mọi số về số thập phân rồi so sánh (VD 12/5 &lt; x,2 &lt; 13/4 ⇒ 2,4 &lt; x,2 &lt; 3,25 ⇒ x = 3).</li>
+<li>Hỗn số → thập phân: 2 3/4 = 11/4 = 2,75.</li>
+<li>Tìm a% của số: số × a : 100. Tìm số khi biết a% của nó: giá trị : a × 100.</li>
+<li>Tăng/giảm %: chiều dài +50%, rộng −20% ⇒ diện tích = 150% × 80% = 120%.</li></ul>
+<div class="f">Biểu đồ hình quạt: phần cần tìm = 100% − các phần đã biết. Biểu đồ cột: đọc số liệu rồi tính tỉ số %.</div></div>
+
+<div class="card"><h3>2. Các dạng toán tỉ số (xuất hiện gần như mọi năm)</h3><ul>
+<li><b>Tổng – tỉ:</b> tổng : (số phần) × phần của mỗi số.</li>
+<li><b>Hiệu – tỉ:</b> hiệu : (hiệu số phần) × phần của mỗi số.</li>
+<li><b>Tổng thay đổi:</b> tính tổng hiện tại (cộng/trừ năm × số người) rồi mới chia tỉ lệ. VD: 4 năm trước tổng 28 ⇒ nay 28 + 4×2 = 36.</li>
+<li><b>Hai tỉ số, một đại lượng không đổi:</b> lượng thêm vào ứng với hiệu hai phân số (VD thêm 6 bóng ↔ 5/9 − 1/3 = 2/9 số bóng xanh).</li>
+<li><b>Hiệu không đổi</b> (tuổi, số bi): hiệu giữ nguyên khi cùng thêm/bớt.</li>
+<li><b>Tính ngược từ cuối:</b> "phát 5/9 số quà còn lại và 5 phần" ⇒ lùi từng bước: phần còn lại (1 − 5/9) ↔ số quà trước đó trừ 5.</li>
+<li><b>Tỉ lệ nghịch:</b> số người ↑ gấp k lần thì thời gian ↓ k lần (10 người 30 ngày ⇒ 1 người 300 ngày).</li></ul></div>
+
+<div class="card"><h3>3. Chuyển động</h3>
+<div class="f">s = v × t &nbsp;|&nbsp; v = s : t &nbsp;|&nbsp; t = s : v</div><ul>
+<li>Đổi giờ–phút: 15' = 0,25 h; 12' = 1/5 h; 45' = 0,75 h.</li>
+<li>Thời gian đi = Thời điểm đến − Thời điểm đi − Thời gian nghỉ.</li>
+<li>Cùng quãng đường: vận tốc tỉ lệ nghịch với thời gian. Tỉ số v là 4/5 ⇒ tỉ số t là 5/4 ⇒ hiệu thời gian cho ta tìm được từng thời gian.</li>
+<li>Đoạn lên dốc – xuống dốc bằng nhau: lập tỉ số vận tốc rồi đảo thành tỉ số thời gian.</li></ul></div>
+
+<div class="card"><h3>4. Hình học</h3>
+<div class="f">Hình thang: S = (đáy lớn + đáy bé) × cao : 2<br>Hình hộp chữ nhật: Sxq = 2(a+b)×c; Stp = Sxq + 2ab; V = a×b×c<br>Hình lập phương: Stp = 6 × cạnh²; V = cạnh³<br>Chu vi đường tròn = d × 3,14; Diện tích = r × r × 3,14</div><ul>
+<li>Tam giác chung chiều cao ⇒ tỉ số diện tích = tỉ số đáy (dùng cho tam giác ABC có M, N trên cạnh).</li>
+<li>Hình thang ABCD, hai đường chéo cắt tại O: S(ABD) = S(ABC); S(OAD) = S(OBC).</li>
+<li>Phần tô đậm = tổng các hình − phần chồng lên nhau (hình chữ thập), hoặc hình lớn − hình nhỏ (cung tròn).</li>
+<li>Kéo dài đáy lớn thêm 5 m: diện tích tăng = tam giác có đáy 5 m, cao = chiều cao hình thang.</li>
+<li>Đổi đơn vị: 1 m³ = 1000 dm³ = 1000 lít; 1 ha = 10 000 m²; 1 dm³ = 1000 cm³. Bản đồ 1 : 20 000 ⇒ thực tế : 20 000.</li></ul></div>
+
+<div class="card"><h3>5. Số học – Dấu hiệu chia hết</h3><ul>
+<li>Chia hết cho 2: tận cùng chẵn. Cho 5: tận cùng 0 hoặc 5. Cho 9 (và 3): tổng các chữ số chia hết cho 9 (và 3).</li>
+<li>Chia 5 dư 3 và chia hết cho 2 ⇒ tận cùng 8; chia 10 dư 5 ⇒ tận cùng 5; chia 5 dư 4 và chẵn ⇒ tận cùng 4.</li>
+<li>Tích các số lẻ có thừa số tận cùng 5 ⇒ tận cùng 5.</li>
+<li>Chia 5 dư 2 và chia 9 dư 2 ⇒ số − 2 chia hết cho 45 ⇒ số có 2 chữ số: 47, 92.</li>
+<li>Dãy số: nhìn hiệu hai số liền kề (1,2,5,10,17,26 → hiệu 1,3,5,7,9 → số tiếp theo + 11 = 37) hoặc tổng hai số liền trước (Fibonacci).</li>
+<li>Dãy cách đều: tổng = (số đầu + số cuối) × số số hạng : 2.</li></ul></div>
+
+<div class="card"><h3>6. Toán logic – câu phân loại</h3><ul>
+<li><b>Chẵn – lẻ:</b> a×b×(a+b) luôn chẵn (nếu a, b cùng lẻ thì a+b chẵn, nếu có số chẵn thì tích chẵn) ⇒ không thể bằng số lẻ.</li>
+<li><b>Phản chứng:</b> giả sử điều ngược lại → dẫn đến mâu thuẫn với đề bài.</li>
+<li><b>Số dư khi chia 3:</b> theo dõi dư mỗi bước để chứng minh không thể xảy ra.</li>
+<li><b>Bất biến:</b> với c = a×b/(a+b) ta có 1/c = 1/a + 1/b ⇒ tổng nghịch đảo không đổi (1+1/2+1/3+1/4+1/5 = 137/60 ⇒ kết quả 60/137).</li>
+<li><b>Nguyên lý Dirichlet (trường hợp xấu nhất):</b> lấy tối đa mỗi loại (k−1) thẻ rồi +1 để chắc chắn có k thẻ giống nhau.</li></ul></div>
+</div>
+
+<div id="m" class="pg"><div id="mq"></div>
+<div class="sc"><span id="sc">Đã làm 0/12 · Đúng 0</span><button class="btn fill" id="rs">Làm lại</button></div>
+<div class="hist" id="hist"></div></div>
+
+<div id="e" class="pg"><p class="s">Tự làm vào vở trước, rồi bấm "Hiện đáp án" để đối chiếu.</p><div id="eq"></div></div>
+
+<script>
+var MC=[
+["Tính: 3,5×1/4 − 1,5×1/4",["0","1/2","5/4","1/8"],1,"(3,5 − 1,5) × 1/4 = 2 × 1/4 = 1/2. (2022)"],
+["0,2 m³ gấp 25 dm³ số lần là:",["0,008","0,8","8","80"],2,"0,2 m³ = 200 dm³; 200 : 25 = 8. (2022)"],
+["Ô tô đi 60 km/h, quãng đường đi được trong 12 phút:",["0,2 km","5 km","720 km","12 km"],3,"12 phút = 1/5 giờ; 60 × 1/5 = 12 km. (2022)"],
+["Hình hộp chữ nhật dài 12 cm, rộng 8 cm. Hình lập phương có cạnh bằng trung bình cộng 3 kích thước và Stp = 486 cm². Chiều cao hình hộp?",["7 cm","8 cm","9 cm","81 cm"],0,"1 mặt = 486 : 6 = 81 ⇒ cạnh 9 cm; tổng 3 kích thước = 27; cao = 27 − 12 − 8 = 7 cm. (2022)"],
+["Tìm x sao cho 12/5 < x,2 < 13/4",["5","2","3","4"],2,"2,4 < x,2 < 3,25 ⇒ x = 3. (2023)"],
+["An đi học lúc 6 giờ 45 phút, đi tới bến xe buýt 10 phút; thời gian đợi và đi đến trường là 0,5 giờ. An đến trường lúc:",["7 giờ 25 phút","8 giờ 25 phút","7 giờ 15 phút","7 giờ 35 phút"],0,"6h45' + 10' + 30' = 7h25'. (2023)"],
+["10 công nhân làm xong việc trong 30 ngày. 20 công nhân làm xong trong:",["10 ngày","60 ngày","40 ngày","15 ngày"],3,"1 người: 30 × 10 = 300 ngày; 20 người: 300 : 20 = 15 ngày. (2023)"],
+["Phòng dài 7 m, rộng 4,5 m, cao 3 m. Sơn trần và 4 tường, trừ cửa 7,5 m². Diện tích cần sơn:",["83 m²","108 m²","93 m²","98 m²"],2,"Sxq = 2 × (7 + 4,5) × 3 = 69; trần = 31,5; 69 + 31,5 − 7,5 = 93 m². (2023)"],
+["Hỗn số 2 3/4 viết dưới dạng số thập phân:",["2,075","2,34","2,75","27,5"],2,"2 3/4 = 11/4 = 2,75. (2024)"],
+["2 ha 15 m² = … ha",["2,0015","2,15","2,015","20015"],0,"15 m² = 0,0015 ha ⇒ 2,0015 ha. (2024)"],
+["Xe máy qua cầu dài 1875 m hết 3 phút. Với vận tốc đó, 1 giờ đi được:",["625 m","37,5 km","33,75 km","93,75 m"],1,"60 : 3 = 20; 1875 × 20 = 37 500 m = 37,5 km. (2024)"],
+["Hình hộp chữ nhật có chu vi đáy 36 cm, rộng 8 cm, cao bằng 3/4 chiều rộng. Thể tích:",["168 cm³","216 cm³","288 cm³","480 cm³"],3,"Dài = 18 − 8 = 10; cao = 6; V = 10 × 8 × 6 = 480 cm³. (2024)"]];
+var ES=[
+["Nam đi A→B dự định 40 km/h. Đi được 1/2 quãng đường thì nghỉ 15 phút, rồi tăng lên 50 km/h để đến B đúng giờ. Tính AB. (2019)","Nửa quãng sau: tỉ số v (dự định : thực tế) = 4/5 ⇒ tỉ số t = 5/4. Hiệu thời gian = 0,25 h. Thời gian thực tế = 0,25 : (5 − 4) × 4 = 1 giờ. Nửa đường = 50 × 1 = 50 km. <b>AB = 100 km.</b>"],
+["Cho tam giác ABC, M ∈ AB với AM = BM, N ∈ AC với 2NC = NA. a) Tính S(ANM) : S(BMNC). b) MN cắt BC tại D, so sánh BC và CD. (2019)","a) S(AMN) = 1/2 S(ABN) = 1/2 × 2/3 S(ABC) = 1/3 S(ABC) ⇒ S(BMNC) = 2/3 S(ABC). <b>Tỉ số = 1/2.</b><br>b) S(DNA) = S(DNB) (vì AM = MB) và S(DNA) = 2·S(DNC) (vì AN = 2NC) ⇒ S(DNC) = 1/2 S(DNB) ⇒ S(DNC) = S(BNC) ⇒ <b>BC = CD.</b>"],
+["Giá sách 3 tầng, 700 quyển. Ngăn 1 bằng 40% tổng. a) Tính ngăn 1. b) Chuyển một nửa số sách ngăn 3 xuống ngăn 2 thì ngăn 3 bằng 2/5 ngăn 2. Tính số sách mỗi ngăn lúc đầu. (2020)","a) 700 × 40% = <b>280</b>.<br>b) Ngăn 2 + ngăn 3 = 420 (không đổi). Ngăn 3 lúc sau = 420 : (2 + 5) × 2 = 120 ⇒ lúc đầu = 120 : (1 − 1/2) = 240. Ngăn 2 = 420 − 240 = 180. <b>Ngăn 1: 280; ngăn 2: 180; ngăn 3: 240.</b>"],
+["Ô tô đi A→B lúc 7h15' với 60 km/h, nghỉ 1h30' rồi về A với 50 km/h, về lúc 14h15'. a) Tổng thời gian đi và về (không tính nghỉ)? b) Tính AB. (2021)","a) 14h15' − 7h15' − 1h30' = <b>5h30'</b> = 11/2 giờ.<br>b) Tỉ số v đi : về = 6/5 ⇒ tỉ số t đi : về = 5/6. Thời gian đi = 11/2 : (5 + 6) × 5 = 5/2 giờ. <b>AB = 5/2 × 60 = 150 km.</b>"],
+["Cuộc thi vẽ có 120 HS đạt giải. Giải nhất = 10% tổng; giải nhì = 1/5 tổng số HS ba giải còn lại; giải ba = 3/5 số HS khuyến khích. Tính số HS giải nhất và số HS khuyến khích. (2022)","a) 120 × 10% = <b>12</b>.<br>b) Giải nhì = 1/6 tổng = 20. Giải ba + khuyến khích = 120 − 12 − 20 = 88. Khuyến khích = 88 : (3 + 5) × 5 = <b>55</b>."],
+["Kì thi HSG: 1/10 số HS giỏi Anh bằng 6/83 số HS giỏi Toán. Số HS giỏi Toán hơn giỏi Anh là số có hai chữ số, chia 5 và 9 đều dư 2. Tính số HS mỗi môn. (2022)","Số có 2 chữ số chia 5 và 9 dư 2: 47 hoặc 92. Giỏi Anh : giỏi Toán = 60 : 83, hiệu 23 phần ⇒ hiệu phải chia hết cho 23 ⇒ chọn 92. Toán = 92 : 23 × 83 = <b>332</b>; Anh = 92 : 23 × 60 = <b>240</b>."],
+["Đoạn AD gồm lên dốc AB, xuống dốc BC, bằng phẳng CD (AB = BC, CD = 4 km). Đi bộ từ 5h đến 6h48'. Vận tốc lên dốc 4, xuống dốc 6, đường bằng 5 km/h. a) Thời gian đi CD. b) Độ dài AD. (2023)","a) 4 : 5 = 0,8 h = <b>48 phút</b>.<br>b) Thời gian AB + BC = 1h48' − 48' = 1 giờ. Cùng quãng đường: v xuống : v lên = 3/2 ⇒ t xuống : t lên = 2/3. t lên (AB) = 1 : (2 + 3) × 3 = 0,6 h ⇒ AB = 0,6 × 4 = 2,4 km. <b>AD = 2,4 × 2 + 4 = 8,8 km.</b>"],
+["Liên đọc sách 375 trang trong 4 ngày. Ngày 1 đọc 1/5 tổng số trang; ngày 2 bằng 5/6 ngày 3; ngày 3 gấp 1,5 lần ngày 4. Tính số trang ngày 1 và ngày 4. (2024)","a) 375 × 1/5 = <b>75 trang</b>.<br>b) Còn 300 trang. Coi ngày 4 = 1 phần ⇒ ngày 3 = 3/2, ngày 2 = 5/6 × 3/2 = 5/4. Ba ngày = 5/4 + 3/2 + 1 = 15/4 phần ⇒ ngày 4 = 4/15 × 300 = <b>80 trang</b>."],
+["Cho hai số tự nhiên a < b, a × b × (a + b) = 30. a) Tìm a, b. b) Có tìm được a, b để a × b × (a + b) = 20242025 không? Vì sao? (2024)","a) 30 = 2×3×5 = 1×5×6: tổng hai thừa số bằng thừa số còn lại ⇒ <b>(a, b) = (2, 3) hoặc (1, 5)</b>.<br>b) <b>Không.</b> Nếu a hoặc b chẵn thì a×b chẵn; nếu cả hai lẻ thì a + b chẵn ⇒ tích luôn chẵn, mà 20242025 là số lẻ."],
+["Phát quà 4 khu A, B, C, D. A: 50 phần; B: 80% của A. a) A và B phát bao nhiêu? b) Khu C phát 5/9 số quà còn lại và 5 phần; khu D phát 4/5 số còn lại và 7 phần thì hết. Tổng số quà mang đi? (2025)","a) B = 50 × 80% = 40; A + B = <b>90</b>.<br>b) Ngược từ cuối: 7 phần ứng với 1 − 4/5 = 1/5 số còn lại ⇒ còn lại 35. Trước khi trừ 5: 35 + 5 = 40 ứng với 1 − 5/9 = 4/9 ⇒ còn lại sau A, B = 40 : 4 × 9 = 90. Tổng = 90 + 90 = <b>180 phần quà</b>."],
+["Bộ bài có 1 thẻ ghi số 2; 2 thẻ ghi số 3; 3 thẻ ghi số 4; …; 15 thẻ ghi số 16. a) Tổng số thẻ? b) Lấy ít nhất bao nhiêu thẻ để chắc chắn có 6 thẻ cùng số? (2025)","a) 1 + 2 + … + 15 = (1 + 15) × 15 : 2 = <b>120 thẻ</b>.<br>b) Trường hợp xấu nhất: các số 2,3,4,5,6 lấy hết (1+2+3+4+5 = 15 thẻ) và 10 số còn lại mỗi số lấy 5 thẻ (50 thẻ) ⇒ 65 thẻ. Lấy thêm 1 thẻ ⇒ <b>66 thẻ</b>."],
+["Bài điền đáp số tiêu biểu (hiện đáp án để kiểm tra): (1) Nam có 110 < số bi < 250, xếp hộp 2 hoặc 9 viên thì đủ, xếp hộp 5 viên dư 3. (2) Tuổi anh = 5/4 tuổi em, 2 lần tuổi anh + tuổi em = 28, tuổi anh? (3) Bố + con = 50 tuổi, 3 năm trước con = 2/9 bố, tuổi bố nay? (4) AB = 95 km, đi 30 phút với 50 km/h rồi 40 km/h, xuất phát 6h, đến lúc mấy giờ? (5) Hình thang S = 100 m², kéo dài đáy lớn 5 m, diện tích tăng 1/5, tính tổng 2 đáy sau khi mở rộng.","(1) Chia hết 2, 9 và chia 5 dư 3 ⇒ dạng ab8 với a + b chia 9 dư 1 ⇒ <b>198 viên</b>.<br>(2) Anh 5 phần, em 4 phần: 10 + 4 = 14 phần = 28 ⇒ <b>anh 10 tuổi</b>.<br>(3) Tổng 3 năm trước = 44; bố = 44 : 11 × 9 = 36 ⇒ nay <b>39 tuổi</b>.<br>(4) 25 km đầu; còn 70 km : 40 = 1,75 h ⇒ <b>8 giờ 15 phút</b>.<br>(5) Tăng thêm 20 m² ⇒ cao = 20 × 2 : 5 = 8 m; tổng đáy đầu = 100 × 2 : 8 = 25; sau mở rộng <b>30 m</b>."]];
+var d=document,$=function(i){return d.getElementById(i)};
+d.querySelectorAll("nav button").forEach(function(b){b.onclick=function(){d.querySelectorAll("nav button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");d.querySelectorAll(".pg").forEach(function(p){p.classList.remove("on")});$(b.dataset.t).classList.add("on");window.scrollTo(0,0)}});
+var done,right;
+function buildMC(){done={};right=0;cgSaved=false;var h="";MC.forEach(function(q,i){h+='<div class="card"><span class="tag">Câu '+(i+1)+'</span><div>'+q[0]+'</div>';q[1].forEach(function(o,j){h+='<button class="opt" data-q="'+i+'" data-o="'+j+'">'+"ABCD"[j]+". "+o+'</button>'});h+='<div class="ex" id="x'+i+'"><b>Đáp án '+"ABCD"[q[2]]+".</b> "+q[3]+'</div></div>'});$("mq").innerHTML=h;upd()}
+var HKEY="quiztoan6cg_history_v1",cgSaved=false;
+function loadHistCG(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
+function saveHistCG(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
+function fmtCG(ts){var dt=new Date(ts),p=function(n){return(n<10?"0":"")+n};return p(dt.getDate())+"/"+p(dt.getMonth()+1)+"/"+dt.getFullYear()+" "+p(dt.getHours())+":"+p(dt.getMinutes())}
+function addHistCG(sc,total){var h=loadHistCG();h.unshift({ts:Date.now(),score:sc,total:total});if(h.length>100)h=h.slice(0,100);saveHistCG(h)}
+function renderHistCG(){var el=$("hist");if(!el)return;var h=loadHistCG();if(!h.length){el.innerHTML="<div class=\"hist\"><h3>Lịch sử làm bài</h3><p class=\"s\">Chưa có lịch sử. Hoàn thành 12 câu để lưu lại.</p></div>";return}var out="<h3>Lịch sử làm bài</h3><table class=\"htbl\"><thead><tr><th>Thời gian</th><th>Điểm</th></tr></thead><tbody>";h.forEach(function(r){out+="<tr><td>"+fmtCG(r.ts)+"</td><td>"+r.score+"/"+r.total+"</td></tr>"});out+="</tbody></table><button class=\"linkbtn\" id=\"clrcg\">Xóa toàn bộ lịch sử</button>";el.innerHTML=out;var c=$("clrcg");if(c)c.onclick=function(){saveHistCG([]);renderHistCG()}}
+function upd(){$("sc").textContent="Đã làm "+Object.keys(done).length+"/"+MC.length+" · Đúng "+right;if(Object.keys(done).length===MC.length&&!cgSaved){cgSaved=true;addHistCG(right,MC.length);renderHistCG()}}
+$("mq").addEventListener("click",function(e){var b=e.target.closest(".opt");if(!b)return;var i=+b.dataset.q,j=+b.dataset.o;if(done[i]!==undefined)return;done[i]=j;var a=MC[i][2];if(j===a)right++;var bs=b.parentNode.querySelectorAll(".opt");bs[a].classList.add("ok");if(j!==a)b.classList.add("bad");$("x"+i).classList.add("show");upd()});
+$("rs").onclick=function(){buildMC();window.scrollTo(0,0)};
+var h="";ES.forEach(function(q,i){h+='<div class="card"><span class="tag">Bài '+(i+1)+'</span><div>'+q[0]+'</div><button class="btn" data-e="'+i+'">Hiện đáp án</button><div class="ex" id="a'+i+'">'+q[1]+'</div></div>'});$("eq").innerHTML=h;
+$("eq").addEventListener("click",function(e){var b=e.target.closest("[data-e]");if(!b)return;var x=$("a"+b.dataset.e),s=x.classList.toggle("show");b.textContent=s?"Ẩn đáp án":"Hiện đáp án"});
+buildMC();renderHistCG();
+</script></div></body></html>
