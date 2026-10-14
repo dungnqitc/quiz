@@ -10,6 +10,7 @@
 - `quiz-anh6.html`: Tiếng Anh vào 6 CLC Thanh Xuân — 43 câu, 9 chủ đề, dữ liệu nhúng sẵn trong trang.
 - `quiz-toan6cg.html`: Ôn thi Toán 6 – Cầu Giấy — 3 phần (Kiến thức, 12 câu trắc nghiệm có chấm điểm, 12 bài tự luận kèm lời giải). Dữ liệu nhúng sẵn trong trang.
 - `quiz-khtn8.html`: KHTN 8 – SGK — 300 câu, 3 phân môn (Hóa, Lí, Sinh), mỗi phân môn 100 câu. Dữ liệu nhúng sẵn trong trang.
+- `quiz-toan6tx.html`: Ôn thi Toán 6 – Thanh Xuân — 3 phần (Kiến thức, 8 câu trắc nghiệm có chấm điểm, 6 bài tự luận kèm lời giải). Dữ liệu nhúng sẵn trong trang.
 
 Mỗi trang quiz có nút quay về trang chủ và lưu lịch sử riêng.
 
@@ -90,6 +91,7 @@ quiz-app/
 ├── quiz-anh6.html          # Quiz Tiếng Anh vào 6 (dữ liệu 43 câu nhúng sẵn)
 ├── quiz-toan6cg.html       # Ôn thi Toán 6 Cầu Giấy (kiến thức + trắc nghiệm + tự luận)
 ├── quiz-khtn8.html         # Quiz KHTN 8 (300 câu, 3 phân môn, nhúng sẵn)
+├── quiz-toan6tx.html       # Ôn thi Toán 6 Thanh Xuân (kiến thức + trắc nghiệm + tự luận)
 ├── README.md
 ├── .gitignore
 └── .github/

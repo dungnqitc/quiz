@@ -6,10 +6,10 @@
 <title>Cùng học vui nào các con!</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
 <style>
-:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc8:#2447b8;--acen:#2456a6;--accg:#7a3fb8;--acmem:#b3263e;--ackhtn:#0a7d57;--mute:#5b6b7f;
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc8:#2447b8;--acen:#2456a6;--accg:#7a3fb8;--acmem:#b3263e;--ackhtn:#0a7d57;--actx:#c0392b;--mute:#5b6b7f;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc8:#8fa8ff;--acen:#7fa8ee;--accg:#c08af0;--acmem:#ff8fa3;--ackhtn:#4fd1a0;--mute:#9fb2c4}}
-:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc8:#8fa8ff;--acen:#7fa8ee;--accg:#c08af0;--acmem:#ff8fa3;--ackhtn:#4fd1a0;--mute:#9fb2c4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc8:#8fa8ff;--acen:#7fa8ee;--accg:#c08af0;--acmem:#ff8fa3;--ackhtn:#4fd1a0;--actx:#ff8a7d;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc8:#8fa8ff;--acen:#7fa8ee;--accg:#c08af0;--acmem:#ff8fa3;--ackhtn:#4fd1a0;--actx:#ff8a7d;--mute:#9fb2c4}
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
 background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
@@ -26,6 +26,7 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 .cardlink.ckhtn{box-shadow:6px 6px 0 var(--ackhtn)}
 .cardlink.cen{box-shadow:6px 6px 0 var(--acen)}
 .cardlink.ccg{box-shadow:6px 6px 0 var(--accg)}
+.cardlink.ctx{box-shadow:6px 6px 0 var(--actx)}
 .cardlink.cmem{box-shadow:6px 6px 0 var(--acmem)}
 .cardlink.cgame{box-shadow:6px 6px 0 var(--acc)}
 .cardlink:hover{transform:translate(-1px,-1px)}
@@ -46,12 +47,16 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 <span>Câu hỏi sinh ngẫu nhiên. Quiz tổng hợp (chọn môn, 20 câu) hoặc theo chủ đề (100 câu mỗi chủ đề).</span>
 </a>
 <a class="cardlink cen" href="quiz-anh6.html">
-<b>Tiếng Anh vào 6 CLC Thanh Xuân</b>
+<b>Tiếng Anh 6 – Thanh Xuân</b>
 <span>43 câu, 9 chủ đề (phát âm, ngữ pháp, viết lại câu…). Quiz tổng hợp (20 câu) hoặc theo chủ đề.</span>
 </a>
 <a class="cardlink ccg" href="quiz-toan6cg.html">
 <b>Ôn thi Toán 6 – Cầu Giấy</b>
 <span>Kiến thức ôn tập, 12 câu trắc nghiệm (có chấm điểm) và 12 bài tự luận kèm lời giải (đề 2019–2025).</span>
+</a>
+<a class="cardlink ctx" href="quiz-toan6tx.html">
+<b>Ôn thi Toán 6 – Thanh Xuân</b>
+<span>Câu mục tiêu 9+: kiến thức, 8 câu trắc nghiệm (có chấm điểm) và 6 bài tự luận kèm lời giải (đề 2019–2025).</span>
 </a>
 </div>
 <div class="col">
