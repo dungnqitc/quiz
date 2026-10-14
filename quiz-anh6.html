@@ -54,7 +54,7 @@ button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 <main>
 <p><a class="link" href="index.html">← Về trang chủ</a></p>
 <h1>Quiz Tiếng Anh vào 6 CLC Thanh Xuân</h1>
-<p class="sub">Chọn <b>Quiz tổng hợp</b> (25 câu ngẫu nhiên từ mọi chủ đề) hoặc <b>Quiz theo chủ đề</b> (làm trọn một chủ đề).</p>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (20 câu ngẫu nhiên từ mọi chủ đề) hoặc <b>Quiz theo chủ đề</b> (làm trọn một chủ đề).</p>
 <div class="tabs"><button class="tab" id="mmix" aria-selected="true">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
 <div class="chips" id="chips"></div>
 <div id="box"></div>
@@ -68,7 +68,7 @@ var $=function(i){return document.getElementById(i)};
 
 /* Dữ liệu nguồn: mỗi câu = [category, question, options[], correctIndex, explanation] */
 var EN=(typeof window!=="undefined"&&window.EN_DATA)?window.EN_DATA:[];
-var MIX=25;
+var MIX=20;
 function enNorm(row){var opts=row[2],a=row[3],c=opts[a],d=opts.filter(function(_,j){return j!=a});return {q:row[1],c:c,d:d,e:row[4]}}
 function cats(){var seen={},out=[];EN.forEach(function(r){if(!seen[r[0]]){seen[r[0]]=1;out.push(r[0])}});return out}
 function enAll(){return EN.slice()}

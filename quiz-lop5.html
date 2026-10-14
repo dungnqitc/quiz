@@ -56,7 +56,7 @@ button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 <main>
 <p><a class="link" href="index.html">← Về trang chủ</a></p>
 <h1 id="appTitle">Quiz Toán 5 &amp; Tiếng Việt 5 - SGK Tập 1</h1>
-<p class="sub">Chọn <b>Quiz tổng hợp</b> (chọn môn, 25 câu ngẫu nhiên mỗi môn) hoặc <b>Quiz theo chủ đề</b> (100 câu mỗi chủ đề).</p>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (chọn môn, 20 câu ngẫu nhiên mỗi môn) hoặc <b>Quiz theo chủ đề</b> (100 câu mỗi chủ đề).</p>
 <div class="tabs"><button class="tab" id="mmix" aria-selected="true">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
 <div class="tabs" id="subjtabs" hidden><button class="tab" id="tt" aria-selected="true">Toán</button><button class="tab" id="tv" aria-selected="false">Tiếng Việt</button></div>
 <div class="chips" id="chips"></div>
@@ -193,8 +193,8 @@ function gen(s,k){var g=(s=="t"?TG:VG)[k],seen={},out=[],n=0;
  while(out.length<100&&n++<5000)add(P(g)());
  return out}
 
-/* Quiz tổng hợp: chọn môn, mỗi môn 25 câu ngẫu nhiên từ toàn bộ kho của môn đó */
-var MIXPER=25;
+/* Quiz tổng hợp: chọn môn, mỗi môn 20 câu ngẫu nhiên từ toàn bộ kho của môn đó */
+var MIXPER=20;
 function subjGens(s){var g=[],bank=s=="t"?TG:VG;for(var k in bank)bank[k].forEach(function(fn){g.push(fn)});return g}
 function genSubjN(s,n){var gens=subjGens(s),seen={},out=[],c=0;
  while(out.length<n&&c++<5000){var q=P(gens)();if(!q)continue;var key=q.q+"|"+q.c+"|"+q.d.slice().sort().join();if(seen[key])continue;seen[key]=1;out.push(q)}
@@ -210,7 +210,7 @@ function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}
 function subjName(s){return s=="t"?"Toán":"Tiếng Việt"}
 function addHist(sc,total){
  var h=loadHist(),subject,topic;
- if(MODE=="mix"){subject="Tổng hợp";topic=subjName(S)+" (25 câu)"}
+ if(MODE=="mix"){subject="Tổng hợp";topic=subjName(S)+" (20 câu)"}
  else{subject=subjName(S);topic=NM[S][K-1]}
  h.unshift({ts:Date.now(),subject:subject,topic:topic,score:sc,total:total});
  if(h.length>100)h=h.slice(0,100);
@@ -234,10 +234,10 @@ var MODE="mix";
 function setModeTabs(){$("mmix").setAttribute("aria-selected",MODE=="mix");$("mtopic").setAttribute("aria-selected",MODE=="topic");
  $("subjtabs").hidden=(MODE!="topic");$("chips").hidden=false}
 
-/* Chế độ tổng hợp: chọn môn, mỗi môn 25 câu ngẫu nhiên */
+/* Chế độ tổng hợp: chọn môn, mỗi môn 20 câu ngẫu nhiên */
 function goMix(s,list){MODE="mix";S=s||"t";setModeTabs();document.body.setAttribute("data-s",S);
  $("chips").innerHTML="";
- [["t","Toán (25 câu)"],["v","Tiếng Việt (25 câu)"]].forEach(function(it){var b=document.createElement("button");b.className="chip";b.textContent=it[1];b.setAttribute("aria-pressed",it[0]==S);b.onclick=function(){goMix(it[0])};$("chips").appendChild(b)});
+ [["t","Toán (20 câu)"],["v","Tiếng Việt (20 câu)"]].forEach(function(it){var b=document.createElement("button");b.className="chip";b.textContent=it[1];b.setAttribute("aria-pressed",it[0]==S);b.onclick=function(){goMix(it[0])};$("chips").appendChild(b)});
  pool=list||genSubjN(S,MIXPER);i=0;score=0;wrong=[];show()}
 
 /* Chế độ theo chủ đề */
@@ -257,7 +257,7 @@ function show(){
  if(i>=pool.length){
   if(!saved){addHist(score,pool.length);saved=true}
   var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
-  var newLabel=MODE=="mix"?"Bộ 25 câu mới":"Bộ 100 câu mới";
+  var newLabel=MODE=="mix"?"Bộ 20 câu mới":"Bộ 100 câu mới";
   box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
   $("nw").onclick=function(){MODE=="mix"?goMix(S):go(S,K)};
   if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(S,wrong.slice()):go(S,K,wrong.slice())};
