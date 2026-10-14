@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ngân hàng quiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc8:#2447b8;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc8:#8fa8ff;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc8:#8fa8ff;--mute:#9fb2c4}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:720px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 22px;font-size:.95rem}
+.grid{display:grid;gap:14px}
+.cardlink{display:block;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:20px}
+.cardlink.c5{box-shadow:6px 6px 0 var(--acc)}
+.cardlink.c8{box-shadow:6px 6px 0 var(--acc8)}
+.cardlink:hover{transform:translate(-1px,-1px)}
+.cardlink b{display:block;font-size:1.2rem;margin-bottom:4px}
+.cardlink span{color:var(--mute);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.cardlink:hover{transform:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Ngân hàng quiz</h1>
+<p class="sub">Chọn bộ đề để bắt đầu luyện tập.</p>
+<div class="grid">
+<a class="cardlink c5" href="quiz-lop5.html">
+<b>Toán 5 &amp; Tiếng Việt 5</b>
+<span>Câu hỏi sinh ngẫu nhiên. Quiz tổng hợp (chọn môn, 25 câu) hoặc theo chủ đề (100 câu mỗi chủ đề).</span>
+</a>
+<a class="cardlink c8" href="quiz-lop8.html">
+<b>Toán 8 – Tập 1</b>
+<span>Ngân hàng 500 câu (5 chương). Quiz tổng hợp (25 câu) hoặc làm trọn một chương.</span>
+</a>
+</div>
+</main>
+</body>
+</html>

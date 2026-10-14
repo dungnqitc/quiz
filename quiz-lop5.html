@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quiz Toán 5 & Tiếng Việt 5</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc2:#e8f6f5;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body[data-s=v]{--acc:#b3263e;--acc2:#fbeaec;--hl:#bfe9d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
+body[data-s=v]{--acc:#ff8fa3;--acc2:#3a1f27;--hl:#2c5a47}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 16px;font-size:.92rem}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab,.chip,.btn,.opt{font:inherit;color:inherit;cursor:pointer}
+.tab{flex:1;padding:10px;border:2px solid var(--ink);background:var(--card);border-radius:10px;font-weight:700}
+.tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{padding:6px 12px;border:2px solid var(--ink);border-radius:99px;background:var(--card);font-size:.88rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:5px 5px 0 var(--acc)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .25s}
+.meta{display:flex;justify-content:space-between;color:var(--mute);font-size:.88rem;margin-bottom:6px}
+.q{font-size:1.15rem;font-weight:700;margin:6px 0 14px}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:8px 0;border:2px solid var(--line);background:var(--paper);border-radius:10px}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.ok{border-color:var(--ok);background:var(--okb)}
+.opt.no{border-color:var(--bad);background:var(--badb)}
+.exp{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--acc2)}
+.btn{margin-top:14px;padding:11px 20px;border:2px solid var(--ink);background:var(--hl);color:#1b2a41;border-radius:10px;font-weight:700}
+.btn.alt{background:var(--card);color:var(--ink);margin-left:8px}
+.big{font-size:3rem;font-weight:800;line-height:1.1;margin:6px 0}
+.hist{margin-top:18px}
+.hist h2{font-size:1.05rem;margin:0 0 8px;font-weight:800}
+.htbl{width:100%;border-collapse:collapse;font-size:.86rem}
+.htbl th,.htbl td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.htbl th{color:var(--mute);font-weight:700}
+.htbl td.sc{font-weight:700;white-space:nowrap}
+.hempty{color:var(--mute);font-size:.9rem;margin:4px 0}
+.link{background:none;border:none;color:var(--acc);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin-top:10px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-s="t">
+<main>
+<p><a class="link" href="index.html">← Về trang chủ</a></p>
+<h1 id="appTitle">Quiz Toán 5 &amp; Tiếng Việt 5</h1>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (chọn môn, 25 câu ngẫu nhiên mỗi môn) hoặc <b>Quiz theo chủ đề</b> (100 câu mỗi chủ đề).</p>
+<div class="tabs"><button class="tab" id="mmix" aria-selected="true">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
+<div class="tabs" id="subjtabs" hidden><button class="tab" id="tt" aria-selected="true">Toán</button><button class="tab" id="tv" aria-selected="false">Tiếng Việt</button></div>
+<div class="chips" id="chips"></div>
+<div id="box"></div>
+</main>
+<script>
+var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))},P=function(a){return a[R(0,a.length-1)]};
+function sh(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=R(0,k),t=a[k];a[k]=a[j];a[j]=t}return a}
+var pk=function(a,n){return sh(a).slice(0,n)};
+var F=function(v){var s=(+v.toFixed(6)).toString().split("."),i=s[0].replace(/\B(?=(\d{3})+(?!\d))/g," ");return s[1]?i+","+s[1]:i};
+var G=function(a,b){return b?G(b,a%b):a};
+var fr=function(n,d){var g=G(n,d);n/=g;d/=g;return d==1?""+n:n+"/"+d};
+var FD=function(n,d){return [[n+1,d],[n,d+1],[n+2,d+1],[n+1,d+2],[n+3,d],[n,d+2]].filter(function(x){return x[0]*d!=x[1]*n}).map(function(x){return fr(x[0],x[1])})};
+var A=function(v,s){return [v+s,v-s,v*10,v/10,v+2*s,v-2*s,v*2].filter(function(x){return x>0&&Math.abs(x-v)>1e-9}).map(F)};
+var D=function(s){return [s*10,s/10,s+.1,s-.1].filter(function(v){return v>0}).map(F)};
+var P10=function(c){return [c*10,c/10,c*100,c/100].map(F)};
+var M=function(q,c,d,e){c=""+c;d=sh([...new Set(d.map(String))].filter(function(x){return x!=c}));return d.length<3?null:{q:q,c:c,d:d.slice(0,3),e:e||""}};
+
+var TG={
+1:[
+function(){var a=R(1e3,9999),b=R(100,999),c=a+b;return M(F(a)+" + "+F(b)+" = ?",F(c),A(c,10),"Đặt tính rồi cộng từ phải sang trái.")},
+function(){var a=R(5e3,9999),b=R(100,4999),c=a-b;return M(F(a)+" − "+F(b)+" = ?",F(c),A(c,100),"Đặt tính rồi trừ từ phải sang trái.")},
+function(){var a=R(100,999),b=R(2,9),c=a*b;return M(a+" × "+b+" = ?",F(c),A(c,10),"Nhân lần lượt từng chữ số, nhớ sang hàng bên trái.")},
+function(){var b=R(2,9),q=R(100,999);return M(F(b*q)+" : "+b+" = ?",F(q),A(q,10),"Chia từ hàng cao nhất; thử lại bằng phép nhân.")},
+function(){var d=sh([1,2,3,4,5,6,7,8,9]).slice(0,6),p=R(0,5),v=d[p]*Math.pow(10,5-p);return M("Trong số "+F(+d.join(""))+", chữ số "+d[p]+" có giá trị là:",F(v),[0,1,2,3,4,5].filter(function(x){return x!=p}).map(function(x){return F(d[p]*Math.pow(10,5-x))}),"Giá trị = chữ số × giá trị của hàng.")},
+function(){var n=R(1e3,99999),k=P([10,100,1000]),c=Math.round(n/k)*k;return M("Làm tròn "+F(n)+" đến hàng "+{10:"chục",100:"trăm",1000:"nghìn"}[k]+":",F(c),[c+k,c-k,c+2*k,n].map(F),"Xét chữ số ngay bên phải hàng cần làm tròn: từ 5 trở lên thì làm tròn lên.")},
+function(){var g=R(2,9),a=R(1,7),b=a+R(1,6);return G(a,b)>1?null:M("Rút gọn "+a*g+"/"+b*g+" được phân số tối giản:",fr(a,b),FD(a,b),"Chia cả tử và mẫu cho "+g+".")},
+function(){var m=R(5,12),a=R(1,m-3),b=R(1,m-a-1),c=a+b;return M(a+"/"+m+" + "+b+"/"+m+" = ?",fr(c,m),FD(c,m),"Cùng mẫu số: giữ mẫu, cộng hai tử số (rồi rút gọn nếu được).")},
+function(){var a=R(2,6),b=R(2,6);return a==b?null:M("1/"+a+" + 1/"+b+" = ?",fr(a+b,a*b),FD(a+b,a*b),"Quy đồng mẫu số rồi cộng hai tử số.")},
+function(){var a=R(1,5),b=R(2,7),c=R(1,5),d=R(2,7);return M(a+"/"+b+" × "+c+"/"+d+" = ?",fr(a*c,b*d),FD(a*c,b*d),"Tử nhân tử, mẫu nhân mẫu, rồi rút gọn.")},
+function(){var a=R(1,9),c=R(3,9),b=R(1,c-1);return M("Hỗn số "+a+" "+b+"/"+c+" viết thành phân số là:",(a*c+b)+"/"+c,[(a+b)+"/"+c,a*c+"/"+c,(a*c+b)+"/"+(a+c),(a*b+c)+"/"+c],"Phân số = (phần nguyên × mẫu + tử) / mẫu.")},
+function(){var a=R(10,99),b=R(2,9),c=R(2,9);return M(a+" + "+b+" × "+c+" = ?",F(a+b*c),[(a+b)*c,a*b+c,a+b+c,a*b*c].map(F),"Nhân chia trước, cộng trừ sau.")}
+],
+2:[
+function(){var d=sh([1,2,3,4,5,6,7,8,9]).slice(0,6),p=R(0,5),N=["trăm","chục","đơn vị","phần mười","phần trăm","phần nghìn"];return M("Trong số "+d[0]+d[1]+d[2]+","+d[3]+d[4]+d[5]+", chữ số "+d[p]+" thuộc hàng nào?","Hàng "+N[p],N.filter(function(x,i){return i!=p}).map(function(x){return "Hàng "+x}),"Đọc các hàng từ trái sang phải: trăm, chục, đơn vị, rồi sau dấu phẩy là phần mười, phần trăm, phần nghìn.")},
+function(){var s=new Set();while(s.size<4)s.add(R(100,9999));var a=[...s],mx=R(0,1),m=mx?Math.max.apply(0,a):Math.min.apply(0,a),f=function(x){return F(x/100)};return M("Số nào "+(mx?"lớn":"bé")+" nhất: "+a.map(f).join("; ")+"?",f(m),a.filter(function(x){return x!=m}).map(f),"So sánh phần nguyên, rồi lần lượt phần mười, phần trăm.")},
+function(){var x=R(1000,99999),k=R(1,2),u=k==1?.1:.01,c=k==1?Math.round(x/100)/10:Math.round(x/10)/100,fl=k==1?Math.floor(x/100)/10:Math.floor(x/10)/100;return M("Làm tròn "+F(x/1000)+" đến hàng phần "+(k==1?"mười":"trăm")+":",F(c),[c+u,c-u,c+2*u,x/1000,fl].map(F),"Xét chữ số ngay sau hàng cần làm tròn: từ 5 trở lên thì làm tròn lên.")},
+function(){var n=R(1,999),k=P([10,100,1000]);if(n%10==0)return null;var v=n/k;return M(n+"/"+k+" viết dưới dạng số thập phân là:",F(v),P10(v),"Mẫu số 10; 100; 1 000 thì phần thập phân có 1; 2; 3 chữ số.")},
+function(){var u=P([["cm","m",100],["mm","m",1000],["g","kg",1000],["ml","l",1000],["dm","m",10]]),x=R(11,999);if(x%10==0)return null;var v=x/u[2];return M(F(x)+" "+u[0]+" = ? "+u[1],F(v),P10(v),"1 "+u[0]+" = 1/"+u[2]+" "+u[1]+".")},
+function(){var d=sh([1,2,3,4,5,6,7,8,9]).slice(0,4),a=d[0],b=d[1],c=d[2],e=d[3];return M("Số thập phân gồm "+a+" chục, "+b+" đơn vị, "+c+" phần mười, "+e+" phần trăm là:",a+""+b+","+c+e,[b+""+a+","+c+e,a+""+b+","+e+c,a+","+b+c+e,a+""+b+c+","+e],"Viết phần nguyên, dấu phẩy, rồi phần thập phân.")},
+function(){var W=["không","một","hai","ba","bốn","năm","sáu","bảy","tám","chín"],a=R(1,9),b=R(1,9);return M("Số "+a+",0"+b+" đọc là:",W[a]+" phẩy không "+W[b],[W[a]+" phẩy "+W[b],W[b]+" phẩy không "+W[a],W[a]+" phẩy không không "+W[b]],"Phần thập phân 0"+b+" đọc là “không "+W[b]+"”.")}
+],
+3:[
+function(){var u=P([["km²","ha",100],["ha","m²",1e4],["m²","dm²",100],["dm²","cm²",100],["cm²","mm²",100],["km²","m²",1e6],["m²","cm²",1e4]]);if(R(0,1)){var x=R(1,99)/P([1,10]),c=x*u[2];return M(F(x)+" "+u[0]+" = ? "+u[1],F(c),P10(c),"Đổi sang đơn vị bé hơn: nhân với "+F(u[2])+".")}var y=R(1,99)*u[2]/P([1,10]),z=y/u[2];return M(F(y)+" "+u[1]+" = ? "+u[0],F(z),P10(z),"Đổi sang đơn vị lớn hơn: chia cho "+F(u[2])+".")},
+function(){var b=P([["một tỉnh","km²",R(2,9)*1000],["sàn lớp học","m²",R(30,60)],["mặt bàn học sinh","dm²",R(20,30)],["con tem thư","cm²",R(4,8)]]);return M("Diện tích "+b[0]+" khoảng "+F(b[2])+" …",b[1],["km²","m²","dm²","cm²"].filter(function(x){return x!=b[1]}),"Chọn đơn vị phù hợp với độ lớn thực tế.")},
+function(){var a=R(2,9)*100,b=R(2,9)*100,c=a*b/1e4;return M("Mảnh đất hình chữ nhật dài "+a+" m, rộng "+b+" m. Diện tích bằng bao nhiêu ha?",F(c),P10(c),a+" × "+b+" = "+F(a*b)+" m²; 1 ha = 10 000 m².")},
+function(){var u=P([["km²","ha",100],["ha","m²",1e4],["m²","dm²",100]]),x=R(2,9);return M("1 "+u[0]+" = ? "+u[1],F(u[2]),[u[2]*10,u[2]/10,u[2]*100].map(F),"1 "+u[0]+" = "+F(u[2])+" "+u[1]+".")}
+],
+4:[
+function(){var a=R(100,9999)/100,b=R(100,9999)/100,s=a+b;return M(F(a)+" + "+F(b)+" = ?",F(s),D(s),"Đặt tính sao cho các dấu phẩy thẳng cột rồi cộng.")},
+function(){var a=R(100,9999)/100,b=R(100,9999)/100;if(a<=b)return null;var s=a-b;return M(F(a)+" − "+F(b)+" = ?",F(s),D(s),"Đặt dấu phẩy thẳng cột rồi trừ.")},
+function(){var a=R(11,999)/10,b=R(2,9),s=a*b;return M(F(a)+" × "+b+" = ?",F(s),D(s),"Nhân như số tự nhiên rồi tách chữ số phần thập phân ở tích.")},
+function(){var q=R(11,999)/10,b=R(2,9),a=q*b;return M(F(a)+" : "+b+" = ?",F(q),D(q),"Chia phần nguyên rồi viết dấu phẩy vào thương trước khi chia tiếp.")},
+function(){var x=R(11,9999)/100,k=P([10,100,1000]),m=R(0,3),t=[[F(x)+" × "+F(k),x*k],[F(x)+" : "+F(k),x/k],[F(x)+" × "+F(1/k),x/k],[F(x)+" : "+F(1/k),x*k]][m];return M(t[0]+" = ?",F(t[1]),P10(t[1]),"Nhân với 10; 100;…: dịch dấu phẩy sang phải. Chia cho 10; 100;… hoặc nhân với 0,1; 0,01;…: dịch sang trái.")},
+function(){var a=R(10,999)/10,x=R(10,999)/10,k=R(2,9),t=R(0,3),e=[["x + "+F(a)+" = "+F(x+a),x],["x − "+F(a)+" = "+F(x),x+a],["x × "+k+" = "+F(x*k),x],["x : "+k+" = "+F(x),x*k]][t];return M("Tìm x: "+e[0],F(e[1]),[e[1]+.1,e[1]-.1,e[1]*10,e[1]/10].filter(function(z){return z>0}).map(F),"Tìm thành phần chưa biết bằng phép tính ngược.")},
+function(){var a=R(11,99)/10,b=R(2,9),i=P([["thanh sắt","dài","m"],["bao gạo","nặng","kg"],["tấm vải","dài","m"]]);return M("Mỗi "+i[0]+" "+i[1]+" "+F(a)+" "+i[2]+". "+b+" "+i[0]+" như vậy "+i[1]+" bao nhiêu "+i[2]+"?",F(a*b),D(a*b),F(a)+" × "+b+" = "+F(a*b)+" ("+i[2]+").")}
+],
+5:[
+function(){var a=R(3,20),h=R(3,20),s=a*h/2;return M("Tam giác có đáy "+a+" cm, chiều cao "+h+" cm. Diện tích là (cm²):",F(s),[a*h,a+h,s+h,s+1].map(F),"S = đáy × chiều cao : 2.")},
+function(){var a=R(3,15),b=R(3,15),h=R(2,12),s=(a+b)*h/2;return M("Hình thang có hai đáy "+a+" cm và "+b+" cm, chiều cao "+h+" cm. Diện tích là (cm²):",F(s),[(a+b)*h,a*b*h/2,a+b+h,s+h].map(F),"S = (đáy lớn + đáy bé) × chiều cao : 2.")},
+function(){var t=R(6,30),h=R(2,12),s=t*h/2;return M("Hình thang có tổng hai đáy "+t+" cm, chiều cao "+h+" cm. Diện tích là (cm²):",F(s),[t*h,t+h,s+h,s+1].map(F),"S = tổng hai đáy × chiều cao : 2.")},
+function(){var r=R(2,20),c=r*2*3.14;return M("Chu vi hình tròn bán kính "+r+" cm là (cm):",F(c),[r*3.14,r*r*3.14,r*6,r*4*3.14].map(F),"C = r × 2 × 3,14.")},
+function(){var r=R(2,20),s=r*r*3.14;return M("Diện tích hình tròn bán kính "+r+" cm là (cm²):",F(s),[r*2*3.14,r*3.14,r*r*2*3.14,r*r*3].map(F),"S = r × r × 3,14.")},
+function(){var d=R(2,15)*2,r=d/2,s=r*r*3.14;return M("Diện tích hình tròn đường kính "+d+" cm là (cm²):",F(s),[d*d*3.14,d*3.14,r*2*3.14,r*r*2].map(F),"Bán kính = "+d+" : 2 = "+r+" cm; S = r × r × 3,14.")},
+function(){var a=R(2,10)*2,h=R(3,15),s=a*h/2;return M("Tam giác có diện tích "+s+" cm², đáy "+a+" cm. Chiều cao là (cm):",F(h),[s,s*2,a,h+1,h-1].map(F),"h = S × 2 : đáy.")},
+function(){var k=R(2,6);return M(P(["Cạnh hình vuông","Bán kính hình tròn"])+" tăng gấp "+k+" lần thì diện tích tăng gấp:",k*k+" lần",[k+" lần",2*k+" lần",(k*k+k)+" lần",k*k*k+" lần"],"Diện tích có hai thừa số cùng tăng k lần nên tăng k × k = "+k*k+" lần.")}
+],
+6:[
+function(){var n=R(10,100),s=n*(n+1)/2;return M("1 + 2 + 3 + … + "+n+" = ?",F(s),[n*n,s+n,n*(n+1),s-n].map(F),"Tổng = ("+1+" + "+n+") × "+n+" : 2.")},
+function(){var n=R(5,50),s=n*(n+1);return M("2 + 4 + 6 + … + "+2*n+" = ?",F(s),[n*n,s/2,s+n,s-n].map(F),"Có "+n+" số hạng; tổng = (2 + "+2*n+") × "+n+" : 2.")},
+function(){var b=R(10,60),s=R(1,b-1);return M("Tổng hai số là "+(b+s)+", hiệu hai số là "+(b-s)+". Số lớn là:",F(b),[s,b+1,b-1,(b+s)/2].map(F),"Số lớn = (tổng + hiệu) : 2.")},
+function(){var k=R(2,6),p=R(3,25),t=(k+1)*p;return M("Tổng hai số là "+t+"; số lớn gấp "+k+" lần số bé. Số bé là:",F(p),[k*p,p+1,p-1,t/k].map(F),"Tổng số phần là "+(k+1)+"; số bé = "+t+" : "+(k+1)+".")},
+function(){var k=R(2,6),p=R(3,25),h=(k-1)*p;return M("Hiệu hai số là "+h+"; số lớn gấp "+k+" lần số bé. Số lớn là:",F(k*p),[p,h,(k+1)*p,k*p-1].map(F),"Hiệu số phần là "+(k-1)+"; số bé = "+h+" : "+(k-1)+" = "+p+".")},
+function(){var m=R(6,30),a=R(1,Math.floor(m*1.5)),b=R(1,Math.floor(m*1.5)),c=3*m-a-b;return c<1?null:M("Trung bình cộng của ba số là "+m+". Hai trong ba số là "+a+" và "+b+". Số thứ ba là:",F(c),[m,a+b,c+1,c-1].map(F),"Tổng ba số = "+m+" × 3 = "+3*m+"; số thứ ba = "+3*m+" − ("+a+" + "+b+").")},
+function(){var n=R(2,9);return M("1/(1×2) + 1/(2×3) + … + 1/("+n+"×"+(n+1)+") = ?",fr(n,n+1),FD(n,n+1),"Tách 1/(k×(k+1)) = 1/k − 1/(k+1); các số hạng ở giữa triệt tiêu: 1 − 1/"+(n+1)+".")},
+function(){var a=R(1,9),b=R(1,9),s=(a+b)%9;if(!s)return null;var x=9-s;return M("Chữ số x để số "+a+"x"+b+" chia hết cho 9 là:",x,[0,1,2,3,4,5,6,7,8,9].filter(function(v){return v!=x}),a+" + x + "+b+" = "+(a+b)+" + x phải chia hết cho 9.")},
+function(){var a=R(1,20),b=R(2,9),c=R(2,20);return M("Tìm x: (x − "+a+") : "+b+" = "+c,F(c*b+a),[c*b,c*b-a,c+a+b,(c+a)*b].map(F),"x − "+a+" = "+c+" × "+b+" = "+c*b+"; x = "+c*b+" + "+a+".")}
+]};
+
+var DT=["học sinh","dòng sông","cánh đồng","ngôi nhà","cơn mưa","bầu trời","quyển sách","con trâu","cây tre","ngọn núi","mặt trời","bông hoa","thầy giáo","bàn tay","tiếng gió","con đường","chiếc cặp","trường học","mùa xuân","đám mây","bờ biển","khu rừng","ánh trăng","bài thơ"],
+DG=["chạy","nhảy","đọc","viết","gieo","gặt","hát","nghe","ngủ","cười","khóc","tưới","vẽ","bơi","leo","mang","nấu","ngắm","trồng","hỏi","lắng nghe","chăm sóc"],
+TT=["đẹp","xanh","cao","thấp","chăm chỉ","nhanh","chậm","hiền","rộng","sâu","thơm","ngọt","lạnh","sáng","vui","buồn","dũng cảm","lười","mới","cũ","thông minh","yên tĩnh"],
+PR=["tôi","chúng tôi","chúng ta","họ","nó","chúng nó","ta","tớ","vậy","thế"],
+L=[["danh từ",DT],["động từ",DG],["tính từ",TT],["đại từ",PR]],
+LE=["Danh từ chỉ người, vật, hiện tượng, khái niệm.","Động từ chỉ hoạt động, trạng thái.","Tính từ chỉ đặc điểm, tính chất.","Đại từ dùng để xưng hô hoặc thay thế từ ngữ khác."],
+S1=[["Tôi thích đọc sách.","Tôi",["thích","đọc","sách"]],["Chúng tôi trồng cây ở sân trường.","Chúng tôi",["trồng","cây","sân trường"]],["Nó chạy rất nhanh.","Nó",["chạy","rất","nhanh"]],["Họ đang gặt lúa ngoài đồng.","Họ",["đang","gặt","lúa"]],["Chúng ta cùng hát vang.","Chúng ta",["cùng","hát","vang"]],["Tớ vẽ bức tranh tặng cô giáo.","Tớ",["vẽ","bức tranh","cô giáo"]]],
+S2=[["Nắng vàng ong. Lúa cũng vậy.","vậy","vàng ong",["Lúa","Nắng","cũng"]],["Trời hôm nay nóng. Hôm qua cũng vậy.","vậy","nóng",["Hôm qua","Trời","cũng"]],["Cây tre cao và thẳng. Cây bạch đàn cũng thế.","thế","cao và thẳng",["Cây tre","Cây bạch đàn","cũng"]]],
+SY=[["chăm chỉ","siêng năng"],["to lớn","khổng lồ"],["đẹp","xinh"],["mênh mông","bao la"],["bình yên","yên bình"],["quê hương","quê nhà"],["tổ quốc","đất nước"],["nhìn","ngó"],["dũng cảm","gan dạ"],["thông minh","sáng dạ"],["nhanh","mau"],["heo","lợn"],["ngô","bắp"],["hoàng hôn","chiều tà"]],
+AN=[["to","nhỏ"],["cao","thấp"],["nhanh","chậm"],["sáng","tối"],["nóng","lạnh"],["vui","buồn"],["xa","gần"],["dài","ngắn"],["sâu","nông"],["trắng","đen"]],
+PW=[["ăn","Em bé ăn cơm.","Tàu ăn hàng."],["chân","Em bé có đôi chân nhỏ xíu.","Chân bàn bị gãy."],["mắt","Mắt em bé tròn xoe.","Quả na đã mở mắt."],["đầu","Em đội mũ lên đầu.","Đầu làng có cây đa."],["tay","Tay em cầm bút.","Tay ghế rất chắc."],["miệng","Miệng em cười tươi.","Miệng bát bị sứt."],["cổ","Cổ hươu rất dài.","Cổ chai nhỏ."],["mũi","Mũi bé hơi cao.","Mũi thuyền nhọn."],["răng","Răng em trắng.","Răng cưa sắc."],["lưỡi","Lưỡi mèo ráp.","Lưỡi liềm sắc."]],
+AL="a ă â b c d đ e ê g h i k l m n o ô ơ p q r s t u ư v x y".split(" "),
+AW=["ao","bạn","cây","dế","đường","em","gió","hoa","kẹo","lúa","mưa","nắng","ong","phố","quả","rừng","sông","trăng","vườn","xuân","yến"],
+U=["Đánh dấu lời nói trực tiếp của nhân vật","Đánh dấu phần chú thích","Liệt kê các ý","Nối các từ ngữ trong một liên danh"],
+GN=[["– Hôm nay cậu có đi học không? – Có, tớ đi chứ.",0],["Mẹ hỏi: – Con đã làm xong bài tập chưa?",0],["– Cho tớ mượn quyển sách nhé! – Được thôi.",0],["Cô Lan – giáo viên chủ nhiệm của em – rất hiền.",1],["Hà Nội – thủ đô của nước ta – có Hồ Gươm.",1],["Chú chim sâu – bạn của nhà nông – bắt sâu cho lúa.",1],["Em cần mang theo: – Sách vở. – Bút thước. – Mũ nón.",2],["Việc cần làm hôm nay: – Quét nhà. – Tưới cây.",2],["Bạn nhớ chuẩn bị: – Nước uống. – Áo mưa.",2],["Tuyến đường Hà Nội – Hải Phòng rất đông xe.",3],["Trận đấu Việt Nam – Thái Lan diễn ra tối nay.",3],["Chuyến bay Hà Nội – Đà Nẵng cất cánh lúc sáng.",3]],
+KT=["và","của","với","nhưng","nếu","thì","vì","nên","mà","hoặc","tuy","do","bởi","như"],
+FB=[["Bức tranh ___ Bùi Xuân Phái rất nổi tiếng.","của",["và","nhưng","nên"]],["Nam ___ Mai là đôi bạn thân.","và",["của","nhưng","nên"]],["Em thích đọc sách ___ em ít có thời gian.","nhưng",["của","nên","với"]],["Trời mưa to ___ đường rất trơn.","nên",["nhưng","của","với"]],["Mẹ đi chợ ___ em gái.","với",["nhưng","của","nên"]],["Cuốn sách ___ Lan rất hay.","của",["nhưng","nên","với"]]],
+PQ=[["___ em chăm chỉ ___ em đạt điểm cao.","Vì – nên",["Mặc dù – nhưng","Không những – mà còn","Tuy – nhưng"]],["___ trời mưa to ___ lớp em vẫn đi dã ngoại.","Mặc dù – nhưng",["Vì – nên","Nếu – thì","Không những – mà còn"]],["___ ngày mai trời đẹp ___ lớp em sẽ đi dã ngoại.","Nếu – thì",["Mặc dù – nhưng","Không những – mà còn","Tuy – nhưng"]],["___ bạn Lan học giỏi ___ bạn còn hát rất hay.","Không những – mà còn",["Mặc dù – nhưng","Vì – nên","Nếu – thì"]]],
+DP=[["Mưa rơi, mưa rơi trên mái nhà.","mưa rơi",["trên","mái nhà","rơi trên"]],["Em yêu quê em, em yêu dòng sông, em yêu cánh đồng.","em yêu",["quê em","dòng sông","cánh đồng"]],["Gió thổi, gió thổi qua đồng lúa.","gió thổi",["qua","đồng lúa","thổi qua"]],["Trông trời, trông đất, trông mây.","trông",["trời","đất","mây"]],["Xa xôi, xa xôi, tiếng đàn vẫn vọng về.","xa xôi",["tiếng đàn","vọng về","vẫn"]]];
+var oth=function(a,i){return a.filter(function(_,j){return j!=i})};
+var VG={
+1:[
+function(){var t=R(0,3),w=P(L[t][1]);return M("Từ nào là "+L[t][0]+"?",w,oth(L,t).map(function(l){return P(l[1])}),LE[t])},
+function(){var t=R(0,3),w=P(L[t][1]);return M("Từ “"+w+"” thuộc từ loại nào?",L[t][0],oth(L,t).map(function(l){return l[0]}),LE[t])},
+function(){var s=P(S1);return M("Đại từ trong câu “"+s[0]+"” là:",s[1],s[2],"Đại từ dùng để xưng hô hoặc thay thế.")},
+function(){var s=P(S2);return M("Trong “"+s[0]+"”, từ “"+s[1]+"” thay cho:",s[2],s[3],"Đại từ thay thế giúp tránh lặp từ.")}
+],
+2:[
+function(){var p=P(SY),r=R(0,1),x=p[r],y=p[1-r],ot=oth(SY,SY.indexOf(p)).map(function(q){return P(q)});return M("Từ nào đồng nghĩa với “"+x+"”?",y,pk(ot,3),"“"+x+"” và “"+y+"” có nghĩa giống hoặc gần giống nhau.")},
+function(){var p=P(SY);return M("Cặp từ nào là từ đồng nghĩa?",p[0]+" – "+p[1],pk(AN,3).map(function(q){return q[0]+" – "+q[1]}),"Từ đồng nghĩa có nghĩa giống hoặc gần giống nhau; các cặp còn lại có nghĩa trái ngược.")},
+function(){var w=P(PW),k=R(1,2);return M("Từ “"+w[0]+"” trong câu “"+w[k]+"” được dùng theo nghĩa nào?",k==1?"Nghĩa gốc":"Nghĩa chuyển",[k==1?"Nghĩa chuyển":"Nghĩa gốc","Cả hai nghĩa","Không có nghĩa"],k==1?"Đây là nghĩa gốc, nghĩa đầu tiên của từ.":"Đây là nghĩa chuyển, suy ra từ nghĩa gốc.")}
+],
+3:[
+function(){var w=pk(AW,4),f=function(x){return AL.indexOf(x[0])};if(new Set(w.map(function(x){return x[0]})).size<4)return null;var o=w.slice().sort(function(a,b){return f(a)-f(b)}),fi=R(0,1),c=fi?o[0]:o[3];return M("Trong từ điển, từ nào đứng "+(fi?"đầu tiên":"cuối cùng")+": "+w.join("; ")+"?",c,w.filter(function(x){return x!=c}),"Mục từ xếp theo bảng chữ cái: a, ă, â, b, c, d, đ, e, ê, g, h, i, k, l, m, n, o, ô, ơ, p, q, r, s, t, u, ư, v, x, y.")},
+function(){var w=P(AW),c=w[0].toUpperCase();return M("Muốn tra từ “"+w+"” trong từ điển, em tìm mục từ bắt đầu bằng chữ:",c,pk(AL.filter(function(x){return x!=w[0]}),3).map(function(x){return x.toUpperCase()}),"Tìm theo chữ cái đầu tiên của từ.")},
+function(){var s=P(GN);return M("Dấu gạch ngang trong câu “"+s[0]+"” dùng để làm gì?",U[s[1]],oth(U,s[1]),"Xem dấu gạch ngang đứng ở đâu: đầu lời thoại, giữa câu, đầu dòng liệt kê hay giữa hai tên.")},
+function(){var u=R(0,3),c=P(GN.filter(function(g){return g[1]==u}));return M("Câu nào dùng dấu gạch ngang để "+U[u].charAt(0).toLowerCase()+U[u].slice(1)+"?",c[0],oth([0,1,2,3],u).map(function(k){return P(GN.filter(function(g){return g[1]==k}))[0]}),U[u]+".")}
+],
+4:[
+function(){var w=P(KT),n=[DT,DG,TT];return M("Từ nào là kết từ?",w,n.map(function(b){return P(b)}),"Kết từ dùng để nối các từ ngữ hoặc các câu.")},
+function(){var f=P(FB);return M("Chọn kết từ thích hợp: “"+f[0]+"”",f[1],f[2],"Chọn kết từ hợp với ý nghĩa của câu.")},
+function(){var f=P(PQ);return M("Chọn cặp kết từ thích hợp: “"+f[0]+"”",f[1],f[2],"Xét quan hệ giữa hai vế: nguyên nhân – kết quả, tương phản, điều kiện hay tăng tiến.")},
+function(){var s=P(DP);return M("Từ ngữ được lặp lại trong câu “"+s[0]+"” là:",s[1],s[2],"Điệp từ, điệp ngữ lặp lại từ ngữ để nhấn mạnh, tạo nhịp điệu.")}
+]};
+var FX={
+1:[["Danh từ là từ chỉ:","Người, vật, hiện tượng, khái niệm",["Hoạt động, trạng thái","Đặc điểm, tính chất","Mối quan hệ giữa các câu"],"Ví dụ: học sinh, dòng sông, cơn mưa."],["Khi viết bài văn kể chuyện sáng tạo, em có thể:","Thêm chi tiết, đổi ngôi kể hoặc thay đổi kết thúc",["Chép nguyên văn truyện","Bỏ hết nhân vật","Chỉ viết một câu"],"Kể sáng tạo là giữ cốt truyện nhưng thêm ý riêng."],["Báo cáo công việc cần có nội dung nào?","Công việc đã làm, kết quả, đề xuất",["Chỉ lời chào","Chỉ cảm xúc cá nhân","Một câu chuyện tưởng tượng"],"Báo cáo nêu việc đã làm, kết quả và đề xuất (nếu có)."],["Đại từ dùng để làm gì?","Xưng hô hoặc thay thế từ ngữ để tránh lặp",["Chỉ đặc điểm","Chỉ hoạt động","Nối các câu"],"Ví dụ: tôi, chúng ta, vậy, thế."]],
+2:[["Từ đa nghĩa là từ có:","Một nghĩa gốc và một hay nhiều nghĩa chuyển",["Chỉ một nghĩa","Hai cách viết","Nghĩa trái ngược nhau"],"Các nghĩa có mối liên hệ với nhau."],["Từ đồng nghĩa là những từ có:","Nghĩa giống hoặc gần giống nhau",["Nghĩa trái ngược nhau","Cách viết giống nhau","Nhiều nghĩa chuyển"],"Ví dụ: siêng năng – chăm chỉ."],["Bài văn tả phong cảnh gồm mấy phần?","3 phần: mở bài, thân bài, kết bài",["2 phần","4 phần","5 phần"],"Mở bài giới thiệu cảnh, thân bài tả chi tiết, kết bài nêu cảm nghĩ."],["Biện pháp nào giúp bài tả cảnh sinh động?","So sánh, nhân hoá",["Liệt kê số liệu khô khan","Lặp lại cả câu","Bỏ hết hình ảnh"],"So sánh và nhân hoá làm cảnh vật sống động."]],
+3:[["Dấu gạch ngang đầu dòng trong hội thoại dùng để:","Đánh dấu lời nói trực tiếp của nhân vật",["Nối các tiếng trong từ ghép","Kết thúc câu","Đánh số thứ tự"],"Dấu gạch ngang đầu dòng báo hiệu lời nói của nhân vật."],["Trong từ điển, các mục từ được sắp xếp theo:","Thứ tự bảng chữ cái",["Số lượng chữ","Độ khó của từ","Chủ đề"],"Nhờ vậy ta tra từ nhanh hơn."],["Từ có nhiều nghĩa trong từ điển thì em cần:","Chọn nghĩa phù hợp với câu văn",["Lấy nghĩa đầu tiên","Lấy nghĩa cuối cùng","Bỏ qua ví dụ"],"Đọc nghĩa và ví dụ rồi chọn nghĩa hợp ngữ cảnh."],["Khi giới thiệu nhân vật trong một cuốn sách, em cần nêu:","Tên nhân vật, đặc điểm nổi bật, cảm nghĩ",["Chỉ giá tiền cuốn sách","Chỉ tên nhà xuất bản","Không cần nêu gì"],"Giới thiệu nhân vật cần nêu tên, đặc điểm và cảm nghĩ của em."]],
+4:[["Điệp từ, điệp ngữ là biện pháp:","Lặp lại từ ngữ để nhấn mạnh, tạo nhịp điệu",["So sánh hai sự vật","Gán đặc điểm người cho vật","Nói quá sự thật"],"Lặp lại từ ngữ để nhấn mạnh ý, gợi cảm xúc."],["Kết từ dùng để:","Nối các từ ngữ hoặc các câu với nhau",["Chỉ hoạt động","Chỉ đặc điểm","Xưng hô"],"Ví dụ: và, của, với, nhưng, vì … nên …"],["Khi bày tỏ cảm xúc về một bài thơ, em nên nêu:","Hình ảnh gây ấn tượng và lí do em thích",["Chỉ chép lại bài thơ","Chỉ nêu tên tác giả","Không cần lí do"],"Nêu điều em thích và giải thích vì sao."]]};
+var NM={t:["1. Ôn tập và bổ sung","2. Số thập phân","3. Đơn vị đo diện tích","4. Phép tính với số thập phân","5. Hình phẳng","6. Ôn tập và nâng cao"],v:["1. Thế giới tuổi thơ (từ loại, đại từ)","2. Thiên nhiên kì thú (đồng nghĩa, đa nghĩa)","3. Trên con đường học tập (từ điển, gạch ngang)","4. Nghệ thuật muôn màu (điệp ngữ, kết từ)"]};
+
+function gen(s,k){var g=(s=="t"?TG:VG)[k],seen={},out=[],n=0;
+ function add(q){if(!q)return;var key=q.q+"|"+q.c+"|"+q.d.slice().sort().join();if(seen[key])return;seen[key]=1;out.push(q)}
+ if(s=="v")FX[k].forEach(function(x){add(M(x[0],x[1],x[2],x[3]))});
+ while(out.length<100&&n++<5000)add(P(g)());
+ return out}
+
+/* Quiz tổng hợp: chọn môn, mỗi môn 25 câu ngẫu nhiên từ toàn bộ kho của môn đó */
+var MIXPER=25;
+function subjGens(s){var g=[],bank=s=="t"?TG:VG;for(var k in bank)bank[k].forEach(function(fn){g.push(fn)});return g}
+function genSubjN(s,n){var gens=subjGens(s),seen={},out=[],c=0;
+ while(out.length<n&&c++<5000){var q=P(gens)();if(!q)continue;var key=q.q+"|"+q.c+"|"+q.d.slice().sort().join();if(seen[key])continue;seen[key]=1;out.push(q)}
+ return out}
+
+var $=function(i){return document.getElementById(i)};
+var S="t",K=1,pool=[],i=0,score=0,wrong=[],done=false;
+
+/* ===== Lịch sử làm bài (localStorage) ===== */
+var HKEY="quiz5_history_v1";
+function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
+function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
+function subjName(s){return s=="t"?"Toán":"Tiếng Việt"}
+function addHist(sc,total){
+ var h=loadHist(),subject,topic;
+ if(MODE=="mix"){subject="Tổng hợp";topic=subjName(S)+" (25 câu)"}
+ else{subject=subjName(S);topic=NM[S][K-1]}
+ h.unshift({ts:Date.now(),subject:subject,topic:topic,score:sc,total:total});
+ if(h.length>100)h=h.slice(0,100);
+ saveHist(h)}
+function clearHist(){saveHist([]);show()}
+function fmtTime(ts){var d=new Date(ts),p=function(n){return(n<10?"0":"")+n};
+ return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes())}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function histHTML(){
+ var h=loadHist();
+ var out='<div class="hist"><h2>Lịch sử làm bài</h2>';
+ if(!h.length)return out+'<p class="hempty">Chưa có lịch sử. Hoàn thành một bộ quiz để lưu lại.</p></div>';
+ out+='<table class="htbl"><thead><tr><th>Thời gian</th><th>Môn &amp; chủ điểm</th><th>Điểm</th></tr></thead><tbody>';
+ h.forEach(function(r){out+='<tr><td>'+fmtTime(r.ts)+'</td><td>'+esc(r.subject)+' – '+esc(r.topic)+'</td><td class="sc">'+r.score+'/'+r.total+'</td></tr>'});
+ out+='</tbody></table><button class="link" id="clr">Xóa toàn bộ lịch sử</button></div>';
+ return out}
+
+/* ===== Điều hướng chế độ & chủ đề ===== */
+var MODE="mix";
+
+function setModeTabs(){$("mmix").setAttribute("aria-selected",MODE=="mix");$("mtopic").setAttribute("aria-selected",MODE=="topic");
+ $("subjtabs").hidden=(MODE!="topic");$("chips").hidden=false}
+
+/* Chế độ tổng hợp: chọn môn, mỗi môn 25 câu ngẫu nhiên */
+function goMix(s,list){MODE="mix";S=s||"t";setModeTabs();document.body.setAttribute("data-s",S);
+ $("chips").innerHTML="";
+ [["t","Toán (25 câu)"],["v","Tiếng Việt (25 câu)"]].forEach(function(it){var b=document.createElement("button");b.className="chip";b.textContent=it[1];b.setAttribute("aria-pressed",it[0]==S);b.onclick=function(){goMix(it[0])};$("chips").appendChild(b)});
+ pool=list||genSubjN(S,MIXPER);i=0;score=0;wrong=[];show()}
+
+/* Chế độ theo chủ đề */
+function go(s,k,list){MODE="topic";S=s;K=k;setModeTabs();document.body.setAttribute("data-s",s);
+ $("tt").setAttribute("aria-selected",s=="t");$("tv").setAttribute("aria-selected",s=="v");
+ $("chips").innerHTML="";
+ NM[s].forEach(function(n,j){var b=document.createElement("button");b.className="chip";b.textContent=n;b.setAttribute("aria-pressed",j+1==k);b.onclick=function(){go(s,j+1)};$("chips").appendChild(b)});
+ pool=list||gen(s,k);i=0;score=0;wrong=[];show()}
+
+$("mmix").onclick=function(){goMix("t")};
+$("mtopic").onclick=function(){go("t",1)};
+$("tt").onclick=function(){go("t",1)};$("tv").onclick=function(){go("v",1)};
+
+var saved=false;
+function show(){
+ var box=$("box");
+ if(i>=pool.length){
+  if(!saved){addHist(score,pool.length);saved=true}
+  var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
+  var newLabel=MODE=="mix"?"Bộ 25 câu mới":"Bộ 100 câu mới";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  $("nw").onclick=function(){MODE=="mix"?goMix(S):go(S,K)};
+  if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(S,wrong.slice()):go(S,K,wrong.slice())};
+  var c=$("clr");if(c)c.onclick=clearHist;
+  return}
+ saved=false;
+ var q=pool[i],o=sh([{t:q.c,ok:1}].concat(q.d.map(function(t){return {t:t,ok:0}})));done=false;
+ box.innerHTML='<div class="card"><div class="meta"><span>Câu '+(i+1)+'/'+pool.length+'</span><span>Đúng: '+score+'</span></div><div class="bar"><i style="width:'+(i*100/pool.length)+'%"></i></div><div class="q" id="qq"></div><div id="os"></div><div id="ex" hidden></div></div>';
+ $("qq").textContent=q.q;
+ o.forEach(function(x){var b=document.createElement("button");b.className="opt";b.textContent=x.t;b.onclick=function(){pick(b,x.ok,q,o)};$("os").appendChild(b)})}
+function pick(b,ok,q,o){
+ if(done)return;done=true;var bs=$("os").children;
+ for(var k=0;k<bs.length;k++){bs[k].disabled=true;if(o[k].ok)bs[k].classList.add("ok")}
+ if(ok)score++;else{b.classList.add("no");wrong.push(q)}
+ var e=$("ex");e.hidden=false;e.className="exp";e.innerHTML='<b>'+(ok?"Chính xác!":"Chưa đúng.")+'</b> <span id="et"></span><br><button class="btn" id="nx">'+(i+1<pool.length?"Câu tiếp theo":"Xem kết quả")+'</button>';
+ $("et").textContent=q.e;$("nx").onclick=function(){i++;show()};$("nx").focus()}
+goMix("t");
+</script>
+</body>
+</html>
