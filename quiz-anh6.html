@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quiz Tiếng Anh vào 6 CLC Thanh Xuân</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#2456a6;--acc2:#e7eefb;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 16px;font-size:.92rem}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab,.chip,.btn,.opt{font:inherit;color:inherit;cursor:pointer}
+.tab{flex:1;padding:10px;border:2px solid var(--ink);background:var(--card);border-radius:10px;font-weight:700}
+.tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{padding:6px 12px;border:2px solid var(--ink);border-radius:99px;background:var(--card);font-size:.88rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:5px 5px 0 var(--acc)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .25s}
+.meta{display:flex;justify-content:space-between;color:var(--mute);font-size:.88rem;margin-bottom:6px}
+.q{font-size:1.12rem;font-weight:700;margin:6px 0 14px;overflow-wrap:anywhere}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:8px 0;border:2px solid var(--line);background:var(--paper);border-radius:10px;overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.ok{border-color:var(--ok);background:var(--okb)}
+.opt.no{border-color:var(--bad);background:var(--badb)}
+.exp{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--acc2)}
+.btn{margin-top:14px;padding:11px 20px;border:2px solid var(--ink);background:var(--hl);color:#1b2a41;border-radius:10px;font-weight:700}
+.btn.alt{background:var(--card);color:var(--ink);margin-left:8px}
+.big{font-size:3rem;font-weight:800;line-height:1.1;margin:6px 0}
+.hist{margin-top:18px}
+.hist h2{font-size:1.05rem;margin:0 0 8px;font-weight:800}
+.htbl{width:100%;border-collapse:collapse;font-size:.86rem}
+.htbl th,.htbl td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.htbl th{color:var(--mute);font-weight:700}
+.htbl td.sc{font-weight:700;white-space:nowrap}
+.hempty{color:var(--mute);font-size:.9rem;margin:4px 0}
+.link{background:none;border:none;color:var(--acc);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin-top:10px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<p><a class="link" href="index.html">← Về trang chủ</a></p>
+<h1>Quiz Tiếng Anh vào 6 CLC Thanh Xuân</h1>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (25 câu ngẫu nhiên từ mọi chủ đề) hoặc <b>Quiz theo chủ đề</b> (làm trọn một chủ đề).</p>
+<div class="tabs"><button class="tab" id="mmix" aria-selected="true">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
+<div class="chips" id="chips"></div>
+<div id="box"></div>
+</main>
+<script>window.EN_DATA=[["Phát âm","Phần gạch chân (a) khác: cake / face / hat / lake",["cake","face","hat","lake"],2,"hat /æ/; còn lại /eɪ/."],["Phát âm","Phần gạch chân (i) khác: ride / like / fish / time",["ride","like","fish","time"],2,"fish /ɪ/; còn lại /aɪ/."],["Phát âm","Phần gạch chân (u) khác: sun / fun / use / run",["sun","fun","use","run"],2,"use /juː/; còn lại /ʌ/."],["Phát âm","Phần gạch chân (a) khác: play / say / day / watch",["play","say","day","watch"],3,"watch /ɒ/; còn lại /eɪ/."],["Phát âm","Đuôi -s đọc khác: cakes / maps / hats / faces",["cakes","maps","hats","faces"],3,"faces đọc /ɪz/ (tận cùng âm /s/); các từ còn lại đọc /s/ sau âm vô thanh k, p, t."],["Phát âm","Phần gạch chân (oo) khác: school / food / book / moon",["school","food","book","moon"],2,"book /ʊ/; còn lại /uː/."],["Trọng âm","Trọng âm khác: table / window / paper / begin",["table","window","paper","begin"],3,"begin nhấn âm 2 (động từ 2 âm tiết); còn lại nhấn âm 1."],["Trọng âm","Trọng âm khác: listen / study / open / arrive",["listen","study","open","arrive"],3,"arrive nhấn âm 2; còn lại nhấn âm 1."],["Trọng âm","Trọng âm khác: driver / worker / teacher / forget",["driver","worker","teacher","forget"],3,"forget nhấn âm 2; danh từ chỉ người đuôi -er nhấn âm 1."],["Trọng âm","Trọng âm khác: listen / answer / believe / picture",["listen","answer","believe","picture"],2,"believe nhấn âm 2; còn lại nhấn âm 1."],["Viết lại câu","I last went to the park two weeks ago. = ...",["I haven't been to the park for two weeks.","I haven't been to the park since two weeks.","I didn't go to the park for two weeks ago.","I hadn't been to the park for two weeks."],0,"last … ago → haven't + V3 + for + khoảng thời gian (since + mốc thời gian)."],["Viết lại câu","They must finish the project by next Monday. = ...",["The project must finish by next Monday.","The project must be finished by next Monday.","The project must been finished by next Monday.","The project must finished by next Monday."],1,"Bị động với động từ khuyết thiếu: modal + be + V3."],["Viết lại câu","“Why don’t we go to the cinema tonight?” Minh said. = Minh suggested ...",["going to the cinema tonight.","to go to the cinema tonight.","we going to the cinema tonight.","go to the cinema tonight."],0,"suggest + V-ing."],["Viết lại câu","She is too tired to finish her homework. = She is not ... to finish her homework.",["energetic enough","enough energetic","too energetic","so energetic"],0,"too + adj = not + adj trái nghĩa + enough (adj đứng trước enough)."],["Viết lại câu","What is the weight of this box? = ...",["How much does this box weigh?","How heavy does this box weigh?","How many does this box weigh?","How weight is this box?"],0,"Hỏi cân nặng: How much + does + S + weigh?"],["Viết lại câu","The teacher said: “Please listen carefully during the lesson.”",["The teacher asked the students to listen carefully.","The teacher allowed the students to talk.","The teacher told the students not to listen carefully.","The teacher ordered the students to talk."],0,"Lời yêu cầu có Please → asked sb to V."],["Viết lại câu","This river is not as clean as the one in our village.",["The river in our village is cleaner than this river.","This river is cleaner than the one in our village.","The river in our village is as clean as this river.","This river is less clean as the one in our village."],0,"not as … as = kém hơn; D sai vì less … than, không phải less … as."],["Viết lại câu","Tom loves playing basketball with his friends.",["Tom is interested in playing basketball.","Tom dislikes playing basketball.","Tom hates to play basketball.","Tom is interested in play basketball."],0,"love ≈ be interested in + V-ing; D sai dạng động từ."],["Viết lại câu","Ghép câu: My dad / tell / me / not / watch TV / too late / night.",["My dad told me not to watch TV too late at night.","My dad told me to not watch TV too late on night.","My dad told me not watching TV too late at night.","My dad told me not to watch TV too late on night."],0,"tell sb not to V; giới từ đúng là at night."],["Viết lại câu","Ghép câu: many / tourists / visit / museum / last weekend.",["Many tourists visited the museum last weekend.","Many tourists visit the museum on last weekend.","Many tourists visited the museum in last weekend.","Many of tourists visited the museum last weekend."],0,"last weekend là mốc quá khứ, không dùng giới từ; 'many of' phải đi với the/these."],["Sửa lỗi","She always go to school by bike every morning.",["go","to","bike","morning"],0,"Chủ ngữ she, thì hiện tại đơn → goes."],["Sửa lỗi","Without carefully planning, you cannot finish the project on time.",["carefully","cannot","finish","on time"],0,"Sau giới từ without cần cụm danh từ: careful planning (tính từ + danh từ)."],["Sửa lỗi","My sister is surprising because she got a high score.",["surprising","got","high","score"],0,"Cảm xúc của người dùng V-ed: surprised; V-ing chỉ tính chất sự việc."],["Hội thoại","“How far is it from here to the nearest train station?”",["It’s about 2 kilometers away.","Go straight and turn right.","Yes, it’s very far.","No, I don’t know."],0,"How far hỏi khoảng cách."],["Hội thoại","Anna: “Your sculpture looks amazing!” Peter: “...”",["Thanks for your compliment.","I don’t think so.","It’s not good.","I’m sorry to hear that."],0,"Đáp lại lời khen: cảm ơn."],["Ngữ pháp","You were at the party last night, ...?",["were you","weren’t you","are you","aren’t you"],1,"Câu khẳng định → đuôi phủ định, cùng thì: weren’t you."],["Ngữ pháp","You didn’t go to the party last night, ...?",["did you","didn’t you","do you","don’t you"],0,"Câu phủ định → đuôi khẳng định: did you."],["Ngữ pháp","The girl ... brother is a doctor is my neighbor.",["who","whose","which","whom"],1,"whose + danh từ chỉ sở hữu."],["Ngữ pháp","He ... his writing skills a lot since he started practicing every day.",["has improved","improves","is improving","improved"],0,"since + mốc thời gian → hiện tại hoàn thành."],["Ngữ pháp","They were too busy ... the homework yesterday.",["to finish","finishing","finish","finished"],0,"too + adj + to V."],["Ngữ pháp","My dad used to ... us to the lake every summer.",["take","took","taking","takes"],0,"used to + V nguyên mẫu."],["Ngữ pháp","... Moon shines brightly in ... sky at night.",["A - a","The - the","Ø - Ø","A - the"],1,"Vật duy nhất dùng the: the Moon, the sky."],["Ngữ pháp","I looked everywhere for my keys, but I couldn’t find ... in the house.",["nothing","something","anything","everything"],2,"Câu phủ định → anything; nothing gây phủ định kép."],["Ngữ pháp","I didn’t have ... money with me.",["some","any","no","many"],1,"Phủ định + danh từ không đếm được → any (không dùng no sau didn’t)."],["Điền từ","You have to be ... 11 and 15 years old.",["between","both","at","from"],0,"between … and … = trong khoảng."],["Điền từ","Each festival ... for two days.",["lasts","is lasting","lasted","has lasted"],0,"Sự việc lặp lại hằng năm → hiện tại đơn; last = kéo dài."],["Đọc hiểu","“People who worked with robots felt more curious about technology.” curious nghĩa là:",["Bored","Interested in learning more","Tired","Worried"],1,"curious = tò mò, muốn tìm hiểu thêm."],["Đọc hiểu","Bristol study: a group of 30 children played outside daily, the other group of 25 did not. How many did NOT play outside?",["30","25","55","10"],1,"Nhóm còn lại gồm 25 em."],["Đọc hiểu","“Making new products from recycled materials uses less power.” Why does recycling save energy?",["It reduces landfill waste","It saves trees","Making products from recycled materials uses less power","It stops ocean pollution"],2,"Bài viết: saves energy because making new products from recycled materials uses less power."],["Đọc hiểu","Robots passage: easier work, save time, cleaning and building. Which is NOT mentioned?",["They make work easier.","They save time.","They help with cleaning and building.","They teach people how to use computers."],3,"D không xuất hiện trong bài."],["Từ loại","Children should have enough ... to play and learn. (FREE)",["free","freedom","freely","freeing"],1,"enough + danh từ → freedom."],["Từ loại","The telephone is a very useful ... in our daily life. (INVENT)",["invent","inventive","invention","inventor"],2,"Sau tính từ useful cần danh từ chỉ vật: invention."],["Từ loại","The trip was very ... and we all enjoyed it. (EXCITE)",["excite","excited","exciting","excitement"],2,"Tính chất của sự việc → V-ing: exciting."]];</script>
+<script>
+var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))};
+function sh(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=R(0,k),t=a[k];a[k]=a[j];a[j]=t}return a}
+var pk=function(a,n){return sh(a).slice(0,n)};
+var $=function(i){return document.getElementById(i)};
+
+/* Dữ liệu nguồn: mỗi câu = [category, question, options[], correctIndex, explanation] */
+var EN=(typeof window!=="undefined"&&window.EN_DATA)?window.EN_DATA:[];
+var MIX=25;
+function enNorm(row){var opts=row[2],a=row[3],c=opts[a],d=opts.filter(function(_,j){return j!=a});return {q:row[1],c:c,d:d,e:row[4]}}
+function cats(){var seen={},out=[];EN.forEach(function(r){if(!seen[r[0]]){seen[r[0]]=1;out.push(r[0])}});return out}
+function enAll(){return EN.slice()}
+function enByCat(cat){return EN.filter(function(r){return r[0]==cat})}
+function genMix(list){return list?list.slice():pk(enAll(),MIX).map(enNorm)}
+function genTopic(cat,list){return list?list.slice():enByCat(cat).map(enNorm)}
+
+var MODE="mix",CAT=null,pool=[],i=0,score=0,wrong=[],done=false;
+
+/* ===== Lịch sử làm bài (localStorage) ===== */
+var HKEY="quizanh6_history_v1";
+function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
+function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
+function addHist(sc,total){
+ var h=loadHist(),topic=(MODE=="mix")?"Tổng hợp":CAT;
+ h.unshift({ts:Date.now(),subject:"Tiếng Anh",topic:topic,score:sc,total:total});
+ if(h.length>100)h=h.slice(0,100);
+ saveHist(h)}
+function clearHist(){saveHist([]);show()}
+function fmtTime(ts){var d=new Date(ts),p=function(n){return(n<10?"0":"")+n};
+ return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes())}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function histHTML(){
+ var h=loadHist();
+ var out='<div class="hist"><h2>Lịch sử làm bài</h2>';
+ if(!h.length)return out+'<p class="hempty">Chưa có lịch sử. Hoàn thành một bộ quiz để lưu lại.</p></div>';
+ out+='<table class="htbl"><thead><tr><th>Thời gian</th><th>Chủ điểm</th><th>Điểm</th></tr></thead><tbody>';
+ h.forEach(function(r){out+='<tr><td>'+fmtTime(r.ts)+'</td><td>'+esc(r.subject)+' – '+esc(r.topic)+'</td><td class="sc">'+r.score+'/'+r.total+'</td></tr>'});
+ out+='</tbody></table><button class="link" id="clr">Xóa toàn bộ lịch sử</button></div>';
+ return out}
+
+/* ===== Điều hướng chế độ & chủ đề ===== */
+function setModeTabs(){$("mmix").setAttribute("aria-selected",MODE=="mix");$("mtopic").setAttribute("aria-selected",MODE=="topic")}
+
+function goMix(list){MODE="mix";setModeTabs();$("chips").innerHTML="";
+ pool=genMix(list);i=0;score=0;wrong=[];show()}
+
+function go(cat,list){MODE="topic";var cs=cats();CAT=cat||cs[0];setModeTabs();$("chips").innerHTML="";
+ cs.forEach(function(c){var b=document.createElement("button");b.className="chip";b.textContent=c+" ("+enByCat(c).length+")";b.setAttribute("aria-pressed",c==CAT);b.onclick=function(){go(c)};$("chips").appendChild(b)});
+ pool=genTopic(CAT,list);i=0;score=0;wrong=[];show()}
+
+$("mmix").onclick=function(){goMix()};
+$("mtopic").onclick=function(){go()};
+
+var saved=false;
+function show(){
+ var box=$("box");
+ if(!EN.length){box.innerHTML='<div class="card"><p>Không nạp được dữ liệu Tiếng Anh.</p></div>';return}
+ if(i>=pool.length){
+  if(!saved){addHist(score,pool.length);saved=true}
+  var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
+  var newLabel=MODE=="mix"?"Bộ câu mới":"Làm lại chủ đề";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  $("nw").onclick=function(){MODE=="mix"?goMix():go(CAT)};
+  if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(wrong.slice()):go(CAT,wrong.slice())};
+  var c=$("clr");if(c)c.onclick=clearHist;
+  return}
+ saved=false;
+ var q=pool[i],o=sh([{t:q.c,ok:1}].concat(q.d.map(function(t){return {t:t,ok:0}})));done=false;
+ box.innerHTML='<div class="card"><div class="meta"><span>Câu '+(i+1)+'/'+pool.length+'</span><span>Đúng: '+score+'</span></div><div class="bar"><i style="width:'+(i*100/pool.length)+'%"></i></div><div class="q" id="qq"></div><div id="os"></div><div id="ex" hidden></div></div>';
+ $("qq").textContent=q.q;
+ o.forEach(function(x){var b=document.createElement("button");b.className="opt";b.textContent=x.t;b.onclick=function(){pick(b,x.ok,q,o)};$("os").appendChild(b)})}
+function pick(b,ok,q,o){
+ if(done)return;done=true;var bs=$("os").children;
+ for(var k=0;k<bs.length;k++){bs[k].disabled=true;if(o[k].ok)bs[k].classList.add("ok")}
+ if(ok)score++;else{b.classList.add("no");wrong.push(q)}
+ var e=$("ex");e.hidden=false;e.className="exp";e.innerHTML='<b>'+(ok?"Chính xác!":"Chưa đúng.")+'</b> <span id="et"></span><br><button class="btn" id="nx">'+(i+1<pool.length?"Câu tiếp theo":"Xem kết quả")+'</button>';
+ $("et").textContent=q.e;$("nx").onclick=function(){i++;show()};$("nx").focus()}
+goMix();
+</script>
+</body>
+</html>
