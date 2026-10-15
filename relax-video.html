@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Video thư giãn</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#e24a4a;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#ff8a80;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#ff8a80;--mute:#9fb2c4}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 16px;font-size:.92rem}
+.link{color:var(--acc);text-decoration:underline;font-size:.95rem}
+.frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--card);border:2px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--acc);overflow:hidden}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tip{color:var(--mute);font-size:.85rem;margin-top:14px}
+</style>
+</head>
+<body>
+<main>
+<p><a class="link" href="index.html">← Về trang chủ</a></p>
+<h1>📺 Video thư giãn</h1>
+<p class="sub">Playlist hoạt hình/giải trí. Dùng nút danh sách trong trình phát để chuyển giữa các video.</p>
+<div class="frame">
+<iframe
+  src="https://www.youtube-nocookie.com/embed/videoseries?list=PLs9VU5Zeog7boCY3jxtbD4rYALhhi-i49"
+  title="Playlist YouTube"
+  loading="lazy"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen></iframe>
+</div>
+<p class="tip">Video do YouTube cung cấp. Nếu một video bị tắt cho phép nhúng, trình phát sẽ báo "Video unavailable" — đây là thiết lập từ phía chủ sở hữu video.</p>
+</main>
+</body>
+</html>
