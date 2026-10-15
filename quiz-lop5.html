@@ -6,10 +6,10 @@
 <title>Quiz Toán 5 & Tiếng Việt 5 - SGK Tập 1</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
 <style>
-:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc2:#e8f6f5;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc2:#e8f6f5;--vacc:#b3263e;--vacc2:#fbeaec;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body[data-s=v]{--acc:#b3263e;--acc2:#fbeaec;--hl:#bfe9d6}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--vacc:#ff8fa3;--vacc2:#3a1f27;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
 body[data-s=v]{--acc:#ff8fa3;--acc2:#3a1f27;--hl:#2c5a47}}
 :root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
 *{box-sizing:border-box}
@@ -23,6 +23,9 @@ h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 .tab,.chip,.btn,.opt{font:inherit;color:inherit;cursor:pointer}
 .tab{flex:1;padding:10px;border:2px solid var(--ink);background:var(--card);border-radius:10px;font-weight:700}
 .tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+.subtabs{display:inline-flex;gap:0;margin:0 0 16px;border:2px solid var(--line);background:var(--card);border-radius:999px;padding:3px}
+.subtab{font:inherit;color:var(--mute);cursor:pointer;border:none;background:transparent;padding:7px 20px;border-radius:999px;font-weight:600;font-size:.9rem}
+.subtab[aria-selected=true]{background:var(--acc);color:#fff}
 button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .chip{padding:6px 12px;border:2px solid var(--ink);border-radius:99px;background:var(--card);font-size:.88rem}
@@ -50,17 +53,141 @@ button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .link{background:none;border:none;color:var(--acc);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin-top:10px}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+#review nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+#review nav a{padding:6px 12px;border:2px solid var(--ink);border-radius:99px;background:var(--card);color:var(--ink);text-decoration:none;font-size:.88rem;font-weight:600}
+#review h2{font-size:1.3rem;margin:28px 0 6px;padding:8px 14px;border:2px solid var(--ink);border-radius:12px;background:var(--acc2)}
+#review section{--a:var(--acc);--a2:var(--acc2)}
+#review #viet{--a:var(--vacc,#b3263e);--a2:var(--vacc2,#fbeaec)}
+#review #viet h2{background:var(--vacc2,#fbeaec)}
+#review .blk{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:4px 16px 14px;margin:14px 0}
+#review details.blk{padding:0;margin:12px 0}
+#review details.blk>summary{list-style:none;cursor:pointer;font-size:1.05rem;font-weight:700;color:var(--ink);padding:14px 16px;display:flex;align-items:center;gap:10px}
+#review details.blk>summary::-webkit-details-marker{display:none}
+#review details.blk>summary::before{content:"▸";color:var(--a);font-size:.95rem;transition:transform .2s}
+#review details.blk[open]>summary::before{content:"▾"}
+#review details.blk>summary:hover{color:var(--a)}
+#review details.blk>:not(summary){margin-left:16px;margin-right:16px}
+#review details.blk>:last-child{margin-bottom:14px}
+#review .blk h3{font-size:1.05rem;margin:12px 0 4px;color:var(--a)}
+#review ul{margin:4px 0;padding-left:20px}#review li{margin:3px 0}
+#review .rule{background:var(--a2);border-left:5px solid var(--a);padding:8px 12px;border-radius:6px;margin:8px 0}
+#review table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto;margin:8px 0}
+#review td,#review th{border:1px solid var(--line);padding:5px 8px;text-align:left}#review th{background:var(--a2)}
+#review .foot{color:var(--mute);font-size:.88rem;margin-top:30px}
 </style>
 </head>
 <body data-s="t">
 <main>
 <p><a class="link" href="index.html">← Về trang chủ</a></p>
 <h1 id="appTitle">Quiz Toán 5 &amp; Tiếng Việt 5 - SGK Tập 1</h1>
-<p class="sub">Chọn <b>Quiz tổng hợp</b> (chọn môn, 20 câu ngẫu nhiên mỗi môn) hoặc <b>Quiz theo chủ đề</b> (100 câu mỗi chủ đề).</p>
-<div class="tabs"><button class="tab" id="mmix" aria-selected="true">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
-<div class="tabs" id="subjtabs" hidden><button class="tab" id="tt" aria-selected="true">Toán</button><button class="tab" id="tv" aria-selected="false">Tiếng Việt</button></div>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (chọn môn, 15 câu ngẫu nhiên) hoặc <b>Quiz theo chủ đề</b> (20 câu ngẫu nhiên mỗi chủ đề).</p>
+<div class="tabs"><button class="tab" id="mreview" aria-selected="true">Nội dung ôn tập</button><button class="tab" id="mmix" aria-selected="false">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
+<div class="subtabs" id="subjtabs" hidden><button class="subtab" id="tt" aria-selected="true">Toán</button><button class="subtab" id="tv" aria-selected="false">Tiếng Việt</button></div>
 <div class="chips" id="chips"></div>
 <div id="box"></div>
+<div id="review" hidden>
+<div class="subtabs" id="rvsub"><button class="subtab" id="rvtoan" aria-selected="true">Toán</button><button class="subtab" id="rvviet" aria-selected="false">Tiếng Việt</button></div>
+
+<section id="toan">
+
+<details class="blk" id="t1"><summary>Chủ đề 1 – Ôn tập và bổ sung</summary>
+<h3>Số tự nhiên</h3>
+<ul><li>Lớp đơn vị (đơn vị, chục, trăm), lớp nghìn, lớp triệu; mỗi lớp có 3 hàng.</li>
+<li>Giá trị của chữ số = chữ số × giá trị của hàng (chữ số 3 ở hàng triệu có giá trị 3 000 000).</li>
+<li>Làm tròn: nhìn chữ số bên phải hàng cần làm tròn; từ 5 trở lên thì làm tròn lên, dưới 5 thì giữ nguyên.</li></ul>
+<h3>Tính chất các phép tính</h3>
+<div class="rule">a + b = b + a; a × b = b × a (giao hoán)<br>(a + b) + c = a + (b + c) (kết hợp)<br>a × (b + c) = a × b + a × c<br>Thứ tự: trong ngoặc trước, nhân chia trước, cộng trừ sau.</div>
+<h3>Phân số và hỗn số</h3>
+<ul><li>Rút gọn: chia cả tử và mẫu cho cùng một số lớn hơn 1. Phân số tối giản là phân số không rút gọn được nữa.</li>
+<li>Cộng, trừ cùng mẫu: giữ mẫu, cộng hoặc trừ tử số. Khác mẫu: quy đồng mẫu số rồi tính.</li>
+<li>Nhân: tử × tử, mẫu × mẫu. Chia: nhân với phân số đảo ngược.</li>
+<li>Phân số thập phân có mẫu số là 10; 100; 1 000;…</li>
+<li>Hỗn số = phần nguyên + phân số. 2 3/5 = (2 × 5 + 3)/5 = 13/5.</li></ul></details>
+
+<details class="blk" id="t2"><summary>Chủ đề 2 – Số thập phân</summary>
+<ul><li>Số thập phân gồm <b>phần nguyên</b> (bên trái dấu phẩy) và <b>phần thập phân</b> (bên phải dấu phẩy).</li></ul>
+<table><tr><th>Trăm</th><th>Chục</th><th>Đơn vị</th><th>,</th><th>Phần mười</th><th>Phần trăm</th><th>Phần nghìn</th></tr><tr><td>3</td><td>2</td><td>5</td><td>,</td><td>4</td><td>3</td><td>1</td></tr></table>
+<div class="rule">Đọc: phần nguyên, “phẩy”, phần thập phân. 325,431 đọc là “ba trăm hai mươi lăm phẩy bốn trăm ba mươi mốt”.<br>4,05 đọc là “bốn phẩy không năm”.</div>
+<ul><li>Đổi từ phân số thập phân: 1 675/1 000 = 1,675; 9 dm = 9/10 m = 0,9 m.</li>
+<li>So sánh: so phần nguyên trước, bằng nhau thì so phần mười, phần trăm,… Thêm chữ số 0 vào cuối phần thập phân thì giá trị không đổi (4,5 = 4,50).</li>
+<li>Làm tròn đến phần mười, phần trăm: xét chữ số ngay sau hàng cần làm tròn.</li>
+<li>Đổi đơn vị: 1 cm = 0,01 m; 1 g = 0,001 kg; 1 ml = 0,001 l.</li></ul></details>
+
+<details class="blk" id="t3"><summary>Chủ đề 3 – Đơn vị đo diện tích</summary>
+<table><tr><th>km²</th><th>ha</th><th>m²</th><th>dm²</th><th>cm²</th><th>mm²</th></tr>
+<tr><td>1 km² = 100 ha</td><td>1 ha = 10 000 m²</td><td>1 m² = 100 dm²</td><td>1 dm² = 100 cm²</td><td>1 cm² = 100 mm²</td><td></td></tr></table>
+<div class="rule">Hai đơn vị liền kề (m², dm², cm²,…) hơn kém nhau 100 lần. 1 km² = 1 000 000 m².<br>Đổi sang đơn vị bé hơn thì nhân; sang đơn vị lớn hơn thì chia.</div>
+<ul><li>km² dùng đo thành phố, khu rừng, vùng biển; ha dùng đo ruộng, khu đất lớn.</li></ul></details>
+
+<details class="blk" id="t4"><summary>Chủ đề 4 – Các phép tính với số thập phân</summary>
+<ul><li><b>Cộng, trừ:</b> đặt dấu phẩy thẳng cột, tính như số tự nhiên, viết dấu phẩy ở kết quả thẳng cột. 4,43 − 4,16 = 0,27.</li>
+<li><b>Nhân:</b> nhân như số tự nhiên rồi tách ở tích bấy nhiêu chữ số ở phần thập phân. 3,2 × 8 = 25,6.</li>
+<li><b>Chia cho số tự nhiên:</b> chia phần nguyên, viết dấu phẩy vào thương rồi chia tiếp. 92,8 : 4 = 23,2.</li></ul>
+<div class="rule">Nhân với 10; 100; 1 000;…: dịch dấu phẩy sang <b>phải</b> 1; 2; 3;… chữ số.<br>Chia cho 10; 100; 1 000;…: dịch dấu phẩy sang <b>trái</b> 1; 2; 3;… chữ số.<br>Nhân với 0,1; 0,01;… giống chia cho 10; 100;…</div></details>
+
+<details class="blk" id="t5"><summary>Chủ đề 5 – Hình phẳng, chu vi và diện tích</summary>
+<ul><li><b>Tam giác:</b> có 3 góc nhọn, hoặc 1 góc vuông, hoặc 1 góc tù. Tam giác đều có 3 cạnh bằng nhau, 3 góc đều bằng 60°.</li>
+<li><b>Hình thang:</b> có một cặp cạnh đối song song (hai đáy); đường cao vuông góc với đáy.</li>
+<li><b>Đường tròn:</b> tâm O, bán kính r, đường kính d = r × 2.</li></ul>
+<div class="rule">Tam giác: S = a × h : 2<br>Hình thang: S = (a + b) × h : 2<br>Chu vi đường tròn: C = d × 3,14 = r × 2 × 3,14<br>Diện tích hình tròn: S = r × r × 3,14</div></details>
+
+<details class="blk" id="t6"><summary>Chủ đề 6 và mở rộng – Ôn tập, nâng cao (luyện thi lớp 6 chất lượng cao)</summary>
+<ul><li><b>Tính nhanh:</b> nhóm các số cho tròn (0,25 × 4; 2,5 × 4; 1,25 × 8); có thừa số chung thì đặt ra ngoài: a × b + a × c = a × (b + c).</li>
+<li><b>Dãy cách đều:</b> số số hạng = (số cuối − số đầu) : khoảng cách + 1; tổng = (số đầu + số cuối) × số số hạng : 2.</li>
+<li><b>Tách phân số:</b> 1/(n × (n+1)) = 1/n − 1/(n+1), các số hạng giữa triệt tiêu.</li>
+<li><b>So sánh phân số bằng phần bù:</b> 7/8 có phần bù 1/8, 8/9 có phần bù 1/9; phần bù lớn hơn thì phân số bé hơn.</li></ul>
+<div class="rule">Tổng – hiệu: số lớn = (tổng + hiệu) : 2; số bé = (tổng − hiệu) : 2<br>Tổng – tỉ: 1 phần = tổng : tổng số phần<br>Hiệu – tỉ: 1 phần = hiệu : hiệu số phần<br>Trung bình cộng = tổng các số : số các số</div>
+<ul><li><b>Tìm x:</b> số hạng = tổng − số hạng kia; số bị trừ = hiệu + số trừ; thừa số = tích : thừa số kia; số bị chia = thương × số chia.</li>
+<li><b>Dấu hiệu chia hết:</b> cho 2 (tận cùng chẵn); cho 5 (tận cùng 0 hoặc 5); cho 3 và 9 (tổng các chữ số chia hết cho 3 hoặc 9).</li>
+<li><b>Hình học:</b> hai tam giác chung đáy, cùng chiều cao thì diện tích bằng nhau; cạnh hình vuông (hoặc bán kính hình tròn) gấp k lần thì diện tích gấp k × k lần.</li>
+<li><b>Mẹo làm bài:</b> đọc kĩ đề, đổi về cùng đơn vị, ước lượng kết quả, trình bày lời giải, phép tính và đáp số có đơn vị.</li></ul></details>
+</section>
+
+<section id="viet">
+
+<details class="blk"><summary>Cấu trúc sách: 4 chủ điểm</summary>
+<table><tr><th>Chủ điểm</th><th>Tuần</th><th>Một số bài đọc</th></tr>
+<tr><td>Thế giới tuổi thơ</td><td>1–4</td><td>Thanh âm của gió, Cánh đồng hoa, Tuổi Ngựa, Bến sông tuổi thơ</td></tr>
+<tr><td>Thiên nhiên kì thú</td><td>5–8</td><td>Trước cổng trời, Kì diệu rừng xanh, Hang Sơn Đoòng, Những hòn đảo trên vịnh Hạ Long, Mầm non</td></tr>
+<tr><td>Trên con đường học tập</td><td>10–13</td><td>Thư gửi các học sinh, Tấm gương tự học, Thế giới trong trang sách</td></tr>
+<tr><td>Nghệ thuật muôn màu</td><td>14–17</td><td>Tiếng đàn ba-la-lai-ca trên sông Đà, Trí tưởng tượng phong phú, Tranh làng Hồ</td></tr></table>
+<p>Tuần 9 và tuần 18 là các tuần ôn tập và đánh giá giữa kì, cuối kì.</p></details>
+
+<details class="blk" id="v1"><summary>Từ loại và đại từ (chủ điểm Thế giới tuổi thơ)</summary>
+<div class="rule"><b>Danh từ:</b> chỉ người, vật, hiện tượng, khái niệm (học sinh, dòng sông, cơn mưa).<br><b>Động từ:</b> chỉ hoạt động, trạng thái (chạy, gieo, ngủ).<br><b>Tính từ:</b> chỉ đặc điểm, tính chất (đẹp, xanh thẳm, chăm chỉ).</div>
+<div class="rule"><b>Đại từ</b> là từ dùng để xưng hô hoặc thay thế danh từ, động từ, tính từ (hay cụm từ) trong câu để tránh lặp.</div>
+<ul><li>Đại từ xưng hô: tôi, chúng tôi, chúng ta, họ, nó,…</li>
+<li>Đại từ thay thế: vậy, thế,… Ví dụ: “Nắng vàng ong. Lúa cũng <b>vậy</b>.” (vậy thay cho “vàng ong”).</li></ul></details>
+
+<details class="blk" id="v2"><summary>Từ đồng nghĩa và từ đa nghĩa (chủ điểm Thiên nhiên kì thú)</summary>
+<div class="rule"><b>Từ đồng nghĩa:</b> những từ có nghĩa giống nhau hoặc gần giống nhau (siêng năng – chăm chỉ; mênh mông – bao la). Có đồng nghĩa hoàn toàn và không hoàn toàn (khác sắc thái).</div>
+<div class="rule"><b>Từ đa nghĩa:</b> có một nghĩa gốc và một hay nhiều nghĩa chuyển; các nghĩa có mối liên hệ với nhau. Ví dụ “mắt”: mắt người (nghĩa gốc), mắt na, mắt lưới (nghĩa chuyển).</div>
+<ul><li>Xác định nghĩa của từ trong câu dựa vào ngữ cảnh.</li></ul></details>
+
+<details class="blk" id="v3"><summary>Từ điển và dấu gạch ngang (chủ điểm Trên con đường học tập)</summary>
+<ul><li>Mục từ xếp theo bảng chữ cái: a, ă, â, b, c, d, đ, e, ê, g, h, i, k, l, m, n, o, ô, ơ, p, q, r, s, t, u, ư, v, x, y.</li>
+<li>Tra từ: tìm chữ cái đầu, tìm mục từ, chọn nghĩa phù hợp với câu, đọc ví dụ để hiểu cách dùng.</li></ul>
+<div class="rule"><b>Dấu gạch ngang</b> dùng để: đánh dấu lời nói trực tiếp của nhân vật; đánh dấu phần chú thích; liệt kê các ý (đầu dòng); nối các từ ngữ trong một liên danh (Đại Tây Dương – Thái Bình Dương).</div></details>
+
+<details class="blk" id="v4"><summary>Điệp từ, điệp ngữ và kết từ (chủ điểm Nghệ thuật muôn màu)</summary>
+<div class="rule"><b>Điệp từ, điệp ngữ:</b> lặp lại từ ngữ để nhấn mạnh ý, tạo nhịp điệu, gợi cảm xúc. Ví dụ: “Trông trời, trông đất, trông mây” (lặp từ “trông”).</div>
+<div class="rule"><b>Kết từ:</b> từ nối các từ ngữ hoặc các câu (và, của, với, nhưng, do, trong, vào,…).<br><b>Cặp kết từ:</b> vì … nên …; nếu … thì …; mặc dù … nhưng …; không những … mà còn …</div></details>
+
+<details class="blk" id="v5"><summary>Tập làm văn, nói và nghe</summary>
+<ul><li><b>Văn kể chuyện sáng tạo:</b> giữ cốt truyện, có thể thêm chi tiết, đổi ngôi kể hoặc thay đổi kết thúc; đủ mở bài, thân bài, kết bài.</li>
+<li><b>Báo cáo công việc:</b> công việc đã làm, kết quả, đề xuất hoặc kiến nghị.</li>
+<li><b>Văn tả phong cảnh:</b> mở bài giới thiệu cảnh; thân bài tả đặc điểm nổi bật theo trình tự (thời gian, không gian, từng bộ phận) bằng các giác quan, so sánh, nhân hoá; kết bài nêu cảm nghĩ.</li>
+<li><b>Giới thiệu nhân vật trong sách, phim:</b> tên nhân vật, tên sách (phim), đặc điểm nổi bật, cảm nghĩ.</li>
+<li><b>Bày tỏ cảm xúc về bài thơ, câu chuyện:</b> điều em thích, hình ảnh gây ấn tượng, lí do.</li>
+<li><b>Đánh giá, chỉnh sửa bài viết:</b> soát nội dung, bố cục, dùng từ đặt câu, chính tả; viết lại câu cho đúng, hay hơn.</li></ul>
+<h3>Một số văn bản đọc cần nhớ</h3>
+<ul><li><b>Trước cổng trời</b> (thơ, Nguyễn Đình Ánh): cảnh vùng núi cao với người Tày, Giáy, Dao.</li>
+<li><b>Mầm non</b> (thơ, Võ Quảng): tả mầm non lặng lẽ chờ mùa xuân.</li>
+<li><b>Thư gửi các học sinh</b> (Hồ Chí Minh): thư gửi nhân ngày khai trường đầu tiên của nước Việt Nam Dân chủ Cộng hoà (9/1945); Bác khuyên học sinh cố gắng, siêng năng học tập.</li>
+<li><b>Tiếng đàn ba-la-lai-ca trên sông Đà:</b> ba-la-lai-ca là đàn 3 dây của người Nga; công trình thuỷ điện sông Đà có chuyên gia Liên Xô giúp đỡ.</li></ul></details>
+</section>
+
+<p class="foot">Tài liệu tổng hợp từ SGK Toán 5 và Tiếng Việt 5 (Tập 1, Kết nối tri thức với cuộc sống). Phần nâng cao do biên soạn thêm cho mục tiêu thi vào lớp 6 chất lượng cao.</p></div>
 </main>
 <script>
 var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))},P=function(a){return a[R(0,a.length-1)]};
@@ -190,11 +317,11 @@ var NM={t:["1. Ôn tập và bổ sung","2. Số thập phân","3. Đơn vị đ
 function gen(s,k){var g=(s=="t"?TG:VG)[k],seen={},out=[],n=0;
  function add(q){if(!q)return;var key=q.q+"|"+q.c+"|"+q.d.slice().sort().join();if(seen[key])return;seen[key]=1;out.push(q)}
  if(s=="v")FX[k].forEach(function(x){add(M(x[0],x[1],x[2],x[3]))});
- while(out.length<100&&n++<5000)add(P(g)());
- return out}
+ while(out.length<TOPICN&&n++<5000)add(P(g)());
+ return out.slice(0,TOPICN)}
 
-/* Quiz tổng hợp: chọn môn, mỗi môn 20 câu ngẫu nhiên từ toàn bộ kho của môn đó */
-var MIXPER=20;
+/* Quiz tổng hợp: 15 câu ngẫu nhiên; Quiz theo chủ đề: 20 câu ngẫu nhiên của chủ đề */
+var MIXPER=15,TOPICN=20;
 function subjGens(s){var g=[],bank=s=="t"?TG:VG;for(var k in bank)bank[k].forEach(function(fn){g.push(fn)});return g}
 function genSubjN(s,n){var gens=subjGens(s),seen={},out=[],c=0;
  while(out.length<n&&c++<5000){var q=P(gens)();if(!q)continue;var key=q.q+"|"+q.c+"|"+q.d.slice().sort().join();if(seen[key])continue;seen[key]=1;out.push(q)}
@@ -210,7 +337,7 @@ function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}
 function subjName(s){return s=="t"?"Toán":"Tiếng Việt"}
 function addHist(sc,total){
  var h=loadHist(),subject,topic;
- if(MODE=="mix"){subject="Tổng hợp";topic=subjName(S)+" (20 câu)"}
+ if(MODE=="mix"){subject="Tổng hợp";topic=subjName(S)+" (15 câu)"}
  else{subject=subjName(S);topic=NM[S][K-1]}
  h.unshift({ts:Date.now(),subject:subject,topic:topic,score:sc,total:total});
  if(h.length>100)h=h.slice(0,100);
@@ -231,13 +358,24 @@ function histHTML(){
 /* ===== Điều hướng chế độ & chủ đề ===== */
 var MODE="mix";
 
-function setModeTabs(){$("mmix").setAttribute("aria-selected",MODE=="mix");$("mtopic").setAttribute("aria-selected",MODE=="topic");
- $("subjtabs").hidden=(MODE!="topic");$("chips").hidden=false}
+function setModeTabs(){$("mmix").setAttribute("aria-selected",MODE=="mix");$("mtopic").setAttribute("aria-selected",MODE=="topic");$("mreview").setAttribute("aria-selected",MODE=="review");
+ var rv=(MODE=="review");
+ $("subjtabs").hidden=(MODE!="topic");$("chips").hidden=rv;$("box").hidden=rv;$("review").hidden=!rv}
+
+/* Tab Nội dung ôn tập + sub-tab Toán/Tiếng Việt */
+function setReviewSub(which){
+ $("rvtoan").setAttribute("aria-selected",which=="toan");
+ $("rvviet").setAttribute("aria-selected",which=="viet");
+ var t=document.getElementById("toan"),v=document.getElementById("viet");
+ if(t)t.hidden=(which!="toan");
+ if(v)v.hidden=(which!="viet");
+}
+function showReview(){MODE="review";setModeTabs();$("chips").innerHTML="";setReviewSub("toan");window.scrollTo(0,0)}
 
 /* Chế độ tổng hợp: chọn môn, mỗi môn 20 câu ngẫu nhiên */
 function goMix(s,list){MODE="mix";S=s||"t";setModeTabs();document.body.setAttribute("data-s",S);
  $("chips").innerHTML="";
- [["t","Toán (20 câu)"],["v","Tiếng Việt (20 câu)"]].forEach(function(it){var b=document.createElement("button");b.className="chip";b.textContent=it[1];b.setAttribute("aria-pressed",it[0]==S);b.onclick=function(){goMix(it[0])};$("chips").appendChild(b)});
+ [["t","Toán (15 câu)"],["v","Tiếng Việt (15 câu)"]].forEach(function(it){var b=document.createElement("button");b.className="chip";b.textContent=it[1];b.setAttribute("aria-pressed",it[0]==S);b.onclick=function(){goMix(it[0])};$("chips").appendChild(b)});
  pool=list||genSubjN(S,MIXPER);i=0;score=0;wrong=[];show()}
 
 /* Chế độ theo chủ đề */
@@ -249,6 +387,8 @@ function go(s,k,list){MODE="topic";S=s;K=k;setModeTabs();document.body.setAttrib
 
 $("mmix").onclick=function(){goMix("t")};
 $("mtopic").onclick=function(){go("t",1)};
+$("mreview").onclick=showReview;
+$("rvtoan").onclick=function(){setReviewSub("toan")};$("rvviet").onclick=function(){setReviewSub("viet")};
 $("tt").onclick=function(){go("t",1)};$("tv").onclick=function(){go("v",1)};
 
 var saved=false;
@@ -257,8 +397,9 @@ function show(){
  if(i>=pool.length){
   if(!saved){addHist(score,pool.length);saved=true}
   var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
-  var newLabel=MODE=="mix"?"Bộ 20 câu mới":"Bộ 100 câu mới";
-  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  var newLabel=MODE=="mix"?"Bộ 15 câu mới":"Bộ 20 câu mới";
+  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"�";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
   $("nw").onclick=function(){MODE=="mix"?goMix(S):go(S,K)};
   if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(S,wrong.slice()):go(S,K,wrong.slice())};
   var c=$("clr");if(c)c.onclick=clearHist;
@@ -274,7 +415,7 @@ function pick(b,ok,q,o){
  if(ok)score++;else{b.classList.add("no");wrong.push(q)}
  var e=$("ex");e.hidden=false;e.className="exp";e.innerHTML='<b>'+(ok?"Chính xác!":"Chưa đúng.")+'</b> <span id="et"></span><br><button class="btn" id="nx">'+(i+1<pool.length?"Câu tiếp theo":"Xem kết quả")+'</button>';
  $("et").textContent=q.e;$("nx").onclick=function(){i++;show()};$("nx").focus()}
-goMix("t");
+goMix("t");showReview();
 </script>
 </body>
 </html>

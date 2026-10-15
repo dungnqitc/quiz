@@ -54,7 +54,7 @@ button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 <main>
 <p><a class="link" href="index.html">← Về trang chủ</a></p>
 <h1>Quiz Tiếng Anh vào 6 CLC Thanh Xuân</h1>
-<p class="sub">Chọn <b>Quiz tổng hợp</b> (20 câu ngẫu nhiên từ mọi chủ đề) hoặc <b>Quiz theo chủ đề</b> (làm trọn một chủ đề).</p>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (15 câu ngẫu nhiên từ mọi chủ đề) hoặc <b>Quiz theo chủ đề</b> (20 câu ngẫu nhiên mỗi chủ đề).</p>
 <div class="tabs"><button class="tab" id="mmix" aria-selected="true">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
 <div class="chips" id="chips"></div>
 <div id="box"></div>
@@ -68,13 +68,13 @@ var $=function(i){return document.getElementById(i)};
 
 /* Dữ liệu nguồn: mỗi câu = [category, question, options[], correctIndex, explanation] */
 var EN=(typeof window!=="undefined"&&window.EN_DATA)?window.EN_DATA:[];
-var MIX=20;
+var MIX=15,TOPICN=20;
 function enNorm(row){var opts=row[2],a=row[3],c=opts[a],d=opts.filter(function(_,j){return j!=a});return {q:row[1],c:c,d:d,e:row[4]}}
 function cats(){var seen={},out=[];EN.forEach(function(r){if(!seen[r[0]]){seen[r[0]]=1;out.push(r[0])}});return out}
 function enAll(){return EN.slice()}
 function enByCat(cat){return EN.filter(function(r){return r[0]==cat})}
 function genMix(list){return list?list.slice():pk(enAll(),MIX).map(enNorm)}
-function genTopic(cat,list){return list?list.slice():enByCat(cat).map(enNorm)}
+function genTopic(cat,list){return list?list.slice():pk(enByCat(cat),TOPICN).map(enNorm)}
 
 var MODE="mix",CAT=null,pool=[],i=0,score=0,wrong=[],done=false;
 
@@ -120,8 +120,9 @@ function show(){
  if(i>=pool.length){
   if(!saved){addHist(score,pool.length);saved=true}
   var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
-  var newLabel=MODE=="mix"?"Bộ câu mới":"Làm lại chủ đề";
-  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  var newLabel=MODE=="mix"?"Bộ 15 câu mới":"Bộ 20 câu mới";
+  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"😭";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
   $("nw").onclick=function(){MODE=="mix"?goMix():go(CAT)};
   if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(wrong.slice()):go(CAT,wrong.slice())};
   var c=$("clr");if(c)c.onclick=clearHist;

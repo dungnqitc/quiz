@@ -54,7 +54,7 @@ button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 <main>
 <p><a class="link" href="index.html">← Về trang chủ</a></p>
 <h1>Quiz Toán 8 – SGK Tập 1</h1>
-<p class="sub">Chọn <b>Quiz tổng hợp</b> (20 câu ngẫu nhiên từ cả 5 chương) hoặc <b>Quiz theo chủ đề</b> (làm trọn một chương).</p>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (15 câu ngẫu nhiên từ cả 5 chương) hoặc <b>Quiz theo chủ đề</b> (20 câu ngẫu nhiên mỗi chương).</p>
 <div class="tabs"><button class="tab" id="mmix" aria-selected="true">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
 <div class="chips" id="chips"></div>
 <div id="box"></div>
@@ -67,11 +67,11 @@ var pk=function(a,n){return sh(a).slice(0,n)};
 var $=function(i){return document.getElementById(i)};
 
 var T8=(typeof window!=="undefined"&&window.TOAN8_DATA)?window.TOAN8_DATA:[];
-var T8MIX=20;
+var T8MIX=15,T8TOPIC=20;
 function t8norm(q){var c=q.o[q.a],d=q.o.filter(function(_,j){return j!=q.a});return {q:q.q,c:c,d:d,e:q.e}}
 function t8all(){var all=[];T8.forEach(function(ch){ch.qs.forEach(function(q){all.push(q)})});return all}
 function genMix(list){return list?list.slice():pk(t8all(),T8MIX).map(t8norm)}
-function genTopic(k,list){return list?list.slice():T8[k-1].qs.map(t8norm)}
+function genTopic(k,list){return list?list.slice():pk(T8[k-1].qs,T8TOPIC).map(t8norm)}
 
 var MODE="mix",K=1,pool=[],i=0,score=0,wrong=[],done=false;
 
@@ -80,7 +80,7 @@ var HKEY="quiz8_history_v1";
 function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
 function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
 function addHist(sc,total){
- var h=loadHist(),topic=(MODE=="mix")?"Tổng hợp (20 câu)":(T8[K-1].c+". "+T8[K-1].t);
+ var h=loadHist(),topic=(MODE=="mix")?"Tổng hợp (15 câu)":(T8[K-1].c+". "+T8[K-1].t);
  h.unshift({ts:Date.now(),subject:"Toán 8",topic:topic,score:sc,total:total});
  if(h.length>100)h=h.slice(0,100);
  saveHist(h)}
@@ -117,8 +117,9 @@ function show(){
  if(i>=pool.length){
   if(!saved){addHist(score,pool.length);saved=true}
   var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
-  var newLabel=MODE=="mix"?"Bộ 20 câu mới":"Làm lại chương";
-  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  var newLabel=MODE=="mix"?"Bộ 15 câu mới":"Bộ 20 câu mới";
+  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"😭";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
   $("nw").onclick=function(){MODE=="mix"?goMix():go(K)};
   if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(wrong.slice()):go(K,wrong.slice())};
   var c=$("clr");if(c)c.onclick=clearHist;

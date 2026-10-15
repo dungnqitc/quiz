@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tiếng Anh 5 – Global Success: Tập 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#2456a6;--acc2:#e7eefb;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;--soft:#eef3fb;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4;--soft:#16233f}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4;--soft:#16233f}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{color:var(--ink);background-color:var(--paper);font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{margin:0 0 16px;color:var(--mute);font-size:.92rem}
+[role=tablist]{display:flex;gap:8px;margin-bottom:14px}
+[role=tab]{flex:1;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:inherit;font-weight:700;padding:10px 6px;border-radius:10px;cursor:pointer}
+[role=tab][aria-selected=true]{background:var(--hl);color:#1b2a41}
+[role=tab]:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.panel{margin-top:4px}
+.panel[hidden]{display:none}
+details{background:var(--card);border:2px solid var(--ink);border-radius:12px;margin-bottom:10px;overflow:hidden}
+summary{cursor:pointer;padding:12px 14px;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--acc);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details[open] summary{border-bottom:2px solid var(--line)}
+.body{padding:12px 14px 14px}
+.pair{background:var(--soft);border-left:5px solid var(--acc);border-radius:8px;padding:8px 12px;margin:0 0 8px}
+.pair b{display:block}
+.pair span{color:var(--mute)}
+.meta{margin:10px 0 0;font-size:.92rem}
+.meta strong{color:var(--acc)}
+.note{background:var(--card);border:2px dashed var(--acc);border-radius:12px;padding:12px 14px;margin-top:14px}
+.note h2{font-weight:800;font-size:1.05rem;margin:0 0 4px}
+.note ul{margin:0;padding-left:20px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+select,.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 14px;cursor:pointer}
+.btn{margin-top:0}
+.btn.pri{background:var(--hl);color:#1b2a41}
+.q{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:5px 5px 0 var(--acc)}
+.prog{display:flex;justify-content:space-between;color:var(--mute);font-weight:700;font-size:.88rem}
+.track{height:8px;background:var(--line);border-radius:9px;margin:6px 0 14px;overflow:hidden}
+.track i{display:block;height:100%;background:var(--acc);width:0;transition:width .25s}
+.qt{font-size:1.12rem;font-weight:700;line-height:1.3;margin:0 0 12px;overflow-wrap:anywhere}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;font:inherit;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:11px 14px;cursor:pointer;overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.ok{background:var(--okb);border-color:var(--ok);color:inherit}
+.opt.bad{background:var(--badb);border-color:var(--bad);color:inherit}
+.fb{margin:12px 0 0;padding:10px 12px;border-radius:8px;background:var(--acc2);min-height:0}
+.fb:empty{display:none}
+.end{text-align:center;padding:10px 0}
+.score{font-size:3rem;font-weight:800;color:var(--acc);margin:0}
+.link{color:var(--acc)}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p style="margin:0 0 0"><a class="link" href="index.html" style="text-decoration:underline;font-weight:700">← Về trang chủ</a></p>
+  <h1>Tiếng Anh 5 – Global Success: Tập 1</h1>
+  <p class="sub">Global Success – Sách học sinh, Tập 1 (Starter và Unit 1–10)</p>
+
+  <div role="tablist" aria-label="Các phần ôn tập">
+    <button role="tab" id="t0" aria-selected="true" aria-controls="p0">Ngữ pháp</button>
+    <button role="tab" id="t1" aria-selected="false" aria-controls="p1">Quiz từ vựng</button>
+    <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Quiz ngữ pháp</button>
+  </div>
+
+  <section class="panel" id="p0" role="tabpanel" aria-labelledby="t0"></section>
+
+  <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+    <div class="bar">
+      <select id="vDir" aria-label="Chiều hỏi">
+        <option value="ev">Anh → Việt</option>
+        <option value="ve">Việt → Anh</option>
+      </select>
+      <button class="btn pri" id="vGo">Bắt đầu lại</button>
+    </div>
+    <div id="vBox"></div>
+  </section>
+
+  <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <div class="bar">
+      <button class="btn pri" id="gGo">Bắt đầu lại</button>
+    </div>
+    <div id="gBox"></div>
+  </section>
+</div>
+
+<script>
+/* ---------- DỮ LIỆU NGỮ PHÁP ---------- */
+const G=[
+{t:"Starter – Back to school",s:[["My birthday is in January.","Sinh nhật của mình vào tháng Một."],["Were you in Sa Pa last summer? – Yes, I was. / No, I wasn't.","Hè năm ngoái bạn có ở Sa Pa không?"],["What was the weather like there? – It was sunny.","Thời tiết ở đó thế nào?"]],v:"January, February… (các tháng); sunny, rainy; Stand on one foot."},
+{t:"Unit 1 – All about me!",s:[["Can you tell me about yourself? – I'm in Class 5A. I live in the city / countryside.","Bạn giới thiệu về mình được không?"],["What's your favourite sport / colour / animal / food? – It's …","… yêu thích của bạn là gì?"]],v:"city, class, countryside, dolphin, pink, sandwich, table tennis",st:"'dolphin, 'tennis"},
+{t:"Unit 2 – Our homes",s:[["Do you live in this / that building? – Yes, I do. / No, I don't.","this: gần; that: xa."],["What's your address? – It's 45 Ba Trieu Street.","Địa chỉ của bạn là gì?"],["Do you live near the school? – Yes, I do. I live about one kilometre from here.","Gần / xa trường."]],v:"building, flat, house, tower; fifteen, sixteen, eighteen; 23, 38, 93, 116",st:"fif'teen, six'teen (nhấn âm 2); nhưng 'fifty, 'sixty (nhấn âm 1)"},
+{t:"Unit 3 – My foreign friends",s:[["What nationality is he / she? – He's / She's Australian.","Quốc tịch của bạn ấy là gì?"],["What's he / she like? – He's / She's friendly.","Bạn ấy là người thế nào? (tính cách)"],["Is she active? – Yes, she is.","Trả lời với be, không dùng do."]],v:"American, Australian, British, Japanese, Malaysian; active, clever, friendly, helpful",st:"'active, 'friendly"},
+{t:"Unit 4 – Our free-time activities",s:[["What do you like doing in your free time? – I like playing the violin.","like + V-ing"],["What do you do at the weekend? – I usually listen to music.","Trạng từ tần suất đứng trước động từ thường."],["Does she like swimming? – No, she doesn't.","Ngôi 3 số ít: does / V-s."]],v:"go for a walk, play the violin, surf the Internet, water the flowers; always > usually > often > sometimes > rarely > never",st:"'always, 'sometimes"},
+{t:"Unit 5 – My future job",s:[["What would you like to be in the future? – I'd like to be a doctor.","I'd = I would; would like to + V."],["Why would you like to be a doctor? – Because I'd like to help people.","Hỏi và nêu lí do."]],v:"firefighter, gardener, reporter, writer, teacher, dentist; grow flowers, report the news, teach children, write stories",st:"'teacher, 'dentist"},
+{t:"Unit 6 – Our school rooms",s:[["Where's the library? – It's on the second floor.","on + tầng"],["Could you tell me the way to the computer room, please? – Go upstairs. / Go along the corridor and turn left. / Go past the library and turn right.","Hỏi và chỉ đường."]],v:"ground floor, first / second / third floor; go along, go downstairs, go past, go upstairs",st:"up'stairs, down'stairs"},
+{t:"Unit 7 – Our favourite school activities",s:[["What school activity does he / she like? – He / She likes reading books.","Hoạt động ở trường bạn ấy thích."],["Why does he / she like solving maths problems? – Because he / she thinks it's useful.","Hỏi lí do."]],v:"do projects, play games, read books, solve maths problems; fun, good for group work, interesting, useful",st:"'solving, 'reading"},
+{t:"Unit 8 – In our classroom",s:[["Where are the pencils? – They're beside the book.","Số nhiều: are / They're."],["Whose crayon is this? – It's Linh's.","'s chỉ sở hữu."],["Is this your glue stick? – No, it isn't.","Hỏi đồ vật của bạn."]],v:"crayon, glue stick, pencil sharpener, set square; above, beside, in front of, under",st:"a'bove, be'side"},
+{t:"Unit 9 – Our outdoor activities",s:[["Were you at the funfair yesterday? – Yes, we were. / No, we weren't.","was / were"],["What did you do yesterday? – We played chess.","Quá khứ đơn: V-ed."]],v:"aquarium, campsite, funfair, theatre; dance around the campfire, listen to music, play chess, watch the fish",st:"'cinema, 'bakery"},
+{t:"Unit 10 – Our school trip",s:[["Did they go to Ba Na Hills? – Yes, they did. / No, they didn't.","Did + S + V (nguyên mẫu)?"],["What did they do there? – They visited the old buildings.","visit → visited"]],v:"Ba Na Hills, Bai Dinh Pagoda, Hoan Kiem Lake, Suoi Tien Theme Park; plant trees, play games, visit the old buildings, walk around the lake",st:"No'vember, De'cember"}
+];
+const NOTES=["Was / Were: I, he, she, it → was; you, we, they → were. Phủ định: wasn't / weren't.","Quá khứ đơn: thêm -ed (played, visited, planted). Câu hỏi và phủ định dùng did / didn't + động từ nguyên mẫu.","Ngôi thứ ba số ít (he, she, it): likes, plays; câu hỏi Does he like…? Phủ định doesn't.","Mạo từ: a + phụ âm (a doctor); an + nguyên âm (an artist).","Bài tập thường gặp: Listen and tick / match, Read and complete, Let's write (khoảng 30 từ), Project."];
+
+/* ---------- TỪ VỰNG [en, vi, unit] ---------- */
+const V=[
+["city","thành phố",1],["class","lớp học",1],["countryside","nông thôn",1],["dolphin","cá heo",1],["pink","màu hồng",1],["sandwich","bánh mì kẹp",1],["table tennis","bóng bàn",1],["colour","màu sắc",1],["food","đồ ăn",1],
+["building","toà nhà",2],["flat","căn hộ",2],["house","căn nhà",2],["tower","toà tháp",2],["thirty-eight","ba mươi tám",2],["ninety-three","chín mươi ba",2],
+["American","thuộc nước Mỹ",3],["Australian","thuộc nước Úc",3],["Japanese","thuộc nước Nhật Bản",3],["Malaysian","thuộc nước Ma-lai-xi-a",3],["active","năng động",3],["clever","thông minh",3],["friendly","thân thiện",3],["helpful","hay giúp đỡ",3],["nationality","quốc tịch",3],["personality","tính cách",3],
+["go for a walk","đi dạo bộ",4],["play the violin","chơi đàn vi-ô-lông",4],["surf the Internet","lướt mạng",4],["water the flowers","tưới hoa",4],["always","luôn luôn",4],["usually","thường thường",4],["often","hay, thường",4],["sometimes","thỉnh thoảng",4],["rarely","hiếm khi",4],["never","không bao giờ",4],
+["firefighter","lính cứu hoả",5],["gardener","người làm vườn",5],["reporter","phóng viên",5],["writer","nhà văn",5],["future","tương lai",5],["report","đưa (tin)",5],
+["floor","tầng",6],["upstairs","lên gác",6],["downstairs","xuống gác",6],["along","dọc theo",6],["past","qua",6],["corridor","hành lang",6],
+["do projects","làm các bài tập dự án",7],["play games","chơi trò chơi",7],["read books","đọc sách",7],["solve maths problems","giải các bài toán",7],["useful","có ích, hữu ích",7],["interesting","thú vị",7],["good for group work","tốt cho hoạt động nhóm",7],
+["above","ở phía trên",8],["beside","bên cạnh",8],["under","ở phía dưới",8],["crayon","bút sáp màu",8],["bookcase","tủ sách",8],["board","bảng (trên lớp học)",8],["map","bản đồ",8],
+["aquarium","thuỷ cung",9],["campsite","địa điểm cắm trại",9],["funfair","hội chợ giải trí",9],["theatre","nhà hát",9],["yesterday","ngày hôm qua",9],["dance","nhảy, múa",9],
+["pagoda","chùa",10],["lake","hồ nước",10],["visit","thăm",10],["plant","trồng (cây)",10],["walk","đi bộ",10],["survey","cuộc khảo sát",10]
+];
+
+/* ---------- CÂU HỎI NGỮ PHÁP [unit, câu, đúng, [sai], giải thích] ---------- */
+const Q=[
+[0,"Were you in Sa Pa last summer? – Yes, I ___.","was",["were","did"],"I đi với was."],
+[0,"What was the weather like? – It ___ sunny.","was",["were","is"],"It (số ít) đi với was."],
+[1,"Can you tell me about yourself? – ___ in Class 5A.","I'm",["I live","It's"],"I'm in + lớp."],
+[1,"I live ___ the countryside.","in",["on","at"],"live in the city / countryside."],
+[1,"What's your favourite colour? – ___ pink.","It's",["They're","I'm"],"Trả lời bằng It's + màu."],
+[2,"Do you live in that building? – No, I ___.","don't",["doesn't","aren't"],"Do you…? → Yes, I do. / No, I don't."],
+[2,"___ your address? – It's 45 Ba Trieu Street.","What's",["Where's","Who's"],"Hỏi địa chỉ: What's your address?"],
+[2,"Do you live in ___ house over there? (ở xa)","that",["this","these"],"that dùng cho vật ở xa."],
+[2,"Số 16 đọc là:","sixteen",["sixty","fifty"],"-teen: 13–19; -ty: 30, 60, 90…"],
+[3,"What nationality is he? – He's ___.","Australian",["Australia","Japan"],"Quốc tịch là tính từ: Australian."],
+[3,"What's she like? – She's ___.","friendly",["British","at school"],"What's she like? hỏi tính cách."],
+[3,"She's from Britain. She's ___.","British",["Britain","Brit"],"Britain (nước) → British (quốc tịch)."],
+[3,"Is he helpful? – Yes, he ___.","is",["does","was"],"Câu hỏi với is → trả lời với is."],
+[4,"What do you like doing in your free time? – I like ___ the violin.","playing",["play","plays"],"like + V-ing."],
+[4,"Mai listens to music every day. Mai ___ listens to music.","always",["never","rarely"],"every day → always."],
+[4,"He ___ his bike at the weekend.","rides",["ride","riding"],"he + động từ thêm -s."],
+[4,"Does she like swimming? – No, she ___.","doesn't",["don't","isn't"],"Does → doesn't."],
+[4,"Chọn câu đúng:","I always play volleyball.",["I play always volleyball.","I always plays volleyball."],"Trạng từ tần suất đứng trước động từ thường; I → play."],
+[5,"I'd like to be ___ doctor.","a",["an","the"],"doctor bắt đầu bằng phụ âm → a."],
+[5,"I'd like to be ___ artist.","an",["a","the"],"artist bắt đầu bằng nguyên âm → an."],
+[5,"Why would you like to be a gardener? – ___ I'd like to plant flowers.","Because",["And","So"],"Trả lời câu hỏi Why bằng Because."],
+[5,"I'd like ___ a firefighter.","to be",["be","being"],"would like + to + V."],
+[6,"Where's the library? – It's ___ the second floor.","on",["in","at"],"on + tầng."],
+[6,"Could you tell me the way to the art room? – Go ___ and turn left.","along the corridor",["on the corridor","to the corridor"],"go along the corridor."],
+[6,"Phòng nhạc ở tầng trên. Bạn đang ở tầng trệt. Go ___.","upstairs",["downstairs","past"],"upstairs = lên gác."],
+[6,"Go ___ the library and turn right.","past",["at","in"],"go past = đi qua."],
+[7,"He ___ solving maths problems.","likes",["like","liking"],"he + likes."],
+[7,"Why does she like reading books? – Because she thinks ___ interesting.","it's",["they're","I'm"],"reading books là một hoạt động → it's."],
+[7,"___ he like singing? – No, he doesn't.","Does",["Do","Is"],"Does he like…?"],
+[8,"Where are the pens? – ___ beside the notebooks.","They're",["It's","There"],"pens số nhiều → They're."],
+[8,"___ crayon is this? – It's Linh's.","Whose",["Who","What"],"Whose hỏi chủ sở hữu."],
+[8,"The picture is ___ the window. (ở phía trên)","above",["under","beside"],"above = ở phía trên."],
+[8,"Is this your glue stick? – No, it ___.","isn't",["doesn't","aren't"],"Is this…? → No, it isn't."],
+[9,"Were you at the funfair yesterday? – Yes, we ___.","were",["was","did"],"we đi với were."],
+[9,"I ___ at home yesterday.","was",["were","am"],"I → was (quá khứ)."],
+[9,"What did you do yesterday? – We ___ chess.","played",["play","plays"],"Quá khứ: play → played."],
+[9,"We ___ music at the campsite.","listened to",["listen to","listens to"],"Quá khứ: listened to."],
+[10,"___ they go to Ba Na Hills? – Yes, they did.","Did",["Do","Were"],"Hỏi quá khứ: Did…?"],
+[10,"Did they go to the zoo? – No, they ___. They went to a farm.","didn't",["don't","weren't"],"Did → didn't."],
+[10,"What did they do there? – They ___ the old buildings.","visited",["visit","visits"],"Quá khứ: visited."],
+[10,"Did she go to the pagoda? – Yes, she ___.","did",["does","was"],"Did → did."],
+[0,"My birthday is ___ March.","in",["on","at"],"Tháng đi với in."],
+[0,"Were you in Hue last summer? – No, I ___.","wasn't",["weren't","didn't"],"I → wasn't."],
+[0,"What ___ the weather like there? – It was rainy.","was",["were","is"],"weather số ít, quá khứ → was."],
+[0,"Stand ___ one foot.","on",["in","at"],"stand on one foot."],
+[1,"My name's Ba. I ___ in the city.","live",["lives","living"],"I + live."],
+[1,"I'm ___ Class 5B.","in",["on","at"],"in Class 5B."],
+[1,"What's your favourite food? – It's ___.","a sandwich",["pink","a dolphin"],"Food = đồ ăn."],
+[1,"My favourite animal is ___.","a dolphin",["pink","tennis"],"Animal = con vật."],
+[1,"___ you tell me about yourself?","Can",["Do","Are"],"Can you tell me about yourself?"],
+[1,"Do you like pandas? – No, I ___.","don't",["doesn't","can't"],"Do you…? → No, I don't."],
+[1,"I ___ like pandas. I like dolphins.","don't",["doesn't","isn't"],"I + don't."],
+[1,"Her favourite colour ___ pink.","is",["are","do"],"colour số ít → is."],
+[2,"Do you live in this tower? – Yes, I ___.","do",["am","does"],"Do you…? → Yes, I do."],
+[2,"I live ___ 15 Ba Dinh Street.","at",["to","of"],"live at + số nhà + đường."],
+[2,"She lives ___ sixteen London Street.","at",["to","with"],"lives at + địa chỉ."],
+[2,"Is it far from here? – Yes, it ___.","is",["does","was"],"Is it…? → Yes, it is."],
+[2,"I live ___ the school. (gần)","near",["far","away"],"near = gần."],
+[2,"I live far ___ here.","from",["to","at"],"far from here."],
+[2,"Số 19 đọc là:","nineteen",["ninety","nine"],"-teen: 13–19."],
+[2,"Số 90 đọc là:","ninety",["nineteen","nine"],"-ty: 30, 60, 90."],
+[2,"My address ___ 33 Oxford Street.","is",["are","do"],"address số ít → is."],
+[3,"He's from Japan. He's ___.","Japanese",["Japan","Japaneses"],"Japan → Japanese."],
+[3,"She is from Malaysia. She is ___.","Malaysian",["Malaysia","Malaysians"],"Malaysia → Malaysian."],
+[3,"What nationality ___ Tommy?","is",["does","do"],"What nationality is …?"],
+[3,"Where's he from? – He's ___ Australia.","from",["of","at"],"be from + nước."],
+[3,"What ___ she like? – She's helpful.","is",["does","do"],"What's she like? hỏi tính cách."],
+[3,"He likes helping others. He is ___.","helpful",["clever","British"],"helpful = hay giúp đỡ."],
+[3,"She plays a lot of sports. She is ___.","active",["helpful","American"],"active = năng động."],
+[3,"Sakura is Japanese. She is from ___.","Japan",["Japanese","Japans"],"from + tên nước."],
+[3,"Mary is ___ American girl.","an",["a","the"],"American bắt đầu bằng nguyên âm → an."],
+[4,"What does your brother like doing? – He likes ___ the Internet.","surfing",["surf","surfs"],"like + V-ing."],
+[4,"I like ___ the flowers.","watering",["water","waters"],"like + V-ing."],
+[4,"I ___ play the guitar. (không bao giờ)","never",["always","usually"],"never = không bao giờ."],
+[4,"What do you do ___ the weekend?","at",["on","in"],"at the weekend."],
+[4,"Do you always help your mother? – No, I ___. Just sometimes.","don't",["doesn't","aren't"],"Do you…? → No, I don't."],
+[4,"Chọn câu đúng:","He often goes for a walk.",["He goes often for a walk.","He often go for a walk."],"often đứng trước động từ; he → goes."],
+[4,"Do you like ___ cartoons?","watching",["watch","watches"],"like + V-ing."],
+[4,"What does she like ___ in her free time?","doing",["do","to do"],"like doing."],
+[4,"Trạng từ nào chỉ tần suất cao nhất?","always",["often","sometimes"],"always > usually > often > sometimes."],
+[4,"My brother ___ surfs the Internet.","usually",["usual","use"],"usually là trạng từ."],
+[4,"Laura ___ roller skating. She rarely goes.","doesn't like",["don't like","isn't like"],"Laura → doesn't."],
+[4,"I like playing ___ violin.","the",["a","an"],"play the + nhạc cụ."],
+[5,"My father's a ___. He puts out fires.","firefighter",["gardener","reporter"],"firefighter = lính cứu hoả."],
+[5,"A ___ plants flowers and trees.","gardener",["writer","dentist"],"gardener = người làm vườn."],
+[5,"A ___ writes stories.","writer",["reporter","teacher"],"writer = nhà văn."],
+[5,"A ___ reports the news.","reporter",["dentist","gardener"],"reporter = phóng viên."],
+[5,"What ___ you like to be in the future?","would",["do","are"],"What would you like to be?"],
+[5,"He'd like to be a teacher. He'd like to ___ children.","teach",["teaches","teaching"],"would like to + V."],
+[5,"Would you like to be a dentist? – Yes, I ___.","would",["do","am"],"Would you…? → Yes, I would."],
+[5,"Why would you like to be a writer? – Because I'd like to ___ stories.","write",["writes","writing"],"would like to + V."],
+[5,"She would like ___ a reporter.","to be",["being","be"],"would like to be."],
+[5,"Why ___ you like to be a firefighter?","would",["do","are"],"Why would you like to be…?"],
+[6,"Where's the music room? – It's on the ___ floor. (tầng 3)","third",["three","thirty"],"Số thứ tự: third."],
+[6,"Tầng trệt gọi là:","ground floor",["first floor","third floor"],"ground floor = tầng trệt."],
+[6,"___ the library? – It's on the first floor.","Where's",["What's","Who's"],"Hỏi vị trí: Where's…?"],
+[6,"Could you tell me the way ___ the library, please?","to",["at","on"],"the way to + nơi chốn."],
+[6,"The computer room is on the ground floor. You are on the first floor. Go ___.","downstairs",["upstairs","past"],"downstairs = xuống gác."],
+[6,"___ you tell me the way to the library?","Could",["Do","Are"],"Could you tell me…?"],
+[6,"Go along the corridor and turn ___. (rẽ trái)","left",["right","straight"],"left = trái."],
+[6,"Thank you. – You're ___.","welcome",["thanks","fine"],"You're welcome."],
+[6,"She's running ___.","downstairs",["to downstairs","downstair"],"downstairs là trạng từ, không cần to."],
+[6,"Excuse me. Where ___ the art room?","is",["are","do"],"art room số ít → is."],
+[7,"She likes ___ books.","reading",["read","reads"],"like + V-ing."],
+[7,"What school activity ___ he like?","does",["do","is"],"he → does."],
+[7,"He thinks maths is ___. (có ích)","useful",["use","used"],"useful = hữu ích."],
+[7,"Doing projects is good for ___ work.","group",["groups","grouping"],"good for group work."],
+[7,"Does your brother like reading? – No, he ___.","doesn't",["don't","isn't"],"Does → doesn't."],
+[7,"Why ___ she like playing chess?","does",["do","is"],"she → does."],
+[7,"Minh likes studying science. He wants to be a ___.","scientist",["science","singer"],"scientist = nhà khoa học."],
+[7,"Linh likes singing. She wants to be a ___.","singer",["sing","song"],"singer = ca sĩ."],
+[7,"She doesn't ___ dancing.","like",["likes","liking"],"doesn't + V nguyên mẫu."],
+[8,"Where are the maps? – They're ___ the board. (bên cạnh)","beside",["under","above"],"beside = bên cạnh."],
+[8,"The erasers are ___ the desk. (ở dưới)","under",["above","beside"],"under = ở dưới."],
+[8,"The pens are ___ the clock. (phía trước)","in front of",["above","under"],"in front of = ở phía trước."],
+[8,"The pictures are ___ the window. (phía trên)","above",["under","beside"],"above = ở phía trên."],
+[8,"Whose set square is this? – It's ___.","Nam's",["Nam","Nam is"],"Nam's = của Nam."],
+[8,"Class, what are these? – ___ maps.","They are",["It is","This is"],"these → they are."],
+[8,"___ the rulers under the chair? – Yes, they are.","Are",["Is","Do"],"rulers số nhiều → Are."],
+[8,"Are the erasers on the desk? – No, they ___.","aren't",["isn't","don't"],"Are → aren't."],
+[8,"Excuse me, is this your crayon? – Yes, ___.","it is",["they are","I do"],"Is this…? → Yes, it is."],
+[8,"Hung's pencils are in front of his pencil ___.","sharpener",["sharp","sharpen"],"pencil sharpener = gọt bút chì."],
+[9,"Were you at the theatre yesterday? – No, we ___.","weren't",["wasn't","didn't"],"we → weren't."],
+[9,"Where ___ you yesterday? – I was at the campsite.","were",["was","did"],"you → were."],
+[9,"Mai ___ at home yesterday.","was",["were","is"],"Mai (số ít) → was."],
+[9,"My cousins ___ to visit me yesterday.","came",["come","comes"],"Quá khứ của come: came."],
+[9,"We ___ the fish at the aquarium.","watched",["watch","watches"],"Quá khứ: watched."],
+[9,"They ___ badminton at the sports centre.","played",["play","plays"],"Quá khứ: played."],
+[9,"I ___ the guitar at the campsite.","played",["play","playing"],"Quá khứ: played."],
+[9,"We ___ around the campfire.","danced",["dance","dancing"],"Quá khứ: danced."],
+[9,"We planted trees ___ the farm.","at",["to","with"],"at the farm."],
+[9,"The cakes ___ delicious.","were",["was","are"],"cakes số nhiều, quá khứ → were."],
+[10,"Did Nam and Mai go with you? – Yes, they ___.","did",["do","were"],"Did → did."],
+[10,"Where ___ they go last weekend?","did",["do","were"],"Where did they go…?"],
+[10,"They ___ to Ba Na Hills.","went",["go","goes"],"Quá khứ của go: went."],
+[10,"We ___ to Sa Pa last November.","went",["go","goed"],"go → went."],
+[10,"Did your class go to Hoan Kiem Lake? – No, we ___.","didn't",["don't","weren't"],"Did → didn't."],
+[10,"What did they do there? – They ___ trees.","planted",["plant","plants"],"Quá khứ: planted."],
+[10,"They walked ___ the lake.","around",["in","with"],"walk around the lake."],
+[10,"Did you ___ a film there? – No, I didn't.","watch",["watched","watching"],"Did + V nguyên mẫu."],
+[10,"Chọn câu đúng:","They didn't visit the museum.",["They didn't visited the museum.","They don't visited the museum."],"didn't + V nguyên mẫu."]
+];
+
+/* ---------- TIỆN ÍCH ---------- */
+const $=s=>document.querySelector(s);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* Tabs */
+const tabs=[...document.querySelectorAll('[role=tab]')];
+tabs.forEach((t,i)=>{
+  t.onclick=()=>tabs.forEach((x,j)=>{x.setAttribute('aria-selected',i===j);$('#p'+j).hidden=i!==j});
+  t.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];n.focus();n.click()}};
+});
+
+/* Tab 1: Ngữ pháp */
+$('#p0').innerHTML=G.map((u,i)=>`<details${i===0?' open':''}><summary>${esc(u.t)}</summary><div class="body">`+
+  u.s.map(p=>`<p class="pair"><b>${esc(p[0])}</b><span>${esc(p[1])}</span></p>`).join('')+
+  `<p class="meta"><strong>Từ vựng:</strong> ${esc(u.v)}</p>`+(u.st?`<p class="meta"><strong>Trọng âm:</strong> ${esc(u.st)}</p>`:'')+`</div></details>`).join('')+
+  `<div class="note"><h2>Lưu ý chung</h2><ul>${NOTES.map(n=>`<li>${esc(n)}</li>`).join('')}</ul></div>`;
+
+/* Bộ máy quiz dùng chung */
+function quiz(box,items,unitLabel){
+  let i=0,score=0,wrong=[];
+  const draw=()=>{
+    if(!items.length){box.innerHTML='<div class="q"><p>Chưa có câu hỏi cho phần này.</p></div>';return}
+    if(i>=items.length){
+      var rpc=items.length?score/items.length:0,emo=rpc>=0.9?'🏆':rpc>=0.7?'🎉':rpc>=0.5?'😊':'😭';
+      box.innerHTML=`<div class="q end"><div style="font-size:3.4rem;line-height:1;margin:4px 0">${emo}</div><p class="score">${score}/${items.length}</p><p>${score===items.length?'Tuyệt vời! Bạn trả lời đúng hết.':score>=items.length*0.7?'Rất tốt! Xem lại vài câu sai nhé.':'Cố lên! Ôn lại phần Ngữ pháp rồi thử lại.'}</p>`+
+      (wrong.length?`<p style="text-align:left"><b>Câu cần ôn:</b></p>`+wrong.map(w=>`<p class="pair" style="text-align:left"><b>${esc(w.q)}</b><span>Đáp án: ${esc(w.a)}</span></p>`).join(''):'')+
+      `<button class="btn pri" id="again">Chơi vòng mới</button></div>`;
+      box.querySelector('#again').onclick=unitLabel;return;
+    }
+    const it=items[i];
+    box.innerHTML=`<div class="q"><div class="prog"><span>Câu ${i+1}/${items.length}</span><span>Đúng: ${score}</span></div><div class="track"><i style="width:${i/items.length*100}%"></i></div><p class="qt">${esc(it.q)}</p><div class="opts">${it.o.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}</div><p class="fb" aria-live="polite"></p><div id="nx"></div></div>`;
+    box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const ok=it.o[b.dataset.k]===it.a;
+      box.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(it.o[x.dataset.k]===it.a)x.classList.add('ok')});
+      if(ok)score++;else{b.classList.add('bad');wrong.push(it)}
+      box.querySelector('.fb').textContent=(ok?'Chính xác! ':'Chưa đúng. ')+(it.e||'');
+      box.querySelector('#nx').innerHTML=`<button class="btn pri" style="margin-top:10px" id="next">${i+1===items.length?'Xem kết quả':'Câu tiếp'}</button>`;
+      const n=box.querySelector('#next');n.focus();n.onclick=()=>{i++;draw()};
+    });
+  };
+  draw();
+}
+
+/* Tab 2: Quiz từ vựng */
+function startV(){
+  const dir=$('#vDir').value;
+  const pick=shuffle(V).slice(0,10);
+  const items=pick.map(w=>{
+    const ev=dir==='ev',ans=ev?w[1]:w[0];
+    const others=shuffle(V.filter(x=>x!==w)).slice(0,3).map(x=>ev?x[1]:x[0]);
+    return{q:ev?`"${w[0]}" nghĩa là gì?`:`"${w[1]}" trong tiếng Anh là gì?`,a:ans,o:shuffle([ans,...others]),e:`${w[0]} = ${w[1]} (Unit ${w[2]})`};
+  });
+  quiz($('#vBox'),items,startV);
+}
+$('#vGo').onclick=startV;$('#vDir').onchange=startV;startV();
+
+/* Tab 3: Quiz ngữ pháp */
+function startG(){
+  const items=shuffle(Q).slice(0,10).map(x=>({q:x[1],a:x[2],o:shuffle([x[2],...x[3]]),e:x[4]}));
+  quiz($('#gBox'),items,startG);
+}
+$('#gGo').onclick=startG;startG();
+</script>
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quiz Toán 5 & Tiếng Việt 5 - SGK Tập 2</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc2:#e8f6f5;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body[data-s=v]{--acc:#b3263e;--acc2:#fbeaec;--hl:#bfe9d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
+body[data-s=v]{--acc:#ff8fa3;--acc2:#3a1f27;--hl:#2c5a47}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 16px;font-size:.92rem}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab,.chip,.btn,.opt{font:inherit;color:inherit;cursor:pointer}
+.tab{flex:1;padding:10px;border:2px solid var(--ink);background:var(--card);border-radius:10px;font-weight:700}
+.tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+.subtabs{display:inline-flex;gap:0;margin:0 0 16px;border:2px solid var(--line);background:var(--card);border-radius:999px;padding:3px}
+.subtab{font:inherit;color:var(--mute);cursor:pointer;border:none;background:transparent;padding:7px 20px;border-radius:999px;font-weight:600;font-size:.9rem}
+.subtab[aria-selected=true]{background:var(--acc);color:#fff}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{padding:6px 12px;border:2px solid var(--ink);border-radius:99px;background:var(--card);font-size:.88rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:5px 5px 0 var(--acc)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .25s}
+.meta{display:flex;justify-content:space-between;color:var(--mute);font-size:.88rem;margin-bottom:6px}
+.q{font-size:1.12rem;font-weight:700;margin:6px 0 14px;overflow-wrap:anywhere}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:8px 0;border:2px solid var(--line);background:var(--paper);border-radius:10px;overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.ok{border-color:var(--ok);background:var(--okb)}
+.opt.no{border-color:var(--bad);background:var(--badb)}
+.exp{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--acc2)}
+.btn{margin-top:14px;padding:11px 20px;border:2px solid var(--ink);background:var(--hl);color:#1b2a41;border-radius:10px;font-weight:700}
+.btn.alt{background:var(--card);color:var(--ink);margin-left:8px}
+.big{font-size:3rem;font-weight:800;line-height:1.1;margin:6px 0}
+.hist{margin-top:18px}
+.hist h2{font-size:1.05rem;margin:0 0 8px;font-weight:800}
+.htbl{width:100%;border-collapse:collapse;font-size:.86rem}
+.htbl th,.htbl td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.htbl th{color:var(--mute);font-weight:700}
+.htbl td.sc{font-weight:700;white-space:nowrap}
+.hempty{color:var(--mute);font-size:.9rem;margin:4px 0}
+.link{background:none;border:none;color:var(--acc);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin-top:10px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+#review details{background:var(--card);border:2px solid var(--ink);border-radius:12px;margin-bottom:12px}
+#review summary{padding:12px 14px;font-weight:700;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+#review summary::-webkit-details-marker{display:none}
+#review summary::before{content:"\25B8";color:var(--acc);transition:transform .15s}
+#review details[open]>summary::before{transform:rotate(90deg)}
+#review .cnt{padding:0 16px 14px}
+#review .cnt h3{font-size:1rem;margin:14px 0 4px;color:var(--acc)}
+#review .cnt ul{margin:4px 0;padding-left:20px}#review .cnt li{margin:3px 0}
+#review table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto;margin:8px 0}
+#review td,#review th{border:1px solid var(--line);padding:5px 8px;text-align:left}#review th{background:var(--acc2)}
+#review .rule{background:var(--acc2);border-left:5px solid var(--acc);padding:8px 12px;border-radius:6px;margin:8px 0}
+#review .cnt h2{font-size:1rem;margin:10px 0 4px;color:var(--acc)}
+#review .foot{color:var(--mute);font-size:.88rem;margin-top:20px}
+</style>
+</head>
+<body data-s="t">
+<main>
+<p><a class="link" href="index.html">← Về trang chủ</a></p>
+<h1>Quiz Toán 5 &amp; Tiếng Việt 5 - SGK Tập 2</h1>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (chọn môn, 15 câu ngẫu nhiên) hoặc <b>Quiz theo chủ đề</b> (20 câu ngẫu nhiên mỗi chủ đề).</p>
+<div class="tabs"><button class="tab" id="mreview" aria-selected="true">Nội dung ôn tập</button><button class="tab" id="mmix" aria-selected="false">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
+<div class="subtabs" id="subjtabs" hidden><button class="subtab" id="tt" aria-selected="true">Toán</button><button class="subtab" id="tv" aria-selected="false">Tiếng Việt</button></div>
+<div class="chips" id="chips"></div>
+<div id="box"></div>
+<div id="review" hidden>
+<div class="subtabs" id="rvsub"><button class="subtab" id="rvtoan" aria-selected="true">Toán</button><button class="subtab" id="rvviet" aria-selected="false">Tiếng Việt</button></div>
+<div id="rvtoanc"><section id="toansum"><details><summary>Bảng công thức cần nhớ</summary><div class="cnt">
+<table><tr><th>Nội dung</th><th>Công thức</th></tr>
+<tr><td>Tỉ số của a và b</td><td>a : b hay a/b (b khác 0)</td></tr>
+<tr><td>Tỉ số phần trăm của a và b</td><td>(a : b) × 100, viết thêm kí hiệu %</td></tr>
+<tr><td>Tìm P% của số A</td><td>A × P : 100 (hoặc A : 100 × P)</td></tr>
+<tr><td>Tổng – tỉ</td><td>Tổng số phần = tổng các phần; 1 phần = tổng : tổng số phần</td></tr>
+<tr><td>Hiệu – tỉ</td><td>Hiệu số phần = phần lớn − phần bé; 1 phần = hiệu : hiệu số phần</td></tr>
+<tr><td>Thể tích hình hộp chữ nhật</td><td>V = a × b × c (dài × rộng × cao)</td></tr>
+<tr><td>Thể tích hình lập phương</td><td>V = a × a × a</td></tr>
+<tr><td>Diện tích xung quanh hình hộp chữ nhật</td><td>S<sub>xq</sub> = chu vi mặt đáy × chiều cao = (a + b) × 2 × c</td></tr>
+<tr><td>Diện tích toàn phần hình hộp chữ nhật</td><td>S<sub>tp</sub> = S<sub>xq</sub> + 2 × S<sub>đáy</sub></td></tr>
+<tr><td>Hình lập phương cạnh a</td><td>S<sub>xq</sub> = a × a × 4; S<sub>tp</sub> = a × a × 6</td></tr>
+<tr><td>Vận tốc, quãng đường, thời gian</td><td>v = s : t; s = v × t; t = s : v</td></tr></table></div></details>
+
+<details><summary>Chủ đề 7 – Tỉ số và các bài toán liên quan (Bài 36–44)</summary><div class="cnt">
+<h3>Tỉ số, tỉ số phần trăm</h3>
+<div class="rule">Tỉ số của a và b là a : b hay a/b (b khác 0).<br>Ví dụ: 3 ô tô điện và 7 ô tô bến, tỉ số số ô tô điện và số ô tô ở bến là 3 : 7 hay 3/7.</div>
+<ul><li>Tỉ số phần trăm là tỉ số có mẫu 100: 43/100 = 43% (đọc là bốn mươi ba phần trăm), nghĩa là trong 100 phần có 43 phần.</li>
+<li>Viết tỉ số thành tỉ số phần trăm: 9/25 = 36/100 = 36%; 37,5 : 100 = 37,5%.</li>
+<li><b>Tìm tỉ số phần trăm của hai số:</b> tìm thương của hai số, nhân thương với 100 rồi viết thêm % vào bên phải. Ví dụ 37 : 40 = 0,925; 0,925 × 100 = 92,5 nên tỉ số phần trăm là 92,5%.</li>
+<li><b>Tìm giá trị phần trăm của một số:</b> 60% của 300 tấn là 300 × 60 : 100 = 180 tấn (hoặc 300 : 100 × 60).</li></ul>
+<h3>Tỉ lệ bản đồ</h3>
+<div class="rule">Bản đồ tỉ lệ 1 : 1 000 000 nghĩa là 1 cm trên bản đồ ứng với 1 000 000 cm trên thực tế (1 000 000 cm = 10 km).</div>
+<div class="ex">Ví dụ: chiều rộng thật 50 m = 5 000 cm; trên bản đồ tỉ lệ 1 : 1 000 thì 5 000 : 1 000 = 5 cm.</div>
+<ul><li>Từ độ dài trên bản đồ tìm độ dài thực: nhân với mẫu của tỉ lệ rồi đổi đơn vị. Ngược lại: chia cho mẫu của tỉ lệ.</li></ul>
+<h3>Tìm hai số khi biết tổng và tỉ số</h3>
+<ol><li>Vẽ sơ đồ đoạn thẳng; tìm tổng số phần bằng nhau.</li><li>Tìm giá trị một phần = tổng : tổng số phần.</li><li>Tìm từng số; ghi đáp số.</li></ol>
+<div class="ex">Hai lớp góp 60 quyển; số quyển lớp 5A bằng 7/8 lớp 5B. Tổng số phần: 7 + 8 = 15; lớp 5A: 60 : 15 × 7 = 28 quyển; lớp 5B: 60 − 28 = 32 quyển.</div>
+<h3>Tìm hai số khi biết hiệu và tỉ số</h3>
+<div class="ex">Sóc chị có số hạt dẻ bằng 5/3 sóc em, sóc chị hơn sóc em 6 hạt. Hiệu số phần: 5 − 3 = 2; mỗi phần: 6 : 2 = 3; sóc chị 3 × 5 = 15 hạt; sóc em 15 − 6 = 9 hạt.</div>
+<h3>Máy tính cầm tay</h3>
+<ul><li>Bấm phím ON/C để bật máy; thực hiện phép tính bằng cách bấm lần lượt các số, dấu phép tính rồi phím “=”. Ví dụ 128 + 136 bấm: 1 2 8 + 1 3 6 = cho kết quả 264.</li>
+<li>Máy tính thực hiện theo thứ tự phép tính (nhân chia trước, cộng trừ sau); nên dùng máy để kiểm tra kết quả, không thay cho việc tính nhẩm và đặt tính.</li></ul></div></details>
+
+<details><summary>Chủ đề 8 – Thể tích, đơn vị đo thể tích (Bài 45–48)</summary><div class="cnt">
+<ul><li><b>Thể tích</b> của một hình là phần không gian mà hình đó chiếm chỗ. Muốn so sánh thể tích các hình, dùng cùng một đơn vị đo.</li>
+<li>Hình hộp chữ nhật có 3 kích thước: chiều dài, chiều rộng, chiều cao.</li></ul>
+<div class="rule"><b>Xăng-ti-mét khối (cm³)</b> là thể tích hình lập phương cạnh 1 cm.<br><b>Đề-xi-mét khối (dm³)</b> là thể tích hình lập phương cạnh 1 dm.<br>1 dm³ = 1 000 cm³; 1 cm³ = 1/1 000 dm³.</div>
+<div class="rule"><b>Mét khối (m³)</b> là thể tích hình lập phương cạnh 1 m.<br>1 m³ = 1 000 dm³ = 1 000 000 cm³; 1 dm³ = 1/1 000 m³; 1 cm³ = 1/1 000 000 m³.</div>
+<ul><li>Hai đơn vị thể tích liền kề hơn kém nhau 1 000 lần. Đổi sang đơn vị bé hơn thì nhân 1 000; sang đơn vị lớn hơn thì chia 1 000.</li>
+<li>Đọc, viết: 47 cm³ đọc là “bốn mươi bảy xăng-ti-mét khối”.</li></ul></div></details>
+
+<details><summary>Chủ đề 9 – Diện tích và thể tích của một số hình khối (Bài 49–55)</summary><div class="cnt">
+<ul><li><b>Hình khai triển</b> của một hình khối là hình có thể gấp lại để được hình khối đó (hình hộp chữ nhật, hình lập phương, hình trụ).</li></ul>
+<h3>Hình hộp chữ nhật</h3>
+<div class="rule">Diện tích xung quanh = tổng diện tích bốn mặt bên = chu vi mặt đáy × chiều cao.<br>Diện tích toàn phần = diện tích xung quanh + diện tích hai mặt đáy.<br>Thể tích V = a × b × c (cùng đơn vị đo).</div>
+<div class="ex">Hộp có đáy 4 m × 5 m, cao 2 m: S<sub>xq</sub> = (4 + 5) × 2 × 2 = 36 m². Hộp 6 dm × 5 dm × 4 dm: V = 6 × 5 × 4 = 120 dm³.</div>
+<h3>Hình lập phương</h3>
+<div class="rule">Diện tích xung quanh = diện tích một mặt × 4 = a × a × 4.<br>Diện tích toàn phần = diện tích một mặt × 6 = a × a × 6.<br>Thể tích V = a × a × a.</div>
+<div class="ex">Cạnh 30 cm: một mặt 30 × 30 = 900 cm²; S<sub>xq</sub> = 900 × 4 = 3 600 cm². Cạnh 3 cm: V = 3 × 3 × 3 = 27 cm³.</div>
+<ul><li>Khi tính, đưa các kích thước về cùng một đơn vị đo rồi mới nhân. Diện tích ghi bằng đơn vị vuông (cm², m²), thể tích ghi bằng đơn vị khối (cm³, m³).</li>
+<li>Bài toán thực tế: thể tích nước trong bể, số khối nhỏ xếp vừa vào hộp (lấy thể tích hộp : thể tích một khối), thể tích vật chìm trong nước.</li></ul></div></details>
+
+<details><summary>Chủ đề 10 – Số đo thời gian, vận tốc, chuyển động đều (Bài 56–62)</summary><div class="cnt">
+<h3>Các đơn vị đo thời gian</h3>
+<table><tr><th>Đơn vị</th><th>Quan hệ</th></tr>
+<tr><td>Thế kỉ, năm</td><td>1 thế kỉ = 100 năm; 1 năm = 12 tháng = 365 ngày; năm nhuận 366 ngày (cứ 4 năm có 1 năm nhuận)</td></tr>
+<tr><td>Tháng</td><td>Tháng 1, 3, 5, 7, 8, 10, 12 có 31 ngày; tháng 4, 6, 9, 11 có 30 ngày; tháng 2 có 28 ngày (năm nhuận 29 ngày)</td></tr>
+<tr><td>Tuần, ngày, giờ</td><td>1 tuần = 7 ngày; 1 ngày = 24 giờ; 1 giờ = 60 phút; 1 phút = 60 giây</td></tr></table>
+<h3>Cộng, trừ, nhân, chia số đo thời gian</h3>
+<ul><li>Cộng, trừ: đặt tính theo từng đơn vị; nếu không trừ được thì đổi (1 giờ = 60 phút, 1 phút = 60 giây).</li>
+<li>Ví dụ: 4 phút 10 giây − 2 phút 30 giây: đổi 4 phút 10 giây = 3 phút 70 giây; 3 phút 70 giây − 2 phút 30 giây = 1 phút 40 giây.</li>
+<li>Nhân, chia: nhân (chia) từng đơn vị với số đó; nếu kết quả vượt quá 60 (phút, giây) hoặc 24 (giờ) thì đổi sang đơn vị lớn hơn.</li></ul>
+<h3>Vận tốc, quãng đường, thời gian của chuyển động đều</h3>
+<div class="rule">Vận tốc v = quãng đường s : thời gian t.<br>Quãng đường s = v × t.<br>Thời gian t = s : v.<br>Đơn vị: km/h (ki-lô-mét trên giờ), m/s (mét trên giây).</div>
+<div class="ex">Chim én bay 210 km trong 2 giờ: v = 210 : 2 = 105 km/h. Chuột túi chạy 70 m trong 5 giây: v = 70 : 5 = 14 m/s. Ô tô đi 65 km/h trong 2 giờ: s = 65 × 2 = 130 km.</div>
+<ul><li>Chú ý đơn vị: quãng đường (km hoặc m), thời gian (giờ hoặc giây) phải khớp với đơn vị vận tốc. Nếu thời gian có phút, đổi ra giờ trước khi tính (30 phút = 0,5 giờ).</li>
+<li>Mở rộng: 1 m/s = 3,6 km/h.</li>
+<li>Thời gian khởi hành, đến nơi: thời gian đi = giờ đến − giờ khởi hành (trừ thời gian nghỉ nếu có).</li></ul></div></details>
+
+<details><summary>Chủ đề 11 – Một số yếu tố thống kê và xác suất (Bài 63–67)</summary><div class="cnt">
+<ul><li><b>Thu thập, phân loại, sắp xếp số liệu:</b> chia số liệu thành các nhóm theo tiêu chí (ví dụ cân nặng quả thanh long chia 3 loại S, M, L), rồi lập bảng số liệu.</li>
+<li><b>Biểu đồ hình quạt tròn</b> cho biết tỉ số phần trăm của từng phần so với toàn thể; cả hình tròn là 100%. Ví dụ: lớp 3 chiếm 45%, lớp 4 chiếm 23%, lớp 5 chiếm 32% (45 + 23 + 32 = 100). Nếu có 100 học sinh thì lớp 3 có 45 học sinh.</li>
+<li>Muốn tìm số lượng ứng với một phần của biểu đồ: lấy tổng số × tỉ số phần trăm của phần đó : 100.</li></ul>
+<div class="rule">Tỉ số của số lần lặp lại một sự kiện so với tổng số lần thực hiện.<br>Ví dụ: tung đồng xu 20 lần, có 7 lần nhận mặt hình thì tỉ số là 7/20 (35%); có 13 lần nhận mặt số thì tỉ số là 13/20 (65%).</div>
+<ul><li>Khi thu thập, phân tích số liệu: đọc bảng hoặc biểu đồ, so sánh số liệu, tìm số liệu xuất hiện nhiều nhất, tính trung bình cộng (tổng các số liệu : số lượng số liệu).</li>
+<li>Khả năng xảy ra của một sự kiện: chắc chắn xảy ra, có thể xảy ra, hoặc không thể xảy ra.</li></ul></div></details>
+
+<details><summary>Chủ đề 12 – Ôn tập cuối năm (Bài 68–75)</summary><div class="cnt">
+<h3>Số và các phép tính</h3>
+<ul><li>Số tự nhiên, phân số, số thập phân: đọc, viết, so sánh, làm tròn; đổi giữa phân số, số thập phân và tỉ số phần trăm.</li>
+<li>Bốn phép tính với số tự nhiên, phân số, số thập phân; tính chất giao hoán, kết hợp, nhân với một tổng; thứ tự thực hiện phép tính.</li>
+<li>Giải toán: tổng – tỉ, hiệu – tỉ, tìm tỉ số phần trăm, tìm giá trị phần trăm của một số, toán có lời văn nhiều bước.</li></ul>
+<h3>Bảng đơn vị đo cần nhớ</h3>
+<table><tr><th>Đại lượng</th><th>Các đơn vị</th><th>Hai đơn vị liền kề</th></tr>
+<tr><td>Độ dài</td><td>km, hm, dam, m, dm, cm, mm</td><td>gấp (kém) 10 lần</td></tr>
+<tr><td>Khối lượng</td><td>tấn, tạ, yến, kg, hg, dag, g</td><td>gấp (kém) 10 lần (tấn – tạ – yến – kg: 10 lần)</td></tr>
+<tr><td>Diện tích</td><td>km², ha, m², dm², cm², mm²</td><td>gấp (kém) 100 lần (1 km² = 100 ha; 1 ha = 10 000 m²)</td></tr>
+<tr><td>Thể tích</td><td>m³, dm³, cm³</td><td>gấp (kém) 1 000 lần</td></tr>
+<tr><td>Thời gian</td><td>giờ, phút, giây,…</td><td>1 giờ = 60 phút = 3 600 giây</td></tr></table>
+<h3>Hình học</h3>
+<ul><li>Tam giác: S = a × h : 2. Hình thang: S = (a + b) × h : 2.</li>
+<li>Đường tròn: C = d × 3,14 = r × 2 × 3,14. Hình tròn: S = r × r × 3,14.</li>
+<li>Hình hộp chữ nhật, hình lập phương: diện tích xung quanh, diện tích toàn phần, thể tích (xem bảng công thức ở đầu trang).</li></ul>
+<h3>Chuyển động đều, thống kê và xác suất</h3>
+<ul><li>Chuyển động đều: v = s : t; s = v × t; t = s : v; luôn kiểm tra đơn vị.</li>
+<li>Thống kê: đọc bảng số liệu, biểu đồ cột, biểu đồ hình quạt tròn; tính tỉ số phần trăm và trung bình cộng.</li>
+<li>Xác suất: tỉ số số lần lặp lại của sự kiện so với tổng số lần thực hiện; nhận biết khả năng chắc chắn, có thể, không thể.</li></ul>
+<h3>Mẹo làm bài</h3>
+<ul><li>Đọc kĩ đề, gạch chân dữ kiện, vẽ sơ đồ với bài tổng – tỉ và hiệu – tỉ.</li>
+<li>Đổi về cùng đơn vị trước khi tính; ước lượng kết quả để kiểm tra.</li>
+<li>Trình bày đủ lời giải, phép tính và đáp số có đơn vị.</li></ul></div></details>
+
+<p class="foot">Tổng hợp từ SGK Toán 5 Tập 2 (Kết nối tri thức với cuộc sống), dựa trên mục lục và các trang kiến thức chính của sách. Một số mục mở rộng (đổi m/s sang km/h, bảng đơn vị đo tổng hợp) được bổ sung để ôn tập.</p></section></div>
+<div id="rvvietc"><section id="sum">
+<details open><summary>Cấu trúc sách: 4 chủ điểm</summary><div class="cnt">
+<table><tr><th>Chủ điểm</th><th>Tuần</th><th>Bài đọc</th><th>Luyện từ và câu</th></tr>
+<tr><td>Vẻ đẹp cuộc sống</td><td>19–22</td><td>Tiếng hát của người đá; Khúc hát ru những em bé lớn trên lưng mẹ; Hạt gạo làng ta; Hộp quà màu thiên thanh; Thư của bố; Đoàn thuyền đánh cá</td><td>Câu đơn và câu ghép; cách nối các vế câu ghép</td></tr>
+<tr><td>Hương sắc trăm miền</td><td>23–26</td><td>Hội thổi cơm thi ở Đồng Văn; Hương cốm mùa thu; Vũ điệu trên nền thổ cẩm; Đàn t’rưng – tiếng ca đại ngàn; Đường quê Đồng Tháp Mười; Xuồng ba lá quê tôi; Về thăm Đất Mũi</td><td>Liên kết câu: lặp từ ngữ, từ ngữ nối, từ ngữ thay thế</td></tr>
+<tr><td>Tiếp bước cha ông</td><td>28–31</td><td>Nghìn năm văn hiến; Người thầy của muôn đời; Danh y Tuệ Tĩnh; Cụ Đồ Chiểu; Anh hùng Lao động Trần Đại Nghĩa; Bộ đội về làng; Về ngôi nhà đang xây; Việt Nam quê hương ta</td><td>Ôn đại từ, kết từ, từ đồng nghĩa, từ đa nghĩa, câu ghép; viết hoa danh từ chung thể hiện sự tôn trọng đặc biệt</td></tr>
+<tr><td>Thế giới của chúng ta</td><td>32–34</td><td>Bài ca trái đất; Những con hạc giấy; Một người hùng thầm lặng; Giờ Trái Đất; Điện thoại di động</td><td>Cách viết tên người, tên địa lí nước ngoài; dấu gạch ngang; liên kết câu trong đoạn văn</td></tr></table>
+<p>Tuần 27 (ôn tập, đánh giá giữa học kì II) và tuần 35 (ôn tập, đánh giá cuối năm học).</p></div></details>
+
+<details><summary>Câu đơn và câu ghép</summary><div class="cnt">
+<div class="rule"><b>Câu đơn</b> là câu chỉ có một cụm chủ ngữ – vị ngữ. Ví dụ: “Cánh đồng lúa chín vàng.”<br><b>Câu ghép</b> là câu gồm hai hay nhiều cụm chủ ngữ – vị ngữ ghép lại. Mỗi cụm chủ ngữ – vị ngữ là một <b>vế câu</b>; các vế có quan hệ chặt chẽ về nghĩa. Ví dụ: “Trời mưa to, đường rất trơn.” (2 vế).</div>
+<h3>Cách nối các vế câu ghép</h3>
+<ul><li><b>Dùng từ nối:</b> kết từ (và, còn, nhưng,…) hoặc cặp kết từ (vì … nên …; nếu … thì …; tuy … nhưng …; mặc dù … nhưng …; không những … mà còn …).</li>
+<li><b>Không dùng từ nối:</b> nối trực tiếp bằng dấu câu (dấu phẩy, dấu chấm phẩy, dấu hai chấm).</li></ul>
+<table><tr><th>Quan hệ giữa các vế</th><th>Cặp từ thường dùng</th></tr>
+<tr><td>Nguyên nhân – kết quả</td><td>vì … nên …; bởi vì … cho nên …</td></tr>
+<tr><td>Điều kiện – kết quả</td><td>nếu … thì …; hễ … thì …</td></tr>
+<tr><td>Tương phản</td><td>tuy … nhưng …; mặc dù … nhưng …</td></tr>
+<tr><td>Tăng tiến</td><td>không những … mà còn …; chẳng những … mà còn …</td></tr></table>
+<p><b>Chú ý:</b> “Mai và Lan là đôi bạn thân” là câu đơn (từ “và” chỉ nối hai từ ngữ). “Hoa nở rộ và ong bướm bay về” là câu ghép (“và” nối hai vế).</p></div></details>
+
+<details><summary>Liên kết câu trong đoạn văn</summary><div class="cnt">
+<div class="rule">Các câu trong một đoạn văn liên kết chặt chẽ với nhau bằng:<br>1) <b>Lặp từ ngữ:</b> câu sau lặp lại từ ngữ ở câu trước. “Hoa đào nở rộ khắp vườn. <b>Hoa đào</b> báo hiệu mùa xuân.”<br>2) <b>Từ ngữ nối:</b> nhưng, vì thế, tuy nhiên, rồi,… đặt ở đầu câu sau, thể hiện quan hệ giữa hai câu. “Trời mưa to. <b>Nhưng</b> chúng em vẫn đến lớp.”<br>3) <b>Từ ngữ thay thế:</b> dùng đại từ (nó, chúng, họ, đó, ấy…) hoặc từ ngữ khác thay cho từ ngữ ở câu trước. “Những chiếc thuyền ra khơi từ sớm. <b>Chúng</b> trở về lúc hoàng hôn.”</div>
+<ul><li>Các từ ngữ nối thường gặp: nhưng, tuy nhiên (tương phản); vì thế, vì vậy, do đó (nguyên nhân – kết quả); rồi, sau đó (tiếp nối).</li></ul></div></details>
+
+<details><summary>Ôn đại từ, kết từ, từ đồng nghĩa, từ đa nghĩa, dấu gạch ngang</summary><div class="cnt">
+<ul><li><b>Đại từ:</b> xưng hô hoặc thay thế danh từ, động từ, tính từ để tránh lặp (tôi, chúng tôi, họ, nó, vậy, thế).</li>
+<li><b>Kết từ:</b> nối các từ ngữ hoặc các câu (và, của, với, nhưng, nếu, thì, vì, nên,…).</li>
+<li><b>Từ đồng nghĩa:</b> nghĩa giống hoặc gần giống nhau (siêng năng – chăm chỉ). <b>Từ đa nghĩa:</b> có nghĩa gốc và nghĩa chuyển, các nghĩa có mối liên hệ.</li>
+<li><b>Dấu gạch ngang:</b> đánh dấu lời nói trực tiếp của nhân vật; phần chú thích; các ý liệt kê (đầu dòng); nối các từ ngữ trong một liên danh (Hà Nội – Hải Phòng).</li></ul></div></details>
+
+<details><summary>Viết hoa: danh từ chung tôn trọng đặc biệt, tên người và tên địa lí nước ngoài</summary><div class="cnt">
+<div class="rule"><b>Viết hoa danh từ chung để thể hiện sự tôn trọng đặc biệt:</b> một số danh từ chung (Bác, Người, Tổ quốc, Đảng,…) được viết hoa khi dùng với ý nghĩa tôn kính đặc biệt. Ví dụ: “Con ở miền Nam ra thăm làng <b>Bác</b>.”; “Nhân dân ta tin tưởng vào sự lãnh đạo của <b>Đảng</b>.”</div>
+<div class="rule"><b>Tên người, tên địa lí nước ngoài:</b><br>– Viết hoa chữ cái đầu của mỗi bộ phận tạo thành tên; những tiếng trong cùng một bộ phận được nối với nhau bằng dấu gạch nối. Ví dụ: Pa-ri, Ê-vơ-rét, Hi-ma-lay-a, Ten-đing No-gay, Ét-mun Hi-la-ri.<br>– Tên phiên âm qua âm Hán Việt (Trung Quốc, Ấn Độ) viết như tên riêng Việt Nam.</div></div></details>
+
+<details><summary>Tập làm văn</summary><div class="cnt">
+<h3>Văn tả người</h3>
+<ul><li><b>Mở bài:</b> giới thiệu người được tả. <b>Thân bài:</b> tả ngoại hình (tầm vóc, khuôn mặt, mái tóc, đôi mắt, nụ cười…), hoạt động (cử chỉ, việc làm), tính tình. <b>Kết bài:</b> nêu cảm nghĩ về người được tả.</li>
+<li>Chọn nét tiêu biểu, quan sát bằng nhiều giác quan, dùng so sánh, nhân hoá cho sinh động.</li></ul>
+<h3>Văn tả phong cảnh (ôn tập)</h3>
+<ul><li>Mở bài giới thiệu cảnh; thân bài tả đặc điểm nổi bật theo trình tự; kết bài nêu cảm nghĩ. Lập dàn ý trước khi viết.</li></ul>
+<h3>Đoạn văn thể hiện tình cảm, cảm xúc về một sự việc</h3>
+<ul><li>Nêu sự việc, nêu cảm xúc, nói điều gây ấn tượng và lí do; có câu mở đoạn, các câu triển khai, câu kết; dùng từ ngữ liên kết câu.</li></ul>
+<h3>Chương trình hoạt động</h3>
+<ul><li>Gồm: tên chương trình; mục đích; thời gian và địa điểm; chuẩn bị; các hoạt động chính (theo trình tự), phân công nhiệm vụ. Trình bày rõ ràng, ngắn gọn.</li></ul>
+<h3>Đoạn văn nêu ý kiến tán thành và ý kiến phản đối</h3>
+<div class="rule"><b>Tán thành:</b> câu mở đoạn nêu ý kiến tán thành → lí do, dẫn chứng → câu kết khẳng định lại ý kiến. Dùng: “Tôi tán thành…”, “Tôi đồng ý với…”.<br><b>Phản đối:</b> câu mở đoạn nêu ý kiến phản đối → lí do, dẫn chứng (tác hại) → đề xuất hoặc lời kêu gọi. Dùng: “Tôi không đồng tình…”, “Tôi phản đối…”; giữ thái độ lịch sự.</div></div></details>
+</section></div>
+</div>
+</main>
+<script>
+window.T5T2_T=(function(){
+var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))},P=function(a){return a[R(0,a.length-1)]};
+function sh(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=R(0,k),t=a[k];a[k]=a[j];a[j]=t}return a}
+var F=function(v){var s=(+v.toFixed(6)).toString().split("."),i=s[0].replace(/\B(?=(\d{3})+(?!\d))/g," ");return s[1]?i+","+s[1]:i};
+var G=function(a,b){return b?G(b,a%b):a};
+var fr=function(n,d){var g=G(n,d);n/=g;d/=g;return d==1?""+n:n+"/"+d};
+var FD=function(n,d){return [[n+1,d],[n,d+1],[n+2,d+1],[n+1,d+2],[n+3,d],[n,d+2]].filter(function(x){return x[0]*d!=x[1]*n}).map(function(x){return fr(x[0],x[1])})};
+var A=function(v,s){return [v+s,v-s,v*10,v/10,v+2*s,v-2*s,v*2].filter(function(x){return x>0&&Math.abs(x-v)>1e-9}).map(F)};
+var D=function(s){return [s*10,s/10,s+.1,s-.1].filter(function(v){return v>0}).map(F)};
+var P10=function(c){return [c*10,c/10,c*100,c/100].map(F)};
+var M=function(q,c,d,e){c=""+c;d=sh([...new Set(d.map(String))].filter(function(x){return x!=c}));return d.length<3?null:{q:q,c:c,d:d.slice(0,3),e:e||""}};
+var TM=function(h,m){return h+" giờ "+m+" phút"},TS=function(m,s){return m+" phút "+s+" giây"};
+var cp=function(a,b){return a!=b&&G(a,b)==1};
+
+var CB=[["Hình lập phương có bao nhiêu mặt?","6",["4","8","12"],"Hình lập phương có 6 mặt là các hình vuông bằng nhau."],["Hình hộp chữ nhật có bao nhiêu mặt?","6",["4","8","12"],"Hình hộp chữ nhật có 6 mặt (3 cặp mặt đối diện bằng nhau)."],["Hình lập phương có bao nhiêu đỉnh?","8",["6","12","4"],"Có 8 đỉnh."],["Hình lập phương có bao nhiêu cạnh?","12",["6","8","10"],"Có 12 cạnh bằng nhau."],["Hai mặt đáy của hình trụ là hình gì?","Hình tròn",["Hình vuông","Hình tam giác","Hình chữ nhật"],"Hình trụ có hai mặt đáy là hai hình tròn bằng nhau."],["Hình khai triển của hình lập phương gồm mấy hình vuông bằng nhau?","6",["4","8","3"],"6 hình vuông tương ứng 6 mặt."]],
+KN=[["Mặt trời mọc ở phía Đông","Chắc chắn"],["Tung đồng xu và nhận được mặt sấp","Có thể"],["Hộp chỉ có bi đỏ, lấy ra một viên bi xanh","Không thể"],["Hộp chỉ có bi xanh, lấy ra một viên bi xanh","Chắc chắn"],["Ngày mai trời có mưa","Có thể"],["Tung xúc xắc được mặt có 7 chấm","Không thể"]];
+var TG={
+7:[
+[1,function(){var a=R(2,12),b=R(2,12);return cp(a,b)?M("Lớp có "+a+" bạn nam và "+b+" bạn nữ. Tỉ số của số bạn nam và số bạn nữ là:",a+" : "+b,[b+" : "+a,a+" : "+(a+b),b+" : "+(a+b),(a+b)+" : "+a],"Tỉ số của a và b là a : b (b khác 0)."):null}],
+[1,function(){var n=R(2,98);return M("Tỉ số "+n+"/100 viết dưới dạng tỉ số phần trăm là:",n+"%",[F(n/10)+"%",F(n*10)+"%",F(n/100)+"%"],"a/100 = a%.")}],
+[1,function(){var n=R(1,99),x=n/100;return M("Viết 0,"+(n<10?"0"+n:n)+" dưới dạng tỉ số phần trăm:",n+"%",[F(x*10)+"%",F(x*1000)+"%",F(x)+"%"],"Nhân với 100 rồi viết thêm kí hiệu %.")}],
+[1,function(){var k=P([1000,10000,100000]),x=R(2,9),c=x*k/100;return M("Trên bản đồ tỉ lệ 1 : "+F(k)+", đoạn đường dài "+x+" cm ứng với độ dài thực tế là (m):",F(c),P10(c),x+" × "+F(k)+" = "+F(x*k)+" cm = "+F(c)+" m.")}],
+[2,function(){var b=P([20,25,40,50,80,200]),a=R(1,b-1),c=a/b*100;return M("Tìm tỉ số phần trăm của "+a+" và "+b+":",F(c)+"%",[c*10,c/10,100-c,c+10].filter(function(v){return v>0}).map(function(v){return F(v)+"%"}),a+" : "+b+" = "+F(a/b)+"; "+F(a/b)+" × 100 = "+F(c)+"%.")}],
+[2,function(){var A_=R(2,50)*10,p=P([5,10,20,25,30,40,60,75,80]),c=A_*p/100;return M("Tìm "+p+"% của "+A_+":",F(c),[A_*p,A_*p/10,A_+p,c+10].map(F),A_+" × "+p+" : 100 = "+F(c)+".")}],
+[2,function(){var a=R(1,10)*10,c=a/10;return M("Khoảng cách thực tế giữa hai địa điểm là "+a+" km. Trên bản đồ tỉ lệ 1 : 1 000 000, khoảng cách đó dài (cm):",F(c),P10(c),a+" km = "+F(a*1e5)+" cm; "+F(a*1e5)+" : 1 000 000 = "+F(c)+" cm.")}],
+[2,function(){var a=R(1,7),b=a+R(1,5),p=R(3,20);return cp(a,b)?M("Tổng hai số là "+(a+b)*p+". Số thứ nhất bằng "+a+"/"+b+" số thứ hai. Số thứ hai là:",F(b*p),[a*p,p,(a+b)*p-p,b*p+p].map(F),"Tổng số phần là "+a+" + "+b+" = "+(a+b)+"; mỗi phần là "+p+"; số thứ hai là "+p+" × "+b+"."):null}],
+[2,function(){var a=R(1,7),b=a+R(1,5),p=R(3,20),h=(b-a)*p;return cp(a,b)?M("Hiệu hai số là "+h+". Số thứ nhất bằng "+a+"/"+b+" số thứ hai. Số lớn là:",F(b*p),[a*p,p,h,b*p+p].map(F),"Hiệu số phần là "+b+" − "+a+" = "+(b-a)+"; mỗi phần là "+h+" : "+(b-a)+" = "+p+"."):null}],
+[3,function(){var a=R(1,7),b=a+R(1,5),p=R(3,20);return cp(a,b)?M("Hai lớp 5A và 5B có tất cả "+(a+b)*p+" học sinh. Số học sinh lớp 5A bằng "+a+"/"+b+" số học sinh lớp 5B. Lớp 5B có bao nhiêu học sinh?",F(b*p),[a*p,p,(a+b)*p-p,b*p+p].map(F),"Vẽ sơ đồ: lớp 5A "+a+" phần, lớp 5B "+b+" phần; mỗi phần "+p+" học sinh."):null}],
+[3,function(){var p=R(3,15),k=R(3,6),h=(k-1)*p;return M("Tuổi mẹ gấp "+k+" lần tuổi con. Mẹ hơn con "+h+" tuổi. Tuổi con là:",F(p),[k*p,h,p+k,p+1].map(F),"Hiệu số phần là "+(k-1)+"; tuổi con = "+h+" : "+(k-1)+" = "+p+".")}],
+[3,function(){var a=R(1,6)*20,p=P([10,20,25,30,40,50,60,75,80]),c=a*(100-p)/100;return M("Một cửa hàng có "+a+" kg gạo, đã bán "+p+"% số gạo. Số gạo còn lại là (kg):",F(c),[a*p/100,a+p,a*(100-p),c+10].map(F),"Số gạo còn lại chiếm "+(100-p)+"%: "+a+" × "+(100-p)+" : 100 = "+F(c)+".")}],
+[3,function(){var a=R(2,20)*10000,p=P([10,20,25,30,50]),c=a*(100-p)/100;return M("Một chiếc áo giá "+F(a)+" đồng, được giảm giá "+p+"%. Giá sau khi giảm là (đồng):",F(c),[a*p/100,a-p,a+a*p/100,c+10000].map(F),"Giá sau giảm = "+F(a)+" × "+(100-p)+" : 100 = "+F(c)+" đồng.")}],
+[3,function(){var x=R(2,20)*5,p=P([10,20,25,40,50]),T=x*100/p;return M(p+"% của một số là "+x+". Số đó là:",F(T),[x*p,x*p/100,x+p,T+10].map(F),"Số cần tìm = "+x+" × 100 : "+p+" = "+F(T)+".")}]
+],
+8:[
+[1,function(){var u=P([["dm³","cm³",1000],["m³","dm³",1000],["m³","cm³",1e6]]),x=R(2,99);if(R(0,1)){var c=x*u[2];return M(x+" "+u[0]+" = ? "+u[1],F(c),P10(c),"Đổi sang đơn vị bé hơn: nhân với "+F(u[2])+".")}var y=x*u[2]/P([1,10]),z=y/u[2];return M(F(y)+" "+u[1]+" = ? "+u[0],F(z),P10(z),"Đổi sang đơn vị lớn hơn: chia cho "+F(u[2])+".")}],
+[1,function(){var n=P([[5,"năm"],[12,"mười hai"],[20,"hai mươi"],[35,"ba mươi lăm"],[47,"bốn mươi bảy"],[64,"sáu mươi tư"],[80,"tám mươi"],[100,"một trăm"]]),u=P([["cm³","xăng-ti-mét khối"],["dm³","đề-xi-mét khối"],["m³","mét khối"]]);return M("Số “"+n[1]+" "+u[1]+"” viết là:",n[0]+" "+u[0],[n[0]+" cm³",n[0]+" dm³",n[0]+" m³",n[0]+" cm²"].filter(function(x){return x!=n[0]+" "+u[0]}),"Kí hiệu: "+u[1]+" viết tắt là "+u[0]+".")}],
+[1,function(){return M(P(["Thể tích hình lập phương cạnh 1 cm là:","Xăng-ti-mét khối là thể tích hình lập phương có cạnh:"]),"1 cm",["1 dm","1 m","10 cm"],"Xăng-ti-mét khối (cm³) là thể tích hình lập phương cạnh 1 cm.")}],
+[2,function(){var a=R(2,12),b=R(2,12),c=R(2,12),v=a*b*c;return M("Thể tích hình hộp chữ nhật dài "+a+" cm, rộng "+b+" cm, cao "+c+" cm là (cm³):",F(v),[a*b+c,a+b+c,v*2,(a+b)*c].map(F),"V = "+a+" × "+b+" × "+c+" = "+v+".")}],
+[2,function(){var a=R(2,15);return M("Thể tích hình lập phương cạnh "+a+" cm là (cm³):",F(a*a*a),[a*a,a*3,a*a*6,a*a*4].map(F),"V = "+a+" × "+a+" × "+a+".")}],
+[2,function(){var e=R(1,2),n=[R(2,6),R(2,6),R(2,6)],d=n.map(function(x){return x*e}),c=n[0]*n[1]*n[2];return M("Hộp dài "+d[0]+" cm, rộng "+d[1]+" cm, cao "+d[2]+" cm. Xếp các khối lập phương cạnh "+e+" cm vào hộp thì xếp được nhiều nhất số khối là:",F(c),[d[0]*d[1]*d[2],c+e,c*2,c-e].map(F),"Số khối theo từng chiều: "+n.join(" × ")+" = "+c+".")}],
+[2,function(){var a=R(2,9),b=R(1,99)*10;return M(a+" m³ "+b+" dm³ = ? dm³",F(a*1000+b),[a*100+b,a*10+b,a+b,a*1000+b/10].map(F),a+" m³ = "+F(a*1000)+" dm³; cộng thêm "+b+" dm³.")}],
+[3,function(){var a=R(4,12),b=R(3,8),h1=R(2,5),h2=h1+R(1,3),v=a*b*(h2-h1);return M("Bể nước hình hộp chữ nhật có đáy dài "+a+" dm, rộng "+b+" dm; nước cao "+h1+" dm. Thả một khối đá chìm hẳn, nước dâng lên cao "+h2+" dm. Thể tích khối đá là (dm³):",F(v),[a*b*h2,a*b*h1,a*b,v+a].map(F),"Thể tích khối đá = thể tích phần nước dâng = "+a+" × "+b+" × ("+h2+" − "+h1+") = "+v+".")}],
+[3,function(){var k=R(2,6);return M("Cạnh của hình lập phương tăng gấp "+k+" lần thì thể tích tăng gấp:",k*k*k+" lần",[k*k+" lần",3*k+" lần",k+" lần",k*k*k*k+" lần"],"V = a × a × a nên cạnh gấp "+k+" lần thì thể tích gấp "+k+" × "+k+" × "+k+" = "+k*k*k+" lần.")}],
+[3,function(){var x=R(11,99)/10,c=x*1000;return M(F(x)+" m³ = ? dm³",F(c),P10(c),"Đổi sang đơn vị bé hơn: nhân với 1 000.")}],
+[3,function(){var a=R(2,9)*2,b=R(2,9),h=R(2,9),v=a*b*h;return M("Một bể hình hộp chữ nhật chứa được "+v+" dm³ nước, đáy dài "+a+" dm, rộng "+b+" dm. Chiều cao bể là (dm):",F(h),A(h,1),"h = V : (a × b) = "+v+" : "+a*b+" = "+h+".")}]
+],
+9:[
+[1,function(){var b=P(CB);return M(b[0],b[1],b[2],b[3])}],
+[1,function(){var a=R(2,12),b=R(2,12),c=R(2,12),s=(a+b)*2*c;return M("Hình hộp chữ nhật có đáy dài "+a+" cm, rộng "+b+" cm, cao "+c+" cm. Diện tích xung quanh là (cm²):",F(s),[a*b*c,(a+b)*2,s+2*a*b,a*b*2].map(F),"S_xq = chu vi đáy × chiều cao = ("+a+" + "+b+") × 2 × "+c+".")}],
+[1,function(){var a=R(2,12),b=R(2,12),c=R(2,12),s=(a+b)*2*c+2*a*b;return M("Hình hộp chữ nhật có đáy dài "+a+" cm, rộng "+b+" cm, cao "+c+" cm. Diện tích toàn phần là (cm²):",F(s),[a*b*c,(a+b)*2*c,(a+b)*2*c+a*b,s+a*b].map(F),"S_tp = S_xq + 2 × S_đáy = "+(a+b)*2*c+" + "+2*a*b+".")}],
+[1,function(){var a=R(2,15),w=R(0,1);return M("Hình lập phương cạnh "+a+" cm. Diện tích "+(w?"toàn phần":"xung quanh")+" là (cm²):",F(a*a*(w?6:4)),[a*a,a*a*(w?4:6),a*a*a,a*4].map(F),w?"S_tp = a × a × 6.":"S_xq = a × a × 4.")}],
+[2,function(){var a=R(2,12),b=R(2,12),c=R(2,12);return M("Hình hộp chữ nhật có đáy dài "+a+" dm, rộng "+b+" dm, cao "+c+" dm. Thể tích là (dm³):",F(a*b*c),[a*b+c,a+b+c,(a+b)*2*c,a*b*c*2].map(F),"V = a × b × c.")}],
+[2,function(){var a=R(2,15),s=4*a*a;return M("Hình lập phương có diện tích xung quanh "+s+" cm². Cạnh của hình lập phương là (cm):",F(a),[a*a,a*2,a*4,a+1].map(F),"Diện tích một mặt = "+s+" : 4 = "+a*a+"; cạnh = "+a+" (vì "+a+" × "+a+" = "+a*a+").")}],
+[2,function(){var a=R(2,9),b=R(2,9),h=R(2,9),v=a*b*h;return M("Hình hộp chữ nhật có thể tích "+v+" cm³, đáy dài "+a+" cm, rộng "+b+" cm. Chiều cao là (cm):",F(h),A(h,1),"h = V : (a × b) = "+v+" : "+a*b+".")}],
+[2,function(){var a=R(2,9),k=R(2,5);return M("Hình hộp chữ nhật có đáy là hình vuông cạnh "+a+" cm, chiều cao "+a*k+" cm. Diện tích xung quanh là (cm²):",F(a*4*a*k),[a*a*a*k,a*4,a*a*2+a*4*a*k,a*2*a*k].map(F),"Chu vi đáy = "+a+" × 4 = "+a*4+"; S_xq = "+a*4+" × "+a*k+".")}],
+[3,function(){var a=R(4,15),b=R(3,10),c=R(3,10),s=(a+b)*2*c+a*b;return M("Một bể cá bằng kính hình hộp chữ nhật không có nắp, đáy dài "+a+" dm, rộng "+b+" dm, cao "+c+" dm. Diện tích kính cần dùng là (dm²):",F(s),[(a+b)*2*c+2*a*b,(a+b)*2*c,a*b*c,s+a*b].map(F),"Kính gồm 4 mặt bên và 1 mặt đáy: S_xq + S_đáy = "+(a+b)*2*c+" + "+a*b+".")}],
+[3,function(){var a=R(2,12),s=6*a*a;return M("Tổng diện tích sáu mặt của một hình lập phương là "+s+" cm². Cạnh của hình lập phương là (cm):",F(a),[a*a,a*2,a*3,a+1].map(F),"Diện tích một mặt = "+s+" : 6 = "+a*a+"; cạnh = "+a+".")}],
+[3,function(){var k=R(2,6);return M("Cạnh của hình lập phương tăng gấp "+k+" lần thì diện tích toàn phần tăng gấp:",k*k+" lần",[k+" lần",2*k+" lần",k*k*k+" lần",(k*k+k)+" lần"],"S_tp = a × a × 6 nên gấp "+k+" × "+k+" = "+k*k+" lần.")}],
+[3,function(){var a=R(2,9),b=R(2,9),c1=R(2,9),c2=R(2,9),v=a*b*c1+a*b*c2;return M("Một khối gồm hai hình hộp chữ nhật xếp chồng nhau, cùng đáy dài "+a+" cm, rộng "+b+" cm, chiều cao lần lượt "+c1+" cm và "+c2+" cm. Thể tích cả khối là (cm³):",F(v),[a*b*c1*c2,a*b*(c1+c2)*2,a*b+c1+c2,(a+b)*2*(c1+c2)].map(F),"V = "+a+" × "+b+" × "+c1+" + "+a+" × "+b+" × "+c2+" = "+v+".")}],
+[3,function(){var a=R(2,10),b=R(2,10),c=R(2,10),s=(a+b)*2*c+2*a*b;return M("Cần bọc kín mọi mặt của một hộp quà hình hộp chữ nhật "+a+" cm × "+b+" cm × "+c+" cm bằng giấy màu. Diện tích giấy tối thiểu là (cm²):",F(s),[(a+b)*2*c,a*b*c,(a+b)*2*c+a*b,s+a*b].map(F),"Bọc kín mọi mặt: tính diện tích toàn phần.")}]
+],
+10:[
+[1,function(){var u=P([["giờ","phút",60],["phút","giây",60],["thế kỉ","năm",100],["năm","tháng",12],["ngày","giờ",24],["tuần","ngày",7]]),x=R(2,12),c=x*u[2];return M(x+" "+u[0]+" = ? "+u[1],F(c),A(c,x),"1 "+u[0]+" = "+u[2]+" "+u[1]+".")}],
+[1,function(){var m=R(1,12),d=[1,3,5,7,8,10,12].indexOf(m)>=0?31:[4,6,9,11].indexOf(m)>=0?30:0;return d?M("Tháng "+m+" có bao nhiêu ngày?",d+" ngày",[28,29,30,31,32].filter(function(x){return x!=d}).map(function(x){return x+" ngày"}),"Tháng 1, 3, 5, 7, 8, 10, 12 có 31 ngày; tháng 4, 6, 9, 11 có 30 ngày."):null}],
+[1,function(){var v=R(2,20)*5,t=R(2,9),s=v*t;return M("Một xe đi được "+s+" km trong "+t+" giờ. Vận tốc của xe là (km/h):",F(v),A(v,5),"v = s : t = "+s+" : "+t+".")}],
+[1,function(){var v=R(2,20)*5,t=R(2,9),s=v*t;return M("Một ô tô đi với vận tốc "+v+" km/h trong "+t+" giờ. Quãng đường đi được là (km):",F(s),A(s,v),"s = v × t = "+v+" × "+t+".")}],
+[1,function(){var v=R(2,12)*5,t=R(2,9),s=v*t;return M("Một xe đi quãng đường "+s+" km với vận tốc "+v+" km/h. Thời gian đi là (giờ):",F(t),A(t,1),"t = s : v = "+s+" : "+v+".")}],
+[2,function(){var h1=R(1,9),m1=R(20,59),h2=R(1,9),m2=R(60-m1,59),t=(h1+h2)*60+m1+m2,H=Math.floor(t/60),Mi=t%60;return M(TM(h1,m1)+" + "+TM(h2,m2)+" = ?",TM(H,Mi),[TM(h1+h2,m1+m2),TM(H,Mi+10),TM(H+1,Mi+5),TM(H-1,Mi)],"Cộng từng đơn vị rồi đổi: 60 phút = 1 giờ.")}],
+[2,function(){var h1=R(3,12),m1=R(0,29),h2=R(1,h1-1),m2=R(m1+1,59),t=(h1-h2)*60+m1-m2,H=Math.floor(t/60),Mi=t%60;return M(TM(h1,m1)+" − "+TM(h2,m2)+" = ?",TM(H,Mi),[TM(h1-h2,m2-m1),TM(H+1,Mi),TM(H,Mi+10),TM(H+1,(Mi+10)%60)],"Số phút bị trừ nhỏ hơn số trừ nên đổi 1 giờ = 60 phút rồi trừ.")}],
+[2,function(){var a=R(1,9),b=R(20,59),k=R(2,5),t=(a*60+b)*k,mm=Math.floor(t/60),ss=t%60;return M(TS(a,b)+" × "+k+" = ?",TS(mm,ss),[TS(a*k,b*k),TS(mm+1,ss),TS(mm,(ss+7)%60),TS(mm-1,ss)],"Nhân từng đơn vị rồi đổi: 60 giây = 1 phút.")}],
+[2,function(){var m=R(1,9),s=R(1,59),k=R(2,5),t=(m*60+s)*k;return M(TS(Math.floor(t/60),t%60)+" : "+k+" = ?",TS(m,s),[TS(m+1,s),TS(m,(s+7)%60),TS(m,(s+13)%60),TS(m>0?m-1:2,s)],"Chia số đo thời gian, quy ra giây nếu cần rồi chia.")}],
+[2,function(){var v=R(2,10)*10,t=R(1,4),s=v*t+v/2;return M("Một ô tô đi trong "+t+" giờ 30 phút được "+s+" km. Vận tốc của ô tô là (km/h):",F(v),[v+5,v-5,v+10,v*2].map(F),"30 phút = 0,5 giờ; thời gian "+(t+0.5)+" giờ; v = "+s+" : "+F(t+0.5)+".")}],
+[2,function(){var v=R(2,12),t=R(5,20),s=v*t;return M("Một vận động viên chạy "+s+" m trong "+t+" giây. Vận tốc là (m/s):",F(v),A(v,1),"v = "+s+" : "+t+".")}],
+[3,function(){var h1=R(5,14),m1=R(10,55),t=R(1,5),mm=R(10,55),T=h1*60+m1+t*60+mm,H=Math.floor(T/60),Mi=T%60;return M("Xe khởi hành lúc "+TM(h1,m1)+", đi trong "+TM(t,mm)+". Xe đến nơi lúc:",TM(H,Mi),[TM(h1+t,m1+mm),TM(H+1,Mi),TM(H,(Mi+10)%60),TM(H-1,Mi)],"Cộng thời gian đi vào giờ khởi hành, nhớ đổi 60 phút = 1 giờ.")}],
+[3,function(){var v=R(2,12)*4,x=P([15,30,45,90]),s=v*x/60;return M("Một xe máy đi với vận tốc "+v+" km/h trong "+x+" phút. Quãng đường đi được là (km):",F(s),[v*x,v*x/10,s*2,s+v].map(F),x+" phút = "+F(x/60)+" giờ; s = "+v+" × "+F(x/60)+" = "+F(s)+".")}],
+[3,function(){var x=R(2,20),c=x*3.6;return M("Mở rộng: "+x+" m/s = ? km/h",F(c),[x*36,x*60,x*3,x*3.6+10].map(F),"1 m/s = 3,6 km/h.")}],
+[3,function(){var v1=R(3,9)*5,v2=R(3,9)*5,t=R(2,6),d=(v1+v2)*t;return M("Hai xe xuất phát cùng lúc từ hai nơi cách nhau "+d+" km, đi ngược chiều nhau với vận tốc "+v1+" km/h và "+v2+" km/h. Sau mấy giờ hai xe gặp nhau?",F(t),[t+1,t-1,t+2,t+3].filter(function(x){return x>0}).map(F),"Mỗi giờ hai xe cùng đi được "+(v1+v2)+" km; "+d+" : "+(v1+v2)+" = "+t+" giờ.")}],
+[3,function(){var a=R(2,4)*40,ta=R(2,4),b=R(2,4)*50,tb=R(2,4),va=a/ta,vb=b/tb,c=va>vb?"Xe A":va<vb?"Xe B":"Bằng nhau";return M("Xe A đi "+a+" km trong "+ta+" giờ; xe B đi "+b+" km trong "+tb+" giờ. Xe nào có vận tốc lớn hơn?",c,["Xe A","Xe B","Bằng nhau","Không so sánh được"],"Vận tốc xe A = "+F(va)+" km/h; xe B = "+F(vb)+" km/h.")}]
+],
+11:[
+[1,function(){var n=R(10,30)*2,k=R(1,n-1);return M("Tung đồng xu "+n+" lần, có "+k+" lần xuất hiện mặt hình. Tỉ số của số lần xuất hiện mặt hình và tổng số lần tung là:",fr(k,n),FD(k,n).concat([fr(n-k,n)]),"Tỉ số = "+k+"/"+n+" (rút gọn nếu được).")}],
+[1,function(){var a=R(10,60),b=R(10,90-a);return M("Biểu đồ hình quạt: lớp A chiếm "+a+"%, lớp B chiếm "+b+"%, còn lại là lớp C. Lớp C chiếm bao nhiêu phần trăm?",100-a-b+"%",[a+b+"%",100-a+"%",100-b+"%",110-a-b+"%"],"Cả hình tròn là 100%: 100 − "+a+" − "+b+".")}],
+[1,function(){var k=P(KN);return M("Khả năng xảy ra của sự kiện “"+k[0]+"” là:",k[1],["Chắc chắn","Có thể","Không thể","Không xác định được"].filter(function(x){return x!=k[1]}),"Chắc chắn: luôn xảy ra; có thể: có thể xảy ra hoặc không; không thể: không bao giờ xảy ra.")}],
+[1,function(){var a=R(10,60),b=R(10,60),c=R(10,60);return M("Bảng số liệu quả thanh long: cỡ S có "+a+" quả, cỡ M có "+b+" quả, cỡ L có "+c+" quả. Có tất cả bao nhiêu quả?",a+b+c,[a+b,a+b+c+10,a+b+c-10,Math.max(a,b,c)],"Cộng số lượng ba loại: "+a+" + "+b+" + "+c+".")}],
+[2,function(){var N=R(2,15)*20,p=P([10,20,25,30,40,45,50]),c=N*p/100;return M("Có "+N+" học sinh tham gia. Biểu đồ cho biết lớp 5A chiếm "+p+"% số học sinh. Số học sinh lớp 5A là:",F(c),[N*p,N+p,N*p/10,c+10].map(F),N+" × "+p+" : 100 = "+F(c)+".")}],
+[2,function(){var n=P([20,25,40,50]),k=R(1,n-1),c=k/n*100;return M("Tung đồng xu "+n+" lần, có "+k+" lần xuất hiện mặt hình. Tỉ số phần trăm số lần mặt hình so với tổng số lần là:",F(c)+"%",[c*10,c/10,100-c,k].filter(function(v){return v>0}).map(function(v){return F(v)+"%"}),k+" : "+n+" × 100 = "+F(c)+"%.")}],
+[2,function(){var s=[R(5,9),R(5,9),R(5,9),R(5,9)],s4=s[0]+s[1]+s[2]+s[3],x=((5-s4%5)%5)||5,m=(s4+x)/5;return M("Số điểm của 5 bài kiểm tra là "+s.join("; ")+"; "+x+". Điểm trung bình là:",F(m),A(m,1),"Tổng = "+(s4+x)+"; trung bình = "+(s4+x)+" : 5 = "+m+".")}],
+[2,function(){var c=sh([2,3,4,5,6,7,8,9]).slice(0,5),sc=[1,2,3,4,5],mx=Math.max.apply(0,c),w=sc[c.indexOf(mx)];return M("Số bạn chọn mức điểm 1; 2; 3; 4; 5 lần lượt là "+c.join("; ")+". Mức điểm nào được chọn nhiều nhất?",w,sc.filter(function(x){return x!=w}),"Số lớn nhất là "+mx+", ứng với mức điểm "+w+".")}],
+[2,function(){var n=P([20,40,60]),k=R(2,n/2-1);return M("Tung xúc xắc "+n+" lần, có "+k+" lần được mặt 6 chấm. Tỉ số của số lần được mặt 6 chấm và tổng số lần tung là:",fr(k,n),FD(k,n).concat([fr(n-k,n)]),k+"/"+n+".")}],
+[3,function(){var T=R(2,15)*20,p=P([10,20,25,40,50]),x=T*p/100;return M("Biểu đồ hình quạt cho biết lớp 5A chiếm "+p+"% số học sinh tham gia và có "+x+" học sinh. Số học sinh tham gia cả bốn lớp là:",F(T),[x*p,x+p,x*100,T+20].map(F),"Tổng số = "+x+" × 100 : "+p+" = "+F(T)+".")}],
+[3,function(){var n=P([20,30,40,50]),k=R(2,n-2);return cp(k,n-k)?M("Tung đồng xu "+n+" lần, có "+k+" lần mặt hình. Tỉ số của số lần mặt hình và số lần mặt số là:",fr(k,n-k),FD(k,n-k).concat([fr(n-k,k)]),"Số lần mặt số: "+n+" − "+k+" = "+(n-k)+"."):null}],
+[3,function(){var T=R(2,10)*20,p1=P([10,20,30,40]),p2=P([10,20,30]),r=100-p1-p2;if(r<=0||r%20)return null;var c=T*(r/2)/100;return M("Có "+T+" học sinh tham gia. Biểu đồ hình quạt: lớp 5A chiếm "+p1+"%, lớp 5B chiếm "+p2+"%, hai lớp 5C và 5D chia đều phần còn lại. Số học sinh lớp 5C là:",F(c),[T*r/100,T*p1/100,c+5,c*2].map(F),"Phần còn lại: "+r+"%; mỗi lớp "+r/2+"%; "+T+" × "+r/2+" : 100.")}],
+[3,function(){var m=R(5,20),x=((5-(4*m)%5)%5)||5,r=(4*m+x)/5;return M("Trung bình cộng của 4 số là "+m+". Thêm số "+x+" thì trung bình cộng của 5 số là:",F(r),[m,m+x,(m+x)/2,r+1].map(F),"Tổng 4 số = "+4*m+"; tổng 5 số = "+(4*m+x)+"; trung bình = "+(4*m+x)+" : 5.")}]
+]};
+var EX=[
+[1,function(){var a=R(100,9999)/100,b=R(100,9999)/100,s=a+b;return M(F(a)+" + "+F(b)+" = ?",F(s),D(s),"Đặt dấu phẩy thẳng cột rồi cộng.")}],
+[1,function(){var m=R(5,12),a=R(1,m-3),b=R(1,m-a-1);return M(a+"/"+m+" + "+b+"/"+m+" = ?",fr(a+b,m),FD(a+b,m),"Cùng mẫu số: giữ mẫu, cộng tử số.")}],
+[1,function(){var a=R(3,20),h=R(3,20);return M("Tam giác có đáy "+a+" cm, chiều cao "+h+" cm. Diện tích là (cm²):",F(a*h/2),[a*h,a+h,a*h/2+h,a*h/2+1].map(F),"S = đáy × chiều cao : 2.")}],
+[2,function(){var a=R(3,15),b=R(3,15),h=R(2,12),s=(a+b)*h/2;return M("Hình thang có hai đáy "+a+" cm và "+b+" cm, chiều cao "+h+" cm. Diện tích là (cm²):",F(s),[(a+b)*h,a*b*h/2,a+b+h,s+h].map(F),"S = (a + b) × h : 2.")}],
+[2,function(){var a=R(1,20),b=R(2,9),c=R(2,20);return M("Tìm x: (x − "+a+") : "+b+" = "+c,F(c*b+a),[c*b,c*b+a+1,c+a+b,(c+a)*b].map(F),"x − "+a+" = "+c+" × "+b+"; x = "+c*b+" + "+a+".")}],
+[2,function(){var q=R(11,999)/10,b=R(2,9),a=q*b;return M(F(a)+" : "+b+" = ?",F(q),D(q),"Chia phần nguyên rồi viết dấu phẩy vào thương.")}],
+[3,function(){var r=R(2,20),s=r*r*3.14;return M("Diện tích hình tròn bán kính "+r+" cm là (cm²):",F(s),[r*2*3.14,r*3.14,r*r*2*3.14,r*r*3].map(F),"S = r × r × 3,14.")}],
+[3,function(){var a=R(10,60),p=R(3,9),k=R(2,5),h=(k-1)*p;return M("Hai số có hiệu là "+h+"; số lớn gấp "+k+" lần số bé. Tổng hai số là:",F((k+1)*p),[k*p,h,p,(k+1)*p+p].map(F),"Số bé = "+h+" : "+(k-1)+" = "+p+"; tổng = "+p+" × "+(k+1)+".")}]
+];
+TG[12]=[].concat(TG[7],TG[8],TG[9],TG[10],TG[11],EX,EX);
+var NM=["7. Tỉ số và các bài toán liên quan","8. Thể tích, đơn vị đo thể tích","9. Diện tích và thể tích hình khối","10. Thời gian, vận tốc, chuyển động đều","11. Thống kê và xác suất","12. Ôn tập cuối năm"];
+var LV=["","Cơ bản","Vận dụng","Nâng cao"];
+function gen(k){var g=TG[k],seen={},out=[],Qt=[34,33,33];
+ function add(q,l){if(!q)return 0;var key=q.q+"|"+q.c+"|"+q.d.slice().sort().join();if(seen[key])return 0;seen[key]=1;q.lv=l;out.push(q);return 1}
+ for(var l=1;l<=3;l++){var fs=g.filter(function(x){return x[0]==l}),n=0,got=0;while(got<Qt[l-1]&&n++<3000)got+=add(P(fs)[1](),l)}
+ var n2=0;while(out.length<100&&n2++<3000){var f=P(g);add(f[1](),f[0])}
+ out.sort(function(a,b){return a.lv-b.lv});return out}
+return {gen:gen,names:NM,keys:Object.keys(TG).map(Number)};
+})();
+window.T5T2_V=(function(){
+var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))},P=function(a){return a[R(0,a.length-1)]};
+function sh(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=R(0,k),t=a[k];a[k]=a[j];a[j]=t}return a}
+var pk=function(a,n){return sh(a).slice(0,n)};
+var oth=function(a,i){return a.filter(function(_,j){return j!=i})};
+var M=function(q,c,d,e){c=""+c;d=sh([...new Set(d.map(String))].filter(function(x){return x!=c}));return d.length<3?null:{q:q,c:c,d:d.slice(0,3),e:e||""}};
+
+var CD=["Vẻ đẹp cuộc sống","Hương sắc trăm miền","Tiếp bước cha ông","Thế giới của chúng ta"];
+var TT=[["Tiếng hát của người đá","Khúc hát ru những em bé lớn trên lưng mẹ","Hạt gạo làng ta","Hộp quà màu thiên thanh","Thư của bố","Đoàn thuyền đánh cá"],["Hội thổi cơm thi ở Đồng Văn","Hương cốm mùa thu","Vũ điệu trên nền thổ cẩm","Đàn t’rưng – tiếng ca đại ngàn","Đường quê Đồng Tháp Mười","Xuồng ba lá quê tôi","Về thăm Đất Mũi"],["Nghìn năm văn hiến","Người thầy của muôn đời","Danh y Tuệ Tĩnh","Cụ Đồ Chiểu","Anh hùng Lao động Trần Đại Nghĩa","Bộ đội về làng","Về ngôi nhà đang xây","Việt Nam quê hương ta"],["Bài ca trái đất","Những con hạc giấy","Một người hùng thầm lặng","Giờ Trái Đất","Điện thoại di động"]];
+var GD=["Trời mưa to, đường rất trơn.","Mẹ nấu cơm, bố tưới rau.","Hoa nở rộ, ong bướm bay về.","Trời vừa tạnh, chúng em ra sân chơi.","Mặt trời mọc, sương tan dần.","Gió thổi mạnh, lá rơi đầy sân."],
+GK=[["Vì trời mưa nên chúng em nghỉ đá bóng.","vì … nên","nguyên nhân – kết quả"],["Nếu em chăm chỉ thì em sẽ tiến bộ.","nếu … thì","điều kiện – kết quả"],["Tuy nhà xa nhưng Nam luôn đi học đúng giờ.","tuy … nhưng","tương phản"],["Mặc dù trời rét nhưng các bạn vẫn đến trường.","mặc dù … nhưng","tương phản"],["Không những bạn Mai học giỏi mà bạn ấy còn hát hay.","không những … mà còn","tăng tiến"],["Bởi vì mưa lớn cho nên đường ngập sâu.","bởi vì … cho nên","nguyên nhân – kết quả"],["Hễ trời nắng thì cánh đồng khô nứt.","hễ … thì","điều kiện – kết quả"],["Chẳng những cô giáo giảng hay mà cô còn rất gần gũi.","chẳng những … mà còn","tăng tiến"]],
+REL=["nguyên nhân – kết quả","điều kiện – kết quả","tương phản","tăng tiến"],
+GV3=["Trời đã tạnh, mây tan dần, nắng lên rực rỡ.","Gió thổi, mưa rơi và sấm nổ ầm ầm.","Em đọc sách, chị vẽ tranh, anh chơi đàn."],
+GVB=["Hoa nở rộ và ong bướm bay về.","Gió thổi mạnh và sóng vỗ ầm ầm.","Mẹ nấu cơm và bố tưới rau."],
+GS=["Bà em kể chuyện rất hay.","Cánh đồng lúa chín vàng.","Bạn Lan đọc bài trước lớp.","Mặt trời đã lên cao.","Những chú chim hót líu lo trên cành.","Chiếc thuyền lướt nhẹ trên sông.","Em đang làm bài tập.","Mưa rơi rả rích suốt đêm."],
+DV=["Mai và Lan là đôi bạn thân.","Bố và mẹ cùng đi làm đồng.","Hoa hồng và hoa cúc nở rộ trong vườn.","Em thích vẽ tranh và hát."],
+GA=GD.concat(GK.map(function(x){return x[0]}),GVB),
+FP=[["___ trời mưa to ___ đường ngập nước.","Vì – nên",["Mặc dù – nhưng","Không những – mà còn","Tuy – nhưng"]],["___ trời rét đậm ___ các bạn vẫn đi học đều.","Mặc dù – nhưng",["Vì – nên","Nếu – thì","Không những – mà còn"]],["___ em cố gắng ___ em sẽ đạt kết quả tốt.","Nếu – thì",["Mặc dù – nhưng","Không những – mà còn","Tuy – nhưng"]],["___ bạn Hà học giỏi ___ bạn còn rất ngoan.","Không những – mà còn",["Mặc dù – nhưng","Vì – nên","Nếu – thì"]]],
+TN=[["Cô giáo có mái tóc đen dài và đôi mắt hiền từ.",0],["Ông em có dáng người cao gầy, râu tóc bạc phơ.",0],["Bạn Nam có làn da rám nắng và hàm răng trắng đều.",0],["Mẹ thoăn thoắt nhặt rau rồi thái thịt thật nhanh.",1],["Chú thợ mộc cần mẫn bào từng tấm ván.",1],["Bố vừa cuốc đất vừa nhổ cỏ dại.",1],["Anh ấy hiền lành, ít nói nhưng rất tốt bụng.",2],["Ông nội em nghiêm khắc nhưng luôn thương con cháu.",2],["Bạn Hà chăm chỉ và rất trung thực.",2],["Em rất yêu quý và tự hào về mẹ của em.",3],["Hình ảnh người thầy mãi in sâu trong trái tim em.",3],["Em kính trọng bác vì sự tận tụy ấy.",3]],
+TL=["Tả ngoại hình","Tả hoạt động","Tả tính tình","Nêu cảm nghĩ (kết bài)"],
+LKP=[["Hoa đào nở rộ khắp vườn. Hoa đào báo hiệu mùa xuân đã về.","Lặp từ ngữ"],["Quê em có một dòng sông hiền hòa. Dòng sông ôm lấy xóm làng như vòng tay mẹ.","Lặp từ ngữ"],["Chợ nổi Cái Răng họp từ sáng sớm. Chợ nổi tấp nập ghe xuồng.","Lặp từ ngữ"],["Cô giáo bước vào lớp. Cô mỉm cười chào chúng em.","Lặp từ ngữ"],["Trời mưa to. Nhưng chúng em vẫn đến trường đúng giờ.","Dùng từ ngữ nối"],["Em chăm chỉ học bài. Vì thế, em đạt kết quả tốt.","Dùng từ ngữ nối"],["Nam rất thích vẽ. Tuy nhiên, bạn ấy chưa có nhiều thời gian luyện tập.","Dùng từ ngữ nối"],["Mẹ nấu cơm xong. Rồi cả nhà cùng ngồi vào mâm.","Dùng từ ngữ nối"],["Nam là bạn thân của em. Cậu ấy luôn giúp đỡ mọi người.","Dùng từ ngữ thay thế"],["Quê em có nghề làm gốm. Nghề này đã có từ lâu đời.","Dùng từ ngữ thay thế"],["Mai là học sinh giỏi. Bạn ấy còn hát rất hay.","Dùng từ ngữ thay thế"],["Những chiếc thuyền ra khơi từ sớm. Chúng trở về khi hoàng hôn buông xuống.","Dùng từ ngữ thay thế"],["Trời đã tối. Nhưng bà vẫn ngồi khâu áo bên cửa sổ.","Dùng từ ngữ nối"],["Lan chăm chỉ luyện viết. Vì vậy, chữ của bạn ngày càng đẹp.","Dùng từ ngữ nối"],["Con đường làng rợp bóng cây. Con đường dẫn ra cánh đồng lúa chín.","Lặp từ ngữ"],["Em có một chú mèo nhỏ. Nó thích nằm phơi nắng trước hiên.","Dùng từ ngữ thay thế"],["Hà Nội có nhiều hồ đẹp. Chúng làm không khí thành phố mát mẻ hơn.","Dùng từ ngữ thay thế"]],
+LKM=["Lặp từ ngữ","Dùng từ ngữ nối","Dùng từ ngữ thay thế"],
+NW=[[LKP[4][0],"Nhưng"],[LKP[5][0],"Vì thế"],[LKP[6][0],"Tuy nhiên"],[LKP[7][0],"Rồi"],[LKP[12][0],"Nhưng"],[LKP[13][0],"Vì vậy"]],
+LP=[[LKP[0][0],"Hoa đào",["báo hiệu","mùa xuân","khắp vườn"]],[LKP[1][0],"Dòng sông",["xóm làng","vòng tay mẹ","hiền hòa"]],[LKP[2][0],"Chợ nổi",["ghe xuồng","sáng sớm","tấp nập"]],[LKP[3][0],"Cô",["lớp","chào","em"]],[LKP[14][0],"Con đường",["dẫn ra","cánh đồng","rợp bóng"]]],
+TH=[[LKP[8][0],"Cậu ấy","Nam",["mọi người","em","cô giáo"]],[LKP[9][0],"Nghề này","nghề làm gốm",["quê em","từ lâu đời","đã có"]],[LKP[10][0],"Bạn ấy","Mai",["hát","rất","còn"]],[LKP[11][0],"Chúng","Những chiếc thuyền",["hoàng hôn","khơi","sớm"]],[LKP[15][0],"Nó","một chú mèo nhỏ",["trước hiên","em","phơi nắng"]],[LKP[16][0],"Chúng","nhiều hồ đẹp",["Hà Nội","không khí","thành phố"]]],
+FN=[["Nam bị ốm nặng. ___, bạn ấy phải nghỉ học mấy hôm.","Vì vậy",["Tuy nhiên","Nhưng","Ngược lại"]],["Cánh đồng đã vàng rực. ___ nông dân bắt đầu vào vụ gặt.","Rồi",["Nhưng","Tuy nhiên","Mặc dù"]],["Bài toán rất khó. ___ bạn Hà vẫn tìm ra cách giải.","Nhưng",["Vì vậy","Cho nên","Do đó"]],["Em rất thích đọc truyện. ___ em ít có thời gian rảnh.","Tuy nhiên",["Vì thế","Do đó","Cho nên"]],["Trời nắng gắt. ___ chúng em đội mũ khi ra sân.","Vì thế",["Nhưng","Tuy nhiên","Ngược lại"]],["Bà trồng rất nhiều hoa. ___ khu vườn lúc nào cũng thơm ngát.","Vì vậy",["Nhưng","Tuy nhiên","Mặc dù"]]],
+CT=["Tên chương trình","Mục đích","Thời gian và địa điểm","Chuẩn bị","Các hoạt động chính"],NCT=["Mở bài giới thiệu nhân vật","Kết bài nêu cảm nghĩ","Tả ngoại hình nhân vật","Lời bình luận về bài thơ"],
+CTM=[["Mục đích","Chương trình tổ chức nhằm mục đích gì?"],["Thời gian và địa điểm","Hoạt động diễn ra vào lúc nào, ở đâu?"],["Chuẩn bị","Cần chuẩn bị những gì, ai phụ trách?"],["Các hoạt động chính","Các hoạt động diễn ra theo trình tự nào?"]],
+S1=[["Tôi thích đọc sách.","Tôi",["thích","đọc","sách"]],["Chúng tôi trồng cây ở sân trường.","Chúng tôi",["trồng","cây","sân trường"]],["Nó chạy rất nhanh.","Nó",["chạy","rất","nhanh"]],["Họ đang gặt lúa ngoài đồng.","Họ",["đang","gặt","lúa"]]],
+KT=["và","của","với","nhưng","nếu","thì","vì","nên","mà","hoặc","tuy","do","bởi"],NK=["bàn","chạy","đẹp","sách","hát","xanh","dòng sông","học sinh","gieo"],
+SY=[["chăm chỉ","siêng năng"],["to lớn","khổng lồ"],["đẹp","xinh"],["mênh mông","bao la"],["bình yên","yên bình"],["quê hương","quê nhà"],["tổ quốc","đất nước"],["nhìn","ngó"],["dũng cảm","gan dạ"],["thông minh","sáng dạ"],["nhanh","mau"],["ngô","bắp"]],
+AN=[["to","nhỏ"],["cao","thấp"],["nhanh","chậm"],["sáng","tối"],["nóng","lạnh"],["vui","buồn"],["xa","gần"],["dài","ngắn"]],
+PW=[["ăn","Em bé ăn cơm.","Tàu ăn hàng."],["chân","Em bé có đôi chân nhỏ xíu.","Chân bàn bị gãy."],["mắt","Mắt em bé tròn xoe.","Quả na đã mở mắt."],["đầu","Em đội mũ lên đầu.","Đầu làng có cây đa."],["tay","Tay em cầm bút.","Tay ghế rất chắc."],["miệng","Miệng em cười tươi.","Miệng bát bị sứt."],["mũi","Mũi bé hơi cao.","Mũi thuyền nhọn."],["răng","Răng em trắng.","Răng cưa sắc."]],
+MONO=["máy bay","cuốn sách","thước kẻ","xe đạp","ngôi nhà","quả cam"],
+FB=[["Bức tranh ___ Bùi Xuân Phái rất nổi tiếng.","của",["và","nhưng","nên"]],["Nam ___ Mai là đôi bạn thân.","và",["của","nhưng","nên"]],["Em thích đọc sách ___ em ít có thời gian.","nhưng",["của","nên","với"]],["Trời mưa to ___ đường rất trơn.","nên",["nhưng","của","với"]],["Mẹ đi chợ ___ em gái.","với",["nhưng","của","nên"]]],
+VH=[["Cả nước nhớ ơn Bác Hồ kính yêu.","Bác Hồ"],["Chúng em hứa sẽ học thật giỏi để xứng đáng với Bác.","Bác"],["Mỗi người đều có trách nhiệm bảo vệ Tổ quốc.","Tổ quốc"],["Nhân dân ta tin tưởng vào sự lãnh đạo của Đảng.","Đảng"]],
+TAN=["Tôi hoàn toàn tán thành ý kiến cần giữ gìn di sản của cha ông.","Mình đồng ý với bạn rằng cần bảo vệ rừng.","Tôi rất ủng hộ việc trồng thêm cây xanh ở trường.","Tôi tán thành việc tổ chức ngày hội đọc sách."],
+PD=["Tôi không đồng tình với việc vứt rác ra đường.","Mình phản đối việc phá rừng bừa bãi.","Tôi không tán thành cách làm bẩn nơi công cộng.","Tôi phản đối việc xả nước thải ra sông."],
+TNN=[["Pa-ri",1],["Mát-xcơ-va",1],["Ê-vơ-rét",1],["Hi-ma-lay-a",1],["Pa-ki-xtan",1],["Nê-pan",1],["Bu-tan",1],["Ten-đing No-gay",0],["Ét-mun Hi-la-ri",0]],
+U=["Đánh dấu lời nói trực tiếp của nhân vật","Đánh dấu phần chú thích","Liệt kê các ý","Nối các từ ngữ trong một liên danh"],
+GN=[["– Hôm nay cậu có đi học không? – Có, tớ đi chứ.",0],["Mẹ hỏi: – Con đã làm xong bài tập chưa?",0],["– Cho tớ mượn quyển sách nhé! – Được thôi.",0],["Cô Lan – giáo viên chủ nhiệm của em – rất hiền.",1],["Hà Nội – thủ đô của nước ta – có Hồ Gươm.",1],["Chú chim sâu – bạn của nhà nông – bắt sâu cho lúa.",1],["Em cần mang theo: – Sách vở. – Bút thước. – Mũ nón.",2],["Việc cần làm hôm nay: – Quét nhà. – Tưới cây.",2],["Bạn nhớ chuẩn bị: – Nước uống. – Áo mưa.",2],["Tuyến đường Hà Nội – Hải Phòng rất đông xe.",3],["Trận đấu Việt Nam – Thái Lan diễn ra tối nay.",3],["Chuyến bay Hà Nội – Đà Nẵng cất cánh lúc sáng.",3]];
+
+var G_T=function(k){return [1,function(){var t=P(TT[k]);return M("Bài đọc “"+t+"” thuộc chủ điểm nào?",CD[k],oth(CD,k),"Theo mục lục sách Tiếng Việt 5, Tập 2, bài này thuộc chủ điểm “"+CD[k]+"”.")}]};
+var gh=[
+[1,function(){var c=P(GA);return M("Câu nào là câu ghép?",c,pk(GS,3),"Câu ghép có hai hay nhiều cụm chủ ngữ – vị ngữ.")}],
+[1,function(){var c=P(GS);return M("Câu nào là câu đơn?",c,pk(GA,3),"Câu đơn chỉ có một cụm chủ ngữ – vị ngữ.")}],
+[1,function(){var s=P(GA.concat(GS)),g=GA.indexOf(s)>=0;return M("Câu “"+s+"” là:",g?"Câu ghép":"Câu đơn",[g?"Câu đơn":"Câu ghép","Câu cảm","Không phải là câu"],g?"Có từ hai cụm chủ ngữ – vị ngữ trở lên.":"Chỉ có một cụm chủ ngữ – vị ngữ.")}],
+[2,function(){var s=P(GA.concat(GV3)),n=GV3.indexOf(s)>=0?3:2;return M("Câu ghép “"+s+"” có mấy vế câu?",n,[1,2,3,4].filter(function(x){return x!=n}),"Mỗi cụm chủ ngữ – vị ngữ là một vế câu.")}],
+[2,function(){var g=P(GK);return M("Các vế của câu “"+g[0]+"” được nối với nhau bằng:",g[1],pk(oth(GK,GK.indexOf(g)).map(function(x){return x[1]}).filter(function(x){return x!=g[1]}),3),"Cặp kết từ nối hai vế câu ghép.")}],
+[2,function(){var g=P(GK);return M("Quan hệ giữa các vế trong câu “"+g[0]+"” là:",g[2],REL.filter(function(x){return x!=g[2]}),"Xét cặp kết từ: "+g[1]+".")}],
+[2,function(){var f=P(FP);return M("Chọn cặp kết từ thích hợp: “"+f[0]+"”",f[1],f[2],"Xét quan hệ giữa hai vế: nguyên nhân – kết quả, tương phản, điều kiện hay tăng tiến.")}],
+[2,function(){var t=P(TN);return M("Câu “"+t[0]+"” thuộc nội dung nào của bài văn tả người?",TL[t[1]],oth(TL,t[1]),"Xác định câu tả hình dáng, việc làm, tính tình hay nêu cảm nghĩ.")}],
+[3,function(){var c=P(GVB);return M("Câu nào là câu ghép?",c,pk(DV,3),"“Và” trong các câu đơn chỉ nối hai từ ngữ; ở câu ghép “và” nối hai vế câu.")}],
+[3,function(){var c=P(GD);return M("Các vế của câu ghép nào được nối trực tiếp bằng dấu câu, không dùng kết từ?",c,pk(GK,3).map(function(x){return x[0]}),"Câu nối bằng dấu phẩy mà không có kết từ.")}],
+[3,function(){var c=P(GV3);return M("Câu nào là câu ghép có ba vế?",c,pk(GA.filter(function(x){return GV3.indexOf(x)<0}),3),"Ba cụm chủ ngữ – vị ngữ ghép lại.")}],
+[3,function(){var g=P(GK),w=g[1];return M("Câu ghép nào có quan hệ "+g[2]+"?",g[0],pk(GK.filter(function(x){return x[2]!=g[2]}),3).map(function(x){return x[0]}),"Cặp kết từ: "+g[1]+".")}]
+];
+var lk=[
+[1,function(){var p=P(LKP);return M(P(["Hai câu trong đoạn “"+p[0]+"” liên kết với nhau bằng cách:","Cách liên kết câu trong đoạn “"+p[0]+"” là:","Các câu trong đoạn “"+p[0]+"” được liên kết bằng:","Em hãy xác định cách liên kết câu của đoạn “"+p[0]+"”:"]),p[1],oth(LKM,LKM.indexOf(p[1])).concat(["Không có liên kết"]),"Xác định từ ngữ lặp lại, từ ngữ nối hoặc từ ngữ thay thế.")}],
+[1,function(){var n=P(NW);return M("Từ ngữ nối trong đoạn “"+n[0]+"” là:",n[1],pk(["Vì vậy","Cho nên","Do đó","Ngoài ra","Mặc dù","Bởi vì"].filter(function(x){return x!=n[1]}),3),"Từ ngữ nối đứng ở đầu câu sau.")}],
+[2,function(){var l=P(LP);return M(P(["Từ ngữ được lặp lại để liên kết câu trong đoạn “"+l[0]+"” là:","Từ ngữ lặp lại ở hai câu của đoạn “"+l[0]+"” là:","Từ ngữ nào được lặp lại trong đoạn “"+l[0]+"”?"]),l[1],l[2],"Câu sau lặp lại từ ngữ ở câu trước.")}],
+[2,function(){var t=P(TH);return M(P(["Trong đoạn “"+t[0]+"”, từ ngữ “"+t[1]+"” thay thế cho:","Ở đoạn “"+t[0]+"”, “"+t[1]+"” được dùng thay cho:","Xét đoạn “"+t[0]+"”. Từ “"+t[1]+"” chỉ:"]),t[2],t[3],"Từ ngữ thay thế giúp tránh lặp lại từ ở câu trước.")}],
+[3,function(){var f=P(FN);return M("Chọn từ ngữ nối thích hợp: “"+f[0]+"”",f[1],f[2],"Xét quan hệ giữa hai câu: nguyên nhân – kết quả, tương phản hay tiếp nối.")}],
+[3,function(){var m=P(LKM),c=P(LKP.filter(function(x){return x[1]==m}));return M("Đoạn nào liên kết câu bằng cách “"+m.toLowerCase()+"”?",c[0],pk(LKP.filter(function(x){return x[1]!=m}),3).map(function(x){return x[0]}),"Xét từng đoạn: có từ lặp lại, từ nối hay từ thay thế?")}]
+];
+var ct=[
+[1,function(){var c=P(CT);return M("Mục nào thuộc một chương trình hoạt động?",c,pk(NCT,3),"Chương trình hoạt động gồm tên, mục đích, thời gian – địa điểm, chuẩn bị, các hoạt động chính.")}],
+[2,function(){var c=P(CTM);return M(P(["Phần “"+c[0]+"” của chương trình hoạt động trả lời câu hỏi:","Trong chương trình hoạt động, mục “"+c[0]+"” cho biết:","Mục “"+c[0]+"” trong chương trình hoạt động nhằm trả lời:"]),c[1],oth(CTM,CTM.indexOf(c)).map(function(x){return x[1]}),"Mỗi phần của chương trình trả lời một câu hỏi riêng.")}]
+];
+var nn=function(c){var v=[c.replace(/-/g," "),c.toLowerCase(),c.replace(/-(.)/g,function(m,x){return "-"+x.toUpperCase()}),c.replace(/(^| )(.)/g,function(m,a,b){return a+b.toLowerCase()})].filter(function(x){return x!=c});return pk([...new Set(v)],3)};
+var TG={
+1:[G_T(0)].concat(gh),
+2:[G_T(1)].concat(lk,ct),
+3:[G_T(2),
+[1,function(){var s=P(S1);return M("Đại từ trong câu “"+s[0]+"” là:",s[1],s[2],"Đại từ dùng để xưng hô hoặc thay thế.")}],
+[1,function(){var w=P(KT);return M("Từ nào là kết từ?",w,pk(NK,3),"Kết từ dùng để nối từ ngữ hoặc câu.")}],
+[1,function(){var p=P(SY),r=R(0,1);return M("Từ nào đồng nghĩa với “"+p[r]+"”?",p[1-r],pk(oth(SY,SY.indexOf(p)).map(function(q){return P(q)}),3),"Từ đồng nghĩa có nghĩa giống hoặc gần giống nhau.")}],
+[2,function(){var w=P(PW),k=R(1,2);return M("Từ “"+w[0]+"” trong câu “"+w[k]+"” được dùng theo nghĩa nào?",k==1?"Nghĩa gốc":"Nghĩa chuyển",[k==1?"Nghĩa chuyển":"Nghĩa gốc","Cả hai nghĩa","Không có nghĩa"],k==1?"Nghĩa gốc là nghĩa đầu tiên của từ.":"Nghĩa chuyển suy ra từ nghĩa gốc.")}],
+[2,function(){var f=P(FB);return M("Chọn kết từ thích hợp: “"+f[0]+"”",f[1],f[2],"Chọn kết từ hợp với ý nghĩa của câu.")}],
+[2,function(){var v=P(VH),s=v[0],lo=s.replace(v[1],v[1].toLowerCase()),tc=s.split(" ").map(function(w){return w[0].toUpperCase()+w.slice(1)}).join(" ");return M("Câu nào viết hoa đúng để thể hiện sự tôn trọng đặc biệt?",s,[lo,tc,s.toLowerCase()],"Các từ như Bác, Tổ quốc, Đảng được viết hoa khi dùng với ý nghĩa tôn kính đặc biệt; các từ khác không viết hoa.")}],
+[2,function(){var c=P(TAN);return M("Câu nào thể hiện ý kiến tán thành?",c,pk(PD,3),"Tán thành: “tôi tán thành”, “đồng ý”, “ủng hộ”.")}],
+[2,function(){var g=P(GK);return M("Quan hệ giữa các vế trong câu “"+g[0]+"” là:",g[2],REL.filter(function(x){return x!=g[2]}),"Xét cặp kết từ: "+g[1]+".")}],
+[3,function(){var p=P(PW),r=R(0,1);return M("Từ nào dưới đây là từ đa nghĩa?",p[0],pk(MONO,3),"Từ đa nghĩa có nghĩa gốc và nghĩa chuyển.")}],
+[3,function(){var p=P(SY),a=P(AN);return M("Cặp từ nào là từ đồng nghĩa?",p[0]+" – "+p[1],pk(AN,3).map(function(q){return q[0]+" – "+q[1]}),"Các cặp còn lại có nghĩa trái ngược nhau.")}],
+[3,function(){var o="Câu mở đoạn nêu ý kiến tán thành → lí do, dẫn chứng → câu kết khẳng định lại";return M("Đoạn văn nêu ý kiến tán thành thường được triển khai theo trình tự:",o,["Lí do, dẫn chứng → câu mở đoạn nêu ý kiến → kết đoạn","Câu kết khẳng định lại → lí do → câu mở đoạn","Chỉ nêu lí do, không nêu ý kiến"],"Mở đoạn nêu ý kiến, triển khai bằng lí do và dẫn chứng, kết đoạn khẳng định lại.")}],
+[3,function(){var c=P(GVB);return M("Câu nào là câu ghép?",c,pk(DV,3),"Câu ghép có hai cụm chủ ngữ – vị ngữ.")}]
+],
+4:[G_T(3),
+[1,function(){var t=P(TNN);return M(P(["“"+t[0]+"” là:","Từ “"+t[0]+"” là:"]),t[1]?"Tên địa lí nước ngoài":"Tên người nước ngoài",[t[1]?"Tên người nước ngoài":"Tên địa lí nước ngoài","Tên riêng Việt Nam","Danh từ chung"],"Tên riêng nước ngoài phiên âm được viết hoa chữ cái đầu mỗi bộ phận.")}],
+[1,function(){var s=P(GN);return M(P(["Dấu gạch ngang trong câu “"+s[0]+"” dùng để làm gì?","Công dụng của dấu gạch ngang trong “"+s[0]+"” là:","Em hãy cho biết tác dụng của dấu gạch ngang trong: “"+s[0]+"”"]),U[s[1]],oth(U,s[1]),"Xem dấu gạch ngang đứng ở đâu: đầu lời thoại, giữa câu, đầu dòng liệt kê hay giữa hai tên.")}],
+[2,function(){var t=P(TNN);return M("Cách viết nào đúng?",t[0],nn(t[0]),"Viết hoa chữ cái đầu mỗi bộ phận; các tiếng trong một bộ phận nối bằng dấu gạch nối.")}],
+[2,function(){var u=R(0,3),c=P(GN.filter(function(g){return g[1]==u}));return M("Câu nào dùng dấu gạch ngang để "+U[u].charAt(0).toLowerCase()+U[u].slice(1)+"?",c[0],oth([0,1,2,3],u).map(function(k){return P(GN.filter(function(g){return g[1]==k}))[0]}),U[u]+".")}],
+[2,function(){var c=P(PD);return M("Câu nào thể hiện ý kiến phản đối?",c,pk(TAN,3),"Phản đối: “không đồng tình”, “phản đối”, “không tán thành”.")}],
+[2,lk[0][1]],
+[2,lk[2][1]],
+[3,lk[4][1]],
+[3,lk[5][1]],
+[3,function(){var o="Câu mở đoạn nêu ý kiến phản đối → lí do, dẫn chứng (tác hại) → đề xuất hoặc lời kêu gọi";return M("Đoạn văn nêu ý kiến phản đối thường được triển khai theo trình tự:",o,["Đề xuất → lí do → nêu ý kiến phản đối","Chỉ kể lại sự việc, không nêu ý kiến","Chỉ liệt kê tên người, không nêu lí do"],"Nêu rõ ý kiến phản đối, giải thích bằng lí do, dẫn chứng, rồi đề xuất cách làm đúng.")}],
+[3,function(){var p=P(["Trung Quốc","Ấn Độ"]);return M("Tên riêng nước ngoài phiên âm qua âm Hán Việt (như "+p+") được viết như thế nào?","Viết hoa chữ cái đầu mỗi tiếng, như tên riêng Việt Nam",["Viết hoa toàn bộ chữ cái","Viết thường, không viết hoa","Có gạch nối giữa các tiếng"],"Tên Hán Việt viết như tên riêng Việt Nam.")}],
+[3,function(){var t=P(TNN.filter(function(x){return x[0].indexOf(" ")>0}));return M("Tên người “"+t[0]+"” gồm mấy bộ phận (giữa các bộ phận có dấu cách)?",2,[1,3,4],"Mỗi bộ phận viết hoa chữ cái đầu, các tiếng trong một bộ phận nối với nhau bằng dấu gạch nối.")}]
+]};
+var FX=[[0,"Văn tả người gồm mấy phần?","3 phần: mở bài, thân bài, kết bài",["2 phần","4 phần","5 phần"],"Mở bài giới thiệu người được tả; thân bài tả ngoại hình, hoạt động, tính tình; kết bài nêu cảm nghĩ.",1],
+[0,"Câu ghép là câu có:","Hai hay nhiều cụm chủ ngữ – vị ngữ ghép lại",["Chỉ một cụm chủ ngữ – vị ngữ","Không có chủ ngữ","Chỉ có dấu phẩy"],"Mỗi cụm chủ ngữ – vị ngữ là một vế câu.",1],
+[0,"Mỗi cụm chủ ngữ – vị ngữ trong câu ghép gọi là:","Một vế câu",["Một đoạn văn","Một từ ghép","Một câu đơn"],"Các vế câu có quan hệ chặt chẽ về nghĩa.",1],
+[1,"Có mấy cách liên kết câu được học trong chủ điểm này?","3 cách: lặp từ ngữ, dùng từ ngữ nối, dùng từ ngữ thay thế",["1 cách","2 cách","5 cách"],"Lặp từ ngữ, từ ngữ nối, từ ngữ thay thế.",1],
+[1,"Đoạn văn thể hiện tình cảm, cảm xúc về một sự việc cần có:","Nêu sự việc, cảm xúc và lí do gây ấn tượng",["Chỉ chép lại sự việc","Chỉ nêu tên tác giả","Chỉ liệt kê số liệu"],"Đoạn văn gồm câu mở đoạn, các câu triển khai, câu kết.",2],
+[1,"Chương trình hoạt động nên được trình bày như thế nào?","Rõ ràng, ngắn gọn, chia thành các mục",["Dài dòng, không chia mục","Chỉ có một câu","Không cần nêu thời gian"],"Có tên, mục đích, thời gian – địa điểm, chuẩn bị, các hoạt động chính.",1],
+[2,"Khi viết hoa danh từ chung như Bác, Tổ quốc, Đảng, người viết muốn thể hiện:","Sự tôn trọng đặc biệt",["Sự sợ hãi","Sự hài hước","Sự thờ ơ"],"Viết hoa để bày tỏ sự tôn kính.",1],
+[2,"Đoạn văn nêu ý kiến tán thành cần có:","Ý kiến, lí do và dẫn chứng",["Chỉ lời chào","Chỉ một câu hỏi","Chỉ tả cảnh"],"Ý kiến, lí do, dẫn chứng, kết đoạn.",1],
+[2,"Bài văn tả phong cảnh gồm mấy phần?","3 phần: mở bài, thân bài, kết bài",["2 phần","4 phần","5 phần"],"Mở bài giới thiệu cảnh, thân bài tả chi tiết, kết bài nêu cảm nghĩ.",1],
+[3,"Tên người, tên địa lí nước ngoài phiên âm được viết như thế nào?","Viết hoa chữ cái đầu của mỗi bộ phận; các tiếng trong một bộ phận có gạch nối",["Viết thường toàn bộ","Viết hoa toàn bộ chữ cái","Bỏ hết dấu gạch nối"],"Ví dụ: Pa-ri, Ten-đing No-gay.",1],
+[3,"Khi nêu ý kiến phản đối, người viết cần:","Nêu rõ lí do, dẫn chứng và giữ thái độ lịch sự",["Chỉ chê bai người khác","Không cần lí do","Dùng lời lẽ xúc phạm"],"Phản đối cần có lí do thuyết phục và lịch sự.",1],
+[3,"Dấu gạch ngang có thể được dùng để:","Đánh dấu lời nói trực tiếp, chú thích, liệt kê, nối các từ ngữ trong liên danh",["Chỉ kết thúc câu","Chỉ ngắt nhịp thơ","Chỉ báo câu hỏi"],"Bốn công dụng đã học.",1]];
+FX.forEach(function(x){TG[x[0]+1].push([x[5],function(){return M(x[1],x[2],x[3],x[4])}])});
+var LV=["","Cơ bản","Vận dụng","Nâng cao"];
+function gen(k){var g=TG[k],seen={},out=[],Qt=[34,33,33];
+ function add(q,l){if(!q)return 0;var key=q.q+"|"+q.c+"|"+q.d.slice().sort().join();if(seen[key])return 0;seen[key]=1;q.lv=l;out.push(q);return 1}
+ for(var l=1;l<=3;l++){var fs=g.filter(function(x){return x[0]==l}),n=0,got=0;while(got<Qt[l-1]&&n++<3000)got+=add(P(fs)[1](),l)}
+ var n2=0;while(out.length<100&&n2++<3000){var f=P(g);add(f[1](),f[0])}
+ out.sort(function(a,b){return a.lv-b.lv});return out}
+return {gen:gen,names:CD,keys:Object.keys(TG).map(Number)};
+})();
+</script>
+<script>
+var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))};
+function sh(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=R(0,k),t=a[k];a[k]=a[j];a[j]=t}return a}
+var pk=function(a,n){return sh(a).slice(0,n)};
+var $=function(i){return document.getElementById(i)};
+var ENG={t:window.T5T2_T,v:window.T5T2_V};
+var MIXPER=15,TOPICN=20;
+
+function subjName(s){return s=="t"?"Toán":"Tiếng Việt"}
+function engAll(s){var e=ENG[s],out=[];e.keys.forEach(function(k){out=out.concat(e.gen(k))});return out}
+function genMix(s,list){return list?list.slice():pk(engAll(s),MIXPER)}
+function genTopic(s,ki,list){return list?list.slice():pk(ENG[s].gen(ENG[s].keys[ki]),TOPICN)}
+function topicNames(s){return ENG[s].names}
+
+var MODE="mix",S="t",KI=0,pool=[],i=0,score=0,wrong=[],done=false;
+
+/* Lịch sử */
+var HKEY="quizlop5tap2_history_v1";
+function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
+function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
+function addHist(sc,total){
+ var h=loadHist(),topic;
+ if(MODE=="mix")topic=subjName(S)+" (15 câu)";
+ else topic=topicNames(S)[KI];
+ h.unshift({ts:Date.now(),subject:(MODE=="mix"?"Tổng hợp":subjName(S)),topic:topic,score:sc,total:total});
+ if(h.length>100)h=h.slice(0,100);saveHist(h)}
+function clearHist(){saveHist([]);show()}
+function fmtTime(ts){var d=new Date(ts),p=function(n){return(n<10?"0":"")+n};
+ return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes())}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function histHTML(){
+ var h=loadHist();var out='<div class="hist"><h2>Lịch sử làm bài</h2>';
+ if(!h.length)return out+'<p class="hempty">Chưa có lịch sử. Hoàn thành một bộ quiz để lưu lại.</p></div>';
+ out+='<table class="htbl"><thead><tr><th>Thời gian</th><th>Môn &amp; chủ điểm</th><th>Điểm</th></tr></thead><tbody>';
+ h.forEach(function(r){out+='<tr><td>'+fmtTime(r.ts)+'</td><td>'+esc(r.subject)+' – '+esc(r.topic)+'</td><td class="sc">'+r.score+'/'+r.total+'</td></tr>'});
+ out+='</tbody></table><button class="link" id="clr">Xóa toàn bộ lịch sử</button></div>';return out}
+
+function setModeTabs(){$("mmix").setAttribute("aria-selected",MODE=="mix");$("mtopic").setAttribute("aria-selected",MODE=="topic");$("mreview").setAttribute("aria-selected",MODE=="review");
+ var rv=(MODE=="review");
+ $("subjtabs").hidden=(MODE!="topic");$("chips").hidden=rv;$("box").hidden=rv;$("review").hidden=!rv}
+function setReviewSub(which){
+ $("rvtoan").setAttribute("aria-selected",which=="toan");
+ $("rvviet").setAttribute("aria-selected",which=="viet");
+ $("rvtoanc").hidden=(which!="toan");$("rvvietc").hidden=(which!="viet");
+ document.body.setAttribute("data-s",which=="viet"?"v":"t");
+}
+function showReview(){MODE="review";setModeTabs();$("chips").innerHTML="";setReviewSub("toan");window.scrollTo(0,0)}
+
+function goMix(s,list){MODE="mix";S=s||"t";setModeTabs();document.body.setAttribute("data-s",S);
+ $("chips").innerHTML="";
+ [["t","Toán (15 câu)"],["v","Tiếng Việt (15 câu)"]].forEach(function(it){var b=document.createElement("button");b.className="chip";b.textContent=it[1];b.setAttribute("aria-pressed",it[0]==S);b.onclick=function(){goMix(it[0])};$("chips").appendChild(b)});
+ pool=genMix(S,list);i=0;score=0;wrong=[];show()}
+
+function go(s,ki,list){MODE="topic";S=s;KI=ki||0;setModeTabs();document.body.setAttribute("data-s",s);
+ $("tt").setAttribute("aria-selected",s=="t");$("tv").setAttribute("aria-selected",s=="v");
+ $("chips").innerHTML="";
+ topicNames(s).forEach(function(n,j){var b=document.createElement("button");b.className="chip";b.textContent=n;b.setAttribute("aria-pressed",j==KI);b.onclick=function(){go(s,j)};$("chips").appendChild(b)});
+ pool=genTopic(s,KI,list);i=0;score=0;wrong=[];show()}
+
+$("mreview").onclick=showReview;
+$("rvtoan").onclick=function(){setReviewSub("toan")};$("rvviet").onclick=function(){setReviewSub("viet")};
+$("mmix").onclick=function(){goMix("t")};
+$("mtopic").onclick=function(){go("t",0)};
+$("tt").onclick=function(){go("t",0)};$("tv").onclick=function(){go("v",0)};
+
+var saved=false;
+function show(){
+ var box=$("box");
+ if(i>=pool.length){
+  if(!saved){addHist(score,pool.length);saved=true}
+  var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
+  var newLabel=MODE=="mix"?"Bộ 15 câu mới":"Bộ 20 câu mới";
+  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"😭";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  $("nw").onclick=function(){MODE=="mix"?goMix(S):go(S,KI)};
+  if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(S,wrong.slice()):go(S,KI,wrong.slice())};
+  var c=$("clr");if(c)c.onclick=clearHist;return}
+ saved=false;
+ var q=pool[i],o=sh([{t:q.c,ok:1}].concat(q.d.map(function(t){return {t:t,ok:0}})));done=false;
+ box.innerHTML='<div class="card"><div class="meta"><span>Câu '+(i+1)+'/'+pool.length+'</span><span>Đúng: '+score+'</span></div><div class="bar"><i style="width:'+(i*100/pool.length)+'%"></i></div><div class="q" id="qq"></div><div id="os"></div><div id="ex" hidden></div></div>';
+ $("qq").textContent=q.q;
+ o.forEach(function(x){var b=document.createElement("button");b.className="opt";b.textContent=x.t;b.onclick=function(){pick(b,x.ok,q,o)};$("os").appendChild(b)})}
+function pick(b,ok,q,o){
+ if(done)return;done=true;var bs=$("os").children;
+ for(var k=0;k<bs.length;k++){bs[k].disabled=true;if(o[k].ok)bs[k].classList.add("ok")}
+ if(ok)score++;else{b.classList.add("no");wrong.push(q)}
+ var e=$("ex");e.hidden=false;e.className="exp";e.innerHTML='<b>'+(ok?"Chính xác!":"Chưa đúng.")+'</b> <span id="et"></span><br><button class="btn" id="nx">'+(i+1<pool.length?"Câu tiếp theo":"Xem kết quả")+'</button>';
+ $("et").textContent=q.e;$("nx").onclick=function(){i++;show()};$("nx").focus()}
+goMix("t");showReview();
+</script>
+</body>
+</html>

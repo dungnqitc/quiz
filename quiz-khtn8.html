@@ -55,7 +55,7 @@ button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 <main>
 <p><a class="link" href="index.html">← Về trang chủ</a></p>
 <h1>Quiz KHTN 8 – SGK</h1>
-<p class="sub">Chọn <b>Quiz tổng hợp</b> (20 câu ngẫu nhiên từ cả 3 phân môn) hoặc <b>Quiz theo chủ đề</b> (chọn Hóa / Lí / Sinh, làm trọn 100 câu).</p>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (15 câu ngẫu nhiên từ cả 3 phân môn) hoặc <b>Quiz theo chủ đề</b> (chọn Hóa / Lí / Sinh, 20 câu ngẫu nhiên).</p>
 <div class="tabs"><button class="tab" id="mmix" aria-selected="true">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button></div>
 <div class="chips" id="chips"></div>
 <div id="box"></div>
@@ -70,12 +70,12 @@ var $=function(i){return document.getElementById(i)};
 /* S: [[tên phân môn, cssvar],...]; Q: [subjIdx, topic, question, options[], correctIdx, explanation] */
 var S=(typeof window!=="undefined"&&window.KHTN_S)?window.KHTN_S:[];
 var Q=(typeof window!=="undefined"&&window.KHTN_Q)?window.KHTN_Q:[];
-var MIX=20;
+var MIX=15,TOPICN=20;
 function qnorm(r){var o=r[3],a=r[4],c=o[a],d=o.filter(function(_,j){return j!=a});return {q:r[2],c:c,d:d,e:r[5],topic:(S[r[0]]?S[r[0]][0]:"")+" · "+r[1]}}
 function qAll(){return Q.slice()}
 function qBySubj(si){return Q.filter(function(r){return r[0]==si})}
 function genMix(list){return list?list.slice():pk(qAll(),MIX).map(qnorm)}
-function genSubj(si,list){return list?list.slice():qBySubj(si).map(qnorm)}
+function genSubj(si,list){return list?list.slice():pk(qBySubj(si),TOPICN).map(qnorm)}
 
 var MODE="mix",SUBJ=0,pool=[],i=0,score=0,wrong=[],done=false;
 
@@ -84,7 +84,7 @@ var HKEY="quizkhtn8_history_v1";
 function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
 function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
 function addHist(sc,total){
- var h=loadHist(),topic=(MODE=="mix")?"Tổng hợp (20 câu)":(S[SUBJ]?S[SUBJ][0]:"");
+ var h=loadHist(),topic=(MODE=="mix")?"Tổng hợp (15 câu)":(S[SUBJ]?S[SUBJ][0]:"");
  h.unshift({ts:Date.now(),subject:"KHTN 8",topic:topic,score:sc,total:total});
  if(h.length>100)h=h.slice(0,100);
  saveHist(h)}
@@ -108,7 +108,7 @@ function goMix(list){MODE="mix";setModeTabs();$("chips").innerHTML="";
  pool=genMix(list);i=0;score=0;wrong=[];show()}
 
 function go(si,list){MODE="topic";SUBJ=si||0;setModeTabs();$("chips").innerHTML="";
- S.forEach(function(sp,j){var b=document.createElement("button");b.className="chip";b.textContent=sp[0]+" (100)";b.setAttribute("aria-pressed",j==SUBJ);b.onclick=function(){go(j)};$("chips").appendChild(b)});
+ S.forEach(function(sp,j){var b=document.createElement("button");b.className="chip";b.textContent=sp[0];b.setAttribute("aria-pressed",j==SUBJ);b.onclick=function(){go(j)};$("chips").appendChild(b)});
  pool=genSubj(SUBJ,list);i=0;score=0;wrong=[];show()}
 
 $("mmix").onclick=function(){goMix()};
@@ -121,8 +121,9 @@ function show(){
  if(i>=pool.length){
   if(!saved){addHist(score,pool.length);saved=true}
   var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
-  var newLabel=MODE=="mix"?"Bộ 20 câu mới":"Làm lại phân môn";
-  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  var newLabel=MODE=="mix"?"Bộ 15 câu mới":"Bộ 20 câu mới";
+  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"😭";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
   $("nw").onclick=function(){MODE=="mix"?goMix():go(SUBJ)};
   if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(wrong.slice()):go(SUBJ,wrong.slice())};
   var c=$("clr");if(c)c.onclick=clearHist;
