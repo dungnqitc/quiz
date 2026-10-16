@@ -5,7 +5,9 @@
 ## Cấu trúc nhiều trang
 
 - `index.html`: trang chủ, chọn bộ đề.
-- `quiz-lop5.html`: Toán 5 & Tiếng Việt 5 — câu hỏi sinh ngẫu nhiên theo chủ đề.
+- `quiz-lop5.html`: Toán 5 & Tiếng Việt 5 (SGK Tập 1) — câu hỏi sinh ngẫu nhiên theo chủ đề.
+- `quiz-lop5-tap2.html`: Toán 5 & Tiếng Việt 5 (SGK Tập 2) — câu hỏi sinh ngẫu nhiên, 2 engine (Toán 6 chủ đề, Tiếng Việt 4 chủ điểm) nhúng sẵn.
+- `quiz-tienganh5.html`: Tiếng Anh 5 – Global Success: Tập 1 — ngữ pháp theo unit, quiz từ vựng (Anh↔Việt) và quiz ngữ pháp. Dữ liệu nhúng sẵn trong trang.
 - `quiz-lop8.html`: Toán 8 – Tập 1 — ngân hàng 500 câu tĩnh (5 chương, mỗi chương 100 câu), dữ liệu nhúng sẵn trong trang.
 - `quiz-anh6.html`: Tiếng Anh vào 6 CLC Thanh Xuân — 43 câu, 9 chủ đề, dữ liệu nhúng sẵn trong trang.
 - `quiz-toan6cg.html`: Ôn thi Toán 6 – Cầu Giấy — 3 phần (Kiến thức, 12 câu trắc nghiệm có chấm điểm, 12 bài tự luận kèm lời giải). Dữ liệu nhúng sẵn trong trang.
@@ -16,12 +18,10 @@ Mỗi trang quiz có nút quay về trang chủ và lưu lịch sử riêng.
 
 ## Hai chế độ
 
-- Quiz tổng hợp:
-  - Toán 5 & Tiếng Việt 5: chọn môn (Toán hoặc Tiếng Việt), mỗi môn một bộ 20 câu ngẫu nhiên.
-  - Toán 8: một bộ 20 câu ngẫu nhiên lấy từ toàn bộ 500 câu của cả 5 chương.
-- Quiz theo chủ đề:
-  - Toán 5 & Tiếng Việt 5: chọn môn rồi chọn chủ đề, mỗi bộ 100 câu ngẫu nhiên.
-  - Toán 8: chọn 1 trong 5 chương, làm trọn 100 câu của chương đó.
+- Quiz tổng hợp: 15 câu ngẫu nhiên lấy từ toàn bộ kho câu hỏi của bộ đề.
+- Quiz theo chủ đề: 20 câu ngẫu nhiên lấy từ bộ câu hỏi của chủ đề/chương/phân môn được chọn.
+
+Áp dụng cho các trang có 2 chế độ: Toán 5 & Tiếng Việt 5, Toán 8, KHTN 8, Tiếng Anh vào 6. Hai trang Cầu Giấy và Thanh Xuân là tài liệu ôn thi (Kiến thức + Trắc nghiệm + Tự luận) nên không áp dụng.
 
 ## Tính năng
 
@@ -91,7 +91,12 @@ quiz-app/
 ├── quiz-anh6.html          # Quiz Tiếng Anh vào 6 (dữ liệu 43 câu nhúng sẵn)
 ├── quiz-toan6cg.html       # Ôn thi Toán 6 Cầu Giấy (kiến thức + trắc nghiệm + tự luận)
 ├── quiz-khtn8.html         # Quiz KHTN 8 (300 câu, 3 phân môn, nhúng sẵn)
+├── quiz-tienganh8.html     # Tiếng Anh 8 Global Success (ôn ngữ pháp + quiz từ vựng + quiz ngữ pháp)
 ├── quiz-toan6tx.html       # Ôn thi Toán 6 Thanh Xuân (kiến thức + trắc nghiệm + tự luận)
+├── quiz-tienganh5.html     # Tiếng Anh 5 Global Success Tập 1 (ngữ pháp + quiz từ vựng + quiz ngữ pháp)
+├── quiz-lop5-tap2.html     # Toán 5 & Tiếng Việt 5 SGK Tập 2 (sinh câu động, 2 chế độ)
+├── relax-video.html        # Trang nhúng playlist YouTube (mục Relax)
+├── history.html            # Tổng hợp lịch sử làm bài của mọi bộ đề
 ├── README.md
 ├── .gitignore
 └── .github/

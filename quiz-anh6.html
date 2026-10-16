@@ -121,7 +121,7 @@ function show(){
   if(!saved){addHist(score,pool.length);saved=true}
   var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
   var newLabel=MODE=="mix"?"Bộ 15 câu mới":"Bộ 20 câu mới";
-  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"😭";
+  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"\uD83D\uDE2D";
   box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
   $("nw").onclick=function(){MODE=="mix"?goMix():go(CAT)};
   if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(wrong.slice()):go(CAT,wrong.slice())};
