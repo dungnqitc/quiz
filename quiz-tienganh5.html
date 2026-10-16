@@ -77,18 +77,15 @@ select,.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:
 
   <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
     <div class="bar">
-      <select id="vDir" aria-label="Chiều hỏi">
-        <option value="ev">Anh → Việt</option>
-        <option value="ve">Việt → Anh</option>
-      </select>
-      <button class="btn pri" id="vGo">Bắt đầu lại</button>
+      <span class="sub" style="margin:0">20 câu mỗi lượt (trộn 50% Anh → Việt và 50% Việt → Anh)</span>
+      <button class="btn pri" id="vGo">Bắt đầu</button>
     </div>
     <div id="vBox"></div>
   </section>
 
   <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
     <div class="bar">
-      <button class="btn pri" id="gGo">Bắt đầu lại</button>
+      <button class="btn pri" id="gGo">Bắt đầu</button>
     </div>
     <div id="gBox"></div>
   </section>
@@ -122,7 +119,18 @@ const V=[
 ["do projects","làm các bài tập dự án",7],["play games","chơi trò chơi",7],["read books","đọc sách",7],["solve maths problems","giải các bài toán",7],["useful","có ích, hữu ích",7],["interesting","thú vị",7],["good for group work","tốt cho hoạt động nhóm",7],
 ["above","ở phía trên",8],["beside","bên cạnh",8],["under","ở phía dưới",8],["crayon","bút sáp màu",8],["bookcase","tủ sách",8],["board","bảng (trên lớp học)",8],["map","bản đồ",8],
 ["aquarium","thuỷ cung",9],["campsite","địa điểm cắm trại",9],["funfair","hội chợ giải trí",9],["theatre","nhà hát",9],["yesterday","ngày hôm qua",9],["dance","nhảy, múa",9],
-["pagoda","chùa",10],["lake","hồ nước",10],["visit","thăm",10],["plant","trồng (cây)",10],["walk","đi bộ",10],["survey","cuộc khảo sát",10]
+["pagoda","chùa",10],["lake","hồ nước",10],["visit","thăm",10],["plant","trồng (cây)",10],["walk","đi bộ",10],["survey","cuộc khảo sát",10],
+/* ---- 100 từ vựng cơ bản mở rộng (unit=0) ---- */
+["red","màu đỏ",0],["blue","màu xanh dương",0],["green","màu xanh lá",0],["yellow","màu vàng",0],["black","màu đen",0],["white","màu trắng",0],["orange","màu cam",0],["purple","màu tím",0],["brown","màu nâu",0],["grey","màu xám",0],
+["one","số một",0],["two","số hai",0],["three","số ba",0],["four","số bốn",0],["five","số năm",0],["ten","số mười",0],["hundred","một trăm",0],["thousand","một nghìn",0],["first","thứ nhất",0],["second","thứ hai",0],
+["mother","mẹ",0],["father","bố",0],["brother","anh/em trai",0],["sister","chị/em gái",0],["grandfather","ông",0],["grandmother","bà",0],["uncle","chú/bác",0],["aunt","cô/dì",0],["family","gia đình",0],["friend","bạn bè",0],
+["head","cái đầu",0],["hand","bàn tay",0],["foot","bàn chân",0],["eye","con mắt",0],["ear","cái tai",0],["nose","cái mũi",0],["mouth","cái miệng",0],["hair","tóc",0],["arm","cánh tay",0],["leg","chân",0],
+["cat","con mèo",0],["dog","con chó",0],["bird","con chim",0],["fish","con cá",0],["chicken","con gà",0],["cow","con bò",0],["pig","con lợn",0],["duck","con vịt",0],["tiger","con hổ",0],["elephant","con voi",0],
+["rice","cơm/gạo",0],["bread","bánh mì",0],["milk","sữa",0],["egg","quả trứng",0],["apple","quả táo",0],["banana","quả chuối",0],["orange fruit","quả cam",0],["water","nước",0],["meat","thịt",0],["vegetable","rau",0],
+["book","quyển sách",0],["pen","cái bút mực",0],["pencil","cái bút chì",0],["ruler","cái thước",0],["eraser","cục tẩy",0],["bag","cái cặp",0],["desk","bàn học",0],["chair","cái ghế",0],["teacher","giáo viên",0],["student","học sinh",0],
+["sunny","nắng",0],["rainy","mưa",0],["windy","có gió",0],["cloudy","nhiều mây",0],["hot","nóng",0],["cold","lạnh",0],["warm","ấm áp",0],["cool","mát mẻ",0],["spring","mùa xuân",0],["winter","mùa đông",0],
+["run","chạy",0],["jump","nhảy",0],["swim","bơi",0],["read","đọc",0],["write","viết",0],["sing","hát",0],["eat","ăn",0],["drink","uống",0],["sleep","ngủ",0],["play","chơi",0],
+["big","to lớn",0],["small","nhỏ",0],["tall","cao",0],["short","thấp/ngắn",0],["long","dài",0],["happy","vui vẻ",0],["sad","buồn",0],["new","mới",0],["old","cũ/già",0],["beautiful","đẹp",0]
 ];
 
 /* ---------- CÂU HỎI NGỮ PHÁP [unit, câu, đúng, [sai], giải thích] ---------- */
@@ -267,7 +275,68 @@ const Q=[
 [10,"What did they do there? – They ___ trees.","planted",["plant","plants"],"Quá khứ: planted."],
 [10,"They walked ___ the lake.","around",["in","with"],"walk around the lake."],
 [10,"Did you ___ a film there? – No, I didn't.","watch",["watched","watching"],"Did + V nguyên mẫu."],
-[10,"Chọn câu đúng:","They didn't visit the museum.",["They didn't visited the museum.","They don't visited the museum."],"didn't + V nguyên mẫu."]
+[10,"Chọn câu đúng:","They didn't visit the museum.",["They didn't visited the museum.","They don't visited the museum."],"didn't + V nguyên mẫu."],
+/* ---- Câu nâng cao (level 'a') – biên soạn thêm ---- */
+[1,"I'd love to go, but I'm busy. If I ___ free, I would join you.","were",["am","was","will be"],"Điều kiện không có thật ở hiện tại: If + were.","a"],
+[1,"She enjoys ___ but hates ___ early.","swimming / getting up",["to swim / to get up","swimming / to get up","to swim / getting up"],"enjoy + V-ing; hate có thể + V-ing (ở đây giữ song song V-ing).","a"],
+[2,"My village is ___ than it was ten years ago.","far more peaceful",["more peacefuler","peacefuler","the most peaceful"],"Nhấn mạnh so sánh hơn: far/much + more + adj.","a"],
+[2,"No place in the city is ___ this quiet countryside.","as peaceful as",["peaceful as","so peaceful than","more peaceful as"],"as + adj + as để so sánh ngang bằng.","a"],
+[3,"Teenagers today spend ___ time on social media ___ before.","more / than",["much / as","many / than","more / as"],"more + N (không đếm được: time) ... than.","a"],
+[3,"He was stressed, ___ he talked to the school counsellor.","so",["because","although","but"],"Quan hệ nguyên nhân–kết quả dùng so.","a"],
+[3,"___ she was tired, she finished her homework.","Although",["Because","So","Therefore"],"Although + mệnh đề nhượng bộ.","a"],
+[4,"There aren't ___ communal houses left in this area.","many",["much","a lot","any much"],"many + danh từ đếm được số nhiều trong câu phủ định.","a"],
+[4,"How ___ traditional costumes does the museum have?","many",["much","a lot","some"],"How many + danh từ đếm được.","a"],
+[5,"We don't usually use ___ article before names of languages.","an",["a","the","any"],"Zero article: không dùng mạo từ trước tên ngôn ngữ (nên 'an' là không phù hợp).","a"],
+[5,"___ festival we joined last week was wonderful.","The",["A","An","Zero"],"Danh từ đã xác định → dùng the.","a"],
+[6,"If people ___ traditional crafts, future generations will benefit.","preserve",["will preserve","preserved","are preserving"],"Điều kiện loại 1: If + hiện tại đơn, will + V.","a"],
+[6,"I promise I ___ help you keep the tradition alive.","will",["would","am","was"],"Lời hứa dùng will.","a"],
+[6,"If it ___ tomorrow, we won't hold the outdoor festival.","rains",["will rain","rained","is raining"],"Mệnh đề if dùng hiện tại đơn.","a"],
+[7,"___ we reduce waste, the environment will get cleaner.","When",["So","Because of","Despite"],"Mệnh đề thời gian: When + hiện tại đơn.","a"],
+[7,"Turn off the lights ___ you leave the room.","before",["during","while ago","since"],"before + mệnh đề thời gian.","a"],
+[7,"I will plant trees ___ I arrive at the park.","as soon as",["as soon","so that as","until not"],"as soon as = ngay khi.","a"],
+[8,"She ___ shops online; she prefers going to the mall.","rarely",["always","usually","often"],"Trạng từ tần suất thấp phù hợp ngữ cảnh 'prefers mall'.","a"],
+[8,"The new store ___ at 8 a.m. next Monday.","opens",["will opens","is opened","open"],"Hiện tại đơn chỉ lịch trình tương lai.","a"],
+[9,"While we ___ dinner, the lights suddenly went out.","were having",["had","have","are having"],"Quá khứ tiếp diễn (while) + quá khứ đơn (went).","a"],
+[9,"I ___ when the earthquake happened.","was sleeping",["slept","am sleeping","sleep"],"Hành động đang diễn ra trong quá khứ: was/were + V-ing.","a"],
+[9,"They ___ music while their friends were dancing.","were listening to",["listened to","listen to","are listening to"],"Hai hành động song song trong quá khứ: quá khứ tiếp diễn.","a"],
+[10,"This phone is ___; the red one is yours.","mine",["my","mine's","me"],"Đại từ sở hữu: mine.","a"],
+[10,"We arrived ___ the airport ___ 7 a.m. ___ Monday.","at / at / on",["in / at / in","at / in / on","on / at / at"],"at (nơi cụ thể) / at + giờ / on + ngày.","a"],
+[10,"\"I will call you tomorrow,\" he said. → He said he ___ call me ___.","would / the next day",["will / tomorrow","would / tomorrow","will / the next day"],"Câu tường thuật: will→would; tomorrow→the next day.","a"],
+[0,"She asked me ___ I ___ English every day.","if / studied",["that / study","if / study","whether / studies"],"Tường thuật câu hỏi Yes/No: asked if + S + V (lùi thì).","a"],
+[0,"\"What are you doing?\" she asked. → She asked me ___.","what I was doing",["what am I doing","what was I doing","what I am doing"],"Tường thuật câu hỏi Wh-: trật tự câu kể, lùi thì.","a"],
+[0,"Neither Lan ___ her friends ___ at the funfair yesterday.","nor / were",["or / was","nor / was","and / were"],"neither ... nor ...; động từ chia theo chủ ngữ gần (friends → were).","a"],
+/* ---- Bổ sung 31 câu (19 cơ bản + 12 nâng cao) – biên soạn thêm ---- */
+[1,"I love ___ board games with my friends.","playing",["play","plays","to playing"],"love + V-ing."],
+[1,"Would you like ___ to the cinema? – Yes, I'd love to.","to go",["going","go","gone"],"would like + to V."],
+[1,"They don't ___ doing puzzles.","mind",["minds","minding","to mind"],"don't mind + V-ing (mind giữ nguyên sau don't)."],
+[2,"Life in the countryside is ___ than life in the city.","more peaceful",["peacefuler","most peaceful","peaceful"],"adj dài: more + adj + than."],
+[2,"Farmers wake up ___ than office workers.","earlier",["more early","earliest","early"],"adv ngắn: -ier."],
+[3,"I like reading, ___ I don't have much time.","but",["so","and","or"],"but chỉ sự tương phản."],
+[3,"She studies hard, ___ she gets good marks.","so",["but","or","nor"],"so chỉ kết quả."],
+[4,"How ___ milk is there in the fridge?","much",["many","a lot","few"],"much + danh từ không đếm được."],
+[4,"There are ___ stilt houses in the village.","some",["much","a little","any"],"some trong câu khẳng định."],
+[5,"We celebrate Tet ___ January or February.","in",["on","at","to"],"in + tháng."],
+[5,"People give children lucky money ___ Tet.","at",["in","on","to"],"at Tet (dịp lễ)."],
+[6,"It ___ sunny tomorrow.","will be",["is","was","be"],"Tương lai đơn: will be."],
+[6,"If we recycle, we ___ the environment.","will protect",["protect","protected","are protecting"],"Điều kiện loại 1: will + V."],
+[7,"Please turn off the fan ___ you go out.","before",["during","since","ago"],"before + mệnh đề thời gian."],
+[7,"We should reduce, reuse and ___.","recycle",["recycling","recycled","to recycle"],"liệt kê động từ nguyên mẫu song song."],
+[8,"The shop ___ at 9 p.m. every day.","closes",["close","closing","is close"],"hiện tại đơn, ngôi 3 số ít."],
+[9,"There was a terrible ___ and many houses were damaged.","storm",["sunny","peaceful","gentle"],"từ vựng thiên tai: storm."],
+[10,"They ___ to Ha Long Bay last summer.","went",["go","goes","going"],"quá khứ của go: went."],
+[10,"Did she visit the museum? – Yes, she ___.","did",["does","was","visited"],"Did → did."],
+[1,"Not only ___ he play the guitar, but he also sings well.","does",["do","is","did"],"Đảo ngữ với 'Not only' + trợ động từ + S.","a"],
+[2,"The more carefully you drive, ___.","the safer you are",["the safe you are","safer you are","you are safer"],"Cấu trúc 'The + so sánh hơn ..., the + so sánh hơn ...'.","a"],
+[3,"___ tired, she kept studying for the exam.","Despite being",["Although being","Despite she was","Because being"],"Despite + V-ing/N (không theo mệnh đề).","a"],
+[4,"Hardly ___ any traditional costumes left in the shop.","are there",["there are","they are","is there"],"Đảo ngữ với trạng từ phủ định 'Hardly'.","a"],
+[5,"It is the first time I ___ such a colourful festival.","have seen",["saw","see","had seen"],"It's the first time + hiện tại hoàn thành.","a"],
+[6,"If I were you, I ___ the old craft to my children.","would teach",["will teach","taught","teach"],"Điều kiện loại 2: If + were, would + V.","a"],
+[7,"The park ___ since the city started the conservation project.","has been cleaner",["is cleaner","was cleaner","will be cleaner"],"since + hiện tại hoàn thành.","a"],
+[8,"Rarely ___ to the mall on weekdays.","does she go",["she goes","she does go","goes she"],"Đảo ngữ với 'Rarely' + trợ động từ + S.","a"],
+[9,"By the time the rescuers arrived, the flood ___ the whole village.","had covered",["covered","has covered","covers"],"By the time (quá khứ) + quá khứ hoàn thành.","a"],
+[10,"He asked me where I ___ the previous day.","had been",["have been","was","am"],"Tường thuật: lùi về quá khứ hoàn thành.","a"],
+[0,"The teacher told us ___ late for the trip.","not to be",["not be","to not be","don't be"],"Tường thuật mệnh lệnh phủ định: told sb not to V.","a"],
+[0,"It was such ___ interesting film that we watched it twice.","an",["a","the","Ø"],"such + a/an + adj + N; 'interesting' bắt đầu nguyên âm → an.","a"]
 ];
 
 /* ---------- TIỆN ÍCH ---------- */
@@ -288,13 +357,23 @@ $('#p0').innerHTML=G.map((u,i)=>`<details${i===0?' open':''}><summary>${esc(u.t)
   `<p class="meta"><strong>Từ vựng:</strong> ${esc(u.v)}</p>`+(u.st?`<p class="meta"><strong>Trọng âm:</strong> ${esc(u.st)}</p>`:'')+`</div></details>`).join('')+
   `<div class="note"><h2>Lưu ý chung</h2><ul>${NOTES.map(n=>`<li>${esc(n)}</li>`).join('')}</ul></div>`;
 
+/* Lịch sử làm bài (localStorage) */
+var HKEY="quizanh5_history_v1";
+function addHistEN(topic,score,total){
+  try{var h=JSON.parse(localStorage.getItem(HKEY)||"[]");
+    h.unshift({ts:Date.now(),subject:"Tiếng Anh 5",topic:topic,score:score,total:total});
+    if(h.length>100)h=h.slice(0,100);
+    localStorage.setItem(HKEY,JSON.stringify(h));}catch(e){}
+}
+
 /* Bộ máy quiz dùng chung */
-function quiz(box,items,unitLabel){
-  let i=0,score=0,wrong=[];
+function quiz(box,items,unitLabel,topicLabel){
+  let i=0,score=0,wrong=[],saved=false;
   const draw=()=>{
     if(!items.length){box.innerHTML='<div class="q"><p>Chưa có câu hỏi cho phần này.</p></div>';return}
     if(i>=items.length){
-      var rpc=items.length?score/items.length:0,emo=rpc>=0.9?'🏆':rpc>=0.7?'🎉':rpc>=0.5?'😊':'😭';
+      if(!saved){saved=true;addHistEN(topicLabel||'Quiz',score,items.length)}
+      var rpc=items.length?score/items.length:0,emo=rpc>=0.9?'🏆':rpc>=0.7?'🎉':rpc>=0.5?'😊':'\uD83D\uDE2D';
       box.innerHTML=`<div class="q end"><div style="font-size:3.4rem;line-height:1;margin:4px 0">${emo}</div><p class="score">${score}/${items.length}</p><p>${score===items.length?'Tuyệt vời! Bạn trả lời đúng hết.':score>=items.length*0.7?'Rất tốt! Xem lại vài câu sai nhé.':'Cố lên! Ôn lại phần Ngữ pháp rồi thử lại.'}</p>`+
       (wrong.length?`<p style="text-align:left"><b>Câu cần ôn:</b></p>`+wrong.map(w=>`<p class="pair" style="text-align:left"><b>${esc(w.q)}</b><span>Đáp án: ${esc(w.a)}</span></p>`).join(''):'')+
       `<button class="btn pri" id="again">Chơi vòng mới</button></div>`;
@@ -316,21 +395,28 @@ function quiz(box,items,unitLabel){
 
 /* Tab 2: Quiz từ vựng */
 function startV(){
-  const dir=$('#vDir').value;
-  const pick=shuffle(V).slice(0,10);
-  const items=pick.map(w=>{
-    const ev=dir==='ev',ans=ev?w[1]:w[0];
+  const pick=shuffle(V).slice(0,20);
+  const half=Math.round(pick.length/2);
+  const items=pick.map((w,idx)=>{
+    const ev=idx<half,ans=ev?w[1]:w[0];
     const others=shuffle(V.filter(x=>x!==w)).slice(0,3).map(x=>ev?x[1]:x[0]);
-    return{q:ev?`"${w[0]}" nghĩa là gì?`:`"${w[1]}" trong tiếng Anh là gì?`,a:ans,o:shuffle([ans,...others]),e:`${w[0]} = ${w[1]} (Unit ${w[2]})`};
+    return{q:ev?`"${w[0]}" nghĩa là gì?`:`"${w[1]}" trong tiếng Anh là gì?`,a:ans,o:shuffle([ans,...others]),e:`${w[0]} = ${w[1]}` + (w[2]?` (Unit ${w[2]})`:" (Từ vựng cơ bản)")};
   });
-  quiz($('#vBox'),items,startV);
+  quiz($('#vBox'),shuffle(items),startV,"Quiz từ vựng");
 }
-$('#vGo').onclick=startV;$('#vDir').onchange=startV;startV();
+$('#vGo').onclick=startV;startV();
 
 /* Tab 3: Quiz ngữ pháp */
 function startG(){
-  const items=shuffle(Q).slice(0,10).map(x=>({q:x[1],a:x[2],o:shuffle([x[2],...x[3]]),e:x[4]}));
-  quiz($('#gBox'),items,startG);
+  const basics=shuffle(Q.filter(x=>x[5]!=="a")).slice(0,15);
+  const advanced=shuffle(Q.filter(x=>x[5]==="a")).slice(0,5);
+  const items=shuffle(basics.concat(advanced)).map(x=>{
+    const unitTitle=(G[x[0]]&&G[x[0]].t)?G[x[0]].t:("Unit "+x[0]);
+    const lvl=x[5]==="a"?" (nâng cao)":"";
+    const e='Đáp án đúng: "'+x[2]+'". '+x[4]+lvl+' — Ôn thêm ở tab "Ngữ pháp" › '+unitTitle+'.';
+    return{q:x[1],a:x[2],o:shuffle([x[2],...x[3]]),e:e};
+  });
+  quiz($('#gBox'),items,startG,"Quiz ngữ pháp");
 }
 $('#gGo').onclick=startG;startG();
 </script>
