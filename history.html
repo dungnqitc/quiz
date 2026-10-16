@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lịch sử làm bài</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc2:#e8f6f5;--hl:#ffe27a;--ok:#1a8f4c;--bad:#c9372c;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--hl:#7a6a1c;--ok:#5fd68a;--bad:#ff8a80;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc2:#12323a;--hl:#7a6a1c;--ok:#5fd68a;--bad:#ff8a80;--mute:#9fb2c4}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 16px;font-size:.92rem}
+.link{color:var(--acc);text-decoration:underline;font-size:.95rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0}
+.stat{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-size:1.5rem;font-weight:800}
+.stat span{color:var(--mute);font-size:.82rem}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+select,.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 12px;cursor:pointer}
+.btn.danger{background:var(--card);color:var(--bad);border-color:var(--bad)}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:4px 14px;box-shadow:5px 5px 0 var(--acc);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;white-space:nowrap}
+td.topic{white-space:normal}
+th{color:var(--mute);font-weight:700;position:sticky;top:0;background:var(--card)}
+td.sc{font-weight:700}
+.pct{display:inline-block;min-width:44px;padding:1px 8px;border-radius:99px;font-size:.8rem;font-weight:700}
+.pct.hi{background:var(--acc2);color:var(--acc)}
+.empty{color:var(--mute);text-align:center;padding:28px 0}
+.foot{color:var(--mute);font-size:.82rem;margin-top:16px}
+</style>
+</head>
+<body>
+<main>
+<p><a class="link" href="index.html">← Về trang chủ</a></p>
+<h1>📊 Lịch sử làm bài</h1>
+<p class="sub">Tổng hợp kết quả quiz từ mọi bộ đề (lưu trên trình duyệt của thiết bị này).</p>
+<div class="stats" id="stats"></div>
+<div class="bar">
+<label>Bộ đề: <select id="flt"></select></label>
+<button class="btn" id="exp">Xuất JSON</button>
+<button class="btn danger" id="clr">Xóa lịch sử đã lọc</button>
+</div>
+<div class="card"><table><thead><tr><th>Thời gian</th><th>Bộ đề</th><th>Chủ điểm</th><th>Điểm</th><th>%</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="empty" id="empty" hidden>Chưa có lịch sử làm bài. Hãy hoàn thành một bộ quiz nhé!</p>
+<p class="foot">Dữ liệu lưu bằng localStorage của trình duyệt; không gửi đi đâu. Xóa cache trình duyệt hoặc đổi thiết bị sẽ mất lịch sử.</p>
+</main>
+<script>
+var $=function(i){return document.getElementById(i)};
+/* Danh sách khóa lịch sử + nhãn bộ đề */
+var SETS=[
+ ["quiz5_history_v1","Toán 5 & Tiếng Việt 5 - Tập 1"],
+ ["quizlop5tap2_history_v1","Toán 5 & Tiếng Việt 5 - Tập 2"],
+ ["quiz8_history_v1","Toán 8"],
+ ["quizkhtn8_history_v1","KHTN 8"],
+ ["quizanh6_history_v1","Tiếng Anh vào 6"],
+ ["quiztoan6cg_history_v1","Toán 6 – Cầu Giấy"],
+ ["quiztoan6tx_history_v1","Toán 6 – Thanh Xuân"]
+];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function fmtTime(ts){var d=new Date(ts),p=function(n){return(n<10?"0":"")+n};
+ return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes())}
+function loadKey(k){try{var r=localStorage.getItem(k);return r?JSON.parse(r):[]}catch(e){return[]}}
+
+function allRecords(){
+ var out=[];
+ SETS.forEach(function(it){
+  var arr=loadKey(it[0]);
+  if(!Array.isArray(arr))return;
+  arr.forEach(function(r){
+   out.push({key:it[0],setName:it[1],ts:r.ts||0,
+    topic:(r.subject?(r.subject+(r.topic?" – "+r.topic:"")):(r.topic||"")),
+    score:(typeof r.score==="number"?r.score:null),total:(typeof r.total==="number"?r.total:null)});
+  });
+ });
+ out.sort(function(a,b){return b.ts-a.ts});
+ return out;
+}
+
+function buildFilter(records){
+ var sel=$("flt");sel.innerHTML="";
+ var opt=document.createElement("option");opt.value="";opt.textContent="Tất cả bộ đề";sel.appendChild(opt);
+ SETS.forEach(function(it){
+  if(records.some(function(r){return r.key==it[0]})){
+   var o=document.createElement("option");o.value=it[0];o.textContent=it[1];sel.appendChild(o);
+  }
+ });
+}
+
+function render(){
+ var all=allRecords();
+ var flt=$("flt").value;
+ var recs=flt?all.filter(function(r){return r.key==flt}):all;
+ // stats (của tập đang lọc)
+ var n=recs.length,totC=0,totQ=0;
+ recs.forEach(function(r){if(r.score!=null&&r.total!=null){totC+=r.score;totQ+=r.total}});
+ var avg=totQ?Math.round(totC*100/totQ):0;
+ $("stats").innerHTML=
+  '<div class="stat"><b>'+n+'</b><span>Lượt làm</span></div>'+
+  '<div class="stat"><b>'+totC+'/'+totQ+'</b><span>Tổng câu đúng</span></div>'+
+  '<div class="stat"><b>'+avg+'%</b><span>Tỉ lệ đúng trung bình</span></div>';
+ // rows
+ var tb=$("rows");tb.innerHTML="";
+ recs.forEach(function(r){
+  var pc=(r.score!=null&&r.total)?Math.round(r.score*100/r.total):null;
+  var tr=document.createElement("tr");
+  tr.innerHTML='<td>'+fmtTime(r.ts)+'</td><td>'+esc(r.setName)+'</td><td class="topic">'+esc(r.topic||"—")+'</td>'+
+   '<td class="sc">'+(r.score!=null?r.score+'/'+r.total:'—')+'</td>'+
+   '<td>'+(pc!=null?'<span class="pct hi">'+pc+'%</span>':'—')+'</td>';
+  tb.appendChild(tr);
+ });
+ $("empty").hidden=recs.length>0;
+}
+
+$("flt").onchange=render;
+$("exp").onclick=function(){
+ var data={};SETS.forEach(function(it){var a=loadKey(it[0]);if(a&&a.length)data[it[0]]=a});
+ var blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+ var url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="quiz-history.json";a.click();URL.revokeObjectURL(url);
+};
+$("clr").onclick=function(){
+ var flt=$("flt").value;
+ var label=flt?("bộ đề đã chọn"):("TẤT CẢ bộ đề");
+ if(!confirm("Xóa lịch sử của "+label+"? Hành động này không hoàn tác được."))return;
+ if(flt){localStorage.removeItem(flt)}else{SETS.forEach(function(it){localStorage.removeItem(it[0])})}
+ buildFilter(allRecords());render();
+};
+
+buildFilter(allRecords());render();
+</script>
+</body>
+</html>
