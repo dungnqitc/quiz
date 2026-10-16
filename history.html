@@ -34,6 +34,16 @@ td.sc{font-weight:700}
 .pct.hi{background:var(--acc2);color:var(--acc)}
 .empty{color:var(--mute);text-align:center;padding:28px 0}
 .foot{color:var(--mute);font-size:.82rem;margin-top:16px}
+.h2{font-size:1.12rem;font-weight:800;margin:20px 0 8px}
+.topics{box-shadow:5px 5px 0 var(--hl)}
+.rate{display:inline-block;min-width:48px;padding:1px 8px;border-radius:99px;font-size:.82rem;font-weight:800}
+.rate.good{background:var(--acc2);color:var(--ok)}
+.rate.mid{background:var(--hl);color:var(--ink)}
+.rate.low{background:#ffe1dd;color:var(--bad)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rate.low{background:#3a1f1c}}
+:root[data-theme="dark"] .rate.low{background:#3a1f1c}
+td.rev{white-space:normal;color:var(--mute);font-size:.86rem}
+.note{color:var(--mute);font-size:.9rem;margin:10px 2px 0;line-height:1.55}
 </style>
 </head>
 <body>
@@ -42,6 +52,11 @@ td.sc{font-weight:700}
 <h1>📊 Lịch sử làm bài</h1>
 <p class="sub">Tổng hợp kết quả quiz từ mọi bộ đề (lưu trên trình duyệt của thiết bị này).</p>
 <div class="stats" id="stats"></div>
+<div id="topicWrap" hidden>
+<h2 class="h2">📚 Thống kê theo chủ điểm</h2>
+<div class="card topics"><table><thead><tr><th>Chủ điểm</th><th>Lượt</th><th>Câu đúng</th><th>Tỉ lệ TB</th><th>Nhận xét</th></tr></thead><tbody id="topicRows"></tbody></table></div>
+<p class="note" id="overallNote"></p>
+</div>
 <div class="bar">
 <label>Bộ đề: <select id="flt"></select></label>
 <button class="btn" id="exp">Xuất JSON</button>
@@ -95,6 +110,46 @@ function buildFilter(records){
  });
 }
 
+/* Phân loại & nhận xét theo tỉ lệ đúng trung bình */
+function rateClass(p){return p>=70?"good":(p>=50?"mid":"low")}
+function reviewText(p){
+ if(p>=90)return "Xuất sắc – nắm rất chắc chủ điểm này.";
+ if(p>=70)return "Khá tốt – chỉ cần ôn thêm vài điểm còn sai.";
+ if(p>=50)return "Trung bình – nên luyện lại chủ điểm này.";
+ return "Cần ôn kỹ – hãy xem lại lý thuyết rồi làm lại.";
+}
+/* Nhận xét tổng thể dựa trên các chủ điểm */
+function overallReview(topics){
+ if(!topics.length)return "";
+ var best=topics[0],worst=topics[0];
+ topics.forEach(function(t){if(t.pct>best.pct)best=t;if(t.pct<worst.pct)worst=t;});
+ var s="Điểm mạnh: "+best.name+" ("+best.pct+"%).";
+ if(worst!==best&&worst.pct<70)s+=" Cần cải thiện: "+worst.name+" ("+worst.pct+"%) – nên ưu tiên ôn luyện chủ điểm này.";
+ else if(worst.pct>=70)s+=" Các chủ điểm đều ở mức khá trở lên, tiếp tục phát huy nhé!";
+ return s;
+}
+function renderTopics(recs){
+ var map={};
+ recs.forEach(function(r){
+  if(r.score==null||r.total==null||!r.total)return;
+  var name=(r.topic&&r.topic.trim())?r.topic.trim():"(Không rõ chủ điểm)";
+  var m=map[name]||(map[name]={name:name,n:0,c:0,q:0});
+  m.n++;m.c+=r.score;m.q+=r.total;
+ });
+ var topics=Object.keys(map).map(function(k){var m=map[k];m.pct=Math.round(m.c*100/m.q);return m;});
+ topics.sort(function(a,b){return b.pct-a.pct});
+ var tb=$("topicRows");tb.innerHTML="";
+ topics.forEach(function(t){
+  var tr=document.createElement("tr");
+  tr.innerHTML='<td class="topic">'+esc(t.name)+'</td><td>'+t.n+'</td><td>'+t.c+'/'+t.q+'</td>'+
+   '<td><span class="rate '+rateClass(t.pct)+'">'+t.pct+'%</span></td>'+
+   '<td class="rev">'+esc(reviewText(t.pct))+'</td>';
+  tb.appendChild(tr);
+ });
+ $("overallNote").textContent=overallReview(topics);
+ $("topicWrap").hidden=topics.length===0;
+}
+
 function render(){
  var all=allRecords();
  var flt=$("flt").value;
@@ -107,6 +162,7 @@ function render(){
   '<div class="stat"><b>'+n+'</b><span>Lượt làm</span></div>'+
   '<div class="stat"><b>'+totC+'/'+totQ+'</b><span>Tổng câu đúng</span></div>'+
   '<div class="stat"><b>'+avg+'%</b><span>Tỉ lệ đúng trung bình</span></div>';
+ renderTopics(recs);
  // rows
  var tb=$("rows");tb.innerHTML="";
  recs.forEach(function(r){
