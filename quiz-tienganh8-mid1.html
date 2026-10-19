@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ôn tập Tiếng Anh 8 – Giữa HK1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#2456a6;--acc2:#e7eefb;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;--soft:#eef3fb;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4;--soft:#16233f}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4;--soft:#16233f}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{color:var(--ink);background-color:var(--paper);font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{margin:0 0 16px;color:var(--mute);font-size:.92rem}
+.link{color:var(--acc);text-decoration:underline;font-weight:700}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab{flex:1;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:inherit;font-weight:700;padding:10px 6px;border-radius:10px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+.tab:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.panel[hidden]{display:none}
+.box{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:12px 16px;margin-bottom:12px}
+.box h3{margin:2px 0 6px;font-size:1.05rem;font-weight:800}
+.box h4{margin:12px 0 4px;font-size:.95rem;color:var(--acc)}
+.box p,.box li{margin:4px 0}.box ul{padding-left:20px;margin:4px 0}
+.ex{color:var(--mute);font-style:italic}
+.box table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto;margin:8px 0}
+.box td,.box th{border:1px solid var(--line);padding:5px 9px;text-align:left}.box th{background:var(--acc2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.chip{font:inherit;font-weight:700;font-size:.85rem;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip[aria-selected=true]{background:var(--acc);color:var(--paper);border-color:var(--acc)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:4px 0 12px}
+.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 14px;cursor:pointer}
+.btn.pri{background:var(--hl);color:#1b2a41}
+.q{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:14px;margin:10px 0}
+.q .t{margin:0 0 8px;font-weight:700;overflow-wrap:anywhere}
+.o{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer;overflow-wrap:anywhere}
+.o:hover:not(:disabled){border-color:var(--acc)}
+.o.ok{background:var(--okb);border-color:var(--ok)}
+.o.no{background:var(--badb);border-color:var(--bad)}
+.n{font-size:.86rem;color:var(--mute);margin-top:6px;padding:8px 10px;background:var(--acc2);border-radius:8px}
+details{background:var(--card);border:2px solid var(--ink);border-radius:12px;margin-bottom:10px;padding:0 14px}
+summary{cursor:pointer;font-weight:700;padding:11px 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸";color:var(--acc);margin-right:8px}
+details[open]>summary::before{content:"▾"}
+.ans{color:var(--ok);margin:0 0 12px;font-weight:600}
+.witem{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.wq{font-weight:700;margin:0 0 8px;overflow-wrap:anywhere}
+.wq .cue{color:var(--acc)}
+.winput{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:9px 12px;resize:vertical;min-height:44px}
+.winput:focus{outline:none;border-color:var(--acc)}
+.winput:disabled{opacity:.85}
+.wact{margin-top:8px}
+.wres{margin-top:8px;font-size:.92rem;line-height:1.5}
+.wres .row{display:block;padding:7px 10px;border-radius:8px;margin:5px 0;overflow-wrap:anywhere}
+.wres .mine{background:var(--acc2)}
+.wres .key{background:var(--okb);color:var(--ok);font-weight:600}
+.wres .match{font-weight:700;font-size:.85rem;margin-top:4px}
+.wres .match.y{color:var(--ok)}
+.wres .match.n{color:var(--bad)}
+.wsec{font-size:1.05rem;font-weight:800;margin:14px 0 6px}
+.score{font-size:3rem;font-weight:800;color:var(--acc);margin:6px 0}
+.end{text-align:center}
+.hist{margin-top:18px}
+.hist h2{font-size:1.05rem;margin:0 0 8px;font-weight:800}
+.htbl{width:100%;border-collapse:collapse;font-size:.86rem}
+.htbl th,.htbl td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
+.htbl th{color:var(--mute);font-weight:700}
+.hempty{color:var(--mute);font-size:.9rem}
+.lnk{background:none;border:none;color:var(--acc);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin-top:10px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p><a class="link" href="index.html">← Về trang chủ</a></p>
+<h1>Ôn tập Tiếng Anh 8 – Giữa HK1</h1>
+<p class="sub">Units 1–3 · Tóm tắt kiến thức, trắc nghiệm (có chấm điểm &amp; lưu lịch sử) và viết lại câu.</p>
+<div class="tabs">
+<button class="tab" id="t0" aria-selected="true">Kiến thức</button>
+<button class="tab" id="t1" aria-selected="false">Trắc nghiệm</button>
+<button class="tab" id="t2" aria-selected="false">Viết lại câu</button>
+</div>
+
+<section class="panel" id="p0">
+<div class="box"><h3>Unit 1 – Leisure time: Verbs of liking</h3>
+<p>adore/love (yêu thích), like/enjoy/fancy (thích), don't mind (không phiền), dislike (không thích), hate (ghét), detest (căm ghét).</p>
+<h4>Đi với V-ing hoặc to V (nghĩa không đổi)</h4>
+<p>like, love, hate, prefer.</p><p class="ex">I like skateboarding = I like to skateboard.</p>
+<h4>Chỉ đi với V-ing</h4>
+<p>adore, fancy, don't mind, dislike, detest.</p><p class="ex">I detest doing housework.</p>
+<h4>Cụm + giới từ (+ V-ing)</h4>
+<p>be fond of · be keen on · be crazy about · be interested in · be into</p></div>
+
+<div class="box"><h3>Unit 2 – Life in the countryside: So sánh hơn của trạng từ</h3>
+<table><tr><th>Loại</th><th>Cấu trúc</th><th>Ví dụ</th></tr>
+<tr><td>Trạng từ ngắn (1 âm tiết)</td><td>S1 + V + adv-er + than + S2</td><td>They work harder than I do.</td></tr>
+<tr><td>Trạng từ dài (từ 2 âm tiết)</td><td>S1 + V + more/less + adv + than + S2</td><td>My father talks more slowly than my mother does.</td></tr></table>
+<h4>Bất quy tắc</h4><p>well → better · badly → worse · far → farther/further · early → earlier</p></div>
+
+<div class="box"><h3>Unit 3 – Teenagers: Câu đơn và câu ghép</h3>
+<h4>Câu đơn</h4><p>Chỉ 1 mệnh đề, diễn đạt 1 ý chính (có thể nhiều chủ ngữ hoặc nhiều động từ).</p>
+<p class="ex">Smith ate noodles and drank coffee.</p>
+<h4>Câu ghép</h4><p>Hai hay nhiều mệnh đề độc lập. Công thức: Mệnh đề 1 + (,) + liên từ + Mệnh đề 2</p>
+<ul><li><b>for</b> (vì): chỉ nguyên nhân</li><li><b>and</b> (và): bổ sung ý</li><li><b>but / yet</b> (nhưng): đối lập</li><li><b>or</b> (hoặc): lựa chọn / "nếu không thì"</li><li><b>so</b> (vì vậy): chỉ kết quả</li></ul>
+<h4>Trạng từ nối</h4><p>Mệnh đề 1 <b>;</b> however / therefore / otherwise<b>,</b> mệnh đề 2</p>
+<p class="ex">She is beautiful; however, she isn't gentle.</p>
+<p class="ex">Phong has to study harder; otherwise, he may fail the test.</p></div>
+<p class="n">Phần phát âm (Ex 1) không có trong quiz vì đề cương gốc bị mất dấu gạch chân.</p>
+</section>
+
+<section class="panel" id="p1" hidden>
+<div class="chips" id="chips" role="tablist"></div>
+<div class="bar">
+<span class="sub" style="margin:0" id="scope"></span>
+<button class="btn pri" id="go">Bắt đầu</button>
+</div>
+<div id="qbox"></div>
+</section>
+
+<section class="panel" id="p2" hidden>
+<p class="sub" style="margin:0 0 12px">Tự viết lại từng câu vào ô rồi bấm "Kiểm tra đáp án" cho câu đó. Hệ thống sẽ hiển thị câu của em cạnh đáp án gợi ý để so sánh. Đây là bài tự luận nên phần so khớp chỉ mang tính tham khảo — em tự đối chiếu nhé.</p>
+<div id="wbox"></div>
+</section>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+/* ===== Dữ liệu (trích từ đề cương "Ôn tập Tiếng Anh 8 – Giữa HK1") ===== */
+var S={a:"Ex 2 · Trọng âm",b:"Ex 3 · Ngữ pháp – từ vựng",c:"Ex 4 · Biển báo",d:"Ex 5 · Điền đoạn văn",e:"Ex 8 · Câu từ gợi ý",f:"Ex 9 · Sắp xếp câu"};
+var T1=["they may feel weak or find it difficult to concentrate during the first lessons","to prepare a simple meal the night before","Spending too much time on a phone can make them late and increase stress before school","in the evening reduces unnecessary decisions in the morning"];
+var T2=["but they can take up too much of a student's afternoon","to decide in advance when each device will be used","This gives their eyes a rest and helps them focus better when they return to work","outside the bedroom or placed far from the bed"];
+/* [section, text, options(array hoặc "a|b|c|d"), answerIndex, note?] */
+var Q=[
+["a","Chọn từ có trọng âm khác: harmful / data / effect / leisure","harmful|data|effect|leisure",2,"effect nhấn âm 2, các từ còn lại nhấn âm 1."],
+["a","Chọn từ có trọng âm khác: relax / muscle / message / puzzle","relax|muscle|message|puzzle",0,"relax nhấn âm 2."],
+["a","Chọn từ có trọng âm khác: atmosphere / convenient / cultivate / furniture","atmosphere|convenient|cultivate|furniture",1,"convenient nhấn âm 2."],
+["a","Chọn từ có trọng âm khác: collect / pasture / canal / donate","collect|pasture|canal|donate",1,"pasture nhấn âm 1, các từ còn lại nhấn âm 2."],
+["a","Chọn từ có trọng âm khác: forum / pressure / teamwork / prepare","forum|pressure|teamwork|prepare",3,"prepare nhấn âm 2."],
+["b","John is keen ___ watching cartoons.","on|in|at|off",0,"be keen on"],
+["b","Our kids are interested ___ playing with pets when they have free time.","on|in|of|about",1,"be interested in"],
+["b","My son was crazy ___ football when he was young.","about|of|at|with",0,"be crazy about"],
+["b","I enjoy ___ novels when I have nothing to do.","to read|reading|read|reads",1,"enjoy + V-ing"],
+["b","We like ___ friends every day.","text|texting|texted|texts",1],
+["b","Julia plays the guitar ___ than Anna does.","more goodly|more well|better|gooder",2,"well → better"],
+["b","He did the exam ___ I did.","as bad as|badder than|more badly than|worse than",3,"badly → worse"],
+["b","Antony drives ___ his brother.","more careful than|more carefully|more carefully than|as careful as",2],
+["b","Today I got up ___ than I did yesterday.","earlier|more early|more earlily|more earlier",0],
+["b","My brother studies ___ than my sister.","hard|harder|more hardly|hardly",1],
+["b","Ann uploads pictures to social networks ___ than her friends.","frequently|frequent|more frequently|frequentlier",2],
+["b","You should drive carefully; ___ you may cause an accident.","however|but|otherwise|therefore",2],
+["b","Tony works hard; ___, he gets promotion every two years.","however|so|therefore|if",2],
+["b","Lucy went to school late, ___ she got up late.","and|for|but|or",1,"for = vì (chỉ nguyên nhân)"],
+["b","My father is watering the trees, ___ my mother is cooking in the kitchen.","so|but|and|or",2],
+["b","It's raining outside; ___, the kids are still playing in the garden.","however|therefore|otherwise|and",0],
+["b","Nowadays, teenagers have ___ from their parents and friends.","pressure|activities|leaders|tests",0],
+["b","In summer, I help my grandmother pick ___ in the orchard.","trees|plants|fruit|flowers",2],
+["b","Thanks to modern machines, farmers can ___ a field in a short period of time.","plough|catch|harvest|separate",0],
+["b","We are ___ on playing basketball after school.","interested|keen|crazy|fond",1,"keen on"],
+["b","We can see a lot of cows and buffaloes on the green ___ in the countryside.","paddy fields|farms|pastures|castle",2],
+["b","Would you like to go to the cinema with me?","Yes, I watch films every day.|Yes, I don't like it.|I'd love to. Thanks.|We can go there together",2],
+["b","A: You look nice today. – B: ___","Do you really think so?|I don't think so.|I beg your pardon.|I'm fine, thank you.",0],
+["b","Be quiet, please! I'm trying to ___ on my homework.","concentrate|log|advise|bully",0],
+["c","Ghi chú: \"Jungle party on June 21 from 3 p.m. Dress up in an animal costume if you want to – a prize for the best one! Food and drink provided.\"","Guests will have a prize if they bring food and drink.|Guests must dress up as a type of animal.|Guests might win something if they wear a costume.|Guests should bring some food and drink.",2],
+["c","Biển báo: \"NO PARKING – FIRE LANE\"","You can't park here because this area is for fire trucks.|If there is a fire, park your vehicle in this area.|This area prevents your cars from fire.|You can't park your car here when it is on fire.",0],
+["c","Biển báo: \"NOTICE – SHOES NOT ALLOWED HERE\" (giày bị gạch chéo)","Please take off your shoes when entering this place.|You don't have to wear shoes in this place.|Please put on your shoes when entering this place.|You can't buy any shoes in this place.",0,"Đáp án sát nghĩa nhất là A."],
+["c","Biển báo: \"NOTICE – STAFF PARKING ONLY\"","No one is allowed to park in this area.|This parking area is for everyone.|You have to contact the staff if you want to park here.|Only people who work here can park in this area.",3],
+["d","Healthy start – \"When students do not eat in the morning, (1) ___.\"",T1,0],
+["d","Healthy start – \"One practical solution is (2) ___.\"",T1,1],
+["d","Healthy start – \"Students should also avoid checking messages as soon as they wake up. (3) ___.\"",T1,2],
+["d","Healthy start – \"Finally, packing books and clothes (4) ___.\"",T1,3],
+["d","Smart screen habits – \"Phones and computers are useful…, (1) ___.\"",T2,0],
+["d","Smart screen habits – \"A better plan is (2) ___.\"",T2,1],
+["d","Smart screen habits – \"Students should stand up, look away… (3) ___.\"",T2,2],
+["d","Smart screen habits – \"Before bed, devices should be left (4) ___.\"",T2,3],
+["d","Countryside (1): Rural neighbourhoods are often more ___ than busy city streets.","lively|peaceful|crowded|expensive",1],
+["d","Countryside (2): Residents may also ___ close contact with nature.","enjoy|collect|deliver|repair",0],
+["d","Countryside (3): …many residents can ___ and enjoy more time with their families.","speed up|move out|turn back|slow down",3],
+["d","Countryside (4): Children may develop a ___ attitude towards work.","responsibility|responsible|responsibly|respond",1,"Trước danh từ attitude cần tính từ."],
+["d","Countryside (5): …lower traffic levels can ___ noise and air pollution.","measure|increase|reduce|create",2],
+["d","Countryside (6): They also benefit ___ cleaner surroundings.","at|by|with|from",3,"benefit from"],
+["d","DIY workshop (1): Are you interested ___ making handmade crafts?","on|in|with|about",1],
+["d","DIY workshop (2): …more ___ (patient) and careful.","patience|patiently|patient|impatience",2],
+["d","DIY workshop (3): Please bring your old paper…, ___ we can turn them into useful items.","so that|although|because|but",0],
+["d","DIY workshop (4): Don't forget to invite ___ friends.","you|yours|your|yourself",2],
+["d","Screen time (1): …spending less time on digital devices and ___ more outdoor activities.","do|doing|to do|did",1],
+["d","Screen time (2): …feel much ___ (energetic) than sitting on the couch.","energetic|energetically|most energetic|more energetic",3],
+["d","Screen time (3): …hang out ___ friends in person.","with|to|for|at",0],
+["d","Screen time (4): Make a weekly schedule, ___ you will easily become addicted to games.","and|or|but|so",1],
+["e","farmers / load / rice / truck / harvest time","At harvest time, the farmers load rice onto a truck.|At harvest time, farmers load rice onto truck.|At harvest time, the farmers are load rice on a truck.|At harvest time, farmers loading rice to truck.",0],
+["e","Lan / speak English / confidently / her sister","Lan speaks English more confident than her sister does.|Lan speaks English confidently than her sister does.|Lan speaks English more confidently than her sister does.|Lan speaks English most confidently than her sister does.",2],
+["e","ancient village / surround / vast paddy fields","The ancient village surrounds by vast paddy fields.|The ancient village is surrounding vast paddy field.|The ancient village is surrounded by vast paddy fields.|The ancient village is surrounded vast paddy field.",2],
+["e","some villagers / live by / catch fish / nearby lake","Some villagers live by catching fish in the nearby lake.|Some villagers live by catch fish in nearby lake.|Some villagers live by to catch fish nearby the lake.|Some villagers live by having caught fish nearby the lake.",0],
+["e","Minh has too much schoolwork every day, so he feels stressed.","Minh feels stressed because he has too much schoolwork every day.|Minh feels stressed although he does not have much schoolwork every day.|Minh has too much schoolwork every day because he feels stressed.|Minh feels relaxed although he has too much schoolwork every day.",0],
+["e","Lan likes taking part in music club activities after school.","Lan is afraid of taking part in music club activities after school.|Lan is fond of taking part in music club activities after school.|Lan has difficulty taking part in music club activities after school.|Lan is too busy to take part in music club activities after school.",1],
+["e","Mai / join / the music club / last week","Mai joins the music club last week.|Mai joined to the music club last week.|Mai has joined the music club last week.|Mai joined the music club last week.",3],
+["e","Teenagers / often / check / notifications / social media","Teenagers often check notifications on social media.|Teenagers often check notifications in social media.|Teenagers often checks notifications on social media.|Teenagers often checks notification on the social media.",0],
+["e","Nam / feel stressed / because of / too much schoolwork","Nam feel stressful because of too many schoolwork.|Nam feels stressed because too much schoolwork.|Nam feels stressed because of too much schoolwork.|Nam feel stressed because of too many schoolwork.",2],
+["e","My sister / spend / an hour / browse / social media / daily","My sister spends an hour to browse social media daily.|My sister spends an hour browsing social media daily.|My sister spend an hour browsing social media daily.|My sister spends an hour on browse social media daily.",1],
+["f","Sắp xếp: (a) Additionally, it helps people feel comfortable and relaxed with the picturesque views. (b) One of the main attractions is its peacefulness. (c) Finally, I really love the strong sense of community.","a-b-c|b-c-a|c-a-b|b-a-c",3,"Mở bài → b → a (Additionally) → c (Finally)."],
+["f","Chọn câu kết phù hợp nhất cho đoạn về cuộc sống nông thôn ở trên.","Rural people are very tight-knit and always willing to help their neighbours.|We can do many, many things that are hard to do in the city.|This can be a great source of inspiration.|Overall, these are just some of the many things I enjoy about rural life.",3],
+["f","Sắp xếp: (a) Additionally, some YouTubers collaborate with other creators… (b) In conclusion, YouTubers have a significant impact on teenagers today. (c) First, many teenagers enjoy watching these videos…","a-b-c|b-c-a|c-a-b|b-a-c",2,"First → Additionally → In conclusion."]
+];
+var L="ABCD";
+
+/* ===== Lịch sử (localStorage) ===== */
+var HKEY="quizanh8mid1_history_v1";
+function addHist(topic,score,total,wrong){try{var h=JSON.parse(localStorage.getItem(HKEY)||"[]");h.unshift({ts:Date.now(),subject:"Tiếng Anh 8 – Giữa HK1",topic:topic,score:score,total:total,wrong:wrong||[]});if(h.length>100)h=h.slice(0,100);localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
+function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
+function fmtTime(ts){var d=new Date(ts),p=function(n){return(n<10?"0":"")+n};return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes())}
+function histHTML(){var h=loadHist();var out='<div class="hist"><h2>Lịch sử làm bài</h2>';if(!h.length)return out+'<p class="hempty">Chưa có lịch sử.</p></div>';out+='<table class="htbl"><thead><tr><th>Thời gian</th><th>Phần</th><th>Điểm</th></tr></thead><tbody>';h.forEach(function(r){out+='<tr><td>'+fmtTime(r.ts)+'</td><td>'+esc(r.topic)+'</td><td>'+r.score+'/'+r.total+'</td></tr>'});return out+'</tbody></table><button class="lnk" id="clr">Xóa lịch sử</button></div>'}
+
+/* ===== Phần trắc nghiệm theo nhóm (chip) ===== */
+var sec="all";
+function optsOf(q){return Array.isArray(q[2])?q[2]:q[2].split("|")}
+function scopeList(){return Q.map(function(_,i){return i}).filter(function(i){return sec==="all"||Q[i][0]===sec})}
+
+function buildChips(){
+ var ch=$("chips");ch.innerHTML="";
+ var entries=[["all","Tất cả"]];for(var k in S)entries.push([k,S[k]]);
+ entries.forEach(function(it){var b=document.createElement("button");b.className="chip";b.textContent=it[0]==="all"?("Tất cả ("+Q.length+")"):it[1];b.setAttribute("aria-selected",it[0]===sec);b.onclick=function(){sec=it[0];buildChips();updateScope()};ch.appendChild(b)});
+}
+function updateScope(){var n=scopeList().length;$("scope").textContent=n+" câu trong phần này. Bấm \"Bắt đầu\" để làm và chấm điểm.";$("qbox").innerHTML=""}
+
+function run(){
+ var idx=scopeList();
+ var topic=sec==="all"?"Tất cả":S[sec];
+ var answered={},saved=false;
+ var box=$("qbox");
+ function render(){
+  box.innerHTML="";
+  idx.forEach(function(qi){
+   var q=Q[qi],o=optsOf(q),done=qi in answered;
+   var d=document.createElement("div");d.className="q";
+   var p=document.createElement("p");p.className="t";p.textContent=q[1];d.appendChild(p);
+   o.forEach(function(x,j){
+    var b=document.createElement("button");b.className="o";b.textContent=L[j]+". "+x;
+    if(done){b.disabled=true;if(j===q[3])b.classList.add("ok");else if(j===answered[qi])b.classList.add("no")}
+    b.onclick=function(){if(qi in answered||saved)return;answered[qi]=j;render()};
+    d.appendChild(b);
+   });
+   if(done&&q[4]){var n=document.createElement("div");n.className="n";n.textContent=q[4];d.appendChild(n)}
+   box.appendChild(d);
+  });
+  var allDone=idx.every(function(qi){return qi in answered});
+  var barBtn=document.createElement("button");barBtn.className="btn pri";barBtn.style.marginTop="10px";
+  barBtn.textContent=allDone?"Nộp bài & xem kết quả":"Hãy trả lời hết các câu để nộp bài";
+  barBtn.disabled=!allDone;
+  barBtn.onclick=finish;
+  box.appendChild(barBtn);
+ }
+ function finish(){
+  if(saved)return;saved=true;
+  var total=idx.length,score=0,wrong=[];
+  idx.forEach(function(qi){var q=Q[qi],o=optsOf(q);if(answered[qi]===q[3])score++;else wrong.push({q:q[1],your:o[answered[qi]],correct:o[q[3]]})});
+  addHist(topic,score,total,wrong);
+  var pc=Math.round(score*100/total),emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"\uD83D\uDE2D";
+  var msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại tab Kiến thức rồi thử lại.";
+  box.innerHTML='<div class="q end"><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="score">'+score+'/'+total+'</div><p>'+pc+'% đúng. '+msg+'</p>'+
+   (wrong.length?'<p style="text-align:left"><b>Câu cần ôn:</b></p>'+wrong.map(function(w){return '<p class="n" style="text-align:left"><b>'+esc(w.q)+'</b><br>Em chọn: '+esc(w.your!=null?w.your:"(bỏ trống)")+'<br>Đáp án đúng: '+esc(w.correct)+'</p>'}).join(''):'')+
+   '<button class="btn pri" id="again" style="margin-top:10px">Làm lại phần này</button></div>'+histHTML();
+  $("again").onclick=run;
+  function wireClear(){var c=$("clr");if(c)c.onclick=function(){try{localStorage.removeItem(HKEY)}catch(e){}var hw=box.querySelector(".hist");if(hw){hw.outerHTML=histHTML();wireClear();}};}
+  wireClear();
+ }
+ render();
+}
+
+/* ===== Tab Viết lại câu: nhập liệu + so sánh với đáp án gợi ý ===== */
+/* Mỗi mục: [đề bài, từ gợi ý, đáp án gợi ý] — trích từ đề cương (Ex 6, Ex 7) */
+var WRITE=[
+ {h:"Ex 6 – Viết lại câu với từ cho sẵn",items:[
+  ["We enjoy trying new foods from different cultures.","keen","We are keen on trying new foods from different cultures."],
+  ["My children don't like to drink coffee.","dislike","My children dislike drinking coffee."],
+  ["His car can run 220 km/hr while my car can run only 180 km/hr.","faster","His car can run faster than my car (does)."],
+  ["The workers in your factory work more responsibly than those in my factory.","carelessly","The workers in my factory work more carelessly than those in your factory."],
+  ["I can't cook as well as my mother.","better","My mother can cook better than I can."]
+ ]},
+ {h:"Ex 7 – Nối câu bằng liên từ",items:[
+  ["We can prepare a big meal. We can eat out in a French restaurant.","or","We can prepare a big meal for dinner, or we can eat out in a French restaurant."],
+  ["You have to wear a helmet. You will be fined.","otherwise","You have to wear a helmet when riding a bike; otherwise, you will be fined."],
+  ["My sister follows a diet plan, but she can't lose weight.","however","My sister follows a diet plan; however, she can't lose weight."],
+  ["Jane was sick, so she missed all of the exams.","therefore","Jane was sick; therefore, she missed all of the exams last week."],
+  ["This flat was extremely expensive. My father couldn't buy it.","for","My father couldn't buy this flat, for it was extremely expensive."]
+ ]}
+];
+/* Chuẩn hoá để so khớp mềm: thường hoá, bỏ dấu câu, gộp khoảng trắng, bỏ ngoặc tuỳ chọn */
+function normW(s){return String(s).toLowerCase().replace(/\(.*?\)/g," ").replace(/[.,;:!?"']/g," ").replace(/\s+/g," ").trim()}
+function checkOne(id,it){
+ var ta=$(id),res=$("r_"+id),act=$("act_"+id);
+ var mine=ta.value.trim();
+ ta.disabled=true;
+ var same=mine!==""&&normW(mine)===normW(it[2]);
+ res.hidden=false;
+ res.innerHTML='<span class="row mine"><b>Câu của em:</b> '+(mine?esc(mine):"<i>(chưa nhập)</i>")+'</span>'+
+   '<span class="row key"><b>Đáp án gợi ý:</b> '+esc(it[2])+'</span>'+
+   '<span class="match '+(same?"y":"n")+'">'+(same?"✓ Trùng khớp với đáp án gợi ý":"✎ Chưa trùng — hãy tự đối chiếu, có thể em diễn đạt cách khác vẫn đúng")+'</span>';
+ act.innerHTML='<button class="btn" type="button">Làm lại</button>';
+ act.firstChild.onclick=function(){resetOne(id,it)};
+}
+function resetOne(id,it){
+ var ta=$(id),res=$("r_"+id),act=$("act_"+id);
+ ta.value="";ta.disabled=false;res.hidden=true;res.innerHTML="";
+ act.innerHTML='<button class="btn pri" type="button">Kiểm tra đáp án</button>';
+ act.firstChild.onclick=function(){checkOne(id,it)};
+ ta.focus();
+}
+function buildWrite(){
+ var box=$("wbox");box.innerHTML="";var n=0;
+ WRITE.forEach(function(grp){
+  var h=document.createElement("div");h.className="wsec";h.textContent=grp.h;box.appendChild(h);
+  grp.items.forEach(function(it){
+   var id="w"+(n++);
+   var d=document.createElement("div");d.className="witem";
+   d.innerHTML='<p class="wq">'+esc(it[0])+' <span class="cue">('+esc(it[1])+')</span></p>'+
+     '<textarea class="winput" id="'+id+'" rows="1" placeholder="Viết lại câu của em..."></textarea>'+
+     '<div class="wact" id="act_'+id+'"><button class="btn pri" type="button">Kiểm tra đáp án</button></div>'+
+     '<div class="wres" id="r_'+id+'" hidden></div>';
+   box.appendChild(d);
+   (function(id,it){$("act_"+id).firstChild.onclick=function(){checkOne(id,it)};})(id,it);
+  });
+ });
+}
+buildWrite();
+
+/* Tabs */
+var tabs=[$("t0"),$("t1"),$("t2")];
+tabs.forEach(function(t,ix){t.onclick=function(){tabs.forEach(function(x,j){x.setAttribute("aria-selected",ix===j);$("p"+j).hidden=ix!==j});window.scrollTo(0,0)}});
+$("go").onclick=run;
+buildChips();updateScope();
+</script>
+</body>
+</html>
