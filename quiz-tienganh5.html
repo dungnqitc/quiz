@@ -85,8 +85,10 @@ select,.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:
 
   <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
     <div class="bar">
+      <label>Phạm vi: <select id="gUnit"></select></label>
       <button class="btn pri" id="gGo">Bắt đầu</button>
     </div>
+    <p class="sub" id="gInfo" style="margin:0 0 10px">20 câu mỗi lượt (tỉ lệ 70% cơ bản + 30% nâng cao, ngẫu nhiên).</p>
     <div id="gBox"></div>
   </section>
 </div>
@@ -328,15 +330,366 @@ const Q=[
 [1,"Not only ___ he play the guitar, but he also sings well.","does",["do","is","did"],"Đảo ngữ với 'Not only' + trợ động từ + S.","a"],
 [2,"The more carefully you drive, ___.","the safer you are",["the safe you are","safer you are","you are safer"],"Cấu trúc 'The + so sánh hơn ..., the + so sánh hơn ...'.","a"],
 [3,"___ tired, she kept studying for the exam.","Despite being",["Although being","Despite she was","Because being"],"Despite + V-ing/N (không theo mệnh đề).","a"],
-[4,"Hardly ___ any traditional costumes left in the shop.","are there",["there are","they are","is there"],"Đảo ngữ với trạng từ phủ định 'Hardly'.","a"],
-[5,"It is the first time I ___ such a colourful festival.","have seen",["saw","see","had seen"],"It's the first time + hiện tại hoàn thành.","a"],
-[6,"If I were you, I ___ the old craft to my children.","would teach",["will teach","taught","teach"],"Điều kiện loại 2: If + were, would + V.","a"],
-[7,"The park ___ since the city started the conservation project.","has been cleaner",["is cleaner","was cleaner","will be cleaner"],"since + hiện tại hoàn thành.","a"],
-[8,"Rarely ___ to the mall on weekdays.","does she go",["she goes","she does go","goes she"],"Đảo ngữ với 'Rarely' + trợ động từ + S.","a"],
-[9,"By the time the rescuers arrived, the flood ___ the whole village.","had covered",["covered","has covered","covers"],"By the time (quá khứ) + quá khứ hoàn thành.","a"],
-[10,"He asked me where I ___ the previous day.","had been",["have been","was","am"],"Tường thuật: lùi về quá khứ hoàn thành.","a"],
+
+[4,"How ___ students are there in your class?","many",["much","little","a little"],"many + danh từ đếm được số nhiều.","a"],
+[5,"We usually visit our grandparents ___ Sunday.","on",["in","at","from"],"on + ngày trong tuần.","a"],
+[6,"Tomorrow it ___ rainy.","will be",["is","was","be"],"Tương lai đơn với thời tiết.","a"],
+[7,"Let's ___ rubbish to keep the park clean.","collect",["collecting","collected","to collect"],"Let's + động từ nguyên mẫu.","a"],
+[8,"The library is ___ the classroom and the office.","between",["under","behind","across"],"Giới từ chỉ vị trí.","a"],
+[9,"Last weekend, my family ___ to the zoo.","went",["go","goes","going"],"Quá khứ của go là went.","a"],
+[10,"___ you visit your grandparents yesterday?","Did",["Do","Does","Were"],"Câu hỏi quá khứ đơn dùng Did.","a"],
 [0,"The teacher told us ___ late for the trip.","not to be",["not be","to not be","don't be"],"Tường thuật mệnh lệnh phủ định: told sb not to V.","a"],
-[0,"It was such ___ interesting film that we watched it twice.","an",["a","the","Ø"],"such + a/an + adj + N; 'interesting' bắt đầu nguyên âm → an.","a"]
+[0,"It was such ___ interesting film that we watched it twice.","an",["a","the","Ø"],"such + a/an + adj + N; 'interesting' bắt đầu nguyên âm → an.","a"],
+[0,"I ___ in Sa Pa last summer.","was",["were","am","did"],"I đi với was."],
+[0,"They ___ at school yesterday.","were",["was","are","did"],"they đi với were."],
+[0,"The weather ___ sunny last week.","was",["were","is","did"],"It/the weather số ít → was."],
+[0,"We ___ happy at the party.","were",["was","are","did"],"we đi với were."],
+[0,"She ___ not at home last night.","was",["were","is","did"],"she → was."],
+[0,"___ you in Ha Noi last month?","Were",["Was","Did","Are"],"you → Were."],
+[0,"My birthday is in ___.","January",["Monday","summer","blue"],"Tháng: January."],
+[0,"The first month of the year is ___.","January",["March","June","July"],"Tháng đầu tiên là January."],
+[0,"It is cold and wet. The weather is ___.","rainy",["sunny","happy","tall"],"rainy = có mưa."],
+[0,"It ___ windy yesterday.","was",["were","is","did"],"It → was."],
+[0,"He ___ in Class 4 last year.","was",["were","is","did"],"he → was."],
+[0,"The children ___ at the zoo last Sunday.","were",["was","are","did"],"children số nhiều → were."],
+[0,"What ___ the weather like? – It was hot.","was",["were","is","did"],"the weather → was."],
+[0,"December is the ___ month of the year.","twelfth",["first","second","third"],"December là tháng 12."],
+[0,"It ___ sunny, so we went out.","was",["were","is","did"],"It → was."],
+[0,"___ they at the beach? – Yes, they were.","Were",["Was","Did","Are"],"they → Were."],
+[0,"My sister ___ five years old last year.","was",["were","is","did"],"she → was."],
+[0,"The month after April is ___.","May",["June","March","July"],"Sau April là May."],
+[0,"We ___ not at the park yesterday.","were",["was","are","did"],"we → were (weren't)."],
+[0,"It is bright and warm. The weather is ___.","sunny",["rainy","windy","snowy"],"sunny = nắng."],
+[0,"I ___ tired after the trip.","was",["were","am","did"],"I → was."],
+[0,"___ it hot last summer? – Yes, it was.","Was",["Were","Did","Are"],"it → Was."],
+[0,"The month before February is ___.","January",["March","April","May"],"Trước February là January."],
+[0,"You ___ very kind yesterday.","were",["was","are","did"],"you → were."],
+[0,"The dogs ___ in the garden this morning.","were",["was","are","did"],"dogs số nhiều → were."],
+[0,"It ___ snowy in the mountains last week.","was",["were","is","did"],"It → was."],
+[0,"She and I ___ classmates last year.","were",["was","are","did"],"She and I → were."],
+[0,"The last month of the year is ___.","December",["November","October","January"],"Tháng cuối là December."],
+[0,"How ___ the weather yesterday? – It was cloudy.","was",["were","is","did"],"the weather → was."],
+[0,"\"Where were you last night?\" asks about a ___ time.","past",["future","present","daily"],"was/were dùng cho quá khứ.","a"],
+[0,"Choose the correct sentence.","They were at the funfair.",["They was at the funfair.","They is at the funfair.","They be at the funfair."],"they → were.","a"],
+[0,"It ___ rainy, so the match was cancelled.","was",["were","is","be"],"It → was.","a"],
+[0,"Neither Nam nor Lan ___ at home.","was",["were","are","be"],"Động từ chia theo 'Lan' (số ít) → was.","a"],
+[0,"Which answer matches \"Were you happy?\"","Yes, I was.",["Yes, I were.","Yes, I did.","Yes, I am."],"Were you…? → Yes, I was.","a"],
+[0,"Last ___, the weather was very hot.","summer",["now","today","soon"],"Dấu hiệu quá khứ: last summer.","a"],
+[0,"There ___ many clouds in the sky yesterday.","were",["was","are","be"],"many clouds (số nhiều) → were.","a"],
+[0,"The twins ___ born in October.","were",["was","are","be"],"twins số nhiều → were.","a"],
+[0,"In \"It was windy\", the subject is ___.","It",["was","windy","very"],"Chủ ngữ là It.","a"],
+[0,"\"___ the children at school?\" – Yes, they were.","Were",["Was","Did","Are"],"children → Were.","a"],
+[1,"I ___ in Class 5A.","am",["is","are","be"],"I → am."],
+[1,"She ___ from the countryside.","is",["am","are","be"],"she → is."],
+[1,"They ___ my new friends.","are",["is","am","be"],"they → are."],
+[1,"What's your favourite sport? – ___ football.","It's",["I'm","They're","He's"],"Trả lời favourite → It's."],
+[1,"My favourite animal ___ a dolphin.","is",["are","am","be"],"animal số ít → is."],
+[1,"We ___ in the same class.","are",["is","am","be"],"we → are."],
+[1,"He ___ my best friend.","is",["are","am","be"],"he → is."],
+[1,"My favourite colour ___ pink.","is",["are","am","be"],"colour số ít → is."],
+[1,"I live in the ___, near the rice fields.","countryside",["dolphin","sandwich","tennis"],"countryside = nông thôn."],
+[1,"___ you in Class 5B? – Yes, I am.","Are",["Is","Am","Do"],"you → Are."],
+[1,"My favourite food ___ a sandwich.","is",["are","am","be"],"food số ít → is."],
+[1,"Nam and I ___ good friends.","are",["is","am","be"],"Nam and I → are."],
+[1,"What's your favourite sport? – It's table ___.","tennis",["football","dolphin","pink"],"table tennis."],
+[1,"She ___ a pupil at my school.","is",["are","am","be"],"she → is."],
+[1,"I ___ ten years old.","am",["is","are","be"],"I → am."],
+[1,"The dolphin ___ my favourite animal.","is",["are","am","be"],"số ít → is."],
+[1,"My friends ___ very friendly.","are",["is","am","be"],"friends số nhiều → are."],
+[1,"What's your favourite colour? – ___ blue.","It's",["I'm","They're","He's"],"favourite → It's."],
+[1,"Linh ___ in Class 5C.","is",["are","am","be"],"Linh → is."],
+[1,"We live in the ___.","city",["dolphin","pink","tennis"],"city = thành phố."],
+[1,"___ he your classmate? – Yes, he is.","Is",["Are","Am","Do"],"he → Is."],
+[1,"Choose the correct self-introduction.","I'm in Class 5A and I live in the city.",["I in Class 5A and I live city.","I am Class 5A and live the city.","I'm Class 5A, I live city."],"Câu đủ chủ ngữ + động từ.","a"],
+[1,"What's your favourite sport? The answer should start with ___.","It's",["I'm","They","He"],"Hỏi favourite → It's.","a"],
+[1,"Which question asks about your favourite animal?","What's your favourite animal?",["Who's your favourite animal?","Where's your favourite animal?","When's your favourite animal?"],"What's… favourite?","a"],
+[1,"He and she ___ my friends.","are",["is","am","be"],"He and she → are.","a"],
+[1,"Choose the correct sentence.","My favourite colour is pink.",["My favourite colour are pink.","My favourite colour am pink.","My favourite colour be pink."],"colour số ít → is.","a"],
+[1,"\"I'm in Class 5A\" is short for I ___ in Class 5A.","am",["is","are","be"],"I'm = I am.","a"],
+[1,"Which word describes food?","sandwich",["dolphin","pink","tennis"],"sandwich là món ăn.","a"],
+[1,"Everybody in my class ___ friendly.","is",["are","am","be"],"Everybody → is.","a"],
+[1,"Choose the correct Wh-question.","What is your favourite food?",["What are your favourite food?","What am your favourite food?","What be your favourite food?"],"food số ít → is.","a"],
+[1,"Both of my friends ___ from Da Nang.","are",["is","am","be"],"Both → are.","a"],
+[1,"My favourite sport and colour ___ tennis and pink.","are",["is","am","be"],"sport and colour (số nhiều) → are.","a"],
+[1,"Which is a correct short answer to \"Are you in 5A?\"","Yes, I am.",["Yes, I is.","Yes, I are.","Yes, I do."],"Are you…? → Yes, I am.","a"],
+[2,"Do you live in ___ building? (gần đây)","this",["that","these","those"],"this = gần."],
+[2,"Is ___ your house over there? (xa)","that",["this","these","those"],"that = xa."],
+[2,"What's your ___? – It's 45 Ba Trieu Street.","address",["building","flat","tower"],"address = địa chỉ."],
+[2,"I live in a tall ___ in the city.","building",["address","street","number"],"building = toà nhà."],
+[2,"The number after fourteen is ___.","fifteen",["fifty","forty","thirteen"],"14 → 15 fifteen."],
+[2,"Do you live near the school? – Yes, I ___.","do",["am","does","did"],"Do you…? → Yes, I do."],
+[2,"___ is my flat. (chỉ vào nơi đang đứng)","This",["That","Those","These"],"This = gần."],
+[2,"I live about one ___ from here.","kilometre",["building","address","tower"],"kilometre = cây số."],
+[2,"The number sixteen comes after ___.","fifteen",["seventeen","sixty","fourteen"],"16 sau 15."],
+[2,"Is this your ___? – Yes, it's where I live.","flat",["street","number","dolphin"],"flat = căn hộ."],
+[2,"___ those your neighbours? (xa, số nhiều)","Are",["Is","Am","Do"],"those → Are."],
+[2,"He lives in a ___, not a house.","flat",["address","kilometre","street"],"flat = căn hộ."],
+[2,"The number eighteen is ___ + eight.","ten",["twenty","eighty","fifteen"],"18 = 10 + 8."],
+[2,"Do they live in that tower? – No, they ___.","don't",["aren't","doesn't","didn't"],"Do they…? → No, they don't."],
+[2,"___ book is new. (ở trong tay tôi)","This",["That","Those","Them"],"This = gần."],
+[2,"My address ___ 23 Le Loi Street.","is",["are","am","be"],"address số ít → is."],
+[2,"Numbers 13 to 19 are the ___ numbers.","teen",["ten","tens","first"],"teen numbers."],
+[2,"Is that a house or a ___?","flat",["address","kilometre","number"],"flat đối lập house."],
+[2,"Do you live here? – Yes, I live ___ this street.","on",["in","at","to"],"live on + street."],
+[2,"___ buildings are very tall. (xa, số nhiều)","Those",["That","This","Them"],"those = xa, số nhiều."],
+[2,"Choose the correct question about where someone lives.","Do you live near the school?",["Are you live near the school?","Does you live near the school?","You live near school?"],"Do + you + V.","a"],
+[2,"\"116\" in English is ___.","one hundred and sixteen",["eleven sixteen","one sixteen","hundred sixteen"],"116 = one hundred and sixteen.","a"],
+[2,"Which word is stressed on the second syllable?","fifteen",["fifty","sixty","twenty"],"fif'teen nhấn âm 2.","a"],
+[2,"___ these your books? – Yes, they are.","Are",["Is","Am","Do"],"these → Are.","a"],
+[2,"Choose the correct sentence.","That is my building over there.",["That are my building over there.","Those is my building over there.","That am my building over there."],"that + is.","a"],
+[2,"The opposite of \"this\" (số nhiều) is ___.","those",["that","these","them"],"this→these; that→those; số nhiều của that = those.","a"],
+[2,"Which is a correct address answer?","It's 45 Ba Trieu Street.",["It 45 Ba Trieu Street.","Its 45 Ba Trieu Street.","It's 45 Ba Trieu."],"It's + địa chỉ.","a"],
+[2,"\"Do you live far from here?\" – No, I live ___ here.","near",["far","in","at"],"Đối lập far = near.","a"],
+[2,"Which number is stressed on the first syllable?","fifty",["fifteen","sixteen","eighteen"],"'fifty nhấn âm 1.","a"],
+[2,"Are those flats or houses? – ___ flats.","They're",["It's","That's","This is"],"those → They're.","a"],
+[2,"Choose the correct demonstrative for something far and plural.","those",["this","that","these"],"Xa + số nhiều = those.","a"],
+[2,"\"I live about one kilometre from here\" means the school is ___.","not very far",["very far","in my house","next door"],"1 km = không xa lắm.","a"],
+[3,"What nationality is she? – She's ___.","Australian",["Australia","friendly","active"],"Quốc tịch: Australian."],
+[3,"What's he like? – He's ___.","friendly",["Australian","Japan","Monday"],"Tính cách: friendly."],
+[3,"Is she active? – Yes, she ___.","is",["does","are","do"],"Is she…? → Yes, she is."],
+[3,"She's from America. She's ___.","American",["America","active","clever"],"Mỹ → American."],
+[3,"He's from the UK. He's ___.","British",["Britain","friendly","active"],"Anh → British."],
+[3,"Is he clever? – Yes, he ___.","is",["does","are","do"],"Is he…? → Yes, he is."],
+[3,"She is kind and ___ to everyone.","friendly",["Japan","America","Monday"],"friendly = thân thiện."],
+[3,"What's your friend ___? – He's clever.","like",["likes","liking","liked"],"What…like? hỏi tính cách."],
+[3,"Is she British? – No, she ___.","isn't",["doesn't","aren't","don't"],"Is she…? → No, she isn't."],
+[3,"He always helps me. He's very ___.","helpful",["Australian","Japan","January"],"helpful = hay giúp đỡ."],
+[3,"What nationality are they? – They're ___.","Japanese",["Japan","friendly","active"],"Nhật → Japanese."],
+[3,"She learns fast. She's ___.","clever",["Malaysia","British","Monday"],"clever = thông minh."],
+[3,"___ he friendly? – Yes, he is.","Is",["Are","Am","Does"],"he → Is."],
+[3,"My pen friend is from Australia. He's ___.","Australian",["Australia","active","clever"],"Úc → Australian."],
+[3,"What's your teacher like? – She's ___.","active",["Japan","America","January"],"active = năng động."],
+[3,"Are they American? – No, they ___.","aren't",["don't","isn't","doesn't"],"Are they…? → No, they aren't."],
+[3,"He plays a lot of sport. He's ___.","active",["British","Japan","Monday"],"active = năng động."],
+[3,"What nationality is your friend? – She's ___.","Malaysian",["Malaysia","clever","helpful"],"Malaysia → Malaysian."],
+[3,"She's polite and ___ to her classmates.","friendly",["America","Japan","Monday"],"friendly = thân thiện."],
+[3,"Is your friend clever? – Yes, ___.","she is",["she does","she do","she are"],"Is…? → she is."],
+[3,"\"What's she like?\" asks about her ___.","character",["nationality","age","address"],"What…like? → tính cách.","a"],
+[3,"\"What nationality is he?\" asks about his ___.","country",["character","age","hobby"],"nationality → quốc tịch.","a"],
+[3,"Choose the correct answer to \"Is she active?\"","Yes, she is.",["Yes, she does.","Yes, she do.","Yes, she are."],"be-question → is.","a"],
+[3,"Which word is a nationality?","Japanese",["friendly","clever","active"],"Japanese là quốc tịch.","a"],
+[3,"Which word describes character?","helpful",["American","British","Japanese"],"helpful là tính cách.","a"],
+[3,"Choose the correct sentence.","She is friendly and clever.",["She are friendly and clever.","She is friendly and cleverly.","She friendly and clever."],"she + is + tính từ.","a"],
+[3,"\"He's Australian\" answers the question ___.","What nationality is he?",["What's he like?","Where is he?","How old is he?"],"Australian → nationality.","a"],
+[3,"To ask about character we use ___.","What ... like?",["What nationality?","Where ... from?","How old?"],"Tính cách: What…like?","a"],
+[3,"Both boys ___ very helpful.","are",["is","am","be"],"Both → are.","a"],
+[3,"Which short answer is correct for \"Are they British?\"","No, they aren't.",["No, they isn't.","No, they don't.","No, they doesn't."],"Are they…? → aren't.","a"],
+[3,"\"She's from Malaysia\" → her nationality is ___.","Malaysian",["Malaysia","Malay land","Malaysjust"],"Malaysia → Malaysian.","a"],
+[4,"What do you like doing? – I like ___ the violin.","playing",["play","to play","played"],"like + V-ing."],
+[4,"She likes ___ music in her free time.","listening to",["listen to","to listen","listened"],"like + V-ing."],
+[4,"I ___ go for a walk at the weekend.","usually",["am","does","is"],"usually + V thường."],
+[4,"Does he like swimming? – No, he ___.","doesn't",["don't","isn't","didn't"],"Does he…? → doesn't."],
+[4,"They like ___ the Internet.","surfing",["surf","to surf","surfed"],"like + V-ing."],
+[4,"I ___ water the flowers in the morning.","often",["am","does","is"],"often + V thường."],
+[4,"What does she like doing? – She likes ___.","reading",["read","to read","reads"],"like + V-ing."],
+[4,"He ___ plays football after school. (100%)","always",["is","does","be"],"always + V thường."],
+[4,"We like ___ for a walk in the park.","going",["go","to go","went"],"like + V-ing."],
+[4,"Does your brother like ___ puzzles?","doing",["do","to do","does"],"like + V-ing."],
+[4,"She ___ listens to music. (sometimes)","sometimes",["is","does","be"],"sometimes + V thường."],
+[4,"I like ___ the violin very much.","playing",["play","to play","played"],"like + V-ing."],
+[4,"Does she surf the Internet? – Yes, she ___.","does",["do","is","did"],"Does she…? → does."],
+[4,"He ___ goes for a walk. (never, 0%)","never",["is","does","be"],"never + V thường."],
+[4,"What do they like doing? – They like ___ games.","playing",["play","to play","played"],"like + V-ing."],
+[4,"My mother ___ waters the flowers. (usually)","usually",["is","does","be"],"usually + V thường."],
+[4,"Where does the adverb 'usually' go?","before the main verb",["after the object","before the subject","at the end only"],"Trạng từ tần suất trước V thường.","a"],
+[4,"Choose the correct sentence.","She likes playing the violin.",["She likes play the violin.","She like playing the violin.","She likes to playing violin."],"likes + V-ing.","a"],
+[4,"\"Does he like swimming?\" – correct short answer:","Yes, he does.",["Yes, he is.","Yes, he do.","Yes, he likes."],"Does he…? → does.","a"],
+[4,"Put in order of frequency (high→low): always, often, ___.","sometimes",["never first","rarely first","every"],"always>often>sometimes.","a"],
+[4,"Choose the correct negative.","He doesn't like running.",["He don't like running.","He isn't like running.","He not like running."],"Ngôi 3 → doesn't.","a"],
+[4,"In \"She usually reads\", 'usually' tells us ___.","how often",["where","when exactly","why"],"Tần suất = how often.","a"],
+[4,"Which verb form follows 'like'?","V-ing",["to + V3","V3","V-s"],"like + V-ing (ở lớp 5).","a"],
+[4,"Choose the correct question.","What do you like doing?",["What you like doing?","What do you like do?","What does you like doing?"],"Do you + like + V-ing.","a"],
+[4,"\"He never plays games\" means he plays games ___.","0% of the time",["100%","often","usually"],"never = 0%.","a"],
+[4,"Everybody in my class ___ playing games.","likes",["like","do like","are like"],"Everybody → likes.","a"],
+[4,"Choose the correct sentence with a frequency adverb.","I often surf the Internet.",["I surf often the Internet.","I surf the Internet often rarely.","Often I surf Internet the."],"Thường đứng trước V thường.","a"],
+[4,"\"Does she like reading?\" The main verb 'like' is in ___ form.","base (like)",["likes","liked","liking"],"Sau 'does' dùng V nguyên mẫu.","a"],
+[5,"What would you like to be? – I'd like to be a ___.","doctor",["doctors","doctoring","doctored"],"a + nghề số ít."],
+[5,"I'd like ___ a teacher in the future.","to be",["be","being","been"],"would like to + V."],
+[5,"Why would you like to be a doctor? – ___ I'd like to help people.","Because",["So","But","And"],"Nêu lí do: Because."],
+[5,"A person who puts out fires is a ___.","firefighter",["gardener","writer","dentist"],"firefighter = lính cứu hoả."],
+[5,"She'd like to be a ___ and grow flowers.","gardener",["reporter","dentist","writer"],"gardener = người làm vườn."],
+[5,"What would he like to be? – He'd like to be a ___.","writer",["write","writing","wrote"],"a + nghề."],
+[5,"I'd like to be a reporter because I'd like to ___ the news.","report",["reports","reporting","reported"],"to + V nguyên mẫu."],
+[5,"A person who takes care of teeth is a ___.","dentist",["gardener","firefighter","reporter"],"dentist = nha sĩ."],
+[5,"Why would she like to be a teacher? – Because she'd like to ___ children.","teach",["teaches","teaching","taught"],"to + V nguyên mẫu."],
+[5,"I ___ like to be a writer.","would",["am","do","will"],"I'd = I would."],
+[5,"He'd like to be a ___ and write stories.","writer",["gardener","dentist","firefighter"],"writer = nhà văn."],
+[5,"A person who grows flowers is a ___.","gardener",["dentist","reporter","writer"],"gardener = người làm vườn."],
+[5,"Why would you like to be a vet? – ___ I love animals.","Because",["So","But","And"],"Lí do: Because."],
+[5,"She would ___ to be a dentist.","like",["likes","liking","liked"],"would like to + V."],
+[5,"I'd like to be a teacher because I'd like to ___ children.","teach",["teaches","teaching","taught"],"to + V nguyên mẫu."],
+[5,"What would they like to be? – They'd like to be ___.","writers",["writer","writing","wrote"],"số nhiều: writers."],
+[5,"A person who reports the news is a ___.","reporter",["gardener","dentist","firefighter"],"reporter = phóng viên."],
+[5,"I'd like to ___ flowers, so I'd like to be a gardener.","grow",["grows","growing","grew"],"to + V nguyên mẫu."],
+[5,"Why would he like to be a firefighter? – Because he'd like to ___ people.","help",["helps","helping","helped"],"to + V nguyên mẫu."],
+[5,"\"I'd like to be a doctor\" – I'd is short for I ___.","would",["had","did","will"],"I'd = I would.","a"],
+[5,"Choose the correct sentence.","I'd like to be a teacher.",["I'd like be a teacher.","I'd like to being a teacher.","I like to be teacher."],"would like to + V.","a"],
+[5,"Why would you like to be a vet? Begin the answer with ___.","Because",["So that","But","And"],"Lí do → Because.","a"],
+[5,"A ___ grows and takes care of plants.","gardener",["dentist","reporter","firefighter"],"gardener = làm vườn.","a"],
+[5,"Which question asks about a future job?","What would you like to be?",["What are you?","What do you do?","What did you be?"],"would like to be = tương lai.","a"],
+[5,"\"Because I'd like to help people\" answers a ___ question.","Why",["What","Where","When"],"Because trả lời Why.","a"],
+[5,"Choose the job that matches \"report the news\".","reporter",["gardener","dentist","writer"],"reporter → report the news.","a"],
+[5,"He would like ___ stories, so he'd like to be a writer.","to write",["write","writing","wrote"],"would like to + V.","a"],
+[5,"Which is correct?","I'd like to be a dentist.",["I'd like to be dentist.","I'd like to being a dentist.","I like be a dentist."],"a + nghề; to + V.","a"],
+[5,"\"I'd like to be a doctor because I'd like to help people.\" The reason uses ___.","because",["so","but","and"],"Lí do: because.","a"],
+[5,"A person who writes stories is a ___.","writer",["reporter","gardener","dentist"],"writer = nhà văn.","a"],
+[5,"\"I'd\" means ___.","I would",["I had","I did","I will"],"I'd = I would.","a"],
+[6,"The computer room is ___ the first floor.","on",["in","at","to"],"on + floor."],
+[6,"Could you tell me the way to the library? – Go ___.","upstairs",["up stair","on stairs","to up"],"go upstairs."],
+[6,"Go ___ the corridor and turn left.","along",["on","in","to"],"go along the corridor."],
+[6,"The art room is ___ the ground floor.","on",["in","at","to"],"on + floor."],
+[6,"Where's the music room? – It's on the ___ floor.","third",["three","thirty","threeth"],"third = thứ ba."],
+[6,"To go down a level, you go ___.","downstairs",["down stair","on down","to down"],"go downstairs."],
+[6,"Turn ___ at the end of the corridor.","left",["on","in","to"],"turn left."],
+[6,"The gym is ___ the ground floor.","on",["in","at","to"],"on + floor."],
+[6,"Go ___ to reach the classrooms above.","upstairs",["up stair","on up","to up"],"go upstairs."],
+[6,"Could you tell me the ___ to the office, please?","way",["road","street","path"],"the way = đường đi."],
+[6,"The office is ___ the first floor.","on",["in","at","to"],"on + floor."],
+[6,"Go along the corridor and turn ___.","right",["on","in","to"],"turn right."],
+[6,"Where's the canteen? – It's on the ___ floor.","second",["two","twoth","secondth"],"second = thứ hai."],
+[6,"Go ___ the music room to get to the lab.","past",["in","on","to"],"go past."],
+[6,"The library is ___ the third floor.","on",["in","at","to"],"on + floor."],
+[6,"To go up, take the stairs and go ___.","upstairs",["up stair","on up","to up"],"go upstairs."],
+[6,"Could you tell me the way to the gym? – Go ___ the corridor.","along",["on","in","to"],"go along."],
+[6,"Turn left, and the room is ___ your right.","on",["in","at","to"],"on your right."],
+[6,"Where's the lab? – It's ___ the ground floor.","on",["in","at","to"],"on + floor."],
+[6,"Which preposition goes with a floor level?","on",["in","at","to"],"on the second floor.","a"],
+[6,"Choose the correct direction phrase.","Go along the corridor.",["Go on the corridor.","Go in the corridor.","Go to along corridor."],"go along the corridor.","a"],
+[6,"\"Could you tell me the way to…?\" is used to ___.","ask for directions",["give an order","say thanks","ask the time"],"Hỏi đường.","a"],
+[6,"Choose the correct sentence.","The library is on the third floor.",["The library is in the third floor.","The library is at third floor.","The library is on third floors."],"on the + ordinal + floor.","a"],
+[6,"To move to a lower level, you ___.","go downstairs",["go down stair","go on down","go to down"],"go downstairs.","a"],
+[6,"\"Go past the library\" means ___.","walk by it",["stop at it","go into it","go above it"],"past = đi qua.","a"],
+[6,"The ___ floor is the floor at street level.","ground",["first","top","second"],"ground floor = tầng trệt.","a"],
+[6,"Choose the ordinal number.","second",["two","twice","double"],"second là số thứ tự.","a"],
+[6,"Which instruction tells you to change direction?","Turn left.",["Go straight.","Go along.","Go upstairs."],"turn = rẽ.","a"],
+[6,"Where would you find the art room 'on the first floor'? ___ the ground floor.","above",["below","beside","behind"],"Tầng 1 ở trên tầng trệt.","a"],
+[6,"\"Turn left\" is the opposite of ___.","turn right",["go straight","go past","go along"],"left ↔ right.","a"],
+[7,"What school activity does she like? – She likes ___ books.","reading",["read","to read","reads"],"like + V-ing."],
+[7,"He likes ___ maths problems.","solving",["solve","to solve","solved"],"like + V-ing."],
+[7,"Why does he like reading? – ___ it's interesting.","Because",["So","But","And"],"Nêu lí do: Because."],
+[7,"They like ___ projects at school.","doing",["do","to do","does"],"like + V-ing."],
+[7,"Does she like playing games? – Yes, she ___.","does",["do","is","did"],"Does she…? → does."],
+[7,"I think solving maths problems is ___.","useful",["useless day","Monday","pink"],"useful = có ích."],
+[7,"What does he like doing? – He likes ___ games.","playing",["play","to play","played"],"like + V-ing."],
+[7,"Why do you like doing projects? – Because it's good for ___ work.","group",["groups day","a group's","grouping"],"group work."],
+[7,"She likes ___ books in the library.","reading",["read","to read","reads"],"like + V-ing."],
+[7,"Does he like solving maths problems? – No, he ___.","doesn't",["don't","isn't","didn't"],"Does he…? → doesn't."],
+[7,"Reading books is ___ and fun.","interesting",["interest day","Monday","pink"],"interesting = thú vị."],
+[7,"What activity do they like? – They like ___ projects.","doing",["do","to do","does"],"like + V-ing."],
+[7,"Why does she like playing games? – Because it's ___.","fun",["funny day","Monday","pink"],"fun = vui."],
+[7,"He likes ___ maths problems because it's useful.","solving",["solve","to solve","solved"],"like + V-ing."],
+[7,"Does she read books every day? – Yes, she ___.","does",["do","is","did"],"Does she…? → does."],
+[7,"I like ___ games with my classmates.","playing",["play","to play","played"],"like + V-ing."],
+[7,"What does he like doing? – He likes ___ books.","reading",["read","to read","reads"],"like + V-ing."],
+[7,"Why do they like projects? – ___ they're interesting.","Because",["So","But","And"],"Lí do: Because."],
+[7,"She likes ___ games at break time.","playing",["play","to play","played"],"like + V-ing."],
+[7,"Does he like doing projects? – Yes, he ___.","does",["do","is","did"],"Does he…? → does."],
+[7,"Solving maths problems is ___ for the brain.","good",["goodly day","Monday","pink"],"good = tốt."],
+[7,"\"Why does he like reading?\" is answered with ___.","Because…",["So that…","But…","And…"],"Why → Because.","a"],
+[7,"Choose the correct sentence.","She likes reading books.",["She likes read books.","She like reading books.","She likes to reading books."],"likes + V-ing.","a"],
+[7,"\"Does she like games?\" – correct short answer:","Yes, she does.",["Yes, she is.","Yes, she do.","Yes, she likes."],"Does she…? → does.","a"],
+[7,"Which adjective gives a reason to like an activity?","useful",["Monday","pink","tall"],"useful nêu lí do.","a"],
+[7,"Choose the correct negative.","He doesn't like projects.",["He don't like projects.","He isn't like projects.","He not like projects."],"Ngôi 3 → doesn't.","a"],
+[7,"In \"Because it's interesting\", 'because' gives a ___.","reason",["place","time","number"],"because = lí do.","a"],
+[7,"Which verb form follows 'like'?","V-ing",["to + V3","V3","V-s"],"like + V-ing.","a"],
+[7,"Choose the correct Wh-question.","What does he like doing?",["What do he like doing?","What does he likes doing?","What he like doing?"],"does + he + V.","a"],
+[7,"Everybody ___ playing games.","likes",["like","do like","are like"],"Everybody → likes.","a"],
+[7,"\"It's good for group work\" explains ___ we like it.","why",["where","when","how many"],"Giải thích lí do (why).","a"],
+[7,"Both pupils ___ reading books.","like",["likes","is like","does like"],"Both → like.","a"],
+[8,"Where are the pencils? – They're ___ the book.","beside",["besides day","Monday","pink"],"beside = bên cạnh."],
+[8,"Whose crayon is this? – It's ___.","Linh's",["Linh","Linhs","Linh is"],"'s chỉ sở hữu."],
+[8,"The map is ___ the board.","above",["aboves day","Monday","pink"],"above = phía trên."],
+[8,"Where ___ the crayons? – They're on the desk.","are",["is","am","be"],"crayons số nhiều → are."],
+[8,"The bag is ___ the desk.","under",["unders day","Monday","pink"],"under = phía dưới."],
+[8,"Whose ruler is this? – It's ___.","Nam's",["Nam","Nams","Nam is"],"'s sở hữu."],
+[8,"Where ___ the eraser? – It's in the box.","is",["are","am","be"],"eraser số ít → is."],
+[8,"The clock is ___ the map.","beside",["besides day","Monday","pink"],"beside = bên cạnh."],
+[8,"Is this Mai's pen? – Yes, it ___.","is",["are","am","does"],"Is this…? → is."],
+[8,"The pencils are ___ the box.","in",["ins day","Monday","pink"],"in = trong."],
+[8,"Whose books are these? – They're ___.","Lan's",["Lan","Lans","Lan is"],"'s sở hữu."],
+[8,"Where are the crayons? – They're ___ front of the board.","in",["on day","Monday","pink"],"in front of."],
+[8,"The set square is ___ the ruler.","beside",["besides day","Monday","pink"],"beside."],
+[8,"Is this your sharpener? – No, it ___.","isn't",["don't","aren't","didn't"],"Is this…? → isn't."],
+[8,"The picture is ___ the wall.","on",["ons day","Monday","pink"],"on = trên bề mặt."],
+[8,"Whose glue stick is this? – It's ___.","Minh's",["Minh","Minhs","Minh is"],"'s sở hữu."],
+[8,"Where ___ my crayons? – They're under the chair.","are",["is","am","be"],"crayons → are."],
+[8,"The map is ___ the desk. (phía trên)","above",["aboves day","Monday","pink"],"above."],
+[8,"Is this Hoa's bag? – Yes, it ___.","is",["are","am","does"],"Is this…? → is."],
+[8,"The pencils are ___ the book.","beside",["besides day","Monday","pink"],"beside."],
+[8,"\"Whose pen is this?\" asks about ___.","the owner",["the colour","the place","the price"],"Whose → chủ sở hữu.","a"],
+[8,"Choose the correct sentence.","The pencils are beside the book.",["The pencils is beside the book.","The pencil are beside the book.","The pencils beside the book."],"pencils → are.","a"],
+[8,"\"Is this your glue stick?\" – correct short answer:","No, it isn't.",["No, it don't.","No, it aren't.","No, it doesn't."],"Is this…? → it isn't.","a"],
+[8,"Which preposition means 'phía trên'?","above",["under","beside","in"],"above = phía trên.","a"],
+[8,"\"It's Linh's crayon\" – the 's shows ___.","possession",["plural","present tense","a verb"],"'s = sở hữu.","a"],
+[8,"Choose the correct question.","Where are the pencils?",["Where is the pencils?","Where the pencils are?","Where am the pencils?"],"pencils → are.","a"],
+[8,"The opposite of 'above' is ___.","under",["beside","in","on"],"above ↔ under.","a"],
+[8,"Which is correct?","These are Nam's books.",["These are Nams books.","These are Nam books.","These is Nam's books."],"'s + sở hữu; these → are.","a"],
+[8,"\"The map is beside the board\" tells us the map's ___.","position",["owner","colour","price"],"beside = vị trí.","a"],
+[8,"Choose the sentence with correct 's.","Whose bag is this? It's Mai's.",["Whose bag is this? It's Mais.","Whose bag is this? It's Mai.","Whose bag is this? Its Mai's."],"It's Mai's.","a"],
+[8,"There ___ a ruler and two pens on the desk.","is",["are","am","be"],"Chủ ngữ gần nhất 'a ruler' → is.","a"],
+[8,"Which word is a preposition of place?","beside",["always","because","Monday"],"beside chỉ nơi chốn.","a"],
+[9,"She ___ at the theatre last night.","was",["were","is","did"],"she → was."],
+[9,"They ___ at the campsite last weekend.","were",["was","are","did"],"they → were."],
+[9,"We ___ music at the party.","listened to",["listen to","listens","listening"],"Quá khứ: listened to."],
+[9,"___ you at the aquarium yesterday?","Were",["Was","Did","Are"],"you → Were."],
+[9,"He ___ around the campfire last night.","danced",["dance","dances","dancing"],"Quá khứ: danced."],
+[9,"I ___ at the funfair with my friends.","was",["were","am","did"],"I → was."],
+[9,"We watched the ___ in the aquarium.","fish",["fishes day","Monday","pink"],"watch the fish."],
+[9,"What did she do? – She ___ chess.","played",["play","plays","playing"],"Quá khứ: played."],
+[9,"The children ___ at the theatre.","were",["was","are","did"],"children → were."],
+[9,"___ it fun yesterday? – Yes, it was.","Was",["Were","Did","Are"],"it → Was."],
+[9,"They ___ to music at the campsite.","listened",["listen","listens","listening"],"Quá khứ: listened."],
+[9,"We ___ not at the funfair yesterday.","were",["was","are","did"],"we → were (weren't)."],
+[9,"She ___ around the campfire with us.","danced",["dance","dances","dancing"],"Quá khứ: danced."],
+[9,"Were they at the aquarium? – No, they ___.","weren't",["wasn't","didn't","don't"],"they → weren't."],
+[9,"I ___ at the campsite last summer.","was",["were","am","did"],"I → was."],
+[9,"What did you do? – We ___ the fish.","watched",["watch","watches","watching"],"Quá khứ: watched."],
+[9,"He ___ at the theatre on Sunday.","was",["were","is","did"],"he → was."],
+[9,"The funfair ___ very exciting.","was",["were","is","did"],"số ít → was."],
+[9,"We ___ chess at the campsite.","played",["play","plays","playing"],"Quá khứ: played."],
+[9,"___ she at the aquarium? – Yes, she was.","Was",["Were","Did","Are"],"she → Was."],
+[9,"\"Were you at the funfair?\" – correct short answer:","Yes, we were.",["Yes, we was.","Yes, we did.","Yes, we are."],"we → were.","a"],
+[9,"Choose the correct past form of 'play'.","played",["plaied","playd","play"],"play → played.","a"],
+[9,"\"What did you do yesterday?\" uses ___ time.","past",["future","present","daily"],"did/yesterday = quá khứ.","a"],
+[9,"Choose the correct sentence.","They were at the campsite.",["They was at the campsite.","They is at the campsite.","They be at the campsite."],"they → were.","a"],
+[9,"The past form of 'dance' is ___.","danced",["danceed","dancd","dance"],"dance → danced.","a"],
+[9,"Which word signals the past?","yesterday",["tomorrow","now","soon"],"yesterday = quá khứ.","a"],
+[9,"\"I ___ at the aquarium\" (I, past of be).","was",["were","am","be"],"I → was.","a"],
+[9,"Choose the correct negative.","We weren't at the theatre.",["We wasn't at the theatre.","We didn't at the theatre.","We don't at the theatre."],"we → weren't.","a"],
+[9,"The past form of 'watch' is ___.","watched",["watchd","watcht","watch"],"watch → watched.","a"],
+[9,"\"Were they happy?\" – No, they ___.","weren't",["wasn't","didn't","don't"],"they → weren't.","a"],
+[9,"Which sentence is in the past simple?","We played chess.",["We play chess.","We are playing chess.","We will play chess."],"played = quá khứ.","a"],
+[10,"Did they go to Ba Na Hills? – Yes, they ___.","did",["do","were","was"],"Did…? → did."],
+[10,"What did they do? – They ___ the old buildings.","visited",["visit","visits","visiting"],"Quá khứ: visited."],
+[10,"Did she walk around the lake? – No, she ___.","didn't",["don't","wasn't","weren't"],"Did…? → didn't."],
+[10,"They ___ trees on the school trip.","planted",["plant","plants","planting"],"Quá khứ: planted."],
+[10,"Did you play games there? – Yes, we ___.","did",["do","were","was"],"Did…? → did."],
+[10,"We ___ Hoan Kiem Lake last week.","visited",["visit","visits","visiting"],"Quá khứ: visited."],
+[10,"Did he visit the pagoda? – Yes, he ___.","did",["do","was","were"],"Did…? → did."],
+[10,"They ___ around the lake in the morning.","walked",["walk","walks","walking"],"Quá khứ: walked."],
+[10,"Did they plant trees? – No, they ___.","didn't",["don't","wasn't","weren't"],"Did…? → didn't."],
+[10,"What did she do? – She ___ games with friends.","played",["play","plays","playing"],"Quá khứ: played."],
+[10,"We ___ the old buildings at Bai Dinh.","visited",["visit","visits","visiting"],"Quá khứ: visited."],
+[10,"Did you walk around the lake? – Yes, I ___.","did",["do","was","were"],"Did…? → did."],
+[10,"They ___ games at the theme park.","played",["play","plays","playing"],"Quá khứ: played."],
+[10,"Did she go to Suoi Tien? – No, she ___.","didn't",["don't","wasn't","weren't"],"Did…? → didn't."],
+[10,"We ___ trees near the lake.","planted",["plant","plants","planting"],"Quá khứ: planted."],
+[10,"Did they walk around Hoan Kiem Lake? – Yes, they ___.","did",["do","were","was"],"Did…? → did."],
+[10,"He ___ the old buildings yesterday.","visited",["visit","visits","visiting"],"Quá khứ: visited."],
+[10,"Did you plant trees on the trip? – Yes, we ___.","did",["do","were","was"],"Did…? → did."],
+[10,"They ___ around the lake and took photos.","walked",["walk","walks","walking"],"Quá khứ: walked."],
+[10,"What did he do? – He ___ games.","played",["play","plays","playing"],"Quá khứ: played."],
+[10,"After 'did', the main verb is in ___ form.","base (go)",["past (went)","V-ing","V-s"],"Sau did dùng V nguyên mẫu.","a"],
+[10,"Choose the correct question.","Did they go to Ba Na Hills?",["Did they went to Ba Na Hills?","Do they went to Ba Na Hills?","Did they going to Ba Na Hills?"],"Did + S + V nguyên mẫu.","a"],
+[10,"\"What did they do?\" – correct short structure:","They + past verb.",["They + will + verb.","They + are + V-ing.","They + do + verb."],"Trả lời quá khứ.","a"],
+[10,"The past form of 'visit' is ___.","visited",["visitted","visitd","visit"],"visit → visited.","a"],
+[10,"Choose the correct negative.","They didn't plant trees.",["They didn't planted trees.","They don't plant trees.","They weren't plant trees."],"didn't + V nguyên mẫu.","a"],
+[10,"\"Did you walk…?\" – correct short answer:","Yes, I did.",["Yes, I was.","Yes, I do.","Yes, I walked."],"Did…? → did.","a"],
+[10,"The past form of 'walk' is ___.","walked",["walkt","walkd","walk"],"walk → walked.","a"],
+[10,"Which sentence is correct?","They visited the old buildings.",["They visit the old buildings yesterday.","They are visit the old buildings.","They visited the old buildings yesterday tomorrow."],"visited = quá khứ.","a"],
+[10,"\"Did she go?\" The verb after 'did' should be ___.","go",["went","goes","going"],"Sau did → go.","a"],
+[10,"Which word shows past time on a trip?","yesterday",["tomorrow","now","soon"],"yesterday = quá khứ.","a"],
+[10,"Choose the correct past simple question with 'do'.","What did they do?",["What did they did?","What do they did?","What they did do?"],"Did + V nguyên mẫu.","a"]
 ];
 
 /* ---------- TIỆN ÍCH ---------- */
@@ -359,9 +712,9 @@ $('#p0').innerHTML=G.map((u,i)=>`<details${i===0?' open':''}><summary>${esc(u.t)
 
 /* Lịch sử làm bài (localStorage) */
 var HKEY="quizanh5_history_v1";
-function addHistEN(topic,score,total){
+function addHistEN(topic,score,total,wrong){
   try{var h=JSON.parse(localStorage.getItem(HKEY)||"[]");
-    h.unshift({ts:Date.now(),subject:"Tiếng Anh 5",topic:topic,score:score,total:total});
+    h.unshift({ts:Date.now(),subject:"Tiếng Anh 5",topic:topic,score:score,total:total,wrong:wrong||[]});
     if(h.length>100)h=h.slice(0,100);
     localStorage.setItem(HKEY,JSON.stringify(h));}catch(e){}
 }
@@ -372,7 +725,7 @@ function quiz(box,items,unitLabel,topicLabel){
   const draw=()=>{
     if(!items.length){box.innerHTML='<div class="q"><p>Chưa có câu hỏi cho phần này.</p></div>';return}
     if(i>=items.length){
-      if(!saved){saved=true;addHistEN(topicLabel||'Quiz',score,items.length)}
+      if(!saved){saved=true;addHistEN(topicLabel||'Quiz',score,items.length,wrong.map(w=>({q:w.q,your:w.your,correct:w.a})))}
       var rpc=items.length?score/items.length:0,emo=rpc>=0.9?'🏆':rpc>=0.7?'🎉':rpc>=0.5?'😊':'\uD83D\uDE2D';
       box.innerHTML=`<div class="q end"><div style="font-size:3.4rem;line-height:1;margin:4px 0">${emo}</div><p class="score">${score}/${items.length}</p><p>${score===items.length?'Tuyệt vời! Bạn trả lời đúng hết.':score>=items.length*0.7?'Rất tốt! Xem lại vài câu sai nhé.':'Cố lên! Ôn lại phần Ngữ pháp rồi thử lại.'}</p>`+
       (wrong.length?`<p style="text-align:left"><b>Câu cần ôn:</b></p>`+wrong.map(w=>`<p class="pair" style="text-align:left"><b>${esc(w.q)}</b><span>Đáp án: ${esc(w.a)}</span></p>`).join(''):'')+
@@ -384,7 +737,7 @@ function quiz(box,items,unitLabel,topicLabel){
     box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
       const ok=it.o[b.dataset.k]===it.a;
       box.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(it.o[x.dataset.k]===it.a)x.classList.add('ok')});
-      if(ok)score++;else{b.classList.add('bad');wrong.push(it)}
+      if(ok)score++;else{b.classList.add('bad');wrong.push({q:it.q,a:it.a,your:it.o[b.dataset.k]})}
       box.querySelector('.fb').textContent=(ok?'Chính xác! ':'Chưa đúng. ')+(it.e||'');
       box.querySelector('#nx').innerHTML=`<button class="btn pri" style="margin-top:10px" id="next">${i+1===items.length?'Xem kết quả':'Câu tiếp'}</button>`;
       const n=box.querySelector('#next');n.focus();n.onclick=()=>{i++;draw()};
@@ -407,17 +760,38 @@ function startV(){
 $('#vGo').onclick=startV;startV();
 
 /* Tab 3: Quiz ngữ pháp */
+/* Điền danh sách Unit vào ô chọn phạm vi (G theo chỉ số 0 = Starter, 1..10 = Unit 1..10) */
+function fillUnitSelect(){
+  const sel=$('#gUnit');if(!sel)return;
+  const all=document.createElement('option');all.value='';all.textContent='Tất cả Unit';sel.appendChild(all);
+  G.forEach((g,idx)=>{
+    if(!Q.some(x=>x[0]===idx))return;
+    const o=document.createElement('option');o.value=String(idx);o.textContent=(g&&g.t)?g.t:('Unit '+idx);sel.appendChild(o);
+  });
+}
+/* Chọn n câu theo tỉ lệ 70% cơ bản / 30% nâng cao từ một tập câu hỏi */
+function pick7030(src,n){
+  const nb=Math.round(n*0.7),na=n-nb;
+  const basics=shuffle(src.filter(x=>x[5]!=="a"));
+  const adv=shuffle(src.filter(x=>x[5]==="a"));
+  let b=basics.slice(0,nb),a=adv.slice(0,na);
+  const need=n-(b.length+a.length);
+  if(need>0){const rest=basics.slice(b.length).concat(adv.slice(a.length));b=b.concat(rest.slice(0,need));}
+  return b.concat(a);
+}
 function startG(){
-  const basics=shuffle(Q.filter(x=>x[5]!=="a")).slice(0,15);
-  const advanced=shuffle(Q.filter(x=>x[5]==="a")).slice(0,5);
-  const items=shuffle(basics.concat(advanced)).map(x=>{
+  const uv=$('#gUnit')?$('#gUnit').value:'';
+  const src=uv!==''?Q.filter(x=>x[0]===parseInt(uv)):Q;
+  const topicLabel=uv!==''?('Quiz ngữ pháp – '+((G[parseInt(uv)]&&G[parseInt(uv)].t)||('Unit '+uv))):'Quiz ngữ pháp';
+  const items=shuffle(pick7030(src,20)).map(x=>{
     const unitTitle=(G[x[0]]&&G[x[0]].t)?G[x[0]].t:("Unit "+x[0]);
     const lvl=x[5]==="a"?" (nâng cao)":"";
     const e='Đáp án đúng: "'+x[2]+'". '+x[4]+lvl+' — Ôn thêm ở tab "Ngữ pháp" › '+unitTitle+'.';
     return{q:x[1],a:x[2],o:shuffle([x[2],...x[3]]),e:e};
   });
-  quiz($('#gBox'),items,startG,"Quiz ngữ pháp");
+  quiz($('#gBox'),items,startG,topicLabel);
 }
+fillUnitSelect();
 $('#gGo').onclick=startG;startG();
 </script>
 </body>

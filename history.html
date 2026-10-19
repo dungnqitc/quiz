@@ -44,6 +44,14 @@ td.sc{font-weight:700}
 :root[data-theme="dark"] .rate.low{background:#3a1f1c}
 td.rev{white-space:normal;color:var(--mute);font-size:.86rem}
 .note{color:var(--mute);font-size:.9rem;margin:10px 2px 0;line-height:1.55}
+.wbtn{font:inherit;font-size:.82rem;font-weight:700;border:2px solid var(--bad);color:var(--bad);background:var(--card);border-radius:99px;padding:2px 10px;cursor:pointer;white-space:nowrap}
+tr.wdetail td{background:var(--acc2)}
+.wlist{margin:6px 0;padding-left:22px}
+.wlist li{margin:0 0 12px;white-space:normal}
+.wq{font-weight:700;margin-bottom:3px}
+.wa{font-size:.9rem}
+.wa.wbad{color:var(--bad)}
+.wa.wok{color:var(--ok)}
 </style>
 </head>
 <body>
@@ -62,7 +70,7 @@ td.rev{white-space:normal;color:var(--mute);font-size:.86rem}
 <button class="btn" id="exp">Xuất JSON</button>
 <button class="btn danger" id="clr">Xóa lịch sử đã lọc</button>
 </div>
-<div class="card"><table><thead><tr><th>Thời gian</th><th>Bộ đề</th><th>Chủ điểm</th><th>Điểm</th><th>%</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="card"><table><thead><tr><th>Thời gian</th><th>Bộ đề</th><th>Chủ điểm</th><th>Điểm</th><th>%</th><th>Câu sai</th></tr></thead><tbody id="rows"></tbody></table></div>
 <p class="empty" id="empty" hidden>Chưa có lịch sử làm bài. Hãy hoàn thành một bộ quiz nhé!</p>
 <p class="foot">Dữ liệu lưu bằng localStorage của trình duyệt; không gửi đi đâu. Xóa cache trình duyệt hoặc đổi thiết bị sẽ mất lịch sử.</p>
 </main>
@@ -93,7 +101,8 @@ function allRecords(){
   arr.forEach(function(r){
    out.push({key:it[0],setName:it[1],ts:r.ts||0,
     topic:(r.subject?(r.subject+(r.topic?" – "+r.topic:"")):(r.topic||"")),
-    score:(typeof r.score==="number"?r.score:null),total:(typeof r.total==="number"?r.total:null)});
+    score:(typeof r.score==="number"?r.score:null),total:(typeof r.total==="number"?r.total:null),
+    wrong:(Array.isArray(r.wrong)?r.wrong:[])});
   });
  });
  out.sort(function(a,b){return b.ts-a.ts});
@@ -165,13 +174,28 @@ function render(){
  renderTopics(recs);
  // rows
  var tb=$("rows");tb.innerHTML="";
- recs.forEach(function(r){
+ recs.forEach(function(r,idx){
   var pc=(r.score!=null&&r.total)?Math.round(r.score*100/r.total):null;
+  var nw=r.wrong?r.wrong.length:0;
   var tr=document.createElement("tr");
   tr.innerHTML='<td>'+fmtTime(r.ts)+'</td><td>'+esc(r.setName)+'</td><td class="topic">'+esc(r.topic||"—")+'</td>'+
    '<td class="sc">'+(r.score!=null?r.score+'/'+r.total:'—')+'</td>'+
-   '<td>'+(pc!=null?'<span class="pct hi">'+pc+'%</span>':'—')+'</td>';
+   '<td>'+(pc!=null?'<span class="pct hi">'+pc+'%</span>':'—')+'</td>'+
+   '<td>'+(nw>0?'<button class="wbtn" data-i="'+idx+'">'+nw+' câu ▾</button>':'—')+'</td>';
   tb.appendChild(tr);
+  if(nw>0){
+   var dr=document.createElement("tr");dr.className="wdetail";dr.hidden=true;
+   dr.innerHTML='<td colspan="6"><ol class="wlist">'+r.wrong.map(function(w){
+    return '<li><div class="wq">'+esc(w.q||"")+'</div>'+
+     '<div class="wa wbad">Em chọn: '+esc(w.your!=null&&w.your!==""?w.your:"(bỏ trống)")+'</div>'+
+     '<div class="wa wok">Đáp án đúng: '+esc(w.correct!=null?w.correct:"")+'</div></li>';
+   }).join('')+'</ol></td>';
+   tb.appendChild(dr);
+   tr.querySelector(".wbtn").onclick=function(){
+    dr.hidden=!dr.hidden;
+    this.innerHTML=nw+' câu '+(dr.hidden?'▾':'▴');
+   };
+  }
  });
  $("empty").hidden=recs.length>0;
 }

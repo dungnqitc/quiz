@@ -77,7 +77,7 @@ function qBySubj(si){return Q.filter(function(r){return r[0]==si})}
 function genMix(list){return list?list.slice():pk(qAll(),MIX).map(qnorm)}
 function genSubj(si,list){return list?list.slice():pk(qBySubj(si),TOPICN).map(qnorm)}
 
-var MODE="mix",SUBJ=0,pool=[],i=0,score=0,wrong=[],done=false;
+var MODE="mix",SUBJ=0,pool=[],i=0,score=0,wrong=[],wrongDetail=[],done=false;
 
 /* ===== Lịch sử làm bài (localStorage) ===== */
 var HKEY="quizkhtn8_history_v1";
@@ -85,7 +85,7 @@ function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):
 function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
 function addHist(sc,total){
  var h=loadHist(),topic=(MODE=="mix")?"Tổng hợp (15 câu)":(S[SUBJ]?S[SUBJ][0]:"");
- h.unshift({ts:Date.now(),subject:"KHTN 8",topic:topic,score:sc,total:total});
+ h.unshift({ts:Date.now(),subject:"KHTN 8",topic:topic,score:sc,total:total,wrong:wrongDetail.slice()});
  if(h.length>100)h=h.slice(0,100);
  saveHist(h)}
 function clearHist(){saveHist([]);show()}
@@ -105,11 +105,11 @@ function histHTML(){
 function setModeTabs(){$("mmix").setAttribute("aria-selected",MODE=="mix");$("mtopic").setAttribute("aria-selected",MODE=="topic")}
 
 function goMix(list){MODE="mix";setModeTabs();$("chips").innerHTML="";
- pool=genMix(list);i=0;score=0;wrong=[];show()}
+ pool=genMix(list);i=0;score=0;wrong=[];wrongDetail=[];show()}
 
 function go(si,list){MODE="topic";SUBJ=si||0;setModeTabs();$("chips").innerHTML="";
  S.forEach(function(sp,j){var b=document.createElement("button");b.className="chip";b.textContent=sp[0];b.setAttribute("aria-pressed",j==SUBJ);b.onclick=function(){go(j)};$("chips").appendChild(b)});
- pool=genSubj(SUBJ,list);i=0;score=0;wrong=[];show()}
+ pool=genSubj(SUBJ,list);i=0;score=0;wrong=[];wrongDetail=[];show()}
 
 $("mmix").onclick=function(){goMix()};
 $("mtopic").onclick=function(){go(0)};
@@ -136,7 +136,7 @@ function show(){
 function pick(b,ok,q,o){
  if(done)return;done=true;var bs=$("os").children;
  for(var k=0;k<bs.length;k++){bs[k].disabled=true;if(o[k].ok)bs[k].classList.add("ok")}
- if(ok)score++;else{b.classList.add("no");wrong.push(q)}
+ if(ok)score++;else{b.classList.add("no");wrong.push(q);wrongDetail.push({q:q.q,your:b.textContent,correct:q.c})}
  var e=$("ex");e.hidden=false;e.className="exp";e.innerHTML='<b>'+(ok?"Chính xác!":"Chưa đúng.")+'</b> <span id="et"></span><br><button class="btn" id="nx">'+(i+1<pool.length?"Câu tiếp theo":"Xem kết quả")+'</button>';
  $("et").textContent=q.e;$("nx").onclick=function(){i++;show()};$("nx").focus()}
 goMix();

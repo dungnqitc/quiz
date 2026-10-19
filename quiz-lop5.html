@@ -328,7 +328,7 @@ function genSubjN(s,n){var gens=subjGens(s),seen={},out=[],c=0;
  return out}
 
 var $=function(i){return document.getElementById(i)};
-var S="t",K=1,pool=[],i=0,score=0,wrong=[],done=false;
+var S="t",K=1,pool=[],i=0,score=0,wrong=[],wrongDetail=[],done=false;
 
 /* ===== Lịch sử làm bài (localStorage) ===== */
 var HKEY="quiz5_history_v1";
@@ -339,7 +339,7 @@ function addHist(sc,total){
  var h=loadHist(),subject,topic;
  if(MODE=="mix"){subject="Tổng hợp";topic=subjName(S)+" (15 câu)"}
  else{subject=subjName(S);topic=NM[S][K-1]}
- h.unshift({ts:Date.now(),subject:subject,topic:topic,score:sc,total:total});
+ h.unshift({ts:Date.now(),subject:subject,topic:topic,score:sc,total:total,wrong:wrongDetail.slice()});
  if(h.length>100)h=h.slice(0,100);
  saveHist(h)}
 function clearHist(){saveHist([]);show()}
@@ -376,14 +376,14 @@ function showReview(){MODE="review";setModeTabs();$("chips").innerHTML="";setRev
 function goMix(s,list){MODE="mix";S=s||"t";setModeTabs();document.body.setAttribute("data-s",S);
  $("chips").innerHTML="";
  [["t","Toán (15 câu)"],["v","Tiếng Việt (15 câu)"]].forEach(function(it){var b=document.createElement("button");b.className="chip";b.textContent=it[1];b.setAttribute("aria-pressed",it[0]==S);b.onclick=function(){goMix(it[0])};$("chips").appendChild(b)});
- pool=list||genSubjN(S,MIXPER);i=0;score=0;wrong=[];show()}
+ pool=list||genSubjN(S,MIXPER);i=0;score=0;wrong=[];wrongDetail=[];show()}
 
 /* Chế độ theo chủ đề */
 function go(s,k,list){MODE="topic";S=s;K=k;setModeTabs();document.body.setAttribute("data-s",s);
  $("tt").setAttribute("aria-selected",s=="t");$("tv").setAttribute("aria-selected",s=="v");
  $("chips").innerHTML="";
  NM[s].forEach(function(n,j){var b=document.createElement("button");b.className="chip";b.textContent=n;b.setAttribute("aria-pressed",j+1==k);b.onclick=function(){go(s,j+1)};$("chips").appendChild(b)});
- pool=list||gen(s,k);i=0;score=0;wrong=[];show()}
+ pool=list||gen(s,k);i=0;score=0;wrong=[];wrongDetail=[];show()}
 
 $("mmix").onclick=function(){goMix("t")};
 $("mtopic").onclick=function(){go("t",1)};
@@ -412,7 +412,7 @@ function show(){
 function pick(b,ok,q,o){
  if(done)return;done=true;var bs=$("os").children;
  for(var k=0;k<bs.length;k++){bs[k].disabled=true;if(o[k].ok)bs[k].classList.add("ok")}
- if(ok)score++;else{b.classList.add("no");wrong.push(q)}
+ if(ok)score++;else{b.classList.add("no");wrong.push(q);wrongDetail.push({q:q.q,your:b.textContent,correct:q.c})}
  var e=$("ex");e.hidden=false;e.className="exp";e.innerHTML='<b>'+(ok?"Chính xác!":"Chưa đúng.")+'</b> <span id="et"></span><br><button class="btn" id="nx">'+(i+1<pool.length?"Câu tiếp theo":"Xem kết quả")+'</button>';
  $("et").textContent=q.e;$("nx").onclick=function(){i++;show()};$("nx").focus()}
 goMix("t");showReview();
