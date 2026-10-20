@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đề cương Công nghệ 8 – GHK1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#2456a6;--acc2:#e7eefb;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;--soft:#eef3fb;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4;--soft:#16233f}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4;--soft:#16233f}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{color:var(--ink);background-color:var(--paper);font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{margin:0 0 16px;color:var(--mute);font-size:.92rem}
+.link{color:var(--acc);text-decoration:underline;font-weight:700}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab{flex:1;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:inherit;font-weight:700;padding:10px 6px;border-radius:10px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+.tab:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.panel[hidden]{display:none}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:4px 0 12px}
+.bar .sc{font-weight:800}
+.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 14px;cursor:pointer}
+.btn.pri{background:var(--hl);color:#1b2a41}
+.q{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:14px;margin:10px 0}
+.q .t{margin:0 0 8px;font-weight:700;overflow-wrap:anywhere}
+.q .t b{color:var(--acc)}
+.o{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer;overflow-wrap:anywhere}
+.o:hover:not(:disabled){border-color:var(--acc)}
+.o.ok{background:var(--okb);border-color:var(--ok)}
+.o.no{background:var(--badb);border-color:var(--bad)}
+.n{font-size:.86rem;color:var(--mute);margin-top:6px;padding:8px 10px;background:var(--acc2);border-radius:8px}
+.st{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:8px 0}
+.st .stt{flex:1;overflow-wrap:anywhere}
+.tf{display:flex;gap:6px;flex-shrink:0}
+.tf button{width:46px;padding:7px 0;border:2px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;font:inherit;font-weight:700;cursor:pointer}
+.tf button.sel{border-color:var(--acc);background:var(--acc);color:var(--paper)}
+.tf button.ok{background:var(--okb);border-color:var(--ok);color:var(--ok)}
+.tf button.no{background:var(--badb);border-color:var(--bad);color:var(--bad)}
+details{background:var(--card);border:2px solid var(--ink);border-radius:12px;margin-bottom:10px;padding:0 14px}
+summary{cursor:pointer;font-weight:700;padding:11px 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸";color:var(--acc);margin-right:8px}
+details[open]>summary::before{content:"▾"}
+.ans{margin:0 0 12px;line-height:1.6}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p><a class="link" href="lop8.html">← Về Lớp 8</a></p>
+<h1>Đề cương Công nghệ 8 – GHK1</h1>
+<p class="sub">Giữa kì I · Trắc nghiệm (chấm điểm ngay), Đúng/Sai và Tự luận có đáp án.</p>
+<div class="tabs">
+<button class="tab" id="t0" aria-selected="true">Trắc nghiệm</button>
+<button class="tab" id="t1" aria-selected="false">Đúng / Sai</button>
+<button class="tab" id="t2" aria-selected="false">Tự luận</button>
+</div>
+<section class="panel" id="p0">
+<div class="bar"><span class="sc" id="sc">Đúng 0 / 0</span><button class="btn" id="reset">Làm lại</button></div>
+<div id="mcbox"></div>
+</section>
+<section class="panel" id="p1" hidden></section>
+<section class="panel" id="p2" hidden></section>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+var L="ABCD";
+var S=function(){return Array.prototype.slice.call(arguments)};
+var T14=S("Từ trước ra sau","Từ trên xuống dưới","Từ trái sang phải","Từ phải sang trái");
+var N4=S("1","2","3","4");
+/* ===== Dữ liệu (trích từ "Quiz Công nghệ 8 - Ôn tập giữa kì I") ===== */
+var MC=[
+["Có mấy khổ giấy chính?",S("2","3","4","5"),3],
+["Tên các khổ giấy chính là:",S("A0, A1, A2","A0, A1, A2, A3, A4","A3, A1, A2, A4","A0, A1, A2, A3"),1],
+["Trên bản vẽ kĩ thuật có các tỉ lệ là:",S("tỉ lệ thu nhỏ","tỉ lệ phóng to","tỉ lệ nguyên hình","cả 3 đáp án trên"),3],
+["Phát biểu nào sau đây sai?",S("Nét liền đậm biểu diễn đường trục đối xứng.","Nét liền đậm biểu diễn đường bao thấy, cạnh thấy.","Nét gạch dài chấm mảnh biểu diễn đường tâm.","Nét liền mảnh biểu diễn đường gióng."),0,"Trục đối xứng dùng nét gạch dài chấm mảnh."],
+["Để vẽ cạnh khuất, đường bao khuất, cần dùng loại nét vẽ nào?",S("Nét liền đậm","Nét liền mảnh","Nét đứt mảnh","Nét gạch dài - chấm - mảnh"),2],
+["Trong các khổ giấy chính, khổ giấy có kích thước lớn nhất?",S("A0","A1","A4","A2"),0],
+["Khổ giấy A4 có kích thước tính theo milimet?",S("420 × 210","279 × 297","420 × 297","297 × 210"),3],
+["Bản vẽ kĩ thuật là",S("tài liệu kĩ thuật được trình bày dưới dạng đồ họa theo một quy tắc thống nhất.","tài liệu kĩ thuật được trình bày dưới dạng văn bản theo một quy tắc thống nhất.","tài liệu kĩ thuật được trình bày dưới dạng đồ họa và không có quy tắc thống nhất.","tài liệu kĩ thuật được trình bày dưới dạng văn bản."),0],
+["Kích thước trên bản vẽ kĩ thuật có đơn vị:",S("m","mm","cm","Tùy từng bản vẽ"),1],
+["Từ khổ giấy A2 muốn có khổ giấy A3 ta làm như thế nào?",S("Chia đôi khổ giấy","Chia đôi chiều rộng khổ giấy","Chia đôi chiều dài khổ giấy","Cả B và C đều đúng"),2],
+["Mặt phẳng thẳng đứng ở chính diện gọi là gì?",S("Mặt phẳng hình chiếu đứng","Mặt phẳng hình chiếu bằng","Mặt phẳng hình chiếu cạnh","Mặt phẳng hình chiếu"),0],
+["Vị trí các hình chiếu trên bản vẽ được biểu diễn là:",S("hình chiếu bằng ở dưới hình chiếu đứng, hình chiếu cạnh ở bên phải hình chiếu đứng.","hình chiếu bằng ở trên hình chiếu đứng, hình chiếu cạnh ở bên trái hình chiếu đứng.","hình chiếu cạnh ở bên phải hình chiếu đứng, hình chiếu bằng ở bên trái hình chiếu đứng.","hình chiếu đứng ở dưới hình chiếu bằng, hình chiếu cạnh ở bên phải hình chiếu bằng."),0],
+["Khối tròn xoay được biểu diễn bởi bao nhiêu hình chiếu?",N4,1],
+["Để thu được hình chiếu cạnh, cần chiếu vuông góc vật thể theo hướng chiếu nào?",T14,2],
+["Điểm A của vật thể có hình chiếu là điểm A' trên mặt phẳng. Vậy AA' gọi là:",S("đường thẳng chiếu.","tia chiếu.","đường chiếu.","đoạn chiếu."),1],
+["Để nhận được hình chiếu đứng, cần chiếu vuông góc vật thể theo hướng chiếu nào?",T14,0],
+["Hình chiếu đứng của hình hộp chữ nhật có hình dạng gì?",S("Hình vuông","Hình lăng trụ","Hình tam giác","Hình chữ nhật"),3],
+["Bản vẽ kĩ thuật sử dụng phép chiếu nào để biểu diễn vật thể?",S("Phép chiếu song song","Phép chiếu xuyên tâm","Phép chiếu vuông góc","Cả ba đáp án trên"),2],
+["Nếu mặt đáy của hình trụ song song với mặt phẳng hình chiếu cạnh thì hình chiếu đứng và hình chiếu cạnh sẽ có hình dạng gì?",S("Hình chữ nhật và hình tròn.","Hình tam giác và hình tròn.","Đều là các hình tròn.","Đều là hình chữ nhật."),0],
+["Lăng trụ đều đáy là tam giác thì:",S("hình chiếu đứng là tam giác.","hình chiếu bằng là tam giác.","hình chiếu cạnh là tam giác.","đáp án khác."),1],
+["Đọc hình biểu diễn là bước số mấy trong trình tự đọc bản vẽ chi tiết?",S("2","3","4","5"),0],
+["Phần khung tên của bản vẽ chi tiết gồm những thông tin gì?",S("Tên gọi","Vật liệu chế tạo","Tỉ lệ","Cả ba đáp án trên"),3],
+["Công dụng của bản vẽ chi tiết là:",S("Dùng để chế tạo chi tiết máy.","Dùng để kiểm tra chi tiết máy.","Dùng để chế tạo và kiểm tra chi tiết máy.","Đáp án khác."),2],
+["Trình tự đọc bản vẽ chi tiết là:",S("Khung tên, hình biểu diễn, kích thước, yêu cầu kĩ thuật.","Khung tên, kích thước, hình biểu diễn, yêu cầu kĩ thuật.","Hình biểu diễn, khung tên, kích thước, yêu cầu kĩ thuật.","Hình biểu diễn, kích thước, khung tên, yêu cầu kĩ thuật."),0],
+["Phần kích thước của bản vẽ chi tiết thể hiện điều gì?",S("Kích thước chung: kích thước dài, rộng, cao.","Kích thước bộ phận của chi tiết.","Cả A và B đều đúng.","Cả A và B đều sai."),2],
+["Người công nhân căn cứ vào đâu để chế tạo chi tiết máy đúng như yêu cầu của người thiết kế?",S("Bản vẽ chi tiết.","Bản vẽ lắp.","Bản vẽ nhà.","Cả ba đáp án trên."),0],
+["Khi đọc bản vẽ chi tiết, phải đọc nội dung gì trước?",S("Hình biểu diễn.","Kích thước.","Yêu cầu kĩ thuật.","Khung tên."),3],
+["Trong quy định về ghi kích thước, kí hiệu Ø để chỉ giá trị kích thước nào?",S("Bán kính.","Kích thước dài.","Kích thước rộng.","Đường kính."),3],
+["Phần kích thước trong bản vẽ chi tiết dùng để làm gì?",S("Dùng để chế tạo chi tiết máy.","Dùng để kiểm tra chi tiết máy.","Dùng để chế tạo và kiểm tra chi tiết máy.","Đáp án khác."),2],
+["Hình biểu diễn của bản vẽ chi tiết gồm:",S("Hình chiếu.","Hình cắt.","Hình chiếu đứng, hình chiếu bằng và hình chiếu cạnh.","Hình chiếu, hình cắt, ... tùy thuộc vào từng bản vẽ."),3],
+["Trong phương pháp chiếu vuông góc thứ nhất có bao nhiêu mặt phẳng hình chiếu?",S("3","4","5","6"),0],
+["Trên bản vẽ kĩ thuật hình chiếu bằng nằm ở vị trí:",S("Bên trái hình chiếu đứng.","Bên phải hình chiếu đứng.","Trên hình chiếu đứng.","Dưới hình chiếu đứng."),3],
+["Đường gióng và đường kích thước được biểu diễn",S("song song.","vuông góc.","trùng nhau.","cắt nhau."),1],
+["Khối đa diện được biểu diễn bởi bao nhiêu hình chiếu?",N4,2],
+["Bản vẽ chi tiết là bản vẽ kĩ thuật thể hiện thông tin của chi tiết, được sử dụng",S("chế tạo và kiểm tra một chi tiết máy.","lắp đặt và kiểm tra sản phẩm.","vận hành và kiểm tra sản phẩm.","thi công xây dựng ngôi nhà."),0],
+["Đọc kích thước là bước số mấy trong trình tự đọc bản vẽ chi tiết?",N4,2],
+["Bản vẽ chi tiết của sản phẩm gồm mấy nội dung?",N4,3],
+["Khi đọc bản vẽ chi tiết, sau khi đọc nội dung ghi kích thước ta cần làm gì ở bước tiếp theo?",S("Đọc bảng kê.","Đọc yêu cầu kỹ thuật.","Đọc tổng hợp.","Phân tích các chi tiết."),1],
+["Đâu là tỉ lệ thu nhỏ trong các tỉ lệ sau?",S("1:2.","1:1.","5:1.","2:1."),0],
+["Khi vẽ hình chiếu vuông góc của khối tròn xoay thì hình chiếu cạnh ở vị trí",S("bên dưới hình chiếu đứng.","bên trái hình chiếu đứng.","bên phải hình chiếu đứng.","bên trên hình chiếu đứng."),2]
+];
+var TF=[
+["Tiêu chuẩn trình bày bản vẽ kĩ thuật",[["Bản vẽ kĩ thuật được lập theo các quy tắc thống nhất.",1],["Mỗi bản vẽ sẽ có quy định khác nhau về khung bản vẽ và khung tên.",0,"Quy định thống nhất cho mọi bản vẽ."],["Khung tên thường đặt ở góc trái phía dưới bản vẽ.",0,"Khung tên đặt ở góc phải phía dưới."],["Tỉ lệ là tỉ số giữa kích thước dài đo được trên hình biểu diễn với kích thước thực tương ứng của vật thể.",1]]],
+["Hình chiếu vuông góc (1)",[["Phép chiếu vuông góc là phép chiếu có các tia chiếu song song với nhau và vuông góc với mặt phẳng chiếu.",1],["Hình chiếu cạnh nằm ở bên dưới so với hình chiếu đứng.",0,"Hình chiếu cạnh ở bên phải hình chiếu đứng."],["Để biểu diễn hình dạng của một vật thể nhất thiết phải sử dụng tất cả 3 hình chiếu vuông góc.",0,"Số hình chiếu tùy vật thể."],["Hình hộp chữ nhật được bao bởi 2 mặt đáy là 2 hình chữ nhật bằng nhau và 4 mặt bên là các hình chữ nhật bằng nhau.",0,"4 mặt bên bằng nhau từng đôi một, không phải cả 4 bằng nhau."]]],
+["Hình chiếu vuông góc (2)",[["Hình chóp tứ giác đều đáy của nó là hình vuông, các mặt bên là các tam giác đều bằng nhau có chung đỉnh.",0,"Các mặt bên là tam giác cân bằng nhau."],["Nửa trụ, nón cụt và chỏm cầu là các khối tròn xoay thường gặp trong đời sống và sản xuất.",1],["Các hình chiếu của hình cầu là hình tròn.",1],["Vẽ hình chiếu vuông góc của vật thể đơn giản cần thực hiện qua 4 bước.",1,"Nên đối chiếu số bước trong sách giáo khoa."]]],
+["Bản vẽ chi tiết",[["Bản vẽ chi tiết thuộc bản vẽ cơ khí.",1],["Bản vẽ chi tiết thể hiện thông tin của nhiều chi tiết.",0,"Chỉ thể hiện thông tin của một chi tiết."],["Hình cắt là hình chiếu vuông góc nửa sau của vật thể sau khi tưởng tượng dùng 1 mặt phẳng cắt đôi vật thể.",1],["Một bản vẽ chi tiết có 5 nội dung chính.",0,"Có 4 nội dung chính."]]]
+];
+var ES=[
+["Câu 1. Thế nào là hình trụ, hình nón, hình cầu?","<b>Hình trụ</b>: khi quay hình chữ nhật một vòng quanh một cạnh cố định.<br><b>Hình nón</b>: khi quay tam giác vuông một vòng quanh một cạnh góc vuông cố định.<br><b>Hình cầu</b>: khi quay nửa hình tròn một vòng quanh đường kính cố định."],
+["Câu 2. Nêu ứng dụng của các nét vẽ trong tiêu chuẩn trình bày bản vẽ kĩ thuật.","<b>Nét liền đậm</b>: đường bao thấy, cạnh thấy.<br><b>Nét liền mảnh</b>: đường kích thước, đường gióng, đường gạch mặt cắt.<br><b>Nét đứt mảnh</b>: đường bao khuất, cạnh khuất.<br><b>Nét gạch dài chấm mảnh</b>: đường tâm, trục đối xứng."],
+["Câu 3. Cho bản vẽ chi tiết gối trụ (thép, người vẽ Nguyễn A):<br>- Em hãy cho biết bản vẽ chi tiết được vẽ với tỉ lệ bao nhiêu?<br>- Xác định kích thước chi tiết và yêu cầu kỹ thuật của gối trụ?","<b>Tỉ lệ</b>: 1:1.<br><b>Kích thước</b>: đường kính ngoài Ø80, đường kính trong Ø50, chiều dài 60 (kích thước 100 ghi trên bản vẽ).<br><b>Yêu cầu kĩ thuật</b>: 1. Làm cùn cạnh sắc; 2. Tôi cứng bề mặt."],
+["Câu 4. Vẽ và ghi kích thước các hình chiếu của vật thể đơn giản (tỉ lệ 1:1) theo hình đề bài (vật 1: dài 60, cao 30, rộng 40, có vát; vật 2: chữ T, kích thước 30, 20, 12, 10, 20, hướng chiếu A).","Gợi ý: chọn hướng chiếu A làm hướng nhìn từ trước. Vẽ <b>hình chiếu đứng</b> trước, <b>hình chiếu bằng</b> đặt ngay dưới (thẳng cột), <b>hình chiếu cạnh</b> đặt bên phải hình chiếu đứng (thẳng hàng). Dùng nét liền đậm cho cạnh thấy, nét đứt mảnh cho cạnh khuất, nét gạch dài chấm mảnh cho đường tâm. Ghi kích thước bằng đường gióng và đường kích thước (nét liền mảnh), đơn vị mm, mỗi kích thước ghi một lần."]
+];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+/* ===== Trắc nghiệm ===== */
+var ok,done;
+function upd(){$("sc").textContent="Đúng "+ok+" / "+done+" (tổng "+MC.length+")"}
+function buildMC(){
+ ok=0;done=0;upd();
+ var box=$("mcbox");box.innerHTML="";
+ MC.forEach(function(m,i){
+  var d=document.createElement("div");d.className="q";
+  var p=document.createElement("p");p.className="t";p.innerHTML="<b>Câu "+(i+1)+".</b> "+esc(m[0]);d.appendChild(p);
+  var bs=[];
+  m[1].forEach(function(x,j){
+   var b=document.createElement("button");b.className="o";b.textContent=L[j]+". "+x;
+   b.onclick=function(){if(b.disabled)return;bs.forEach(function(y,k){y.disabled=true;if(k==m[2])y.classList.add("ok")});done++;if(j==m[2])ok++;else b.classList.add("no");
+    if(m[3]){var e=document.createElement("div");e.className="n";e.textContent=m[3];d.appendChild(e)}upd()};
+   bs.push(b);d.appendChild(b);
+  });
+  box.appendChild(d);
+ });
+ window.scrollTo(0,0);
+}
+$("reset").onclick=buildMC;
+
+/* ===== Đúng/Sai ===== */
+function buildTF(){
+ var box=$("p1");box.innerHTML="";
+ TF.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  var p=document.createElement("p");p.className="t";p.innerHTML="<b>Câu "+(i+1)+".</b> Nhận định đúng/sai: "+esc(q[0]);d.appendChild(p);
+  var rows=[];
+  q[1].forEach(function(s,j){
+   var r=document.createElement("div");r.className="st";
+   var span=document.createElement("span");span.className="stt";span.textContent=(j+1)+". "+s[0];
+   var w=document.createElement("div");w.className="tf";var bt=[];
+   ["Đ","S"].forEach(function(lab,ix){
+    var b=document.createElement("button");b.textContent=lab;
+    b.onclick=function(){if(d.dataset.d)return;r._ans=ix===0?1:0;bt.forEach(function(x){x.classList.remove("sel")});b.classList.add("sel")};
+    bt.push(b);w.appendChild(b);
+   });
+   r._bt=bt;r.appendChild(span);r.appendChild(w);d.appendChild(r);rows.push(r);
+  });
+  var c=document.createElement("button");c.className="btn pri";c.style.marginTop="8px";c.textContent="Kiểm tra";
+  c.onclick=function(){
+   if(d.dataset.d)return;d.dataset.d=1;var n=0;
+   rows.forEach(function(r,j){var s=q[1][j];var right=s[1]?0:1;r._bt.forEach(function(x){x.classList.remove("sel")});r._bt[right].classList.add("ok");
+    if(r._ans===s[1])n++;else if(r._ans!==undefined)r._bt[s[1]?1:0].classList.add("no");
+    if(s[2]){var e=document.createElement("div");e.className="n";e.textContent="→ "+s[2];r.appendChild(e)}});
+   var t=document.createElement("div");t.className="n";t.textContent="Đúng "+n+" / "+q[1].length+" ý";d.appendChild(t);
+  };
+  d.appendChild(c);box.appendChild(d);
+ });
+}
+
+/* ===== Tự luận ===== */
+function buildES(){
+ var box=$("p2");box.innerHTML="";
+ ES.forEach(function(e){
+  var det=document.createElement("details");
+  var sm=document.createElement("summary");sm.innerHTML=e[0];det.appendChild(sm);
+  var a=document.createElement("div");a.className="ans";a.innerHTML=e[1];det.appendChild(a);
+  box.appendChild(det);
+ });
+}
+
+var tabs=[$("t0"),$("t1"),$("t2")];
+tabs.forEach(function(t,ix){t.onclick=function(){tabs.forEach(function(x,j){x.setAttribute("aria-selected",ix===j);$("p"+j).hidden=ix!==j});window.scrollTo(0,0)}});
+buildMC();buildTF();buildES();
+</script>
+</body>
+</html>

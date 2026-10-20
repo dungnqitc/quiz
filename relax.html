@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Relax – Cùng học vui nào!</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc8:#2447b8;--acmem:#b3263e;--acvid:#e24a4a;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc8:#8fa8ff;--acmem:#ff8fa3;--acvid:#ff8a80;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1c5;--acc8:#8fa8ff;--acmem:#ff8fa3;--acvid:#ff8a80;--mute:#9fb2c4}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:720px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 22px;font-size:.95rem}
+.back{display:inline-block;margin-bottom:14px;color:var(--acc8);font-weight:700;text-decoration:none}
+.back:hover{text-decoration:underline}
+.list{display:flex;flex-direction:column;gap:14px}
+.secttl{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin:10px 0 -4px}
+.cardlink{display:block;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px}
+.cardlink.cmem{box-shadow:6px 6px 0 var(--acmem)}
+.cardlink.cgame{box-shadow:6px 6px 0 var(--acc)}
+.cardlink.cvid{box-shadow:6px 6px 0 var(--acvid)}
+.cardlink:hover{transform:translate(-1px,-1px)}
+.cardlink b{display:block;font-size:1.2rem;margin-bottom:4px}
+.cardlink span{color:var(--mute);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.cardlink:hover{transform:none}}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="index.html">← Về trang chính</a>
+<h1>🎮 Relax</h1>
+<p class="sub">Giải lao một chút cho đầu óc thư giãn nhé!</p>
+<div class="list">
+<h3 class="secttl">Game</h3>
+<a class="cardlink cmem" href="game-memory.html">
+<b>🧠 Lật thẻ ghi nhớ (Tiếng Anh)</b>
+<span>Luyện từ vựng Anh–Việt theo cấp (Tiểu học / THCS / THPT). Tìm cặp thẻ khớp, lưu kỷ lục số lượt.</span>
+</a>
+<a class="cardlink cgame" href="game-snake.html">
+<b>🐍 Rắn săn mồi</b>
+<span>Giải lao một chút! Game rắn săn mồi, chơi bằng phím hoặc vuốt, có lưu kỷ lục.</span>
+</a>
+<h3 class="secttl">Cartoon</h3>
+<a class="cardlink cvid" href="relax-video.html">
+<b>📺 Video thư giãn</b>
+<span>Xem playlist hoạt hình/giải trí ngay trong trang, chuyển video bằng danh sách của trình phát.</span>
+</a>
+</div>
+<p style="text-align:center;color:var(--mute);font-size:.85rem;margin-top:24px">© Copyright@kira</p>
+</main>
+</body>
+</html>

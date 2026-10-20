@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đề cương Tin học 8 – GHK1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#2456a6;--acc2:#e7eefb;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;--soft:#eef3fb;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4;--soft:#16233f}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#7fa8ee;--acc2:#16233f;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4;--soft:#16233f}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{color:var(--ink);background-color:var(--paper);font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{margin:0 0 16px;color:var(--mute);font-size:.92rem}
+.link{color:var(--acc);text-decoration:underline;font-weight:700}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab{flex:1;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:inherit;font-weight:700;padding:10px 6px;border-radius:10px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+.tab:focus-visible,button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.panel[hidden]{display:none}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--paper);padding:8px 0;z-index:5}
+.bar .sc{font-weight:800}
+.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 14px;cursor:pointer}
+.btn.pri{background:var(--hl);color:#1b2a41}
+.q{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:14px;margin:10px 0}
+.q .t{margin:0 0 8px;font-weight:700;overflow-wrap:anywhere}
+.o{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer;overflow-wrap:anywhere}
+.o:hover:not(:disabled){border-color:var(--acc)}
+.o.ok{background:var(--okb);border-color:var(--ok)}
+.o.no{background:var(--badb);border-color:var(--bad)}
+.st{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:8px 0}
+.st .stt{flex:1;overflow-wrap:anywhere}
+.tf{display:flex;gap:6px;flex-shrink:0}
+.tf .o{width:auto;margin:0;padding:7px 14px}
+.grp{font-size:.86rem;color:var(--mute);margin-top:6px;padding:8px 10px;background:var(--acc2);border-radius:8px;font-weight:600}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p><a class="link" href="lop8.html">← Về Lớp 8</a></p>
+<h1>Đề cương Tin học 8 – GHK1</h1>
+<p class="sub">Giữa kì I · Chạm vào đáp án để xem đúng/sai và chấm điểm ngay.</p>
+<div class="tabs">
+<button class="tab" id="t0" aria-selected="true">Trắc nghiệm</button>
+<button class="tab" id="t1" aria-selected="false">Đúng / Sai</button>
+</div>
+<div class="bar"><span class="sc" id="sc">Đúng 0 / 0</span><button class="btn" id="reset">Làm lại</button></div>
+<section class="panel" id="p0"></section>
+<section class="panel" id="p1" hidden></section>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+/* ===== Dữ liệu (trích từ "Quiz ôn tập Tin học 8 – Giữa kì I") ===== */
+var M=`Từ "digit" bắt nguồn từ digitus (Latinh) nghĩa là gì?|Hạt bàn tính|Bánh răng cơ học|Ngón tay|Dãy bit|2
+Bàn tính – công cụ tính toán sớm nhất – ra đời khi nào?|Hơn 2000 năm TCN|Thế kỉ XVII|Đầu thế kỉ XX|Năm 1945|0
+Pascaline (Pascal, 1642) hoạt động dựa trên gì?|Rơ le điện tử; 4 phép tính|Bánh răng; cộng và trừ|Đèn chân không; nhân và chia|Vi xử lí; nhị phân|1
+Ai được tôn vinh là "cha đẻ của công nghệ máy tính" (máy phân tích, 1833)?|Blaise Pascal|Gottfried Leibniz|Charles Babbage|John Von Neumann|2
+Năm 1945, Von Neumann đề xuất nguyên lí nền tảng nào?|Tính toán bằng bánh răng|Chương trình được lưu trữ|Xử lí song song siêu lớn|Truyền tin qua cáp quang|1
+Theo kiến trúc Von Neumann, máy tính gồm những khối nào?|Bộ xử lí, bộ nhớ, thiết bị vào-ra và đường truyền|Màn hình, bàn phím, chuột, thân máy|RAM, ổ đĩa cứng, màn hình, máy in|Bộ xử lí đồ hoạ, loa, tai nghe|0
+Linh kiện chính của máy tính thế hệ thứ nhất (1945–1955)?|Bóng bán dẫn|Đèn điện tử chân không|Mạch tích hợp (IC)|Mạch tích hợp cỡ rất lớn (VLSI)|1
+Thế hệ thứ hai (1955–1965) dùng gì và cải tiến gì?|Đèn chân không; cỡ cả căn phòng|Bóng bán dẫn; nhỏ hơn, ít điện hơn, tin cậy hơn|Mạch tích hợp siêu lớn; nhận dạng giọng nói|Vi xử lí; máy tính cá nhân|1
+Minsk-22 lắp đặt tại Việt Nam năm 1968 thuộc thế hệ nào?|Thứ nhất|Thứ hai|Thứ ba|Thứ tư|1
+Thiết bị vào-ra bắt đầu có bàn phím và màn hình từ thế hệ nào?|Thứ nhất|Thứ hai|Thứ ba|Thứ tư|2
+Máy tính cá nhân (PC) phát triển bùng nổ nhờ VLSI ở thế hệ nào?|Thứ hai|Thứ ba|Thứ tư|Thứ năm|2
+Đặc điểm nổi bật nhất của thế hệ thứ năm (từ 1990)?|Đèn chân không, thẻ đục lỗ|Cồng kềnh, bộ nhớ lõi từ|Mạch tích hợp cỡ nhỏ và vừa|ULSI, xử lí song song, AI, nhận dạng tiếng nói và hình ảnh|3
+Thông tin số là gì?|Thông tin chỉ lưu trên sách giấy|Thông tin được mã hoá thành dãy bit, truyền qua máy tính và thiết bị số|Thông tin trao đổi bằng lời nói|Thông tin chỉ có trên pano, quảng cáo|1
+Đặc điểm cơ bản của thông tin số?|Rất khó sao chép|Dễ nhân bản, lan truyền nhanh nhưng khó xoá bỏ hoàn toàn|Gửi qua Internet là mất vĩnh viễn trên máy gửi|Không thể chia sẻ từ xa|1
+Người dùng truy cập thông tin số từ xa khi nào?|Bất kì lúc nào, không cần mạng|Khi được người quản lí cấp quyền hợp lệ qua kết nối mạng|Chỉ khi đến trực tiếp máy chủ|Tuyệt đối không thể|1
+Quyền tác giả đối với thông tin số được pháp luật quy định thế nào?|Không được bảo hộ|Chỉ do hai bên thoả thuận|Được bảo hộ theo Luật Sở hữu trí tuệ|Lên Internet là tài sản công cộng|2
+Nhận định nào chính xác nhất về độ tin cậy của thông tin trên mạng?|Mọi thông tin đều chính xác vì đã được kiểm duyệt|Rất khác nhau, phụ thuộc nguồn gốc và mục tiêu của thông tin|Toàn bộ là tin giả|Nhiều like thì độ tin cậy tuyệt đối|1
+Hậu quả tiêu cực khi dùng thông tin sai lệch?|Nâng cao kiến thức|Làm phần cứng quá tải nhiệt|Quyết định sai, tổn thất tài chính, thời gian, ảnh hưởng xấu đến xã hội|Tăng dung lượng bộ nhớ trống|2
+Để đánh giá độ tin cậy của nguồn thông tin số cần làm gì?|Chỉ đọc tiêu đề|Kiểm tra nguồn gốc, phân biệt ý kiến với sự kiện, xem chứng cứ và tính thời sự|Tin hoàn toàn quảng cáo|Dựa vào tài khoản ẩn danh|1
+Phát biểu nào là một SỰ KIỆN?|Tôi nghĩ đây là máy tính bảng tiện dụng nhất|Theo tôi, Tin học 8 là môn khó nhất|Hội nghị thượng đỉnh khí hậu khai mạc ngày 15/10/2023 với 150 quốc gia|Tôi tin phim khoa học viễn tưởng này sẽ đoạt giải|2
+Vì sao blog cá nhân/diễn đàn mở thường có độ tin cậy thấp hơn cổng thông tin nhà nước?|Ai cũng đăng được mà không qua quy trình kiểm duyệt chính thức|Không dùng mạng Internet|Tự động cài mã độc|Không hiển thị hình ảnh|0
+Yếu tố tính thời sự của thông tin có ý nghĩa gì?|Xem có in trên báo giấy không|Đánh giá thời điểm công bố để biết nội dung còn phù hợp hay đã lỗi thời|Kiểm tra văn bản dài bao nhiêu trang|Xác định phông chữ|1
+Doanh nghiệp quảng cáo phóng đại và hạ thấp đối thủ chứng minh điều gì?|Thông tin thương mại luôn khách quan|Mục tiêu và động cơ của nguồn tin ảnh hưởng đến độ trung thực, tin cậy|Nên tin tuyệt đối quảng cáo|Thông tin mạng không có sở hữu trí tuệ|1
+Cách tra cứu bằng máy tìm kiếm chính xác và nhanh nhất?|Gõ cả đoạn văn dài|Lựa chọn từ khoá ngắn gọn, chính xác, đúng trọng tâm|Nhấp ngẫu nhiên vào quảng cáo|Chỉ tìm vào ban đêm|1
+Vì sao lưu địa chỉ trang web, tên tác giả/cơ quan, thời gian truy cập?|Tăng dung lượng ổ đĩa|Thuận tiện kiểm chứng độ tin cậy và lập danh mục tài liệu tham khảo|Dịch nội dung tự động|Chia sẻ mật khẩu|1
+Nguồn nào tin cậy nhất để tìm tư liệu về chính sách năng lượng quốc gia?|Diễn đàn của người dùng ẩn danh|Video bình luận trên TikTok|Cổng thông tin điện tử chính thức của Bộ Công Thương (.gov.vn)|Bình luận trên Facebook|2
+Quy tắc nội dung mỗi trang chiếu để trực quan và thẩm mĩ?|Điền văn bản kín trang|Không quá 6 mục, mỗi mục không quá 2 dòng, kết hợp hình ảnh minh hoạ phù hợp|Hiệu ứng nhấp nháy, trên 10 màu|Tối thiểu 15 đoạn văn bản|1
+Cấu trúc hợp lí của bài trình chiếu hoàn chỉnh?|Trang tiêu đề, dàn ý, giới thiệu vấn đề, nội dung, kết luận, tài liệu tham khảo|Chỉ ảnh chụp từ điện thoại|Duy nhất một trang chứa bảng số liệu thô|Trang giới thiệu cá nhân và liên kết bán hàng|0
+Tìm hiểu cách dùng máy ảnh mới mua, nguồn nào cần tham khảo đầu tiên?|Ý kiến thành viên diễn đàn nhiếp ảnh nghiệp dư|Sách hướng dẫn sử dụng của nhà sản xuất|Lời khuyên của bạn cùng lớp|Bài cảm nhận trên nhật ký du lịch|1
+Cách an toàn, nhanh, giữ nguyên định dạng để chia sẻ bài trình chiếu trong nhóm?|Chép ra vở rồi gửi bưu điện|Đọc từng trang qua điện thoại|Gửi tệp qua email hoặc chia sẻ qua đám mây (Google Drive, OneDrive)|Đăng công khai lên web mua bán|2`.split("\n").map(function(l){return l.split("|")});
+var T=[["Pascaline (1642) tự động thực hiện cả bốn phép tính.",0],["Babbage là \"cha đẻ máy tính\" vì máy đa năng năm 1833 có cấu trúc tương tự máy tính ngày nay.",1],["Theo Von Neumann (1945), lệnh chương trình được lưu trong bộ nhớ như dữ liệu và được nạp để thực hiện tuần tự.",1],["Kiến trúc Von Neumann chỉ gồm bộ xử lí và bộ nhớ, không cần thiết bị vào-ra.",0],
+["Thế hệ thứ nhất dùng bóng bán dẫn (transistor), nhỏ bằng một chiếc tủ.",0],["Từ thế hệ thứ ba (1965–1974), nhờ IC, thiết bị vào-ra bắt đầu có màn hình và bàn phím thay thẻ đục lỗ.",1],["Máy tính cá nhân phát triển mạnh ở thế hệ thứ tư (1974–1990) nhờ VLSI.",1],["Minsk-22 (thế hệ hai) và IBM System/360 (thế hệ ba) đưa vào Việt Nam trước năm 1975.",1],
+["Thông tin số dễ nhân bản, lan truyền nhanh nhưng khó xoá bỏ hoàn toàn trên mạng.",1],["Có thể truy cập thông tin số từ xa mà không cần được người quản lí cho phép.",0],["Quyền tác giả được bảo hộ theo Luật Sở hữu trí tuệ; không được tuỳ tiện vi phạm bản quyền.",1],["Mọi thông tin số trên Internet đều có độ tin cậy tuyệt đối vì được kiểm duyệt tự động.",0],
+["Để xác định độ tin cậy cần kiểm tra nguồn, phân biệt ý kiến với sự kiện, kiểm tra chứng cứ, đánh giá tính thời sự.",1],["Bài chia sẻ trên blog/diễn đàn luôn tin cậy hơn thông tin từ cổng cơ quan nhà nước.",0],["\"Theo tôi, đây là bộ phim hay nhất mọi thời đại\" là sự kiện khách quan có độ tin cậy tuyệt đối.",0],["Làm theo thông tin sai lệch, thiếu căn cứ có thể gây lãng phí, tổn hại sức khoẻ hoặc quyết định sai.",1],
+["Khi tìm tư liệu nên chọn từ khoá ngắn gọn, rõ ràng, phản ánh nội dung trọng tâm.",1],["Khi thu thập dữ liệu không cần ghi lại nguồn, địa chỉ trang web hay thời gian.",0],["Mỗi trang chiếu không quá 6 mục, mỗi mục không quá 2 dòng và có hình minh hoạ phù hợp.",1],["Có thể chia sẻ tệp bài trình chiếu an toàn qua email hoặc không gian lưu trữ trực tuyến dùng chung.",1]];
+var G=["Câu 1 (Lịch sử công cụ tính toán, Von Neumann)","Câu 2 (Các thế hệ máy tính)","Câu 3 (Đặc điểm thông tin số)","Câu 4 (Đánh giá độ tin cậy)","Câu 5 (Thực hành tìm kiếm, trình chiếu)"];
+var L="ABCD";
+var ok,done,total=M.length+T.length;
+function upd(){$("sc").textContent="Đúng "+ok+" / "+done+" (tổng "+total+")"}
+function init(){
+ ok=0;done=0;upd();
+ var p0=$("p0");p0.innerHTML="";
+ M.forEach(function(q,i){
+  var d=document.createElement("div");d.className="q";
+  var p=document.createElement("p");p.className="t";p.textContent="Câu "+(i+1)+". "+q[0];d.appendChild(p);
+  var bs=[];
+  for(var k=0;k<4;k++){(function(k){
+   var b=document.createElement("button");b.className="o";b.textContent=L[k]+". "+q[k+1];
+   b.onclick=function(){if(b.disabled)return;bs.forEach(function(x,j){x.disabled=true;if(j==+q[5])x.classList.add("ok")});done++;if(k==+q[5])ok++;else b.classList.add("no");upd()};
+   bs.push(b);d.appendChild(b);
+  })(k)}
+  p0.appendChild(d);
+ });
+ var p1=$("p1");p1.innerHTML="";
+ for(var g=0;g<5;g++){
+  var d=document.createElement("div");d.className="q";
+  var p=document.createElement("p");p.className="t";p.textContent=G[g];d.appendChild(p);
+  for(var k=0;k<4;k++){(function(g,k){
+   var t=T[g*4+k];
+   var r=document.createElement("div");r.className="st";
+   var s=document.createElement("span");s.className="stt";s.textContent="abcd"[k]+") "+t[0];
+   var w=document.createElement("div");w.className="tf";var bs=[];
+   [["Đúng",1],["Sai",0]].forEach(function(pair){
+    var b=document.createElement("button");b.className="o";b.textContent=pair[0];
+    b.onclick=function(){if(b.disabled)return;bs.forEach(function(x,j){x.disabled=true;if(1-j==t[1])x.classList.add("ok")});done++;if(pair[1]==t[1])ok++;else b.classList.add("no");upd()};
+    bs.push(b);w.appendChild(b);
+   });
+   r.appendChild(s);r.appendChild(w);d.appendChild(r);
+  })(g,k)}
+  p1.appendChild(d);
+ }
+ window.scrollTo(0,0);
+}
+$("reset").onclick=init;
+var tabs=[$("t0"),$("t1")];
+tabs.forEach(function(t,ix){t.onclick=function(){tabs.forEach(function(x,j){x.setAttribute("aria-selected",ix===j);$("p"+j).hidden=ix!==j});window.scrollTo(0,0)}});
+init();
+</script>
+</body>
+</html>

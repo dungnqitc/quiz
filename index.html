@@ -16,9 +16,15 @@ background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradien
 main{max-width:1040px;margin:0 auto;padding:28px 16px 48px}
 h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 .sub{color:var(--mute);margin:0 0 22px;font-size:.95rem}
-.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
-.col{display:flex;flex-direction:column;gap:14px}
-.col h2{font-size:1.05rem;margin:0 0 2px;font-weight:800;color:var(--ink);border-bottom:2px solid var(--line);padding-bottom:6px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.col{display:flex;flex-direction:column;gap:10px;background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:22px;text-decoration:none;color:inherit;transition:transform .08s ease}
+.col.box5{box-shadow:8px 8px 0 var(--acc)}
+.col.box8{box-shadow:8px 8px 0 var(--acc8)}
+.col.boxrelax{box-shadow:8px 8px 0 var(--acvid)}
+.col:hover{transform:translate(-2px,-2px)}
+.col h2{font-size:1.25rem;margin:0;font-weight:800;color:var(--ink)}
+.col span{color:var(--mute);font-size:.92rem}
+@media (prefers-reduced-motion:reduce){.col:hover{transform:none}}
 .col .secttl{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);margin:6px 0 -4px}
 @media (max-width:860px){.cols{grid-template-columns:1fr}}
 .cardlink{display:block;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px}
@@ -44,72 +50,18 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 <h1>🌟 Cùng học vui nào các con! 🌟</h1>
 <p class="sub">Mỗi ngày luyện một chút, giỏi lên từng chút. Chọn một bộ đề và bắt đầu khám phá nhé — sai cũng không sao, quan trọng là mình đã cố gắng! 💪</p>
 <div class="cols">
-<div class="col">
-<h2>Lớp 5</h2>
-<h3 class="secttl">SGK</h3>
-<a class="cardlink c5" href="quiz-lop5.html">
-<b>Toán 5 &amp; Tiếng Việt 5 - SGK Tập 1</b>
-<span>Câu hỏi sinh ngẫu nhiên. Quiz tổng hợp (15 câu) hoặc theo chủ đề (20 câu mỗi chủ đề).</span>
+<a class="col box5" href="lop5.html">
+<h2>📘 Lớp 5</h2>
+<span>Toán, Tiếng Việt &amp; Tiếng Anh 5 (SGK) và các đề tham khảo Lớp 6.</span>
 </a>
-<a class="cardlink c5" href="quiz-lop5-tap2.html">
-<b>Toán 5 &amp; Tiếng Việt 5 - SGK Tập 2</b>
-<span>Câu hỏi sinh ngẫu nhiên. Quiz tổng hợp (15 câu) hoặc theo chủ đề (20 câu mỗi chủ đề).</span>
+<a class="col box8" href="lop8.html">
+<h2>📗 Lớp 8</h2>
+<span>Toán 8, KHTN 8 và Tiếng Anh 8 (SGK Global Success).</span>
 </a>
-<a class="cardlink ce5" href="quiz-tienganh5.html">
-<b>Tiếng Anh 5 – Global Success: Tập 1</b>
-<span>Ngữ pháp theo unit (Starter + Unit 1–10), quiz từ vựng (Anh↔Việt) và quiz ngữ pháp, có chấm điểm.</span>
+<a class="col boxrelax" href="relax.html">
+<h2>🎮 Relax</h2>
+<span>Game lật thẻ, rắn săn mồi và video thư giãn.</span>
 </a>
-<h3 class="secttl">Tham khảo</h3>
-<a class="cardlink cen" href="quiz-anh6.html">
-<b>Tiếng Anh 6 – Thanh Xuân</b>
-<span>43 câu, 9 chủ đề (phát âm, ngữ pháp, viết lại câu…). Quiz tổng hợp (15 câu) hoặc theo chủ đề (20 câu).</span>
-</a>
-<a class="cardlink ccg" href="quiz-toan6cg.html">
-<b>Ôn thi Toán 6 – Cầu Giấy</b>
-<span>Kiến thức ôn tập, 12 câu trắc nghiệm (có chấm điểm) và 12 bài tự luận kèm lời giải (đề 2019–2025).</span>
-</a>
-<a class="cardlink ctx" href="quiz-toan6tx.html">
-<b>Ôn thi Toán 6 – Thanh Xuân</b>
-<span>Câu mục tiêu 9+: kiến thức, 8 câu trắc nghiệm (có chấm điểm) và 6 bài tự luận kèm lời giải (đề 2019–2025).</span>
-</a>
-</div>
-<div class="col">
-<h2>Lớp 8</h2>
-<h3 class="secttl">SGK</h3>
-<a class="cardlink c8" href="quiz-lop8.html">
-<b>Toán 8 – SGK Tập 1</b>
-<span>Ngân hàng 500 câu (5 chương). Quiz tổng hợp (15 câu) hoặc theo chương (20 câu).</span>
-</a>
-<a class="cardlink ckhtn" href="quiz-khtn8.html">
-<b>KHTN 8 – SGK</b>
-<span>300 câu, 3 phân môn (Hóa, Lí, Sinh). Quiz tổng hợp (15 câu) hoặc theo phân môn (20 câu).</span>
-</a>
-<a class="cardlink ce8" href="quiz-tienganh8.html">
-<b>Tiếng Anh 8 – Global Success</b>
-<span>Ôn tập ngữ pháp 12 Unit, quiz từ vựng (146 từ) và quiz ngữ pháp theo Unit (600 câu, 50 câu/Unit), có chấm điểm.</span>
-</a>
-<a class="cardlink ce8" href="quiz-tienganh8-mid1.html">
-<b>Ôn tập Tiếng Anh 8 – Giữa HK1</b>
-<span>Units 1–3: tóm tắt kiến thức, trắc nghiệm theo nhóm (có chấm điểm &amp; lưu lịch sử) và viết lại câu.</span>
-</a>
-</div>
-<div class="col">
-<h2>Relax</h2>
-<h3 class="secttl">Game</h3>
-<a class="cardlink cmem" href="game-memory.html">
-<b>🧠 Lật thẻ ghi nhớ (Tiếng Anh)</b>
-<span>Luyện từ vựng Anh–Việt theo cấp (Tiểu học / THCS / THPT). Tìm cặp thẻ khớp, lưu kỷ lục số lượt.</span>
-</a>
-<a class="cardlink cgame" href="game-snake.html">
-<b>🐍 Rắn săn mồi</b>
-<span>Giải lao một chút! Game rắn săn mồi, chơi bằng phím hoặc vuốt, có lưu kỷ lục.</span>
-</a>
-<h3 class="secttl">Cartoon</h3>
-<a class="cardlink cvid" href="relax-video.html">
-<b>📺 Video thư giãn</b>
-<span>Xem playlist hoạt hình/giải trí ngay trong trang, chuyển video bằng danh sách của trình phát.</span>
-</a>
-</div>
 </div>
 <p style="text-align:center;margin-top:24px"><a href="history.html" style="color:var(--acc8);font-weight:700;text-decoration:underline">📊 Xem lịch sử làm bài</a></p>
 <p style="text-align:center;color:var(--mute);font-size:.85rem;margin-top:8px">© Copyright@kira</p>
