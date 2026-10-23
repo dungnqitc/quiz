@@ -43,12 +43,28 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 .cardlink b{display:block;font-size:1.2rem;margin-bottom:4px}
 .cardlink span{color:var(--mute);font-size:.9rem}
 @media (prefers-reduced-motion:reduce){.cardlink:hover{transform:none}}
+.exam{margin-top:34px;background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:22px;box-shadow:8px 8px 0 var(--actx)}
+.exam h2{font-size:1.3rem;margin:0 0 2px;font-weight:800}
+.exam .yr{color:var(--mute);font-size:.9rem;margin:0 0 16px}
+.exam ol{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.exam li{border:2px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--paper)}
+.exam .day{font-weight:800;font-size:1.02rem;margin-bottom:8px;color:var(--actx)}
+.exam .subj{margin:8px 0;padding-left:12px;border-left:3px solid var(--actx)}
+.exam .subj .nm{font-weight:700}
+.exam .subj .det{color:var(--mute);font-size:.9rem}
+.exam .note{color:var(--mute);font-size:.82rem;font-style:italic;margin-top:8px}
+.next{margin:0 0 20px;background:var(--card);border:2px solid var(--actx);border-radius:14px;padding:14px 16px;box-shadow:5px 5px 0 var(--actx);display:flex;gap:12px;align-items:flex-start}
+.next .ic{font-size:1.5rem;line-height:1.2}
+.next .ti{font-weight:800;color:var(--actx);margin:0 0 2px}
+.next .bd{font-size:.92rem}
+.next .bd .cd{color:var(--mute)}
 </style>
 </head>
 <body>
 <main>
 <h1>🌟 Cùng học vui nào các con! 🌟</h1>
 <p class="sub">Mỗi ngày luyện một chút, giỏi lên từng chút. Chọn một bộ đề và bắt đầu khám phá nhé — sai cũng không sao, quan trọng là mình đã cố gắng! 💪</p>
+<div class="next" id="nextExam" hidden></div>
 <div class="cols">
 <a class="col box5" href="lop5.html">
 <h2>📘 Lớp 5</h2>
@@ -63,8 +79,68 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 <span>Game lật thẻ, rắn săn mồi và video thư giãn.</span>
 </a>
 </div>
+<section class="exam">
+<h2>📅 Lịch kiểm tra giữa kỳ I - Lớp 8</h2>
+<p class="yr">Năm học 2026 - 2027 · Tuần 8 (Buổi chiều)</p>
+<ol>
+<li>
+<div class="day">1. Thứ 2 (26/10/2026)</div>
+<div class="subj"><span class="nm">Công nghệ</span> — <span class="det">45 phút (Giao đề 13h55) · Tiết 2: 14h00 - 14h45</span></div>
+</li>
+<li>
+<div class="day">2. Thứ 3 (27/10/2026)</div>
+<div class="subj"><span class="nm">Tin học</span> — <span class="det">45 phút (Giao đề 13h00) · Tiết 1: 13h10 - 13h55</span></div>
+</li>
+<li>
+<div class="day">3. Thứ 4 (28/10/2026)</div>
+<div class="subj"><span class="nm">GDCD</span> — <span class="det">45 phút (Giao đề 15h30) · Tiết 4: 15h40 - 16h25</span></div>
+</li>
+<li>
+<div class="day">4. Thứ 5 (29/10/2026)</div>
+<div class="subj"><span class="nm">KHTN</span> — <span class="det">60 phút (Giao đề 15h30) · Tiết 4: 15h40 - 16h40</span></div>
+</li>
+<li>
+<div class="day">5. Thứ 6 (30/10/2026)</div>
+<div class="subj"><span class="nm">Toán</span> — <span class="det">90 phút (Giao đề 13h00) · Tiết 1, 2: 13h15 - 14h45</span></div>
+<div class="subj"><span class="nm">Tiếng Anh</span> — <span class="det">60 phút (Giao đề 15h00) · Tiết 3, 4: 15h10 - 16h10</span></div>
+</li>
+<li>
+<div class="day">6. Thứ 2 (02/11/2026)</div>
+<div class="subj"><span class="nm">Ngữ văn</span> — <span class="det">90 phút (Giao đề 7h20) · Tiết 1, 2: 13h15 - 14h45</span></div>
+<div class="subj"><span class="nm">Lịch sử - Địa lý</span> — <span class="det">60 phút (Giao đề 13h10) · Tiết 3, 4: 15h10 - 16h10</span></div>
+</li>
+</ol>
+</section>
 <p style="text-align:center;margin-top:24px"><a href="history.html" style="color:var(--acc8);font-weight:700;text-decoration:underline">📊 Xem lịch sử làm bài</a></p>
 <p style="text-align:center;color:var(--mute);font-size:.85rem;margin-top:8px">© Copyright@kira</p>
 </main>
+<script>
+(function(){
+ /* Lịch thi GHK I - Lớp 8. date: YYYY-MM-DD; mỗi môn có giờ bắt đầu làm bài */
+ var EXAMS=[
+  {date:"2026-10-26",day:"Thứ 2",subjects:[{nm:"Công nghệ",time:"Tiết 2: 14h00 - 14h45",mins:45}]},
+  {date:"2026-10-27",day:"Thứ 3",subjects:[{nm:"Tin học",time:"Tiết 1: 13h10 - 13h55",mins:45}]},
+  {date:"2026-10-28",day:"Thứ 4",subjects:[{nm:"GDCD",time:"Tiết 4: 15h40 - 16h25",mins:45}]},
+  {date:"2026-10-29",day:"Thứ 5",subjects:[{nm:"KHTN",time:"Tiết 4: 15h40 - 16h40",mins:60}]},
+  {date:"2026-10-30",day:"Thứ 6",subjects:[{nm:"Toán",time:"Tiết 1, 2: 13h15 - 14h45",mins:90},{nm:"Tiếng Anh",time:"Tiết 3, 4: 15h10 - 16h10",mins:60}]},
+  {date:"2026-11-02",day:"Thứ 2",subjects:[{nm:"Ngữ văn",time:"Tiết 1, 2: 13h15 - 14h45",mins:90},{nm:"Lịch sử - Địa lý",time:"Tiết 3, 4: 15h10 - 16h10",mins:60}]}
+ ];
+ function todayStr(){var d=new Date(),p=function(n){return(n<10?"0":"")+n};return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())}
+ function fmt(iso){var a=iso.split("-");return a[2]+"/"+a[1]+"/"+a[0]}
+ function daysBetween(fromIso,toIso){var a=new Date(fromIso+"T00:00:00"),b=new Date(toIso+"T00:00:00");return Math.round((b-a)/86400000)}
+ var now=todayStr();
+ var next=null;
+ for(var i=0;i<EXAMS.length;i++){if(EXAMS[i].date>=now){next=EXAMS[i];break}}
+ var el=document.getElementById("nextExam");
+ if(!el)return;
+ if(!next){el.hidden=true;return}
+ var diff=daysBetween(now,next.date);
+ var when=diff===0?"hôm nay":diff===1?"ngày mai":"còn "+diff+" ngày";
+ var subj=next.subjects.map(function(s){return s.nm+" ("+s.mins+"′ · "+s.time+")"}).join("; ");
+ el.innerHTML='<div class="ic">⏰</div><div><p class="ti">Sắp thi: '+next.subjects.map(function(s){return s.nm}).join(" & ")+' — '+when+'</p>'+
+  '<div class="bd"><span class="cd">'+next.day+' '+fmt(next.date)+' · GHK I Lớp 8</span><br>'+subj+'</div></div>';
+ el.hidden=false;
+})();
+</script>
 </body>
 </html>
