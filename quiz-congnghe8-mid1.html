@@ -56,14 +56,14 @@ details[open]>summary::before{content:"▾"}
 <div class="wrap">
 <p><a class="link" href="lop8.html">← Về Lớp 8</a></p>
 <h1>Đề cương Công nghệ 8 – GHK1</h1>
-<p class="sub">Giữa kì I · Trắc nghiệm (chấm điểm ngay), Đúng/Sai và Tự luận có đáp án.</p>
+<p class="sub">Giữa kì I · Trắc nghiệm (20 câu ngẫu nhiên mỗi lượt, chấm điểm ngay), Đúng/Sai và Tự luận có đáp án.</p>
 <div class="tabs">
 <button class="tab" id="t0" aria-selected="true">Trắc nghiệm</button>
 <button class="tab" id="t1" aria-selected="false">Đúng / Sai</button>
 <button class="tab" id="t2" aria-selected="false">Tự luận</button>
 </div>
 <section class="panel" id="p0">
-<div class="bar"><span class="sc" id="sc">Đúng 0 / 0</span><button class="btn" id="reset">Làm lại</button></div>
+<div class="bar"><span class="sc" id="sc">Đúng 0 / 0</span><button class="btn" id="reset">Đề mới</button></div>
 <div id="mcbox"></div>
 </section>
 <section class="panel" id="p1" hidden></section>
@@ -133,12 +133,13 @@ var ES=[
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 
 /* ===== Trắc nghiệm ===== */
-var ok,done;
-function upd(){$("sc").textContent="Đúng "+ok+" / "+done+" (tổng "+MC.length+")"}
+var ok,done,cur=[],NQ=20;
+function pick(n){var a=MC.slice(),i,j,t;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t}return a.slice(0,Math.min(n,a.length))}
+function upd(){$("sc").textContent=done<cur.length?"Đúng "+ok+" / "+done+" · Còn "+(cur.length-done)+" câu":"Hoàn thành: đúng "+ok+" / "+cur.length+" câu"}
 function buildMC(){
- ok=0;done=0;upd();
+ ok=0;done=0;cur=pick(NQ);upd();
  var box=$("mcbox");box.innerHTML="";
- MC.forEach(function(m,i){
+ cur.forEach(function(m,i){
   var d=document.createElement("div");d.className="q";
   var p=document.createElement("p");p.className="t";p.innerHTML="<b>Câu "+(i+1)+".</b> "+esc(m[0]);d.appendChild(p);
   var bs=[];
