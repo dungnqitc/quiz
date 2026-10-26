@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bài tập bổ trợ – Lớp 5</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#e8590c;--acc8:#2447b8;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#ff9a5c;--acc8:#8fa8ff;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#ff9a5c;--acc8:#8fa8ff;--mute:#9fb2c4}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:720px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 22px;font-size:.95rem}
+.back{display:inline-block;margin-bottom:14px;color:var(--acc8);font-weight:700;text-decoration:none}
+.back:hover{text-decoration:underline}
+.list{display:flex;flex-direction:column;gap:14px}
+.cardlink{display:block;text-decoration:none;color:inherit;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:6px 6px 0 var(--acc)}
+.cardlink:hover{transform:translate(-1px,-1px)}
+.cardlink b{display:block;font-size:1.2rem;margin-bottom:4px}
+.cardlink span{color:var(--mute);font-size:.9rem}
+.msg{color:var(--mute);font-size:.95rem;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:18px}
+@media (prefers-reduced-motion:reduce){.cardlink:hover{transform:none}}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="lop5.html">← Về Lớp 5</a>
+<h1>📝 Bài tập bổ trợ</h1>
+<p class="sub">Danh sách các bài tập bổ trợ. Bấm vào từng bài để mở.</p>
+<div id="list" class="list"></div>
+</main>
+<script>
+/* Danh sách bài tập khai báo trong baitap-botro.json.
+   Mỗi mục: { "ten": Tên file bài tập, "file": đường dẫn, "noidung": nội dung bài tập } */
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function render(items){
+ var box=document.getElementById("list");
+ if(!items||!items.length){box.innerHTML='<div class="msg">Chưa có bài tập nào. Hãy thêm mục vào <b>baitap-botro.json</b>.</div>';return}
+ box.innerHTML="";
+ items.forEach(function(it){
+  var a=document.createElement("a");
+  a.className="cardlink";
+  a.href=it.file||"#";
+  a.innerHTML='<b>'+esc(it.ten)+'</b><span>'+esc(it.noidung)+'</span>';
+  box.appendChild(a);
+ });
+}
+function showError(){
+ document.getElementById("list").innerHTML='<div class="msg">Không tải được danh sách bài tập. Nếu đang mở trực tiếp bằng đường dẫn tệp (file://), trình duyệt có thể chặn việc đọc <b>baitap-botro.json</b>. Hãy mở trang qua một máy chủ cục bộ (localhost) hoặc kiểm tra lại tệp JSON.</div>';
+}
+fetch("baitap-botro.json",{cache:"no-store"})
+ .then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()})
+ .then(render)
+ .catch(showError);
+</script>
+</body>
+</html>

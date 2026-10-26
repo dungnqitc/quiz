@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GDCD 8 – Ôn tập GK1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#7c3aed;--acc2:#efe7fc;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#120f1d;--line:#271c3a;--card:#1b1630;--acc:#c08af0;--acc2:#241a44;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#120f1d;--line:#271c3a;--card:#1b1630;--acc:#c08af0;--acc2:#241a44;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 16px;font-size:.92rem}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tab,.chip,.btn,.opt{font:inherit;color:inherit;cursor:pointer}
+.tab{flex:1;min-width:120px;padding:10px;border:2px solid var(--ink);background:var(--card);border-radius:10px;font-weight:700}
+.tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{padding:6px 12px;border:2px solid var(--ink);border-radius:99px;background:var(--card);font-size:.88rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:5px 5px 0 var(--acc)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .25s}
+.meta{display:flex;justify-content:space-between;color:var(--mute);font-size:.88rem;margin-bottom:6px}
+.q{font-size:1.12rem;font-weight:700;margin:6px 0 14px;overflow-wrap:anywhere}
+.topic{color:var(--mute);font-size:.8rem;font-weight:500;margin-bottom:4px}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:8px 0;border:2px solid var(--line);background:var(--paper);border-radius:10px;overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.ok{border-color:var(--ok);background:var(--okb)}
+.opt.no{border-color:var(--bad);background:var(--badb)}
+.exp{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--acc2)}
+.btn{margin-top:14px;padding:11px 20px;border:2px solid var(--ink);background:var(--hl);color:#1b2a41;border-radius:10px;font-weight:700}
+.btn.alt{background:var(--card);color:var(--ink);margin-left:8px}
+.big{font-size:3rem;font-weight:800;line-height:1.1;margin:6px 0}
+.hist{margin-top:18px}
+.hist h2{font-size:1.05rem;margin:0 0 8px;font-weight:800}
+.htbl{width:100%;border-collapse:collapse;font-size:.86rem}
+.htbl th,.htbl td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.htbl th{color:var(--mute);font-weight:700}
+.htbl td.sc{font-weight:700;white-space:nowrap}
+.hempty{color:var(--mute);font-size:.9rem;margin:4px 0}
+.link{background:none;border:none;color:var(--acc);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin-top:10px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--acc);color:#fff;margin-bottom:6px}
+details{border:2px solid var(--ink);border-radius:12px;background:var(--card);margin-bottom:10px;padding:0 14px;box-shadow:3px 3px 0 var(--acc)}
+summary{padding:12px 0;font-weight:700;cursor:pointer;overflow-wrap:anywhere}
+details ul{margin:0 0 12px;padding-left:20px}
+details li{margin:5px 0}
+.tlcard{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:4px 4px 0 var(--acc)}
+.tlcard .q{font-size:1rem;margin:4px 0 8px}
+.tlcard .de{font-size:.95rem;margin-bottom:8px}
+.ans{background:var(--okb);border-left:4px solid var(--ok);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:.95rem;white-space:pre-line}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<p><a class="link" href="lop8.html">← Về Lớp 8</a></p>
+<h1>GDCD 8 – Ôn tập GK1</h1>
+<p class="sub">Ôn tập giữa kì I. Có <b>Ôn tập</b> kiến thức, <b>Quiz</b> trắc nghiệm (tổng hợp hoặc theo chủ đề) và <b>Tự luận</b> có đáp án gợi ý. Tổng hợp từ bộ đề kiểm tra giữa HK1.</p>
+<div class="tabs"><button class="tab" id="mkt" aria-selected="true">Ôn tập</button><button class="tab" id="mmix" aria-selected="false">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button><button class="tab" id="mtl" aria-selected="false">Tự luận</button></div>
+<div class="chips" id="chips"></div>
+<div id="box"></div>
+<div id="ktbox" hidden></div>
+<div id="tlbox" hidden></div>
+</main>
+<script>
+/* Nguồn: "Ôn tập giữa kì I – GDCD 8.html" (tổng hợp Đề số 1 & Đề số 2).
+   S: [[tên chủ đề, cssvar]]; Q: [subjIdx, topic, question, options[], correctIdx, explanation]
+   Chủ đề: 0=Truyền thống dân tộc, 1=Đa dạng dân tộc & văn hóa, 2=Lao động cần cù, sáng tạo */
+window.GDCD_S=[["Truyền thống dân tộc","--a0"],["Đa dạng dân tộc & văn hóa","--a1"],["Lao động cần cù, sáng tạo","--a2"]];
+window.GDCD_Q=[
+[0,"Truyền thống dân tộc","Truyền thống dân tộc là những giá trị có đặc trưng như thế nào của mỗi quốc gia dân tộc?",["Tốt đẹp","Hủ tục","Lạc hậu","Xấu xa"],0,"Truyền thống dân tộc là những giá trị tốt đẹp."],
+[0,"Truyền thống dân tộc","Truyền thống dân tộc KHÔNG có đặc trưng nào dưới đây?",["Tốt đẹp","Quý giá","Lạc hậu","Có giá trị"],2,"Truyền thống là giá trị tốt đẹp nên không thể lạc hậu."],
+[0,"Truyền thống dân tộc","Truyền thống tốt đẹp của dân tộc là những giá trị tinh thần hình thành trong lịch sử lâu dài, được truyền từ:",["Thế hệ này sang thế hệ khác","Đất nước này sang đất nước khác","Vùng miền này sang vùng miền khác","Địa phương này sang địa phương khác"],0,"Truyền thống được truyền từ thế hệ này sang thế hệ khác."],
+[0,"Truyền thống dân tộc","Truyền thống dân tộc là những giá trị:",["Vật chất","Tinh thần","Của cải","Tài sản"],1,"Truyền thống dân tộc là giá trị tinh thần, không phải vật chất, của cải."],
+[0,"Truyền thống dân tộc","Đối với sự phát triển của con người, truyền thống dân tộc góp phần vào quá trình:",["Phát triển của mỗi cá nhân","Hội nhập của đất nước","Duy trì hạnh phúc gia đình","Thúc đẩy kinh tế – xã hội"],0,"Với cá nhân: truyền thống góp phần phát triển nhân cách của mỗi người."],
+[0,"Truyền thống dân tộc","Đối với sự phát triển của mỗi quốc gia, dân tộc, giá trị của các truyền thống góp phần thúc đẩy sự:",["Phát triển của mỗi cá nhân","Phát triển của đất nước","Ổn định trong gia đình","Đoàn kết trong dòng họ"],1,"Với đất nước: truyền thống góp phần thúc đẩy sự phát triển của quốc gia, dân tộc."],
+[0,"Truyền thống dân tộc","Việc làm nào dưới đây KHÔNG kế thừa, phát huy truyền thống tốt đẹp của dân tộc?",["Tự hào về những giá trị truyền thống tốt đẹp của dân tộc","Gìn giữ truyền thống tốt đẹp cùng những hủ tục lạc hậu","Trân trọng những giá trị truyền thống tốt đẹp","Học tập, thực hành theo những chuẩn giá trị truyền thống"],1,"Chỉ kế thừa giá trị tốt đẹp, không giữ hủ tục lạc hậu."],
+[1,"Đa dạng dân tộc & văn hóa","Tôn trọng sự đa dạng của các dân tộc thể hiện ở việc tiếp thu những đặc trưng nào của các dân tộc?",["Giá trị tốt đẹp","Mọi hệ giá trị","Hủ tục lạc hậu","Phong tục lỗi thời"],0,"Tiếp thu có chọn lọc những giá trị tốt đẹp, không tiếp thu hủ tục lạc hậu."],
+[1,"Đa dạng dân tộc & văn hóa","Tôn trọng sự đa dạng của các dân tộc và các nền văn hóa trên thế giới là tôn trọng:",["Tính cách của các dân tộc","Tư tưởng bá quyền của dân tộc","Giá trị đồng tiền của dân tộc","Dân số của mỗi dân tộc"],0,"Là tôn trọng truyền thống, phong tục, tính cách, văn hóa của các dân tộc khác nhau."],
+[1,"Đa dạng dân tộc & văn hóa","Tôn trọng sự đa dạng của các dân tộc và nền văn hóa trên thế giới là tôn trọng:",["Truyền thống của các dân tộc","Hủ tục của các dân tộc","Vũ khí của các dân tộc","Tiền bạc của mỗi dân tộc"],0,"Là tôn trọng truyền thống, phong tục, văn hóa của các dân tộc."],
+[1,"Đa dạng dân tộc & văn hóa","Tôn trọng sự đa dạng của các dân tộc, đồng thời chúng ta cần thể hiện thái độ nào đối với dân tộc mình?",["Tự ti về dân tộc mình","Tự hào về dân tộc mình","Từ bỏ nguồn gốc dân tộc","Phê phán mọi dân tộc"],1,"Đồng thời tự hào, giữ gìn bản sắc dân tộc mình."],
+[1,"Đa dạng dân tộc & văn hóa","Bên cạnh việc tôn trọng sự đa dạng của các dân tộc, chúng ta cần phê phán hành vi nào?",["Kì thị giữa các dân tộc","Học hỏi giữa các dân tộc","Giao lưu giữa các dân tộc","Học tập giữa các dân tộc"],0,"Học hỏi, giao lưu là việc nên làm; kì thị, phân biệt cần phê phán."],
+[2,"Lao động cần cù, sáng tạo","Quá trình lao động chăm chỉ, chịu khó làm việc thường xuyên, phấn đấu hết mình vì công việc là lao động:",["Cần cù","Sáng tạo","Hết mình","Hiệu quả"],0,"Lao động cần cù: chăm chỉ, chịu khó, phấn đấu hết mình vì công việc."],
+[2,"Lao động cần cù, sáng tạo","Quá trình lao động luôn suy nghĩ, cải tiến, tìm tòi cái mới, tìm cách giải quyết tối ưu để nâng cao hiệu quả là lao động:",["Chăm chỉ","Sáng tạo","Hết mình","Hiệu quả"],1,"Lao động sáng tạo: suy nghĩ, tìm tòi, cải tiến để tìm cách giải quyết tối ưu."],
+[2,"Lao động cần cù, sáng tạo","Một trong những biểu hiện của lao động sáng tạo là luôn luôn:",["Suy nghĩ, tìm tòi","Lười biếng, ỷ lại","Ỷ lại, dựa dẫm","Dựa dẫm, lười nhác"],0,"Lao động sáng tạo biểu hiện ở việc luôn suy nghĩ, tìm tòi cái mới."],
+[2,"Lao động cần cù, sáng tạo","Một trong những biểu hiện của lao động cần cù là lao động với tinh thần:",["Chăm chỉ","Lười biếng","Ỷ lại","Dựa dẫm"],0,"Lao động cần cù biểu hiện ở tinh thần chăm chỉ, chịu khó."],
+[2,"Lao động cần cù, sáng tạo","Cá nhân lao động sáng tạo thì trong công việc luôn có xu hướng:",["Chờ đợi kết quả người khác","Tìm tòi, cải tiến phương pháp","Sao chép kết quả người khác","Hưởng lợi từ việc làm của bạn bè"],1,"Người lao động sáng tạo luôn tìm tòi, cải tiến phương pháp."],
+[2,"Lao động cần cù, sáng tạo","Cá nhân lao động cần cù thì trong công việc luôn có xu hướng:",["Chờ đợi kết quả người khác","Làm việc chăm chỉ, chịu khó","Sao chép kết quả người khác","Hưởng lợi từ việc làm của bạn bè"],1,"Người lao động cần cù luôn làm việc chăm chỉ, chịu khó."],
+[2,"Lao động cần cù, sáng tạo","Người cần cù trong lao động sẽ luôn được mọi người:",["Ghen ghét và căm thù","Yêu quý và tôn trọng","Xa lánh và hắt hủi","Tìm cách hãm hại"],1,"Người cần cù được mọi người yêu quý, tôn trọng."],
+[2,"Lao động cần cù, sáng tạo","Người sáng tạo trong lao động sẽ luôn được mọi người:",["Ghen ghét và căm thù","Yêu quý và tôn trọng","Xa lánh và hắt hủi","Tìm cách hãm hại"],1,"Người sáng tạo được mọi người yêu quý, tôn trọng."]
+];
+/* Ôn kiến thức: [subjIdx, tiêu đề, [các ý...]] */
+window.GDCD_KT=[
+[0,"Truyền thống dân tộc là gì?",["Là những giá trị tinh thần tốt đẹp, hình thành trong quá trình lịch sử lâu dài của dân tộc","Được truyền từ thế hệ này sang thế hệ khác","Ví dụ: yêu nước, đoàn kết, nhân nghĩa, hiếu học, cần cù…","Truyền thống dân tộc là giá trị tinh thần (không phải vật chất, của cải)"]],
+[0,"Ý nghĩa và cách phát huy",["Với cá nhân: góp phần phát triển nhân cách của mỗi người","Với đất nước: góp phần thúc đẩy sự phát triển của quốc gia, dân tộc","Cần tự hào, trân trọng, học tập và thực hành các giá trị truyền thống tốt đẹp","KHÔNG gìn giữ hủ tục lạc hậu: chỉ kế thừa những giá trị tốt đẹp","Ví dụ: du học sinh vẫn tổ chức Tết cổ truyền, gói bánh chưng, mặc áo dài là thể hiện lòng tự hào dân tộc"]],
+[1,"Tôn trọng sự đa dạng của các dân tộc và nền văn hóa",["Là tôn trọng truyền thống, phong tục, văn hóa của các dân tộc khác nhau","Tiếp thu có chọn lọc những giá trị tốt đẹp; không tiếp thu hủ tục lạc hậu","Đồng thời tự hào, giữ gìn bản sắc dân tộc mình","Các dân tộc đều bình đẳng, dù khác về màu da, ngoại hình, văn hóa","Không có nền văn hóa lớn hay nhỏ, chỉ có các nền văn hóa khác nhau","Phê phán hành vi kì thị, phân biệt giữa các dân tộc; lạm dụng pha trộn ngôn ngữ làm mất sự trong sáng của tiếng mẹ đẻ"]],
+[2,"Lao động cần cù",["Chăm chỉ, chịu khó làm việc thường xuyên, phấn đấu hết mình vì công việc","Trái với lười biếng, ỷ lại, dựa dẫm, chờ đợi kết quả của người khác","Người cần cù được mọi người yêu quý, tôn trọng"]],
+[2,"Lao động sáng tạo",["Luôn suy nghĩ, tìm tòi, cải tiến phương pháp để tìm cái mới, cách giải quyết tối ưu","Nhằm không ngừng nâng cao chất lượng, hiệu quả lao động","Người sáng tạo được mọi người yêu quý, tôn trọng","Cần cù, sáng tạo không phải thiên bẩm mà là kết quả của rèn luyện, bắt đầu từ việc nhỏ nhất"]]
+];
+/* Tự luận: [subjIdx, tiêu đề, đề bài, đáp án gợi ý] */
+window.GDCD_TL=[
+[1,"Đề 1 – Câu 1 (3đ)","Em hãy bày tỏ quan điểm về các nhận định: a) Tiếp thu văn hóa của dân tộc khác sẽ làm mất đi giá trị truyền thống văn hóa của dân tộc mình. b) Mọi dân tộc trên thế giới đều có quyền bình đẳng.","a) Không đồng tình. Vì mỗi dân tộc đều có những cái hay, cái đẹp để học hỏi. Việc học hỏi, tiếp thu có chọn lọc nét đẹp văn hóa của dân tộc khác giúp bổ sung, phát triển và làm phong phú thêm văn hóa của dân tộc mình.\nb) Đồng tình. Vì các dân tộc tuy khác nhau về màu da, ngoại hình, văn hóa… nhưng đều bình đẳng với nhau."],
+[2,"Đề 1 – Câu 2 (3đ)","Bạn V học nghiêm túc cả trực tiếp lẫn trực tuyến, tự tìm hiểu phần mềm để học hiệu quả và chia sẻ với bạn. Bạn M thường chơi điện tử trong giờ học trực tuyến và cho rằng V \u201ctốn thời gian vô ích\u201d. Em có đồng ý với đánh giá của M về V không? Vì sao? Em có lời khuyên gì với những bạn chưa có thói quen cần cù, sáng tạo trong lao động?","Em không đồng tình với đánh giá của M. Vì:\n+ V có thái độ tích cực, chăm chỉ, cần cù và sáng tạo trong học tập; nhờ đó đạt kết quả cao, được thầy cô, bạn bè quý mến và giúp đỡ được nhiều bạn. Chúng ta nên cổ vũ, học tập theo V.\n+ Hành động và lời nói của M cho thấy M còn lười biếng, chưa chăm chỉ, nỗ lực và sáng tạo trong học tập.\n\nLời khuyên:\n+ Cần cù và sáng tạo là những đức tính tốt đẹp mỗi người cần rèn luyện hằng ngày.\n+ Chúng giúp ta đạt nhiều thành công và nhận được sự yêu mến, quý trọng của mọi người.\n+ Cần cù, sáng tạo không phải năng khiếu thiên bẩm mà là kết quả của rèn luyện, nên hãy bắt đầu ngay từ hôm nay, từ những việc nhỏ nhất."],
+[0,"Đề 1 – Câu 3 (1đ)","Trong cuộc chiến chống đại dịch Covid-19, những giá trị tốt đẹp của văn hóa, con người Việt Nam được lan tỏa, trở thành sức mạnh vượt khó. Hãy trình bày giá trị của các truyền thống dân tộc Việt Nam được thể hiện trong đại dịch Covid-19.","Trong đại dịch Covid-19, nhân dân Việt Nam đã phát huy nhiều truyền thống tốt đẹp của dân tộc như: yêu nước, dũng cảm, đoàn kết, tương thân tương ái…"],
+[1,"Đề 2 – Câu 1 (3đ)","Em hãy bày tỏ quan điểm về các nhận định: a) Không có nền văn hóa lớn và nền văn hóa nhỏ, chỉ có các nền văn hóa khác nhau. b) Sử dụng pha trộn nhiều ngôn ngữ khi giao tiếp là thể hiện sự sành điệu, thức thời.","a) Đồng tình. Vì trên thế giới có sự cùng tồn tại của nhiều nền văn hóa; mỗi nền văn hóa có nét đặc trưng, nét đẹp riêng đáng để tiếp thu, học hỏi.\nb) Không đồng tình. Vì việc pha trộn, lạm dụng nhiều ngôn ngữ khi giao tiếp làm mất đi nét đẹp, sự trong sáng của ngôn ngữ, đồng thời thể hiện thái độ thiếu tôn trọng đối với ngôn ngữ bản địa."],
+[2,"Đề 2 – Câu 2 (3đ)","Trong giờ làm việc nhóm, bạn A nói riêng với bạn B: \u201cNhóm mình có bạn H học giỏi nên chúng mình không cần suy nghĩ hay làm gì đâu, vì đã có bạn H làm hết rồi\u201d. a) Lời nói của bạn A có đúng không? Vì sao? b) Nếu em là bạn B, em sẽ nói gì với A?","a) Lời nói của A chưa đúng. Vì lời nói và hành động của A thể hiện thái độ lười biếng, ỷ lại vào người khác, thiếu tích cực và tự giác trong học tập.\nb) Em sẽ nói với A: \u201cH có kết quả học tập tốt, nhưng chúng ta không nên ỷ lại vào cậu ấy, vì đây là nhiệm vụ chung của cả nhóm. Chúng ta nên tích cực hợp tác, trao đổi, đưa ra ý kiến để cùng hoàn thành nhiệm vụ này.\u201d"],
+[0,"Đề 2 – Câu 3 (1đ)","Bạn N là du học sinh, dịp Tết cổ truyền cùng nhóm bạn tổ chức các hoạt động Tết truyền thống của người Việt ngay tại xứ người: gói bánh chưng, bánh tét; trang trí hoa mai, hoa đào; mặc áo dài… Hãy nêu biểu hiện của lòng tự hào về truyền thống dân tộc qua việc làm của các nhân vật.","Bạn N trân trọng những giá trị văn hóa truyền thống của Việt Nam. Dù là du học sinh đang học tập ở nước ngoài, N vẫn cùng nhóm bạn tổ chức các hoạt động Tết theo truyền thống của người Việt ngay tại xứ người."]
+];
+</script>
+<script>
+var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))};
+function sh(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=R(0,k),t=a[k];a[k]=a[j];a[j]=t}return a}
+var pk=function(a,n){return sh(a).slice(0,n)};
+var $=function(i){return document.getElementById(i)};
+
+var S=(typeof window!=="undefined"&&window.GDCD_S)?window.GDCD_S:[];
+var Q=(typeof window!=="undefined"&&window.GDCD_Q)?window.GDCD_Q:[];
+var KT=(typeof window!=="undefined"&&window.GDCD_KT)?window.GDCD_KT:[];
+var TL=(typeof window!=="undefined"&&window.GDCD_TL)?window.GDCD_TL:[];
+var MIX=15,TOPICN=20;
+function qnorm(r){var o=r[3],a=r[4],c=o[a],d=o.filter(function(_,j){return j!=a});return {q:r[2],c:c,d:d,e:r[5],topic:(S[r[0]]?S[r[0]][0]:"")}}
+function qAll(){return Q.slice()}
+function qBySubj(si){return Q.filter(function(r){return r[0]==si})}
+function genMix(list){return list?list.slice():pk(qAll(),MIX).map(qnorm)}
+function genSubj(si,list){return list?list.slice():pk(qBySubj(si),TOPICN).map(qnorm)}
+function subName(si){return S[si]?S[si][0]:""}
+
+var MODE="mix",SUBJ=0,pool=[],i=0,score=0,wrong=[],wrongDetail=[],done=false;
+
+var HKEY="quizgdcd8gk1_history_v1";
+function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
+function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
+function addHist(sc,total){
+ var h=loadHist(),topic=(MODE=="mix")?"Tổng hợp (15 câu)":(S[SUBJ]?S[SUBJ][0]:"");
+ h.unshift({ts:Date.now(),subject:"GDCD 8 GK1",topic:topic,score:sc,total:total,wrong:wrongDetail.slice()});
+ if(h.length>100)h=h.slice(0,100);
+ saveHist(h)}
+function clearHist(){saveHist([]);show()}
+function fmtTime(ts){var d=new Date(ts),p=function(n){return(n<10?"0":"")+n};
+ return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes())}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function histHTML(){
+ var h=loadHist();
+ var out='<div class="hist"><h2>Lịch sử làm bài</h2>';
+ if(!h.length)return out+'<p class="hempty">Chưa có lịch sử. Hoàn thành một bộ quiz để lưu lại.</p></div>';
+ out+='<table class="htbl"><thead><tr><th>Thời gian</th><th>Chủ điểm</th><th>Điểm</th></tr></thead><tbody>';
+ h.forEach(function(r){out+='<tr><td>'+fmtTime(r.ts)+'</td><td>'+esc(r.subject)+' – '+esc(r.topic)+'</td><td class="sc">'+r.score+'/'+r.total+'</td></tr>'});
+ out+='</tbody></table><button class="link" id="clr">Xóa toàn bộ lịch sử</button></div>';
+ return out}
+
+function goMix(list){MODE="mix";$("chips").innerHTML="";
+ pool=genMix(list);i=0;score=0;wrong=[];wrongDetail=[];show()}
+
+function go(si,list){MODE="topic";SUBJ=si||0;$("chips").innerHTML="";
+ S.forEach(function(sp,j){var b=document.createElement("button");b.className="chip";b.textContent=sp[0];b.setAttribute("aria-pressed",j==SUBJ);b.onclick=function(){go(j)};$("chips").appendChild(b)});
+ pool=genSubj(SUBJ,list);i=0;score=0;wrong=[];wrongDetail=[];show()}
+
+var saved=false;
+function show(){
+ var box=$("box");
+ if(!Q.length){box.innerHTML='<div class="card"><p>Không nạp được dữ liệu.</p></div>';return}
+ if(i>=pool.length){
+  if(!saved){addHist(score,pool.length);saved=true}
+  var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
+  var newLabel=MODE=="mix"?"Bộ 15 câu mới":"Bộ câu mới";
+  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"\uD83D\uDE2D";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  $("nw").onclick=function(){MODE=="mix"?goMix():go(SUBJ)};
+  if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(wrong.slice()):go(SUBJ,wrong.slice())};
+  var c=$("clr");if(c)c.onclick=clearHist;
+  return}
+ saved=false;
+ var q=pool[i],o=sh([{t:q.c,ok:1}].concat(q.d.map(function(t){return {t:t,ok:0}})));done=false;
+ box.innerHTML='<div class="card"><div class="meta"><span>Câu '+(i+1)+'/'+pool.length+'</span><span>Đúng: '+score+'</span></div><div class="bar"><i style="width:'+(i*100/pool.length)+'%"></i></div><div class="topic" id="tp"></div><div class="q" id="qq"></div><div id="os"></div><div id="ex" hidden></div></div>';
+ $("tp").textContent=q.topic||"";$("qq").textContent=q.q;
+ o.forEach(function(x){var b=document.createElement("button");b.className="opt";b.textContent=x.t;b.onclick=function(){pick(b,x.ok,q,o)};$("os").appendChild(b)})}
+function pick(b,ok,q,o){
+ if(done)return;done=true;var bs=$("os").children;
+ for(var k=0;k<bs.length;k++){bs[k].disabled=true;if(o[k].ok)bs[k].classList.add("ok")}
+ if(ok)score++;else{b.classList.add("no");wrong.push(q);wrongDetail.push({q:q.q,your:b.textContent,correct:q.c})}
+ var e=$("ex");e.hidden=false;e.className="exp";e.innerHTML='<b>'+(ok?"Chính xác!":"Chưa đúng.")+'</b> <span id="et"></span><br><button class="btn" id="nx">'+(i+1<pool.length?"Câu tiếp theo":"Xem kết quả")+'</button>';
+ $("et").textContent=q.e;$("nx").onclick=function(){i++;show()};$("nx").focus()}
+
+/* ===== Ôn tập & Tự luận ===== */
+function renderKT(){
+ var box=$("ktbox");box.innerHTML='<div class="chips" id="ktchips"></div><div id="ktlist"></div>';
+ var cur="all",cw=$("ktchips");
+ var filters=[["all","Tất cả"],[0,"Truyền thống"],[1,"Đa dạng dân tộc"],[2,"Lao động"]];
+ function drawChips(){cw.innerHTML="";filters.forEach(function(f){var b=document.createElement("button");b.className="chip";b.textContent=f[1];b.setAttribute("aria-pressed",cur===f[0]);b.onclick=function(){cur=f[0];drawChips();drawList()};cw.appendChild(b)})}
+ function drawList(){var l=$("ktlist");l.innerHTML="";
+  KT.filter(function(x){return cur==="all"||x[0]===cur}).forEach(function(x){
+   var items=x[2].map(function(it){return '<li>'+esc(it)+'</li>'}).join("");
+   var d=document.createElement("details");
+   d.innerHTML='<summary><span class="tag">'+esc(subName(x[0]))+'</span> '+esc(x[1])+'</summary><ul>'+items+'</ul>';
+   l.appendChild(d)})}
+ drawChips();drawList();
+}
+
+function renderTL(){
+ var box=$("tlbox");box.innerHTML='<div class="chips" id="tlchips"></div><div id="tllist"></div>';
+ var cur="all",cw=$("tlchips");
+ var filters=[["all","Tất cả"],[0,"Truyền thống"],[1,"Đa dạng dân tộc"],[2,"Lao động"]];
+ function drawChips(){cw.innerHTML="";filters.forEach(function(f){var b=document.createElement("button");b.className="chip";b.textContent=f[1];b.setAttribute("aria-pressed",cur===f[0]);b.onclick=function(){cur=f[0];drawChips();drawList()};cw.appendChild(b)})}
+ function drawList(){var l=$("tllist");l.innerHTML="";
+  TL.filter(function(x){return cur==="all"||x[0]===cur}).forEach(function(x){
+   var c=document.createElement("div");c.className="tlcard";
+   c.innerHTML='<span class="tag">'+esc(subName(x[0]))+'</span><div class="q">'+esc(x[1])+' · '+esc(x[2])+'</div>';
+   var bt=document.createElement("button");bt.className="btn";bt.textContent="Xem đáp án gợi ý";
+   var a=document.createElement("div");a.className="ans";a.hidden=true;a.textContent=x[3];
+   bt.onclick=function(){a.hidden=!a.hidden;bt.textContent=a.hidden?"Xem đáp án gợi ý":"Ẩn đáp án"};
+   c.appendChild(bt);c.appendChild(a);l.appendChild(c)})}
+ drawChips();drawList();
+}
+
+function selectTab(which){
+ $("mkt").setAttribute("aria-selected",which==="kt");
+ $("mmix").setAttribute("aria-selected",which==="mmix");
+ $("mtopic").setAttribute("aria-selected",which==="mtopic");
+ $("mtl").setAttribute("aria-selected",which==="tl");
+ var isQuiz=(which==="mmix"||which==="mtopic");
+ $("chips").hidden=!isQuiz; $("box").hidden=!isQuiz;
+ $("ktbox").hidden=which!=="kt";
+ $("tlbox").hidden=which!=="tl";
+}
+
+$("mkt").onclick=function(){selectTab("kt");renderKT()};
+$("mmix").onclick=function(){selectTab("mmix");goMix()};
+$("mtopic").onclick=function(){selectTab("mtopic");go(0)};
+$("mtl").onclick=function(){selectTab("tl");renderTL()};
+
+selectTab("kt");
+renderKT();
+</script>
+</body>
+</html>
