@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KHTN 8 – Ôn tập GK1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0a7d57;--acc2:#e4f5ee;--hl:#ffe27a;--ok:#1a8f4c;--okb:#e3f6ea;--bad:#c9372c;--badb:#fdeae8;--mute:#5b6b7f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1a0;--acc2:#123528;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#4fd1a0;--acc2:#123528;--hl:#7a6a1c;--ok:#5fd68a;--okb:#13301f;--bad:#ff8a80;--badb:#3a1a18;--mute:#9fb2c4}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub{color:var(--mute);margin:0 0 16px;font-size:.92rem}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab,.chip,.btn,.opt{font:inherit;color:inherit;cursor:pointer}
+.tab{flex:1;padding:10px;border:2px solid var(--ink);background:var(--card);border-radius:10px;font-weight:700}
+.tab[aria-selected=true]{background:var(--hl);color:#1b2a41}
+button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{padding:6px 12px;border:2px solid var(--ink);border-radius:99px;background:var(--card);font-size:.88rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.card{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:18px;box-shadow:5px 5px 0 var(--acc)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;background:var(--acc);width:0;transition:width .25s}
+.meta{display:flex;justify-content:space-between;color:var(--mute);font-size:.88rem;margin-bottom:6px}
+.q{font-size:1.12rem;font-weight:700;margin:6px 0 14px;overflow-wrap:anywhere}
+.topic{color:var(--mute);font-size:.8rem;font-weight:500;margin-bottom:4px}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:8px 0;border:2px solid var(--line);background:var(--paper);border-radius:10px;overflow-wrap:anywhere}
+.opt:hover:not(:disabled){border-color:var(--acc)}
+.opt.ok{border-color:var(--ok);background:var(--okb)}
+.opt.no{border-color:var(--bad);background:var(--badb)}
+.exp{margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--acc2)}
+.btn{margin-top:14px;padding:11px 20px;border:2px solid var(--ink);background:var(--hl);color:#1b2a41;border-radius:10px;font-weight:700}
+.btn.alt{background:var(--card);color:var(--ink);margin-left:8px}
+.big{font-size:3rem;font-weight:800;line-height:1.1;margin:6px 0}
+.hist{margin-top:18px}
+.hist h2{font-size:1.05rem;margin:0 0 8px;font-weight:800}
+.htbl{width:100%;border-collapse:collapse;font-size:.86rem}
+.htbl th,.htbl td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.htbl th{color:var(--mute);font-weight:700}
+.htbl td.sc{font-weight:700;white-space:nowrap}
+.hempty{color:var(--mute);font-size:.9rem;margin:4px 0}
+.link{background:none;border:none;color:var(--acc);text-decoration:underline;cursor:pointer;font:inherit;padding:0;margin-top:10px}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--acc);color:#fff;margin-bottom:6px}
+details{border:2px solid var(--ink);border-radius:12px;background:var(--card);margin-bottom:10px;padding:0 14px;box-shadow:3px 3px 0 var(--acc)}
+summary{padding:12px 0;font-weight:700;cursor:pointer;overflow-wrap:anywhere}
+details ul{margin:0 0 12px;padding-left:20px}
+details li{margin:5px 0}
+.tlcard{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:4px 4px 0 var(--acc)}
+.tlcard .q{font-size:1rem;margin:4px 0 8px}
+.tlcard .de{font-size:.95rem;margin-bottom:8px}
+.ans{background:var(--okb);border-left:4px solid var(--ok);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:.95rem;white-space:pre-line}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<p><a class="link" href="lop8.html">← Về Lớp 8</a></p>
+<h1>KHTN 8 – Ôn tập GK1</h1>
+<p class="sub">Chọn <b>Quiz tổng hợp</b> (15 câu ngẫu nhiên từ cả 3 phân môn) hoặc <b>Quiz theo chủ đề</b> (chọn Vật lí / Hóa học / Sinh học). Dựa trên đề cương ôn tập giữa kì I.</p>
+<div class="tabs"><button class="tab" id="mkt" aria-selected="true">Ôn tập</button><button class="tab" id="mmix" aria-selected="false">Quiz tổng hợp</button><button class="tab" id="mtopic" aria-selected="false">Quiz theo chủ đề</button><button class="tab" id="mtl" aria-selected="false">Tự luận</button></div>
+<div class="chips" id="chips"></div>
+<div id="box"></div>
+<div id="ktbox" hidden></div>
+<div id="tlbox" hidden></div>
+</main>
+<script>
+/* Nguồn: "Ôn tập giữa kì I – KHTN 8.html" (phần trắc nghiệm). Giữ nguyên câu hỏi,
+   đáp án và giải thích theo tài liệu gốc.
+   S: [[tên phân môn, cssvar]]; Q: [subjIdx, topic, question, options[], correctIdx, explanation] */
+window.KHTN_S=[["Vật lí","--a0"],["Hóa học","--a1"],["Sinh học","--a2"]];
+window.KHTN_Q=[
+[0,"Khối lượng riêng","Người ta nói sắt nặng hơn nhôm. Câu giải thích nào KHÔNG đúng?",["Vì trọng lượng của sắt lớn hơn trọng lượng của nhôm","Vì trọng lượng riêng của sắt lớn hơn của nhôm","Vì khối lượng riêng của sắt lớn hơn của nhôm","Vì trọng lượng riêng của miếng sắt lớn hơn trọng lượng của miếng nhôm cùng thể tích"],0,"Nặng hơn khi cùng thể tích mới đúng, không phải trọng lượng nói chung."],
+[0,"Khối lượng riêng","Khi đun nước trong bình thủy tinh, khối lượng riêng của nước:",["Tăng","Giảm","Không đổi","Giảm rồi mới tăng"],1,"Nước nở ra, V tăng, m không đổi nên D = m/V giảm."],
+[0,"Khối lượng riêng","Biểu thức xác định khối lượng riêng của chất là:",["D = m·V","D = m/V","D = V/m","D = m"],1,"Khối lượng riêng bằng khối lượng chia cho thể tích: D = m/V."],
+[0,"Khối lượng riêng","Khối đá hoa cương hình hộp 2,0 m × 3,0 m × 1,5 m, D = 2750 kg/m³ có khối lượng:",["2475 kg","24750 kg","275 kg","2750 kg"],1,"V = 9 m³; m = 9 × 2750 = 24750 kg."],
+[0,"Khối lượng riêng","13,5 kg nhôm có thể tích 5 dm³. Khối lượng riêng của nhôm bằng:",["2700 kg/dm³","2700 kg/m³","270 kg/m³","260 kg/m³"],1,"D = 13,5 / 0,005 = 2700 kg/m³."],
+[0,"Khối lượng riêng","Muốn đo khối lượng riêng của quả cầu bằng sắt cần dụng cụ nào?",["Chỉ một cái cân","Một cái cân và bình chia độ","Chỉ một lực kế","Chỉ một bình chia độ"],1,"Dùng cân đo khối lượng m, dùng bình chia độ đo thể tích V (bằng độ dâng nước), rồi tính D = m/V."],
+[0,"Khối lượng riêng","Quan hệ giữa khối lượng riêng D và trọng lượng riêng d:",["d = 10D","D = 10d","D = 10/d","d = D − 10"],0,"Trọng lượng riêng d = P/V = 10m/V = 10D."],
+[0,"Khối lượng riêng","Đơn vị thường dùng đo khối lượng riêng là:",["N/m³","g/cm³","kg/m²","mL/kg²"],1,"Khối lượng riêng thường dùng g/cm³ hoặc kg/m³. kg/m², N/m³ hay mL/kg² không đúng."],
+[0,"Khối lượng riêng","Khối lượng riêng của xăng là 700 kg/m³. Trọng lượng riêng của xăng là:",["7 N/m³","70 N/m³","700 N/m³","7000 N/m³"],3,"d = 10D = 7000 N/m³."],
+[0,"Khối lượng riêng","Khối đồng chất 300 cm³ nặng 810 g. Khối đó là (nhôm 2700, sắt 7800, chì 11300, đá 2600 kg/m³):",["Nhôm","Sắt","Chì","Đá"],0,"D = 810/300 = 2,7 g/cm³ = 2700 kg/m³."],
+[0,"Khối lượng riêng","Hai vật A, B cùng khối lượng. D(A) = 7800 kg/m³, D(B) = 2700 kg/m³. Kết luận về thể tích:",["V_A = V_B","V_A > V_B","V_A < V_B","V_B = 10V_A"],2,"V = m/D: D lớn hơn thì V nhỏ hơn."],
+[0,"Áp suất","Áp lực là:",["Lực ép có phương vuông góc với mặt bị ép","Lực ép song song với mặt bị ép","Lực ép tạo góc bất kì","Lực ép trùng với mặt bị ép"],0,"Áp lực là lực ép có phương vuông góc với mặt bị ép."],
+[0,"Áp suất","Áp suất được tính bằng công thức:",["p = F/S","p = S/F","p = F·S","Tất cả đều sai"],0,"Áp suất bằng áp lực chia cho diện tích bị ép: p = F/S."],
+[0,"Áp suất","Đơn vị nào KHÔNG phải của áp suất?",["N/m²","Pa","Bar","Tất cả đều sai"],3,"Cả ba đều là đơn vị áp suất."],
+[0,"Áp suất","Vì sao đóng mũi đinh vào tường mà không đóng mũ đinh?",["Để tăng áp lực nên đinh dễ vào","Mũi đinh diện tích nhỏ, cùng áp lực gây áp suất lớn nên đinh dễ vào","Mũi đinh diện tích lớn nên áp lực nhỏ","Do thói quen"],1,"Mũi đinh có diện tích S nhỏ nên cùng áp lực F thì áp suất p = F/S lớn, đinh dễ đâm vào tường."],
+[1,"Biến đổi vật lí – hóa học","Quá trình nào là biến đổi hóa học?",["Hòa tan muối ăn vào nước","Nước hoa bay hơi","Sắt bị nóng chảy","Đốt cháy cồn trong đĩa"],3,"Đốt cồn tạo chất mới (CO₂, H₂O) nên là biến đổi hóa học. Hòa tan muối, bay hơi, nóng chảy chỉ là biến đổi vật lí."],
+[1,"Biến đổi vật lí – hóa học","Quá trình nào là biến đổi vật lí?",["Dây thép gỉ","Bánh mì bị mốc","Hơi nước ngưng tụ thành mưa","Đốt cháy than"],2,"Hơi nước ngưng tụ chỉ đổi trạng thái, không tạo chất mới nên là biến đổi vật lí. Gỉ, mốc, đốt than đều tạo chất mới."],
+[1,"Biến đổi vật lí – hóa học","Nung đá vôi: CaCO₃ → CaO + CO₂. Chất giảm đi trong phản ứng là:",["Calcium carbonate","Calcium oxide","Carbon dioxide","CaO và CO₂"],0,"Chất phản ứng giảm dần, sản phẩm tăng dần."],
+[1,"Biến đổi vật lí – hóa học","Phản ứng hóa học là:",["Quá trình kết hợp đơn chất thành hợp chất","Quá trình biến đổi chất này thành chất khác","Sự trao đổi của hai hay nhiều chất","Quá trình phân hủy chất thành nhiều chất"],1,"Phản ứng hóa học là quá trình biến đổi chất này thành chất khác."],
+[1,"Dung dịch và nồng độ","Độ tan là gì?",["Số gam chất tan trong 100 g nước tạo dung dịch bão hòa ở nhiệt độ xác định","Số gam chất tan trong 1 lít nước tạo dung dịch bão hòa","Số gam chất không tan trong 100 g nước","Số gam chất tan trong 100 g nước tạo dung dịch chưa bão hòa"],0,"Độ tan: số gam chất tan trong 100 g nước tạo dung dịch bão hòa ở nhiệt độ xác định."],
+[1,"Dung dịch và nồng độ","Dung dịch là hỗn hợp ... của chất tan và dung môi:",["huyền phù","đồng nhất","chưa đồng nhất","chưa tan"],1,"Dung dịch là hỗn hợp đồng nhất của chất tan và dung môi."],
+[1,"Dung dịch và nồng độ","Nồng độ mol là:",["Số mol chất tan trong 1 lít dung dịch","Số mol chất tan trong 1 lít nước","Số mol chất tan trong 100 g dung dịch","Số gam chất tan trong 100 g nước"],0,"Nồng độ mol cho biết số mol chất tan trong 1 lít dung dịch: CM = n/V."],
+[1,"Dung dịch và nồng độ","Nồng độ phần trăm là:",["Số mol chất tan trong 1 lít dung dịch","Số gam chất tan trong 1 lít nước","Số mol chất tan trong 100 g dung dịch","Số gam chất tan trong 100 g dung dịch"],3,"Nồng độ phần trăm cho biết số gam chất tan trong 100 g dung dịch."],
+[1,"Dung dịch và nồng độ","Dung dịch chưa bão hòa là dung dịch:",["không thể hòa tan thêm chất tan","có thể hòa tan thêm chất tan","không thể hòa tan thêm nước","có thể hòa tan thêm dung dịch"],1,"Dung dịch chưa bão hòa còn hòa tan thêm được chất tan. Dung dịch bão hòa thì không hòa tan thêm được."],
+[1,"Mol và thể tích khí","Ở điều kiện chuẩn (25 °C, 1 bar), 1 mol bất kì chất khí chiếm thể tích:",["2,479 lít","24,79 lít","22,79 lít","22,4 lít"],1,"Ở điều kiện chuẩn (25 °C, 1 bar), 1 mol khí bất kì chiếm 24,79 lít."],
+[1,"Mol và thể tích khí","Thể tích của 0,5 mol khí H₂ ở 25 °C, 1 bar là:",["12,395 L","11,295 L","0,02 L","49,58 L"],0,"V = n × 24,79 = 0,5 × 24,79 = 12,395 L."],
+[1,"Mol và thể tích khí","Số mol khí CO₂ có trong 500 mL CO₂ ở điều kiện chuẩn là:",["0,02","0,05","0,01","0,5"],0,"n = 0,5 / 24,79 ≈ 0,02."],
+[1,"Mol và thể tích khí","Số nguyên tử Fe có trong 5 mol Fe là:",["20,1·10²³","25,1·10²³","30,1·10²³","35,1·10²³"],2,"5 × 6,022·10²³ = 30,11·10²³."],
+[1,"Mol và thể tích khí","Công thức đúng về tỉ khối của khí A đối với không khí:",["d = M_A·29","d = M_A/29","d = 29/M_A","d = M_A/19"],1,"Tỉ khối của A đối với không khí: d = M_A/29 (khối lượng mol trung bình của không khí là 29)."],
+[1,"Mol và thể tích khí","Khí NO₂ nặng hơn hay nhẹ hơn không khí bao nhiêu lần?",["Nặng hơn 1,6 lần","Nhẹ hơn 2,1 lần","Nặng hơn 3 lần","Nhẹ hơn 4,20 lần"],0,"46/29 ≈ 1,59."],
+[1,"Dung dịch và nồng độ","Ở 25 °C, 150 g nước hòa tan 54 g NaCl tạo dung dịch bão hòa. Độ tan của NaCl là:",["36 g","2,7 g","3,6 g","27 g"],0,"54 × 100/150 = 36 g."],
+[1,"Dung dịch và nồng độ","Ở 25 °C, 50 g nước hòa tan 111 g AgNO₃ bão hòa. Độ tan của AgNO₃ là:",["222 g","2,22 g","0,45 g","45 g"],0,"S = (111/50) × 100 = 222 g."],
+[2,"Các hệ cơ quan","Những phát biểu đúng: (1) Lấy O₂ vào cơ thể là chức năng của hệ hô hấp. (2) Biến đổi thức ăn và thải chất bã là vai trò của hệ bài tiết. (3) Hệ thần kinh tạo ra hormone. (4) Vận chuyển máu, dinh dưỡng, O₂ là chức năng của hệ tuần hoàn.",["(1), (2)","(2), (3)","(3), (4)","(1), (4)"],3,"(2) là vai trò của hệ tiêu hóa, không phải hệ bài tiết. (3) hormone do hệ nội tiết tạo ra, không phải hệ thần kinh. Nên (1), (4) đúng."],
+[2,"Hệ tiêu hóa","Ống tiêu hóa gồm khoang miệng, hầu, thực quản, ..., ruột non, ..., hậu môn:",["họng, khoang mũi","dạ dày, ruột già","khoang mũi, tuyến tiêu hóa","dạ dày, ruột thừa"],1,"Thứ tự: khoang miệng, hầu, thực quản, dạ dày, ruột non, ruột già, hậu môn."],
+[2,"Dinh dưỡng","Chất dinh dưỡng là:",["Chất độc hại cần loại bỏ","Tổng hợp các chất không cần thiết","Quá trình phân giải chất hữu cơ trong tế bào","Các chất trong thức ăn cung cấp nguyên liệu, năng lượng cho tế bào"],3,"Chất dinh dưỡng là các chất trong thức ăn, cung cấp nguyên liệu và năng lượng để cơ thể duy trì sự sống."],
+[2,"Hệ vận động","Việc di chuyển, vận động của toàn bộ cơ thể là chức năng của hệ cơ quan nào?",["Hệ tuần hoàn","Hệ vận động","Hệ xương","Hệ cơ"],1,"Hệ vận động (xương, cơ) giúp cơ thể di chuyển và vận động."],
+[2,"Hệ tiêu hóa","Ống tiêu hóa KHÔNG bao gồm:",["Mật","Ruột non","Dạ dày","Khoang miệng"],0,"Mật do gan tiết, thuộc tuyến tiêu hóa."],
+[2,"Hệ vận động","Có bao nhiêu loại khớp cơ bản?",["1","2","3","4"],2,"Có 3 loại khớp: khớp động, khớp bán động, khớp bất động."],
+[2,"Hệ tiêu hóa","Tuyến nước bọt có chức năng:",["Tiêu hóa protein","Làm ẩm thức ăn, chứa amylase giúp tiêu hóa một phần tinh bột chín","Đảo trộn thức ăn","Hấp thụ chất dinh dưỡng"],1,"Nước bọt làm ẩm thức ăn, enzyme amylase biến đổi một phần tinh bột chín thành đường maltose."],
+[2,"Hệ vận động","Xương của Nam giòn và dễ gãy (loãng xương). Nguyên nhân có thể là:",["Mang vác vật nặng thường xuyên","Bàn ghế không phù hợp","Chế độ ăn thiếu calcium","Ngồi không đúng tư thế"],2,"Loãng xương là do thiếu calcium (và P) nên mật độ khoáng trong xương giảm, xương giòn dễ gãy."],
+[2,"Hệ vận động","Học sinh mang cặp nặng lệch một bên vai lâu dài có thể bị:",["Cơ vai phát triển đều","Cột sống cong lệch sang một bên","Cột sống thẳng hơn","Không ảnh hưởng"],1,"Đeo cặp nặng lệch một bên lâu dài làm cột sống chịu lực không đều nên bị cong vẹo."],
+[2,"Dinh dưỡng","Ăn nhiều đồ chiên rán, ít rau quả dễ bị táo bón. Nguyên nhân chính:",["Thiếu chất đạm","Thiếu vitamin C","Thiếu chất xơ kích thích nhu động ruột","Dạ dày yếu"],2,"Chất xơ kích thích nhu động ruột, giúp tiêu hóa tốt. Ăn ít rau quả nên thiếu chất xơ, dễ táo bón."],
+[2,"Hệ tiêu hóa","Người thiếu amylase trong nước bọt, khi ăn bánh mì sẽ khó khăn ở quá trình:",["Tiêu hóa chất béo ở ruột non","Tiêu hóa tinh bột ngay từ khoang miệng","Hấp thụ glucose ở ruột non","Vận chuyển chất dinh dưỡng"],1,"Amylase trong nước bọt bắt đầu tiêu hóa tinh bột (có trong bánh mì) ngay ở khoang miệng."],
+[2,"Hệ vận động","Hệ vận động ở người gồm:",["Xương, cơ, gân, dây chằng","Phổi, tim, gan, thận","Xương, cơ, da, tóc","Xương, dây chằng, gân, da"],0,"Hệ vận động gồm xương, cơ, gân, dây chằng. Phổi, tim, gan, thận thuộc các hệ khác."],
+[2,"Hệ tiêu hóa","Chất nào hầu như không bị biến đổi hóa học qua tiêu hóa?",["Glucid","Lipid","Protein","Vitamin"],3,"Vitamin được hấp thụ nguyên dạng, không bị biến đổi hóa học trong quá trình tiêu hóa."],
+[2,"Hệ tiêu hóa","Cơ quan nào trong ống tiêu hóa KHÔNG thực hiện tiêu hóa hóa học?",["Khoang miệng","Thực quản","Dạ dày","Ruột non"],1,"Thực quản chỉ vận chuyển thức ăn xuống dạ dày, không có tiêu hóa hóa học."],
+[2,"Hệ tiêu hóa","Hấp thụ phần lớn chất dinh dưỡng xảy ra chủ yếu ở:",["Khoang miệng","Ruột già","Dạ dày","Ruột non"],3,"Ruột non có lớp niêm mạc nhiều nếp gấp, lông ruột, nên hấp thụ phần lớn chất dinh dưỡng."],
+[2,"Hệ tiêu hóa","Enzyme pepsin trong dịch vị dạ dày biến đổi loại thức ăn nào?",["Glucid","Lipid","Protein","Vitamin"],2,"Pepsin trong dịch vị biến đổi protein thành các đoạn ngắn."]
+];
+/* Ôn kiến thức: [subjIdx, tiêu đề, [các ý...]] */
+window.KHTN_KT=[
+[0,"Khối lượng riêng",["D = m/V (kg/m³ hoặc g/cm³); 1 g/cm³ = 1000 kg/m³","m = D·V; V = m/D","Trọng lượng riêng d = P/V = 10D (N/m³)","Đo D: dùng cân (đo m) và bình chia độ (đo V)","Đun nóng nước (bình thủy tinh): thể tích tăng nên D giảm"]],
+[0,"Áp suất",["Áp lực: lực ép vuông góc với mặt bị ép, đơn vị N","Áp suất p = F/S; đơn vị Pa = N/m² (cũng dùng bar, N/cm²)","Tăng p: tăng F hoặc giảm S. Giảm p: giảm F hoặc tăng S","Mũi đinh nhọn (S nhỏ) nên p lớn, đinh dễ đóng vào tường","Đổi đơn vị: 1 cm² = 0,0001 m²; 1 dm² = 0,01 m²; 1 dm³ = 1 lít"]],
+[1,"Biến đổi vật lí – hóa học",["Biến đổi vật lí: không tạo chất mới (hòa tan muối, nước bay hơi, nóng chảy, ngưng tụ)","Biến đổi hóa học (phản ứng hóa học): tạo chất mới (đốt cháy, gỉ sắt, mốc, nung đá vôi)","Chất phản ứng giảm dần, sản phẩm tăng dần","Trong phản ứng, liên kết giữa các nguyên tử bị phá vỡ; nguyên tử được bảo toàn"]],
+[1,"Dung dịch và nồng độ",["Dung dịch = hỗn hợp đồng nhất của chất tan và dung môi","Độ tan S = số gam chất tan trong 100 g nước tạo dung dịch bão hòa ở nhiệt độ xác định: S = (m chất tan / m nước) × 100","Dung dịch bão hòa: không hòa tan thêm chất tan; chưa bão hòa: còn hòa tan thêm được","C% = (m chất tan / m dung dịch) × 100%","Nồng độ mol CM = n / V(lít)"]],
+[1,"Mol và thể tích khí",["Số Avogadro: 6,022·10²³","Số hạt = n × 6,022·10²³","Điều kiện chuẩn (25 °C, 1 bar): 1 mol khí = 24,79 lít → V = n × 24,79","n = m / M","Tỉ khối: d(A/kk) = M(A)/29; d(A/B) = M(A)/M(B)"]],
+[2,"Hệ tiêu hóa",["Ống tiêu hóa: khoang miệng, hầu, thực quản, dạ dày, ruột non, ruột già, hậu môn","Tuyến tiêu hóa: tuyến nước bọt, gan, tụy… (mật do gan tiết, túi mật dự trữ)","Tuyến nước bọt: enzyme amylase biến tinh bột chín thành đường maltose","Dạ dày: pepsin biến đổi protein; co bóp nghiền, trộn thức ăn","Hấp thụ chủ yếu ở ruột non; ruột già hấp thụ nước, tạo phân","Vitamin hầu như không bị biến đổi hóa học khi tiêu hóa"]],
+[2,"Hệ vận động và dinh dưỡng",["Hệ vận động gồm xương, cơ, gân, dây chằng; chức năng: nâng đỡ, vận động, bảo vệ","Có 3 loại khớp cơ bản: khớp động, khớp bán động, khớp bất động","Loãng xương: thiếu calcium (Ca) và P, chế độ ăn thiếu canxi, thiếu vận động","Cong vẹo cột sống: ngồi sai tư thế, mang vác nặng một bên","Chất xơ kích thích nhu động ruột, phòng táo bón"]]
+];
+/* Tự luận: [subjIdx, tiêu đề, đề bài, đáp án gợi ý] */
+window.KHTN_TL=[
+[0,"Câu 21 (Vật lí)","Bình chia độ chứa nước, ban đầu mực nước ngang vạch 100 cm³. Thả chìm quả cầu đặc bằng sắt, mực nước dâng lên vạch 180 cm³. Biết D sắt = 7800 kg/m³. Tính khối lượng quả cầu.","V = 180 − 100 = 80 cm³ = 80·10⁻⁶ m³\nm = D·V = 7800 × 80·10⁻⁶ = 0,624 kg (624 g)"],
+[0,"Câu 22 (Vật lí)","Tủ lạnh gây áp suất 1500 Pa lên sàn, diện tích tiếp xúc 50 dm². Tính khối lượng tủ lạnh.","S = 50 dm² = 0,5 m²\nF = p·S = 1500 × 0,5 = 750 N\nm = F/10 = 75 kg"],
+[0,"Câu 23 (Vật lí)","Người nặng 60 kg vác thùng hàng nặng 120 N, đứng yên trên sàn. Diện tích tiếp xúc mỗi bàn chân 200 cm². Tính áp lực và áp suất lên sàn.","Áp lực F = 600 + 120 = 720 N\nS = 2 × 200 = 400 cm² = 0,04 m²\np = F/S = 720 / 0,04 = 18000 Pa"],
+[0,"Câu 24 (Vật lí)","Bao gạo 55 kg đặt trên bàn 5 kg có 4 chân, diện tích mỗi chân 2 cm². a) Tính áp lực lên mặt đất. b) Tính áp suất của các chân bàn lên mặt đất.","a) F = P = 10 × (55 + 5) = 600 N\nb) S = 4 × 2 = 8 cm² = 8·10⁻⁴ m²\np = 600 / 8·10⁻⁴ = 750000 Pa"],
+[0,"Câu 25 (Vật lí)","Xe container nặng 26000 N, diện tích tiếp xúc với mặt đường 130 dm². So sánh áp suất với người nặng 45 kg, diện tích tiếp xúc 2 bàn chân 200 cm².","Xe: S = 1,3 m²; p₁ = 26000 / 1,3 = 20000 Pa\nNgười: F = 450 N; S = 0,02 m²; p₂ = 450 / 0,02 = 22500 Pa\nVậy p₂ > p₁ (áp suất của người lớn hơn xe)."],
+[1,"Câu 24 (Hóa học) – a, b, c, d","a) Số mol phân tử KNO₃ trong 20,2 g. b) Số phân tử KOH trong 8 g. c) Thể tích 1,5 mol khí ở 25 °C, 1 bar. d) Thể tích O₂ của 64 g O₂ ở điều kiện chuẩn.","a) M(KNO₃) = 101 → n = 20,2/101 = 0,2 mol\nb) n = 8/56 ≈ 0,143 mol → số phân tử ≈ 0,143 × 6,022·10²³ ≈ 8,6·10²²\nc) V = 1,5 × 24,79 = 37,185 L\nd) n = 64/32 = 2 mol → V = 2 × 24,79 = 49,58 L"],
+[1,"Câu 24 (Hóa học) – e, f, g, h","e) Số mol khí trong bình 743,7 mL ở 25 °C, 1 bar. f) Khí X có tỉ khối so với O₂ bằng 1,375, tính khối lượng mol X. g) Khối lượng 0,5 mol Fe(OH)₃. h) Khối lượng 12,395 L CO₂ ở đkc.","e) n = 0,7437 / 24,79 = 0,03 mol\nf) M(X) = 1,375 × 32 = 44 g/mol\ng) M(Fe(OH)₃) = 107 → m = 0,5 × 107 = 53,5 g\nh) n = 12,395 / 24,79 = 0,5 mol → m = 0,5 × 44 = 22 g"],
+[1,"Câu 24 (Hóa học) – i, k, l","i) Hỗn hợp X gồm H₂ và CO₂, d(X/H₂) = 12: tính khối lượng mol trung bình. k) Khí X nặng 7,1 g, thể tích 4,958 L (đkc): tính khối lượng mol X. l) Hỗn hợp O₂ và CO₂ nặng 20,8 g, tổng 0,5 mol: tìm số mol mỗi khí.","i) M(X) = 12 × 2 = 24 g/mol\nk) n = 4,958 / 24,79 = 0,2 mol → M = 7,1 / 0,2 = 35,5 g/mol (khí Cl₂)\nl) Gọi x = n(O₂), y = n(CO₂): x + y = 0,5; 32x + 44y = 20,8\n→ y = 0,4 mol; x = 0,1 mol"],
+[1,"Câu 25 (Hóa học)","a) Hòa tan 11,7 g NaCl thành 1,25 lít dung dịch: CM? b) 14,9 g KCl thành 2 lít: CM? c) 74 g H₂SO₄ trong 200 g dung dịch: C%? d) 28 g HNO₃ trong 200 g dung dịch: C%? e) Pha 800 g nước muối sinh lí NaCl 0,9%: khối lượng NaCl và nước?","a) n = 11,7/58,5 = 0,2 mol → CM = 0,2/1,25 = 0,16 M\nb) n = 14,9/74,5 = 0,2 mol → CM = 0,2/2 = 0,1 M\nc) C% = 74/200 × 100% = 37%\nd) C% = 28/200 × 100% = 14%\ne) m NaCl = 800 × 0,9% = 7,2 g; m nước = 800 − 7,2 = 792,8 g"],
+[1,"Câu 26 (Hóa học)","1. Ở 25 °C độ tan AgNO₃ là 222 g. a) Tính C% dung dịch bão hòa. b) Pha 50 g dung dịch bão hòa cần bao nhiêu g AgNO₃ và g nước? 2. a) Cần thêm bao nhiêu g Na₂SO₄ vào 50 mL dung dịch Na₂SO₄ 0,5 M để được 1 M? b) Cần thêm bao nhiêu g KOH vào 75 g dung dịch KOH 10% để được 32,5%?","1a) C% = 222/(222 + 100) × 100% ≈ 68,94%\n1b) m AgNO₃ = 50 × 68,94% ≈ 34,47 g; m nước = 50 − 34,47 ≈ 15,53 g\n2a) n ban đầu = 0,5 × 0,05 = 0,025 mol; n cần = 1 × 0,05 = 0,05 mol\n   Thêm 0,025 mol × 142 = 3,55 g Na₂SO₄\n2b) m KOH ban đầu = 7,5 g. Thêm x g: (7,5 + x)/(75 + x) = 0,325\n   → 0,675x = 16,875 → x = 25 g KOH"],
+[2,"Câu 21 (Sinh học)","Nêu nguyên nhân, biểu hiện và cách phòng tránh tật cong vẹo cột sống và bệnh loãng xương.","Cong vẹo cột sống:\n- Nguyên nhân: tư thế hoạt động không đúng trong thời gian dài, mang vác vật nặng thường xuyên, do tai nạn hay còi xương.\n- Biểu hiện: cột sống không bình thường, các đốt sống bị xoay lệch về một bên, cong quá mức về phía trước hay phía sau.\n- Phòng tránh: duy trì tư thế đúng; tránh mang vác nặng sai cách; tập thể dục thường xuyên; chế độ dinh dưỡng hợp lí.\n\nLoãng xương:\n- Nguyên nhân: thiếu Ca và P nên mật độ chất khoáng trong xương thưa dần.\n- Biểu hiện: khi bị chấn thương, người mắc bệnh có nguy cơ gãy xương cao hơn người không mắc bệnh.\n- Phòng tránh: bổ sung canxi, vitamin D, vận động thường xuyên, phơi nắng sáng sớm."],
+[2,"Câu 22 (Sinh học)","Trình bày quá trình tiêu hóa thức ăn trong khoang miệng. Nguyên nhân, biểu hiện và cách phòng tránh bệnh viêm loét dạ dày – tá tràng.","Tiêu hóa ở khoang miệng:\n- Biến đổi cơ học: răng nghiền, cắt, xé; lưỡi đảo trộn; thức ăn được làm ẩm và nhào trộn với nước bọt.\n- Biến đổi hóa học: enzyme amylase trong nước bọt biến đổi một phần tinh bột chín thành đường maltose.\n\nViêm loét dạ dày – tá tràng:\n- Nguyên nhân: vi khuẩn H. pylori, ăn uống không đúng giờ, ăn cay nóng, rượu bia, căng thẳng kéo dài.\n- Biểu hiện: đau vùng thượng vị, ợ chua, buồn nôn, đầy bụng.\n- Phòng tránh: ăn uống điều độ, vệ sinh an toàn thực phẩm, hạn chế rượu bia và đồ cay, giữ tinh thần thoải mái, khám khi có triệu chứng."]
+];
+</script>
+<script>
+var R=function(a,b){return a+Math.floor(Math.random()*(b-a+1))};
+function sh(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=R(0,k),t=a[k];a[k]=a[j];a[j]=t}return a}
+var pk=function(a,n){return sh(a).slice(0,n)};
+var $=function(i){return document.getElementById(i)};
+
+var S=(typeof window!=="undefined"&&window.KHTN_S)?window.KHTN_S:[];
+var Q=(typeof window!=="undefined"&&window.KHTN_Q)?window.KHTN_Q:[];
+var MIX=15,TOPICN=20;
+function qnorm(r){var o=r[3],a=r[4],c=o[a],d=o.filter(function(_,j){return j!=a});return {q:r[2],c:c,d:d,e:r[5],topic:(S[r[0]]?S[r[0]][0]:"")+" · "+r[1]}}
+function qAll(){return Q.slice()}
+function qBySubj(si){return Q.filter(function(r){return r[0]==si})}
+function genMix(list){return list?list.slice():pk(qAll(),MIX).map(qnorm)}
+function genSubj(si,list){return list?list.slice():pk(qBySubj(si),TOPICN).map(qnorm)}
+
+var MODE="mix",SUBJ=0,pool=[],i=0,score=0,wrong=[],wrongDetail=[],done=false;
+
+var HKEY="quizkhtn8gk1_history_v1";
+function loadHist(){try{var r=localStorage.getItem(HKEY);return r?JSON.parse(r):[]}catch(e){return[]}}
+function saveHist(h){try{localStorage.setItem(HKEY,JSON.stringify(h))}catch(e){}}
+function addHist(sc,total){
+ var h=loadHist(),topic=(MODE=="mix")?"Tổng hợp (15 câu)":(S[SUBJ]?S[SUBJ][0]:"");
+ h.unshift({ts:Date.now(),subject:"KHTN 8 GK1",topic:topic,score:sc,total:total,wrong:wrongDetail.slice()});
+ if(h.length>100)h=h.slice(0,100);
+ saveHist(h)}
+function clearHist(){saveHist([]);show()}
+function fmtTime(ts){var d=new Date(ts),p=function(n){return(n<10?"0":"")+n};
+ return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes())}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function histHTML(){
+ var h=loadHist();
+ var out='<div class="hist"><h2>Lịch sử làm bài</h2>';
+ if(!h.length)return out+'<p class="hempty">Chưa có lịch sử. Hoàn thành một bộ quiz để lưu lại.</p></div>';
+ out+='<table class="htbl"><thead><tr><th>Thời gian</th><th>Chủ điểm</th><th>Điểm</th></tr></thead><tbody>';
+ h.forEach(function(r){out+='<tr><td>'+fmtTime(r.ts)+'</td><td>'+esc(r.subject)+' – '+esc(r.topic)+'</td><td class="sc">'+r.score+'/'+r.total+'</td></tr>'});
+ out+='</tbody></table><button class="link" id="clr">Xóa toàn bộ lịch sử</button></div>';
+ return out}
+
+function setModeTabs(){$("mmix").setAttribute("aria-selected",MODE=="mix");$("mtopic").setAttribute("aria-selected",MODE=="topic")}
+
+function goMix(list){MODE="mix";setModeTabs();$("chips").innerHTML="";
+ pool=genMix(list);i=0;score=0;wrong=[];wrongDetail=[];show()}
+
+function go(si,list){MODE="topic";SUBJ=si||0;setModeTabs();$("chips").innerHTML="";
+ S.forEach(function(sp,j){var b=document.createElement("button");b.className="chip";b.textContent=sp[0];b.setAttribute("aria-pressed",j==SUBJ);b.onclick=function(){go(j)};$("chips").appendChild(b)});
+ pool=genSubj(SUBJ,list);i=0;score=0;wrong=[];wrongDetail=[];show()}
+
+var saved=false;
+function show(){
+ var box=$("box");
+ if(!Q.length){box.innerHTML='<div class="card"><p>Không nạp được dữ liệu KHTN 8 GK1.</p></div>';return}
+ if(i>=pool.length){
+  if(!saved){addHist(score,pool.length);saved=true}
+  var pc=Math.round(score*100/pool.length),msg=pc>=90?"Xuất sắc!":pc>=70?"Khá tốt, ôn thêm vài câu nữa nhé.":"Hãy xem lại kiến thức rồi thử bộ mới.";
+  var newLabel=MODE=="mix"?"Bộ 15 câu mới":"Bộ câu mới";
+  var emo=pc>=90?"🏆":pc>=70?"🎉":pc>=50?"😊":"\uD83D\uDE2D";
+  box.innerHTML='<div class="card"><div class="meta">Kết quả</div><div style="font-size:3.4rem;line-height:1;margin:4px 0">'+emo+'</div><div class="big">'+score+'/'+pool.length+'</div><p>'+pc+'% đúng. '+msg+'</p><button class="btn" id="nw">'+newLabel+'</button>'+(wrong.length?'<button class="btn alt" id="rd">Ôn '+wrong.length+' câu sai</button>':'')+'</div>'+histHTML();
+  $("nw").onclick=function(){MODE=="mix"?goMix():go(SUBJ)};
+  if(wrong.length)$("rd").onclick=function(){MODE=="mix"?goMix(wrong.slice()):go(SUBJ,wrong.slice())};
+  var c=$("clr");if(c)c.onclick=clearHist;
+  return}
+ saved=false;
+ var q=pool[i],o=sh([{t:q.c,ok:1}].concat(q.d.map(function(t){return {t:t,ok:0}})));done=false;
+ box.innerHTML='<div class="card"><div class="meta"><span>Câu '+(i+1)+'/'+pool.length+'</span><span>Đúng: '+score+'</span></div><div class="bar"><i style="width:'+(i*100/pool.length)+'%"></i></div><div class="topic" id="tp"></div><div class="q" id="qq"></div><div id="os"></div><div id="ex" hidden></div></div>';
+ $("tp").textContent=q.topic||"";$("qq").textContent=q.q;
+ o.forEach(function(x){var b=document.createElement("button");b.className="opt";b.textContent=x.t;b.onclick=function(){pick(b,x.ok,q,o)};$("os").appendChild(b)})}
+function pick(b,ok,q,o){
+ if(done)return;done=true;var bs=$("os").children;
+ for(var k=0;k<bs.length;k++){bs[k].disabled=true;if(o[k].ok)bs[k].classList.add("ok")}
+ if(ok)score++;else{b.classList.add("no");wrong.push(q);wrongDetail.push({q:q.q,your:b.textContent,correct:q.c})}
+ var e=$("ex");e.hidden=false;e.className="exp";e.innerHTML='<b>'+(ok?"Chính xác!":"Chưa đúng.")+'</b> <span id="et"></span><br><button class="btn" id="nx">'+(i+1<pool.length?"Câu tiếp theo":"Xem kết quả")+'</button>';
+ $("et").textContent=q.e;$("nx").onclick=function(){i++;show()};$("nx").focus()}
+
+/* ===== Tab cấp cao: Quiz / Ôn tập / Tự luận ===== */
+var KT=(typeof window!=="undefined"&&window.KHTN_KT)?window.KHTN_KT:[];
+var TL=(typeof window!=="undefined"&&window.KHTN_TL)?window.KHTN_TL:[];
+function subName(si){return S[si]?S[si][0]:""}
+
+function renderKT(){
+ var box=$("ktbox");
+ box.innerHTML='<div class="chips" id="ktchips"></div><div id="ktlist"></div>';
+ var cur="all";
+ var filters=[["all","Tất cả"],[0,"Vật lí"],[1,"Hóa học"],[2,"Sinh học"]];
+ var cw=$("ktchips");
+ function drawChips(){cw.innerHTML="";filters.forEach(function(f){var b=document.createElement("button");b.className="chip";b.textContent=f[1];b.setAttribute("aria-pressed",cur===f[0]);b.onclick=function(){cur=f[0];drawChips();drawList()};cw.appendChild(b)})}
+ function drawList(){var l=$("ktlist");l.innerHTML="";
+  KT.filter(function(x){return cur==="all"||x[0]===cur}).forEach(function(x){
+   var items=x[2].map(function(it){return '<li>'+esc(it)+'</li>'}).join("");
+   var d=document.createElement("details");
+   d.innerHTML='<summary><span class="tag">'+esc(subName(x[0]))+'</span> '+esc(x[1])+'</summary><ul>'+items+'</ul>';
+   l.appendChild(d)})}
+ drawChips();drawList();
+}
+
+function renderTL(){
+ var box=$("tlbox");
+ box.innerHTML='<div class="chips" id="tlchips"></div><div id="tllist"></div>';
+ var cur="all";
+ var filters=[["all","Tất cả"],[0,"Vật lí"],[1,"Hóa học"],[2,"Sinh học"]];
+ var cw=$("tlchips");
+ function drawChips(){cw.innerHTML="";filters.forEach(function(f){var b=document.createElement("button");b.className="chip";b.textContent=f[1];b.setAttribute("aria-pressed",cur===f[0]);b.onclick=function(){cur=f[0];drawChips();drawList()};cw.appendChild(b)})}
+ function drawList(){var l=$("tllist");l.innerHTML="";
+  TL.filter(function(x){return cur==="all"||x[0]===cur}).forEach(function(x){
+   var c=document.createElement("div");c.className="tlcard";
+   c.innerHTML='<span class="tag">'+esc(subName(x[0]))+'</span><div class="q">'+esc(x[1])+'</div><div class="de">'+esc(x[2])+'</div>';
+   var bt=document.createElement("button");bt.className="btn";bt.textContent="Xem đáp án gợi ý";
+   var a=document.createElement("div");a.className="ans";a.hidden=true;a.textContent=x[3];
+   bt.onclick=function(){a.hidden=!a.hidden;bt.textContent=a.hidden?"Xem đáp án gợi ý":"Ẩn đáp án"};
+   c.appendChild(bt);c.appendChild(a);l.appendChild(c)})}
+ drawChips();drawList();
+}
+
+function selectTab(which){
+ var tabs={quiz:["mmix","mtopic"],kt:["mkt"],tl:["mtl"]};
+ $("mmix").setAttribute("aria-selected",which==="mmix");
+ $("mtopic").setAttribute("aria-selected",which==="mtopic");
+ $("mkt").setAttribute("aria-selected",which==="kt");
+ $("mtl").setAttribute("aria-selected",which==="tl");
+ var isQuiz=(which==="mmix"||which==="mtopic");
+ $("chips").hidden=!isQuiz; $("box").hidden=!isQuiz;
+ $("ktbox").hidden=which!=="kt";
+ $("tlbox").hidden=which!=="tl";
+}
+
+$("mmix").onclick=function(){selectTab("mmix");goMix()};
+$("mtopic").onclick=function(){selectTab("mtopic");go(0)};
+$("mkt").onclick=function(){selectTab("kt");renderKT()};
+$("mtl").onclick=function(){selectTab("tl");renderTL()};
+
+selectTab("kt");
+renderKT();
+</script>
+</body>
+</html>

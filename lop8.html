@@ -28,6 +28,10 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 .cardlink b{display:block;font-size:1.2rem;margin-bottom:4px}
 .cardlink span{color:var(--mute);font-size:.9rem}
 @media (prefers-reduced-motion:reduce){.cardlink:hover{transform:none}}
+.cardlink{position:relative}
+.cardlink.done{opacity:.62}
+.examdone{position:absolute;top:10px;right:10px;background:var(--ok,#1a8f4c);color:#fff;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:99px}
+.cardlink.done b{text-decoration:line-through;text-decoration-thickness:1px}
 </style>
 </head>
 <body>
@@ -49,20 +53,47 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 <b>Tiếng Anh 8 – Global Success</b>
 <span>Ôn tập ngữ pháp 12 Unit, quiz từ vựng (146 từ) và quiz ngữ pháp theo Unit (600 câu, 50 câu/Unit), có chấm điểm.</span>
 </a>
-<a class="cardlink ce8" href="quiz-tienganh8-mid1.html">
+<a class="cardlink ce8" href="quiz-tienganh8-mid1.html" data-exam="2026-10-30">
 <b>Đề cương Tiếng Anh 8 – Giữa HK1</b>
 <span>Units 1–3: tóm tắt kiến thức, trắc nghiệm theo nhóm (có chấm điểm &amp; lưu lịch sử) và viết lại câu.</span>
 </a>
-<a class="cardlink ckhtn" href="quiz-tin8-mid1.html">
+<a class="cardlink ckhtn" href="quiz-tin8-mid1.html" data-exam="2026-10-27">
 <b>Đề cương Tin học 8 – GHK1</b>
 <span>Giữa kì I: 30 câu trắc nghiệm và 20 ý đúng/sai, chấm điểm ngay khi chọn đáp án.</span>
 </a>
-<a class="cardlink c8" href="quiz-congnghe8-mid1.html">
+<a class="cardlink c8" href="quiz-congnghe8-mid1.html" data-exam="2026-10-26">
 <b>Đề cương Công nghệ 8 – GHK1</b>
 <span>Giữa kì I: 40 câu trắc nghiệm, 16 ý đúng/sai và 4 câu tự luận có đáp án.</span>
+</a>
+<a class="cardlink ckhtn" href="quiz-khtn8-gk1.html" data-exam="2026-10-29">
+<b>Đề cương KHTN 8 – GHK1</b>
+<span>Giữa kì I: ôn tập kiến thức, 48 câu trắc nghiệm (3 phân môn) và tự luận có đáp án gợi ý.</span>
+</a>
+<a class="cardlink ce8" href="quiz-lichsudialy8-gk1.html" data-exam="2026-11-02">
+<b>Đề cương Lịch sử &amp; Địa lí 8 – GHK1</b>
+<span>Giữa kì I: ôn tập kiến thức, 43 câu trắc nghiệm (Lịch sử &amp; Địa lí) và tự luận có đáp án gợi ý.</span>
 </a>
 </div>
 <p style="text-align:center;color:var(--mute);font-size:.85rem;margin-top:24px">© Copyright@kira</p>
 </main>
+<script>
+/* Đánh dấu "Đã thi" cho các đề cương có ngày thi (data-exam) đã qua.
+   Ngày thi lấy theo lịch kiểm tra GHK1 Lớp 8 trên trang index. */
+(function(){
+ function todayStr(){var d=new Date(),p=function(n){return(n<10?"0":"")+n};return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())}
+ var now=todayStr();
+ var cards=document.querySelectorAll('.cardlink[data-exam]');
+ for(var i=0;i<cards.length;i++){
+  var ex=cards[i].getAttribute('data-exam');
+  if(ex && ex<now){
+   cards[i].classList.add('done');
+   var b=document.createElement('span');
+   b.className='examdone';
+   b.textContent='✓ Đã thi';
+   cards[i].appendChild(b);
+  }
+ }
+})();
+</script>
 </body>
 </html>
