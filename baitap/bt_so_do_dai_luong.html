@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bài tập Toán lớp 5: Viết số đo đại lượng dưới dạng số thập phân</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Patrick+Hand&display=swap">
+<style>
+:root{--paper:#f7fafd;--grid:#dce7f3;--ink:#1c3a8a;--text:#1f2937;--muted:#5b6578;--margin:#e5484d;--ok:#16794a;--okbg:#e4f5ec;--bad:#b42d28;--badbg:#fdeceb;--card:#ffffff;--line:#c9d6e8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#131a2b;--grid:#212b46;--ink:#a9c0ff;--text:#e6eaf5;--muted:#9aa5bd;--margin:#ff7b7f;--ok:#5fd39b;--okbg:#14352a;--bad:#ff8c86;--badbg:#3b1d1f;--card:#1b2440;--line:#34416a;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#131a2b;--grid:#212b46;--ink:#a9c0ff;--text:#e6eaf5;--muted:#9aa5bd;--margin:#ff7b7f;--ok:#5fd39b;--okbg:#14352a;--bad:#ff8c86;--badbg:#3b1d1f;--card:#1b2440;--line:#34416a;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--text);font:16px/1.55 "Be Vietnam Pro",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px 28px;position:relative}
+main::before{content:"";position:absolute;left:14px;top:0;bottom:0;width:2px;background:var(--margin);opacity:.7}
+h1{font:400 clamp(28px,6vw,40px)/1.15 "Patrick Hand",cursive;color:var(--ink);margin:8px 0 4px}
+.sub{color:var(--muted);margin:0 0 16px}
+.who{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.who label{flex:1 1 200px;font-size:14px;color:var(--muted)}
+.who input{display:block;width:100%;margin-top:2px;font:inherit;color:var(--text);background:transparent;border:0;border-bottom:2px dotted var(--line);padding:4px 2px}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 16px}
+h2{font:400 22px/1.25 "Patrick Hand",cursive;color:var(--ink);margin:0 0 4px}
+.note{font-size:14px;color:var(--muted);margin:0 0 10px}
+.tally{font:700 14px "Be Vietnam Pro",sans-serif;margin-left:8px}
+.q{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:8px 0;border-top:1px dashed var(--line)}
+.q .l{min-width:0}
+.q input{width:96px;font:700 17px "Be Vietnam Pro",sans-serif;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink);text-align:center;padding:3px 2px;border-radius:0}
+.q input:focus{outline:3px solid color-mix(in srgb,var(--ink) 35%,transparent);outline-offset:2px}
+.q.ok input{border-color:var(--ok);color:var(--ok)}
+.q.bad input{border-color:var(--bad);color:var(--bad)}
+.ex{flex-basis:100%;font-size:14px;border-radius:8px;padding:8px 10px;margin-top:2px}
+.ok .ex{background:var(--okbg)}.bad .ex{background:var(--badbg)}
+.ex b{display:block}
+.ok .ex b{color:var(--ok)}.bad .ex b{color:var(--bad)}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+button{font:700 16px "Be Vietnam Pro",sans-serif;border-radius:10px;padding:12px 22px;border:2px solid var(--ink);cursor:pointer}
+.go{background:var(--ink);color:var(--paper)}
+.again{background:transparent;color:var(--ink)}
+button:focus-visible{outline:3px solid var(--margin);outline-offset:2px}
+#res{background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:16px;margin-bottom:16px;text-align:center}
+#res .big{font:400 56px/1 "Patrick Hand",cursive;color:var(--ink)}
+#res p{margin:6px 0 0}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<h1>Phiếu bài tập Toán lớp 5</h1>
+<p class="sub">Viết số đo đại lượng dưới dạng số thập phân. Dùng dấu phẩy hoặc dấu chấm đều được.</p>
+<div class="who"><label>Họ và tên<input type="text" autocomplete="off"></label><label>Lớp<input type="text" autocomplete="off"></label></div>
+<div id="res" hidden role="status"></div>
+<div id="app"></div>
+<div class="actions"><button class="go" id="submit">Nộp bài</button><button class="again" id="reset" hidden>Làm lại</button></div>
+</main>
+<script>
+const L="abcdeg";
+const LEN="Hai đơn vị độ dài liền kề hơn kém nhau 10 lần (1 km = 1000 m; 1 m = 10 dm = 100 cm = 1000 mm).";
+const ARE="Hai đơn vị diện tích liền kề hơn kém nhau 100 lần (1 km² = 100 ha; 1 ha = 10 000 m²; 1 m² = 100 dm²).";
+const MAS="1 tấn = 10 tạ; 1 tạ = 10 yến; 1 yến = 10 kg; 1 kg = 1000 g. Cách dễ nhất: đổi hết về kg rồi đổi sang đơn vị cần tìm.";
+// Câu một ô: [vế trái, đơn vị, đáp án, giải thích]. Câu hai ô: [vế trái, đv1, đv2, đáp án 1, đáp án 2, giải thích]
+const G=[
+{t:"Bài 1. Viết các số đo độ dài dưới dạng số thập phân",n:LEN,r:[
+["3 m 5 dm","m","3.5","5 dm = 0,5 m nên 3 m + 0,5 m = 3,5 m."],
+["7 m 25 cm","dm","72.5","7 m = 70 dm; 25 cm = 2,5 dm. Cộng lại: 70 + 2,5 = 72,5 dm."],
+["4 km 8 m","km","4.008","8 m = 0,008 km nên 4 km + 0,008 km = 4,008 km."],
+["12 m 6 mm","cm","1200.6","12 m = 1200 cm; 6 mm = 0,6 cm. Cộng lại: 1200,6 cm."],
+["9 dm 7 cm","m","0.97","9 dm = 0,9 m; 7 cm = 0,07 m. Cộng lại: 0,97 m."],
+["15 km 35 m","km","15.035","35 m = 0,035 km nên 15 km + 0,035 km = 15,035 km."]]},
+{t:"Bài 2. Viết các số đo độ dài dưới dạng số thập phân",n:LEN,r:[
+["5 km 45 m","km","5.045","45 m = 0,045 km nên 5,045 km."],
+["8 m 7 dm","dm","87","8 m = 80 dm; 80 dm + 7 dm = 87 dm (số tự nhiên, không có dấu phẩy)."],
+["1 m 625 mm","m","1.625","625 mm = 0,625 m nên 1 m + 0,625 m = 1,625 m."],
+["12 dm 8 cm","m","1.28","12 dm 8 cm = 120 cm + 8 cm = 128 cm. Đổi 128 cm = 1,28 m."],
+["3 km 75 m","km","3.075","75 m = 0,075 km nên 3,075 km."],
+["45 km 5 m","m","45005","45 km = 45 000 m; cộng thêm 5 m được 45 005 m."]]},
+{t:"Bài 3. Viết các số đo diện tích dưới dạng số thập phân",n:ARE,r:[
+["5 m² 25 dm²","m²","5.25","25 dm² = 0,25 m² nên 5 m² + 0,25 m² = 5,25 m²."],
+["8 m² 7 cm²","dm²","800.07","8 m² = 800 dm²; 7 cm² = 0,07 dm². Cộng lại: 800,07 dm²."],
+["3 km² 45 ha","km²","3.45","45 ha = 0,45 km² (vì 1 ha = 0,01 km²) nên 3,45 km²."],
+["12 ha 83 m²","ha","12.0083","83 m² = 0,0083 ha (vì 1 m² = 0,0001 ha) nên 12,0083 ha."],
+["6 dm² 25 cm²","m²","0.0625","6 dm² 25 cm² = 6,25 dm². Mà 1 dm² = 0,01 m² nên 6,25 dm² = 0,0625 m²."],
+["2 km² 3500 m²","ha","200.35","2 km² = 200 ha; 3500 m² = 0,35 ha. Cộng lại: 200,35 ha."]]},
+{t:"Bài 4. Viết các số đo diện tích dưới dạng số thập phân",n:ARE,r:[
+["3 ha 2500 m²","ha","3.25","2500 m² = 0,25 ha nên 3 ha + 0,25 ha = 3,25 ha."],
+["6 km² 7 ha","km²","6.07","7 ha = 0,07 km² nên 6,07 km²."],
+["4 m² 35 dm²","m²","4.35","35 dm² = 0,35 m² nên 4,35 m²."],
+["2 ha 138 m²","ha","2.0138","138 m² = 0,0138 ha nên 2,0138 ha."],
+["5 km² 600 m²","ha","500.06","5 km² = 500 ha; 600 m² = 0,06 ha. Cộng lại: 500,06 ha."],
+["7 dm² 35 mm²","dm²","7.0035","1 dm² = 10 000 mm² nên 35 mm² = 0,0035 dm². Cộng lại: 7,0035 dm²."]]},
+{t:"Bài 5. Viết các số đo khối lượng dưới dạng số thập phân",n:MAS,r:[
+["4 kg 250 g","kg","4.25","250 g = 0,25 kg nên 4,25 kg."],
+["7 tấn 35 kg","tấn","7.035","35 kg = 0,035 tấn nên 7,035 tấn."],
+["2 tạ 8 kg","yến","20.8","2 tạ = 20 yến; 8 kg = 0,8 yến. Cộng lại: 20,8 yến."],
+["5 yến 6 kg","tạ","0.56","5 yến 6 kg = 56 kg. Mà 1 tạ = 100 kg nên 56 kg = 0,56 tạ."],
+["3 tấn 5 kg","tạ","30.05","3 tấn = 30 tạ; 5 kg = 0,05 tạ. Cộng lại: 30,05 tạ."],
+["2 tạ 7 kg","tấn","0.207","2 tạ 7 kg = 207 kg. Mà 1 tấn = 1000 kg nên 207 kg = 0,207 tấn."]]},
+{t:"Bài 6. Viết các số đo khối lượng dưới dạng số thập phân",n:MAS,r:[
+["3 tấn 25 kg","tạ","30.25","3 tấn = 30 tạ; 25 kg = 0,25 tạ. Cộng lại: 30,25 tạ."],
+["5 tạ 4 kg","tấn","0.504","5 tạ 4 kg = 504 kg = 0,504 tấn."],
+["2 kg 72 g","kg","2.072","72 g = 0,072 kg nên 2,072 kg."],
+["1 tấn 35 kg","tấn","1.035","35 kg = 0,035 tấn nên 1,035 tấn."],
+["4 tạ 5 kg","yến","40.5","4 tạ 5 kg = 405 kg. Mà 1 yến = 10 kg nên 405 kg = 40,5 yến."],
+["7 yến 5 kg","tạ","0.75","7 yến 5 kg = 75 kg = 0,75 tạ."]]},
+{t:"Bài 7. Viết số thích hợp vào chỗ chấm (độ dài)",n:"Phần thập phân đổi sang đơn vị nhỏ hơn. Ví dụ: 3,5 m = 3 m 5 dm.",r:[
+["7,25 km","km","m","7","250","0,25 km = 250 m nên 7,25 km = 7 km 250 m."],
+["4,08 m","m","cm","4","8","0,08 m = 8 cm nên 4,08 m = 4 m 8 cm."],
+["12,6 dm","dm","cm","12","6","0,6 dm = 6 cm nên 12,6 dm = 12 dm 6 cm."],
+["5,045 km","km","m","5","45","0,045 km = 45 m nên 5,045 km = 5 km 45 m."],
+["2,3 m","m","cm","2","30","0,3 m = 30 cm nên 2,3 m = 2 m 30 cm."],
+["0,45 m","dm","cm","4","5","0,45 m = 4,5 dm = 4 dm 5 cm."]]},
+{t:"Bài 8. Viết số thích hợp vào chỗ chấm (diện tích)",n:ARE,r:[
+["5,25 m²","m²","dm²","5","25","0,25 m² = 25 dm² nên 5,25 m² = 5 m² 25 dm²."],
+["8,07 ha","ha","m²","8","700","0,07 ha = 700 m² (1 ha = 10 000 m²) nên 8 ha 700 m²."],
+["3,45 km²","km²","ha","3","45","0,45 km² = 45 ha nên 3,45 km² = 3 km² 45 ha."],
+["12,08 m²","m²","cm²","12","800","0,08 m² = 800 cm² (1 m² = 10 000 cm²) nên 12 m² 800 cm²."],
+["6,5 dm²","dm²","cm²","6","50","0,5 dm² = 50 cm² (1 dm² = 100 cm²) nên 6 dm² 50 cm²."],
+["2,0035 km²","km²","m²","2","3500","0,0035 km² = 3500 m² (1 km² = 1 000 000 m²) nên 2 km² 3500 m²."]]},
+{t:"Bài 9. Viết số thích hợp vào chỗ chấm (khối lượng)",n:MAS,r:[
+["4,25 kg","kg","g","4","250","0,25 kg = 250 g nên 4,25 kg = 4 kg 250 g."],
+["7,035 tấn","tấn","kg","7","35","0,035 tấn = 35 kg nên 7 tấn 35 kg."],
+["2,8 tạ","tạ","kg","2","80","0,8 tạ = 80 kg nên 2 tạ 80 kg."],
+["5,6 yến","yến","kg","5","6","0,6 yến = 6 kg nên 5 yến 6 kg."],
+["3,05 tấn","tấn","yến","3","5","0,05 tấn = 50 kg = 5 yến nên 3 tấn 5 yến."],
+["1,007 kg","kg","g","1","7","0,007 kg = 7 g nên 1 kg 7 g."]]}
+];
+const fmt=s=>String(s).replace(".",",");
+const num=v=>{v=v.replace(/\s/g,"").replace(",",".");return v===""||isNaN(v)?null:+v};
+const app=document.getElementById("app"),res=document.getElementById("res"),sb=document.getElementById("submit"),rs=document.getElementById("reset");
+let total=0;
+function build(){
+  total=0;
+  app.innerHTML=G.map((g,gi)=>`<section data-g="${gi}"><h2>${g.t}<span class="tally"></span></h2><p class="note">${g.n}</p>`+g.r.map((r,i)=>{
+    total++;const two=r.length===6;
+    const inp=`<input inputmode="decimal" autocomplete="off" aria-label="Đáp án câu ${L[i]}">`;
+    return `<div class="q" data-g="${gi}" data-i="${i}"><span class="l">${L[i]}) ${r[0]} ${two?"= ":"="}</span>${inp}<span class="u">${r[1]}</span>${two?inp+`<span class="u">${r[2]}</span>`:""}<div class="ex" hidden></div></div>`;
+  }).join("")+"</section>").join("");
+  app.querySelectorAll("input").forEach(el=>el.addEventListener("keydown",e=>{
+    if(e.key==="Enter"){e.preventDefault();const all=[...app.querySelectorAll("input")];const n=all[all.indexOf(el)+1];if(n)n.focus();}
+  }));
+  res.hidden=true;rs.hidden=true;sb.hidden=false;
+}
+function grade(){
+  let ok=0;
+  app.querySelectorAll("section").forEach(sec=>{
+    let sok=0;
+    sec.querySelectorAll(".q").forEach(q=>{
+      const r=G[q.dataset.g].r[q.dataset.i],two=r.length===6;
+      const ins=[...q.querySelectorAll("input")];
+      const ans=two?[r[3],r[4]]:[r[2]];
+      const vals=ins.map(x=>num(x.value));
+      const good=vals.every((v,k)=>v!==null&&Math.abs(v-+ans[k])<1e-9);
+      const empty=vals.some(v=>v===null);
+      ins.forEach(x=>x.readOnly=true);
+      q.classList.add(good?"ok":"bad");
+      const right=two?`${fmt(r[3])} ${r[1]} ${fmt(r[4])} ${r[2]}`:`${fmt(r[2])} ${r[1]}`;
+      const ex=q.querySelector(".ex");
+      ex.innerHTML=`<b>${good?"Đúng rồi!":(empty?"Chưa điền đủ.":"Chưa đúng.")} Đáp án: ${r[0]} = ${right}</b>${r[two?5:3]}`;
+      ex.hidden=false;
+      if(good){ok++;sok++;}
+    });
+    sec.querySelector(".tally").textContent=`(${sok}/${G[sec.dataset.g].r.length} câu đúng)`;
+  });
+  const sc=(ok/total*10).toFixed(1).replace(".",",");
+  const msg=ok/total>=.9?"Xuất sắc! Con nắm rất vững cách đổi đơn vị.":ok/total>=.7?"Làm tốt lắm! Xem lại vài câu sai để chắc hơn nhé.":ok/total>=.5?"Con đã làm được một nửa. Đọc kỹ lời giải các câu sai rồi làm lại nhé.":"Đừng nản! Hãy đọc phần ghi nhớ ở mỗi bài và lời giải, rồi bấm Làm lại.";
+  res.innerHTML=`<div class="big">${sc}/10</div><p><b>${ok}/${total} câu đúng</b></p><p>${msg}</p>`;
+  res.hidden=false;sb.hidden=true;rs.hidden=false;
+  res.scrollIntoView({behavior:"smooth",block:"start"});
+}
+sb.onclick=grade;
+rs.onclick=()=>{build();window.scrollTo({top:0,behavior:"smooth"});};
+build();
+</script>
+</body>
+</html>
