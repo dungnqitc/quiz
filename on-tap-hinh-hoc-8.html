@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ôn tập Hình Học 8 – Mục lục</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;--card:#fff;--acc:#0b8f8c;--acc8:#2447b8;--mute:#5b6b7f;--ok:#1a8f4c;--warn:#c0392b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#2aa39c;--acc8:#3f63d6;--mute:#9fb2c4;--ok:#2f9c6a;--warn:#ff8a7d}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--card:#162735;--acc:#2aa39c;--acc8:#3f63d6;--mute:#9fb2c4;--ok:#2f9c6a;--warn:#ff8a7d}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.65 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background-color:var(--paper);
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:900px;margin:0 auto;padding:16px 16px 56px}
+.back{display:inline-block;margin:6px 0 10px;color:var(--acc8);font-weight:700;text-decoration:none}
+.back:hover{text-decoration:underline}
+h1.pt{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.lead{color:var(--mute);margin:0 0 18px;font-size:.93rem}
+/* ---- mục lục ---- */
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:620px){.toc{grid-template-columns:1fr}}
+.toccard{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:var(--card);
+border:2px solid var(--ink);border-radius:16px;padding:16px 18px;box-shadow:6px 6px 0 var(--acc8);transition:transform .08s ease}
+.toccard:hover{transform:translate(-2px,-2px)}
+@media (prefers-reduced-motion:reduce){.toccard:hover{transform:none}}
+.toccard .ic{font-size:1.6rem;line-height:1}
+.toccard .tt{font-weight:800;font-size:1.08rem}
+.toccard .mt{color:var(--mute);font-size:.84rem;margin-top:2px}
+.toccard .num{margin-left:auto;color:var(--mute);font-weight:800;font-size:1.1rem;opacity:.6}
+/* ---- thanh công cụ trang con ---- */
+.topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.unlockbar{font-size:.86rem;color:var(--mute);margin:0}
+.status{font-weight:700;margin-left:4px}
+.status.on{color:var(--ok)}
+.allbtn{margin-left:auto;background:var(--acc8);color:#fff;border:none;border-radius:10px;padding:8px 12px;font:inherit;font-weight:700;cursor:pointer}
+.allbtn:hover{filter:brightness(1.07)}
+/* ---- sub-tab A/B ---- */
+.subtabs{display:flex;gap:8px;margin:2px 0 14px}
+.subtab{flex:0 0 auto;cursor:pointer;font:inherit;font-weight:700;font-size:.92rem;
+color:var(--acc8);background:var(--card);border:2px solid var(--acc8);border-radius:10px;padding:8px 18px}
+.subtab.active{color:#fff;background:var(--acc8)}
+.subtab:hover{filter:brightness(1.03)}
+.subpanel{display:flex;flex-direction:column;gap:14px}
+/* ---- trang nội dung gốc dạng thẻ ---- */
+#content{display:flex;flex-direction:column;gap:14px}
+.page{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:20px 18px;box-shadow:6px 6px 0 var(--acc8)}
+.page .pn{position:absolute;right:12px;top:10px;color:var(--mute);font:600 12px/1 "Be Vietnam Pro",sans-serif;background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+.page h2{text-align:center;font-size:1.3em;margin:.2em 0 .5em;font-weight:800;color:var(--ink)}
+.page p{margin:.5em 0;font-size:1.02em}
+.bar{text-align:left;padding:9px 16px;margin:16px 0 8px;border:none;border-radius:10px;
+font-weight:800;line-height:1.35;color:#fff !important;background:var(--acc8) !important;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.bar b{color:#fff}
+.bar[style*="204,255,153"]{background:var(--acc) !important}
+.bar[style*="255,255,204"]{background:#e0820a !important}
+.bar img.m{vertical-align:middle}
+.figrow{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:12px 0;align-items:center}
+.fig{height:auto;max-width:100%;border-radius:8px;background:#fff;padding:4px}
+.mline{margin:4px 0;overflow-x:auto}
+.mline img{height:auto;max-width:100%;background:#fff;border-radius:6px}
+.sol-wrap{margin:10px 0 4px}
+.toggle{background:var(--acc8);color:#fff;border:none;border-radius:10px;padding:8px 16px;font:inherit;font-weight:700;cursor:pointer}
+.toggle:hover{filter:brightness(1.07)}
+.sol{display:none;border:2px dashed var(--line);border-radius:12px;padding:6px 14px 10px;margin-top:10px;background:color-mix(in srgb,var(--ok) 7%,var(--card))}
+.sol.show{display:block}
+.lock{position:fixed;inset:0;background:rgba(10,20,30,.55);display:none;align-items:center;justify-content:center;z-index:60;padding:16px}
+.lock.show{display:flex}
+.lockbox{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:22px;max-width:360px;width:100%;box-shadow:8px 8px 0 var(--acc8);text-align:center}
+.lockbox h3{margin:0 0 6px;font-weight:800}
+.lockbox p{color:var(--mute);font-size:.9rem;margin:0 0 14px}
+.lockbox input{width:100%;font:inherit;padding:10px 12px;border:2px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);text-align:center;letter-spacing:.3em;font-weight:700}
+.lockbox .err{color:var(--warn);font-size:.85rem;min-height:18px;margin:8px 0 0;font-weight:700}
+.lockbox .row{display:flex;gap:10px;margin-top:12px}
+.lockbox button{flex:1;font:inherit;font-weight:700;padding:10px;border-radius:10px;cursor:pointer;border:2px solid var(--ink)}
+.lockbox .ok{background:var(--acc8);color:#fff;border-color:var(--acc8)}
+.lockbox .cancel{background:transparent;color:var(--ink)}
+@media (max-width:560px){.page{padding:16px 14px;box-shadow:4px 4px 0 var(--acc8)}}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="lop8.html">← Về Lớp 8</a><h1 class="pt">📐 Ôn tập Hình Học 8</h1><p class="lead">Chọn một chủ điểm để ôn tập. Mỗi trang gồm <b>A. Tóm tắt lý thuyết</b> và <b>B. Bài tập theo từng dạng</b> (giữ nguyên nội dung &amp; hình vẽ gốc). Lời giải Ẩn/Hiện bằng mã <b>2026</b>.</p><div class="toc"><a class="toccard" href="on-tap-hinh-hoc-8-01-tu-giac.html"><span class="ic">⬜</span><span><span class="tt">Tứ giác</span><br><span class="mt">25 trang · Lý thuyết + Bài tập</span></span><span class="num">01</span></a><a class="toccard" href="on-tap-hinh-hoc-8-02-hinh-thang.html"><span class="ic">📐</span><span><span class="tt">Hình thang</span><br><span class="mt">12 trang · Lý thuyết + Bài tập</span></span><span class="num">02</span></a><a class="toccard" href="on-tap-hinh-hoc-8-03-hinh-thang-can.html"><span class="ic">🔷</span><span><span class="tt">Hình thang cân</span><br><span class="mt">25 trang · Lý thuyết + Bài tập</span></span><span class="num">03</span></a><a class="toccard" href="on-tap-hinh-hoc-8-04-duong-trung-binh.html"><span class="ic">📏</span><span><span class="tt">Đường trung bình</span><br><span class="mt">8 trang · Lý thuyết + Bài tập</span></span><span class="num">04</span></a><a class="toccard" href="on-tap-hinh-hoc-8-05-hinh-binh-hanh.html"><span class="ic">▱</span><span><span class="tt">Hình bình hành</span><br><span class="mt">14 trang · Lý thuyết + Bài tập</span></span><span class="num">05</span></a><a class="toccard" href="on-tap-hinh-hoc-8-06-hinh-chu-nhat.html"><span class="ic">▭</span><span><span class="tt">Hình chữ nhật</span><br><span class="mt">19 trang · Lý thuyết + Bài tập</span></span><span class="num">06</span></a><a class="toccard" href="on-tap-hinh-hoc-8-07-hinh-thoi.html"><span class="ic">♦️</span><span><span class="tt">Hình thoi</span><br><span class="mt">17 trang · Lý thuyết + Bài tập</span></span><span class="num">07</span></a><a class="toccard" href="on-tap-hinh-hoc-8-08-hinh-vuong.html"><span class="ic">⬛</span><span><span class="tt">Hình vuông</span><br><span class="mt">16 trang · Lý thuyết + Bài tập</span></span><span class="num">08</span></a><a class="toccard" href="on-tap-hinh-hoc-8-09-dien-tich-da-giac.html"><span class="ic">🟦</span><span><span class="tt">Diện tích đa giác</span><br><span class="mt">26 trang · Lý thuyết + Bài tập</span></span><span class="num">09</span></a><a class="toccard" href="on-tap-hinh-hoc-8-10-dinh-li-ta-let.html"><span class="ic">📈</span><span><span class="tt">Định lí Ta-lét</span><br><span class="mt">22 trang · Lý thuyết + Bài tập</span></span><span class="num">10</span></a><a class="toccard" href="on-tap-hinh-hoc-8-11-duong-phan-giac.html"><span class="ic">📐</span><span><span class="tt">Đường phân giác</span><br><span class="mt">10 trang · Lý thuyết + Bài tập</span></span><span class="num">11</span></a><a class="toccard" href="on-tap-hinh-hoc-8-12-tam-giac-dong-dang.html"><span class="ic">🔺</span><span><span class="tt">Tam giác đồng dạng</span><br><span class="mt">39 trang · Lý thuyết + Bài tập</span></span><span class="num">12</span></a></div><p style="text-align:center;color:var(--mute);font-size:.85rem;margin-top:24px">© Copyright@kira</p>
+</main>
+</body>
+</html>
