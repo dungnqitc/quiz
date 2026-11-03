@@ -229,13 +229,12 @@ tabs.forEach(function(t,idx){t.onclick=function(){tabs.forEach(function(x,j){x.s
 function ytId(u){try{u=String(u).trim();var m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);if(m)return m[1];if(/^[A-Za-z0-9_-]{11}$/.test(u))return u}catch(e){}return ""}
 function renderListening(data){
  var box=$("#lBox");
- if(data&&data.note&&$("#lInfo"))$("#lInfo").textContent="🎧 "+data.note;
- var vids=(data&&Array.isArray(data.videos))?data.videos:[];
+ var raw=(data&&Array.isArray(data.videos))?data.videos:(Array.isArray(data)?data:[]);
+ var seen={},vids=[];
+ raw.forEach(function(v){var url=(typeof v==="string")?v:(v&&(v.url||v.id))||"";var id=ytId(url);if(!id||seen[id])return;seen[id]=1;vids.push(id)});
  if(!vids.length){box.innerHTML='<div class="vid"><p>Chưa có video luyện nghe nào.</p></div>';return}
- box.innerHTML=vids.map(function(v){
-  var id=ytId(v.url||v.id||"");
-  var inner=id?('<div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'" title="'+esc(v.title||"Video")+'" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>'):('<p>Link video không hợp lệ: '+esc(v.url||"")+'</p>');
-  return '<div class="vid">'+(v.title?'<h3>'+esc(v.title)+'</h3>':'')+(v.desc?'<p>'+esc(v.desc)+'</p>':'')+inner+'</div>';
+ box.innerHTML=vids.map(function(id,i){
+  return '<div class="vid"><h3>Video '+(i+1)+'</h3><div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'" title="Video '+(i+1)+'" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>';
  }).join("");
 }
 (function loadListening(){
