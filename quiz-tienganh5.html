@@ -23,6 +23,11 @@ h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 [role=tab]:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .panel{margin-top:4px}
 .panel[hidden]{display:none}
+.vid{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:14px;margin-bottom:14px;box-shadow:5px 5px 0 var(--acc)}
+.vid h3{margin:0 0 4px;font-size:1.08rem;font-weight:800}
+.vid p{margin:0 0 10px;color:var(--mute);font-size:.9rem}
+.vframe{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000}
+.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 details{background:var(--card);border:2px solid var(--ink);border-radius:12px;margin-bottom:10px;overflow:hidden}
 summary{cursor:pointer;padding:12px 14px;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:8px}
 summary::-webkit-details-marker{display:none}
@@ -71,6 +76,7 @@ select,.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:
     <button role="tab" id="t0" aria-selected="true" aria-controls="p0">Ngữ pháp</button>
     <button role="tab" id="t1" aria-selected="false" aria-controls="p1">Quiz từ vựng</button>
     <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Quiz ngữ pháp</button>
+    <button role="tab" id="t3" aria-selected="false" aria-controls="p3">Luyện nghe</button>
   </div>
 
   <section class="panel" id="p0" role="tabpanel" aria-labelledby="t0"></section>
@@ -90,6 +96,11 @@ select,.btn{font:inherit;font-weight:700;border:2px solid var(--ink);background:
     </div>
     <p class="sub" id="gInfo" style="margin:0 0 10px">20 câu mỗi lượt (tỉ lệ 70% cơ bản + 30% nâng cao, ngẫu nhiên).</p>
     <div id="gBox"></div>
+  </section>
+
+  <section class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+    <p class="sub" id="lInfo" style="margin:0 0 12px">🎧 Xem video và luyện nghe theo chủ đề.</p>
+    <div id="lBox"></div>
   </section>
 </div>
 
@@ -793,6 +804,35 @@ function startG(){
 }
 fillUnitSelect();
 $('#gGo').onclick=startG;startG();
+
+/* Tab 4: Luyện nghe (video YouTube khai báo trong tienganh5-listening.json) */
+function ytId(u){
+  try{
+    u=String(u).trim();
+    var m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
+    if(m)return m[1];
+    if(/^[A-Za-z0-9_-]{11}$/.test(u))return u;
+  }catch(e){}
+  return "";
+}
+function renderListening(data){
+  var box=$('#lBox');
+  if(data&&data.note&&$('#lInfo'))$('#lInfo').textContent='🎧 '+data.note;
+  var vids=(data&&Array.isArray(data.videos))?data.videos:[];
+  if(!vids.length){box.innerHTML='<div class="vid"><p>Chưa có video luyện nghe nào.</p></div>';return}
+  box.innerHTML=vids.map(function(v){
+    var id=ytId(v.url||v.id||'');
+    var inner=id?('<div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'" title="'+esc(v.title||'Video')+'" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>'):('<p>Link video không hợp lệ: '+esc(v.url||'')+'</p>');
+    return '<div class="vid">'+(v.title?'<h3>'+esc(v.title)+'</h3>':'')+(v.desc?'<p>'+esc(v.desc)+'</p>':'')+inner+'</div>';
+  }).join('');
+}
+(function loadListening(){
+  var box=$('#lBox');box.innerHTML='<div class="vid"><p>Đang tải danh sách video…</p></div>';
+  fetch('tienganh5-listening.json',{cache:'no-cache'})
+    .then(function(r){if(!r.ok)throw 0;return r.json()})
+    .then(renderListening)
+    .catch(function(){box.innerHTML='<div class="vid"><p>Không tải được danh sách video. Nếu mở trực tiếp bằng file:// trình duyệt có thể chặn đọc JSON — hãy chạy qua một web server.</p></div>'});
+})();
 </script>
 </body>
 </html>
