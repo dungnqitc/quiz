@@ -30,6 +30,9 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 .cardlink b{display:block;font-size:1.2rem;margin-bottom:4px}
 .cardlink span{color:var(--mute);font-size:.9rem}
 @media (prefers-reduced-motion:reduce){.cardlink:hover{transform:none}}
+.refcols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+.refcol{display:flex;flex-direction:column;gap:14px}
+@media (max-width:640px){.refcols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -57,6 +60,9 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 <span>Danh sách các bài tập bổ trợ. Bấm vào để mở từng bài.</span>
 </a>
 <h3 class="secttl">Tham khảo</h3>
+<div class="refcols">
+<div class="refcol">
+<h3 class="secttl">📚 Ôn tập nhanh</h3>
 <a class="cardlink cen" href="quiz-anh6.html">
 <b>Tiếng Anh 6 – Thanh Xuân</b>
 <span>43 câu, 9 chủ đề (phát âm, ngữ pháp, viết lại câu…). Quiz tổng hợp (15 câu) hoặc theo chủ đề (20 câu).</span>
@@ -69,6 +75,19 @@ h1{font-size:1.6rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
 <b>Ôn thi Toán 6 – Thanh Xuân</b>
 <span>Câu mục tiêu 9+: kiến thức, 8 câu trắc nghiệm (có chấm điểm) và 6 bài tự luận kèm lời giải (đề 2019–2025).</span>
 </a>
+</div>
+<div class="refcol">
+<h3 class="secttl">📝 Đề thi thử</h3>
+<a class="cardlink ccg" href="de-thi-anh6-caugiay.html">
+<b>Đề thi thử Tiếng Anh vào lớp 6 – Cầu Giấy</b>
+<span>Nhiều đề thi thử (36 câu/đề), nộp bài chấm theo đáp án và quy đổi thang điểm 10.</span>
+</a>
+<a class="cardlink ctx" href="de-thi-toan6-caugiay.html">
+<b>Đề thi thử Toán vào lớp 6 – Cầu Giấy</b>
+<span>7 đề (2019–2026), chấm tự động phần điền đáp số/trắc nghiệm, có lời giải mẫu, ghi lịch sử.</span>
+</a>
+</div>
+</div>
 </div>
 <p style="text-align:center;color:var(--mute);font-size:.85rem;margin-top:24px">© Copyright@kira</p>
 </main>

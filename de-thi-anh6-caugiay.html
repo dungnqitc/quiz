@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Đề thi thử vào lớp 6 – THCS Cầu Giấy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap">
+<style>
+/* Giao diện đồng bộ với các trang khác của ứng dụng. Giữ nguyên tên biến
+   (--ac,--card,--bd,--ok,--no...) và tên class để engine chấm điểm hoạt động. */
+:root{--ink:#1b2a41;--paper:#fbfdff;--line:#d3e6f3;
+--bg:var(--paper);--fg:var(--ink);--mut:#5b6b7f;--card:#fff;--bd:#d3e6f3;--ac:#2447b8;--ok:#1a8f4c;--no:#c0392b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--mut:#9fb2c4;--card:#162735;--bd:#1c3342;--ac:#8fa8ff;--ok:#4fd1a0;--no:#ff8a7d}}
+:root[data-theme="dark"]{--ink:#e6eef5;--paper:#0f1d27;--line:#1c3342;--mut:#9fb2c4;--card:#162735;--bd:#1c3342;--ac:#8fa8ff;--ok:#4fd1a0;--no:#ff8a7d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--paper);color:var(--ink);font:16px/1.6 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px}
+main{max-width:820px;margin:auto;padding:16px 16px 60px}
+.back{display:inline-block;margin:4px 0 10px;color:var(--ac);font-weight:700;text-decoration:none}
+.back:hover{text-decoration:underline}
+h1{font-size:1.5rem;line-height:1.25;margin:8px 0 4px;font-weight:800}
+.sub0{color:var(--mut);font-size:.9rem;margin:0 0 12px}
+nav{display:flex;gap:8px;overflow-x:auto;position:sticky;top:env(safe-area-inset-top,0px);background:var(--paper);padding:8px 0;z-index:5}
+nav button{flex:0 0 auto;padding:8px 16px;border:2px solid var(--line);background:var(--card);color:var(--mut);border-radius:999px;font:inherit;font-weight:700;cursor:pointer}
+nav button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+h3{font-size:1.02rem;margin:22px 0 8px;color:var(--ac);font-weight:800}
+.q{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:14px 16px;margin:12px 0;box-shadow:4px 4px 0 var(--ac)}
+.q p{margin:0 0 6px}.q label{display:block;padding:6px 8px;border-radius:8px;cursor:pointer}
+.ps{white-space:pre-line;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 14px}
+.chip{display:inline-block;border:2px solid var(--line);border-radius:999px;padding:2px 12px;margin:2px 4px 2px 0;background:var(--paper);font-weight:600}
+input[type=text]{width:100%;box-sizing:border-box;padding:9px 10px;font:inherit;border:2px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+select{font:inherit;padding:4px;border:2px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);max-width:48vw}
+button.sub,.act{padding:10px 18px;border:0;border-radius:10px;background:var(--ac);color:#fff;font:inherit;font-weight:700;cursor:pointer;margin:18px 6px 0 0}
+.act.g{background:var(--card);color:var(--ink);border:2px solid var(--ink)}
+.ok{background:color-mix(in srgb,var(--ok) 22%,transparent)!important;border-color:var(--ok)!important}
+.no{background:color-mix(in srgb,var(--no) 22%,transparent)!important;border-color:var(--no)!important}
+.fb{color:var(--mut);font-size:.88rem;margin-top:4px}
+.score{margin-top:16px;padding:14px;border-radius:12px;border:2px solid var(--ac);font-size:1.1rem;font-weight:800;box-shadow:4px 4px 0 var(--ac)}
+</style></head><body><main>
+<a class="back" href="lop5.html">← Về Lớp 5</a>
+<h1>Đề thi thử vào lớp 6 môn Tiếng Anh – THCS Cầu Giấy</h1>
+<p class="sub0">Mỗi tab là một đề (36 câu). Nộp bài để chấm theo đáp án; điểm hiển thị trên 36 và quy đổi thang 10.</p>
+<nav id="tabs"></nav><div id="panels"></div>
+<script>
+const L='ABCD',$=s=>document.querySelector(s),U=s=>s.replace(/~(.+?)~/g,'<u>$1</u>');
+const H={1:'Chọn từ có phần gạch chân/in đậm phát âm khác các từ còn lại.',3:'Chọn từ có trọng âm chính khác các từ còn lại.',5:'Chọn đáp án đúng nhất.',17:'Chọn từ/cụm từ GẦN nghĩa nhất với phần gạch chân.',19:'Chọn từ/cụm từ TRÁI nghĩa với phần gạch chân.',21:'Chọn câu đáp lại phù hợp.'};
+const D=[
+{n:'Đề 1',k:'ADBBCADCBCCBCDDBABDDAD',mc:`|laugh~s~|dream~s~|crab~s~|fan~s~
+|f~oo~l|p~oo~l|f~oo~d|st~oo~d
+|handsome|forget|mountain|carpet
+|industry|volunteer|comfortable|natural
+His alarm clock wouldn't stop ringing. He was ___. The sound was ___.|annoying / annoyed|annoyed / annoyed|annoyed / annoying|annoying / annoying
+___ have backbones. They give birth to live babies, not eggs, and feed their young on milk.|Mammals|Reptiles|Insects|Bacteria
+I saw Mr. Ryan in the library yesterday. He is a ___ teacher.|handsome tall American young|young American handsome tall|tall young handsome American|handsome tall young American
+He couldn't buy a new car because he got ___ money.|few|a few|little|a little
+“What do you call the mother of your father?” - “___.”|Aunt|Grandmother|Uncle|Grandfather
+There is a ___ new restaurant on Milton street. Shall we go there for lunch?|terrible|terribly|terrific|terrify
+Some snakes lay eggs, but ___ give birth to live offspring.|other|the other|others|another
+He sat down and ___ off his shoes before coming into his house.|went|took|kept|turned
+My mother ___ to the market at seven o'clock every morning.|walk|is walking|walks|walked
+We are going to have a picnic today. It’s a ___ day.|sunshine|sun|sunning|sunny
+My birthday is on ___.|November two|November second|the two of November|the second of November
+Spaghetti ___ our favorite food. We can eat spaghetti every day.|are|is|were|was
+It was a difficult time, but we never ~gave up~ hope.|stopped|continued|had|offered
+We were flying ~above~ the clouds.|under|over|towards|beside
+A lot of people ~fail~ their driving test the first time.|miss|qualify|defeat|pass
+It's ~dangerous~ for a girl to walk alone at night.|busy|boring|harmful|safe
+Would you like to have dinner with me? - ___.|Yes, I’d love to|Yes, it is|Yes, I hope so|Yes, so do I
+Mary: "Thanks a lot for your help." John: "___."|My happiness|My excitement|My delight|My pleasure`,
+cz:{p:`How to be healthy
+Most of us don't do enough exercise. Adults spend too much time at [1] sitting in offices, while children spend too much time indoors, playing on their computers. What is worse is that many of us also don't eat healthy food. Fast food, [2] burgers and chips, are very popular with teenagers and adults.
+When we don't eat well or exercise, we have problems with our health. This is why it is important to exercise daily and eat well. This is actually quite easy to do. We can [3] by making small changes. Instead of [4] a bus to work or school, we can walk or cycle. When we have a meal, we can choose healthier food. We can eat cereal for breakfast and a healthy salad for lunch and always have vegetables with our dinner. [5] we do these things, then we will all be much healthier as well as happier.`,o:'business,work,job,school;for,in,like,as;begin,arrive,become,decide;taking,riding,travelling,finding;But,If,So,Unless',k:'BCAAB'},
+rd:{p:`Many people now think that teachers give pupils too much homework. They say that it is unnecessary for children to work at home in their free time. Moreover, they argue that most teachers do not properly plan the homework task they give to pupils. The result is that pupils have to repeat tasks which they have already done at school.
+Recently in Greece many parents complained about the difficult homework which teachers gave to their children. The parents said that most of the homework was a waste of time, and they wanted to stop it. Spain and Turkey are two countries which stopped homework recently. In Denmark, Germany and several other countries in Europe, teachers cannot set homework at weekends. In Holland, teachers allow pupils to stay at school to do their homework. The children are free to help one another. Similar arrangements also exist in some British schools.
+Most people agree that homework is unfair. A pupil who can do his homework in a quiet and comfortable room is in a much better position than a pupil who does his homework in a small, noisy room with the television on. Some parents help their children with their homework. Other parents take no interest at all in the children's homework.
+It is important, however, that teachers talk to parents about homework. A teacher should suggest suitable tasks for parents to do with their children. Parents are often better at teaching their own children.`,k:'BDCAD',q:`According to the writer, many parents would like their children ___.|to do homework at school only|to have less homework|to do more difficult homework|to do homework both at school and at home
+According to many parents, ___.|children are too lazy to do their homework|teachers do not set enough homework|children shouldn’t be given marks for homework|a lot of homework has not been planned properly
+Greek parents thought ___.|their children’s homework was too easy|their children’s homework was useful|their children’s homework was useless|more time should be allowed for homework
+In some countries in Europe, ___.|teachers cannot have their pupils do their homework at weekends|few people think homework should be given to children only at weekends|teachers are allowed to give homework to children only at weekends|most people agree that it is fair to have children do their homework at home
+Which statement is NOT true?|In some schools in Britain, children can do their homework at school and help one another.|Only a small number of people think homework is fair.|Teachers should advise parents about how to work together with their children at home.|All parents show great interest in their children’s homework.`},
+ra:[[`driver?|architect or|a|Is|an|Mr. David`,`Is Mr. David an architect or a driver?`],[`drive|my brother.|than|carefully|more|I`,`I drive more carefully than my brother.`],[`every day.|room|This|be|should|cleaned`,`This room should be cleaned every day.`],[`to|enough|is|tall|play volleyball.|He`,`He is tall enough to play volleyball.`]],
+rw:[[`Going swimming in the river in summer is interesting.`,`It is`,[`It is interesting to swim in the river in summer.`,`It is interesting to go swimming in the river in summer.`]],[`What is the price of a bottle of cooking oil?`,`How much`,[`How much is a bottle of cooking oil?`,`How much does a bottle of cooking oil cost?`]],[`Nga likes playing basketball in the morning. (INTERESTED)`,``,[`Nga is interested in playing basketball in the morning.`]],[`My father went to work by car some years ago, but now he goes by bus. (USED TO)`,``,[`My father used to go to work by car some years ago, but now he goes by bus.`]]]},
+{n:'Đề 2',k:'CBCBAABADBBAAACAADBCCD',mc:`|dec~i~de|rem~i~nd|~i~nvent|prov~i~de
+|imagin~ed~|talk~ed~|travel~ed~|play~ed~
+|destroy|appear|happen|provide
+|character|engineer|difference|favourite
+___ they ride bicycles after school?|Do|Are|Does|Was
+___ you ___ tried Japanese food?|Have/ever|Did/ever|Could/never|Has/never
+___ Earth moves around ___ Sun every 365.25 days.|The - X|The - the|X - X|An - the
+___ the rubbish in the early morning is a part of my daily routine.|Taking out|Coming out|Pulling out|Bringing out
+Don’t go up that ladder. It doesn’t look ___.|safely|safest|the safer|safe
+Has he ever ___ a competition?|win|won|worn|winning
+Have you seen Jack? He’s the man wearing a ___ bow tie.|woolen lovely red|lovely red woolen|lovely woolen red|red lovely woolen
+I am surprised that you ___ it before.|have never done|will never do|couldn't do|have never did
+I heard a fantastic song ___ the radio yesterday.|on|at|in|above
+I left the job because I was making ___.|too little money|too few money|any money|some money
+I hope they will all do well; ___ it is okay with me even if they didn't do well.|lately|early|however|hence
+Tet is a ___ which occurs in late January or early February.|festival|meeting|party|activity
+Please give me some ~advice~ to buy suitable books for my ten-year-old girl.|recommendation|information|fiction|interest
+The children are ~very hungry~.|upset|sick|thirsty|starving
+A lot of people think that Angelina Jolie is really ~hot~.|cool|unattractive|memorable|beautiful
+I have left my pen at home so I have to ~borrow~ this one from Peter.|take|sell|lend|buy
+Anna: “Shall we eat out tonight?” Jane: “___.”|You are very welcome|It is very kind for you to invite me|That’s a great idea|That’s understandable
+Bob: "Thank you for the present, Jimmy." Jimmy: "___."|I’m sorry|Very glad|No, of course not|You’re welcome`,
+cz:{p:`The Internet is very useful. Online, you can pay your bills, buy clothes, and read the news. There [1] many good reasons to spend time online. However, people with Internet addiction are online too much. They don't spend time [2] their friends and family. Instead, they spend their time chatting with their Internet friends, people they have never [3] in real life. Some also play online games all day or night. Some people with Internet addictions even leave their jobs so they can spend even more time online! People with Internet addictions don't just go online to shop, have fun, or do work. People [4] have this problem often go online because they want to [5] from the stress and problems in their lives. Many internet addicts stop caring about their real lives and focus only on their online lives.`,o:'has,are,have,is;about,to,of,with;faced,met,watched,reunited;when,what,who,which;escape,stop,ban,hide',k:'BDBCA'},
+rd:{t:'Steve Cummins talks about starting his own business',p:`I'd worked for the company for almost ten years. They were good employers and the money wasn't that bad. They trusted in my ability and always left me to get on with my work. And I shared an office and met some lovely people, so I certainly wasn't unhappy there. But I just couldn't stop wondering how better my life would be if I had my own business and could make my own decisions. And so one year ago this week, I left my job.
+We don't have a spare room at home, so the kitchen table has been my office. It was difficult to begin with, but I soon got used to working in this way. I started by visiting small businesses in the area to see if I could interest them in my services. My proudest moment was making my first sale, a website for a local cake shop. Soon after, I started getting calls from other people asking for help with websites of their own, and I found myself getting quite busy.
+Of course, there have been challenges. I'm not earning quite as much as before, but it's enough, I don't have to pay for transport to work anymore, so that means I'm not spending quite so much. My biggest problem has been managing my time. There's no boss to tell me what to do, and I'm sometimes a little … I have this rule that work stops on a Friday afternoon, so I can spend time with the family at weekends, so I need to pay more attention to this.
+So, I wouldn't say it's been easy, but I don't regret my decision at all. I've enjoyed being my own boss and I'm quite hopeful about the future. During the next 12 months, I plan to rent some office space as I'd like to be able to separate work from my home life. I'm going to need to earn more money to pay for it, but I think it will help me to focus on my work.`,k:'BAACC',q:`Why did Steve leave his job?|He didn't like attending meetings.|He wanted more control of his work.|He had a great idea for a product.|He wanted to earn more money.
+Steve's greatest pleasure so far has been ___|getting his first customer.|not having to drive to work.|having his own office.|not having to answer the telephone.
+What does Steve say is the most difficult about working for himself?|Working hard enough|Not having a regular salary|Feeling lonely|Working at the weekend
+In the next year, Steve thinks ___|he will get an office job.|he will earn less money.|he might not need to work in his kitchen.|there will be much more competition.
+What would be a good introduction to this article?|In this article, Steve Cummins explains the problems of starting your own business and dealing with difficult customers.|Thinking of starting your own business? Steve Cummins did just that and now wishes he had done it sooner.|Steve Cummins made a big decision last year to leave his job. Read on to find out about the ups and downs of being your own boss.|Steve Cummins explains below how he dealt with not enjoying his job by leaving his employer and starting his own business.`},
+ra:[[`child.|since|a|was|collected|he|Minh has|stamps`,`Minh has collected stamps since he was a child.`],[`at|in|seven|start|the morning.|Their classes`,`Their classes start at seven in the morning.`],[`his time|Their uncle|most of|practicing|the music room.|spent|in|the violin`,`Their uncle spent most of his time practicing the violin in the music room.`],[`takes|It|two hours|my brother|learn English|every day.|to`,`It takes my brother two hours to learn English every day.`]],
+rw:[[`This exercise was very difficult. We could not do it.`,`This exercise was so`,[`This exercise was so difficult that we couldn't do it.`,`This exercise was so difficult that we could not do it.`]],[`What is your mother’s job?`,`What does`,[`What does your mother do?`]],[`Be careful or you'll fall off your bicycle. (IF)`,``,[`If you are not careful, you'll fall off your bicycle.`,`You'll fall off your bicycle if you are not careful.`,`If you aren't careful, you'll fall off your bicycle.`,`You'll fall off your bicycle if you aren't careful.`]],[`Nam is taller than Hung. (SHORTER)`,``,[`Hung is shorter than Nam.`]]]},
+{n:'Đề 3',k:'DBBDADBBABBBAABBBAADCA',mc:`|~g~oose|~g~uest|re~g~ular|teena~g~er
+|~u~nite|~u~nderline|~u~niversity|~u~niform
+|demand|desert|decide|defend
+|benefit|yesterday|hospital|employment
+"___, Sir?" - "Fruit salad, please."|What would you like for dessert|What dessert you would like|How would you like for dessert|How dessert would like
+___ the old man spoke very slowly and clearly, I couldn’t understand him at all.|If|Because|Since|Although
+Do we have to ___ all these new words?|memory|memorize|memorial|memo
+Everyone has to follow this way to get into the fair, ___?|do they|don’t they|doesn’t she|doesn’t he
+My father's office is ___ the second floor of Ha Noi Tower.|on|at|in|of
+Jason is the ___ boy in our class.|ruder|rudest|more rude|most rude
+Listen! Somebody ___ us.|was calling|is calling|are calling|calls
+The music is very quiet, so I ___ hear it very well.|can|can’t|could|couldn’t
+When the pizza ___, it was cold.|was delivered|is delivering|is delivered|delivered
+Can I offer you a ___ of chocolate cake to have with your tea?|slice|loaf|spoonful|handful
+I got this book from a very good friend ___.|of me|of mine|to me|mine
+I’ve given up ___ sweets.|to eat|eating|eaten|eat
+It's great to go out on such a ~lovely~ day.|ugly|beautiful|old|modern
+Maria likes her job. She finds it ~interesting~.|attractive|strange|normal|boring
+Let's wait here for her. I'm sure she'll ~turn up~ before long.|leave|arrive|visit|enter
+My mother always gets angry when she sees my ~messy~ room.|gloomy|dirty|untidy|tidy
+"That's a very nice skirt you're wearing." - "___"|How a compliment!|That's all right.|It's nice of you to say so.|I like you said so.
+Mary: "Hi, John. How are you?" John: "___. And you?"|Fine, thanks|I'm thirty-five years old|I'm free today|I'm not working today`,
+cz:{p:`Dear Rob,
+How are you? What have you been up to? Sorry, I haven't written to you [1] ages, but I've been really busy recently with end-of-term exams. You know what it's like! I've also been rehearsing for the Christmas show, which starts next week.
+Guess what I'm in the hospital. Don't panic. I'm not seriously ill. I fell off [2] I was playing tennis and broke my arm. Anyway, I'm only in for a day or two. Luckily, my injury won't stop me [3] in the show.
+The family is all fine. Mom's been working really [4] She doesn't get home too late. Dad has bought a new car. Well, I say "new", but actually it's about ten years old. Christ has got a new computer and spends [5] of the time playing computer games.`,o:'from,for,at,since;where,what,when,how;singing,to sing,sang,sing;quickly,badly,hard,fast;almost,a lots,most,number',k:'BCACC'},
+rd:{p:`Ted Robinson has been worried all week. Last Tuesday he received a letter from the local police. In the letter, he was asked to call at the station. Ted wondered why he was wanted by the police, but he went to the station yesterday, and now he is not worried anymore. At the station, he was told by a smiling policeman that his bicycle had been found. Five years ago, the policeman told him, the bicycle was picked up in a small village four hundred miles away. It’s now being sent to his home by train. Ted was most surprised when he heard the news. He was amused too because he never expected the bicycle to be found. It was stolen twenty years ago when Ted was a boy of fifteen.`,k:'DACBB',q:`Ted was worried because ___.|he received a letter|he went to the police station yesterday|the police would catch him|he didn’t know why the police wanted him
+The police who talked to Ted was ___.|pleasant|worried|surprised|small
+Why was Ted very surprised when he heard the news?|Because his bicycle was stolen 20 years ago.|Because his bicycle was found when he was a boy of fifteen.|Because he thought he would never find the bicycle.|Because the bicycle was sent to him by train.
+When was Ted’s bicycle found?|Last Tuesday|Five years ago|Twenty years ago|Yesterday
+Which of the following statements is NOT true?|The police asked Ted to go to their station.|The policeman told Ted the good news 5 days ago.|Ted is no longer anxious now.|Ted is 35 years old now.`},
+ra:[[`Loves|My sister|of|taking care|small animals.`,`My sister loves taking care of small animals.`],[`sitting in|in|he|and|is|interested|a boat|fishing?|Why`,`Why is he interested in sitting in a boat and fishing?`],[`at a university in HCMC|many local students|of|English.|their “fear”|Foreign volunteers|to|overcome|are helping`,`Foreign volunteers at a university in HCMC are helping many local students to overcome their “fear” of English.`],[`in|a small village|the countryside.|in|live|My parents`,`My parents live in a small village in the countryside.`]],
+rw:[[`Mr. Brown's team has lost the game. He looks very sad.`,`Mr. Brown, whose`,[`Mr. Brown, whose team has lost the game, looks very sad.`]],[`It takes Minh 2 hours to do his homework every day.`,`Minh spends`,[`Minh spends 2 hours on doing his homework every day.`,`Minh spends 2 hours doing his homework every day.`,`Minh spends two hours on doing his homework every day.`,`Minh spends two hours doing his homework every day.`]],[`You can’t read so quickly as I can. (MORE)`,``,[`I can read more quickly than you.`,`I can read more quickly than you can.`]],[`When I was a child, we lived in London. (USED)`,``,[`When I was a child, we used to live in London.`,`We used to live in London when I was a child.`]]]},
+{n:'Đề 4',k:'DCCBDDABACBDBACDAACCBA',mc:`|bus~es~|speech~es~|nos~es~|leav~es~
+|~b~rilliant|~b~arbecue|clim~b~ing|neigh~b~or
+|weather|public|cartoon|distance
+|beautiful|engineer|interesting|happiness
+He is really bad at making ___.|decision|decides|deciding|decisions
+I sometimes don’t do my homework because I’m ___ tired.|some|enough|such|too
+I’ll go to the bank if we ___ any more money.|need|will need|would need|needed
+You should learn your lesson ___.|careful|carefully|careless|carelessly
+Lyn was pleased that the ___ was hot and sunny.|weather|heating|temperature|sky
+My ___ teacher is really kind and helpful.|chemist|chemical|chemistry|chemist’s
+I am planting some roses. ___ help me get some water?|Have you|Can you|Should you|May you
+My mother ___ to me every week during my last stay in London.|writes|was writing|has written|wrote
+The children were asked to pick up the ___ in the school.|waste|litter|pollution|plastic
+Hong’s room is very dirty. ___ is much cleaner.|His|His rooms|Him|He
+If you are telling someone the reason why something happened, you are ___.|warning|scolding|explaining|persuading
+She ___ most of the morning swimming and reading.|kept|stayed|used|spent
+I have ~an idea~. Why don't we go to the beach?|a suggestion|a subject|a hobby|a way
+~Be careful~! The tree is going to fall.|Look out|Look up|Look on|Look after
+When did he ~start~ his hobby?|begin|continue|end|keep
+She was always very ~hard-working~ at school.|studious|skillful|lazy|attentive
+Sylvia: "Do you mind if I use your dictionary?" Trang: "Of course not, ___."|I have a dictionary|it’s over there|don’t do that|I’m sorry I can’t
+Lily: “Oh my God, I’ve missed my bus.” Chris: “___. Another will come here in 5 minutes.”|Don’t worry.|Don’t mention it.|I hope so.|OK.`,
+cz:{p:`A large supermarket was looking for a manager for a new store they were planning to open. Out of over 90 people who had applied for the post they had chosen five and asked them to come for an interview.
+The first [1], Mr. Riley, walked into the interview room. He was smartly dressed, but it was clear that he was [2] to a personal stereo. He sat down, [3] off his shoes, and lit a cigarette. One of the interviewers said that they would prefer him not to smoke and Mr. Riley apologized. Just at the moment, a telephone rang. Mr. Riley reached into his pocket, took out his mobile phone and began a conversation with a friend of his.
+After a minute or two, the interviewers had enough and said they wanted to begin. “Certainly, go ahead”, said Mr. Riley. They [4] him if he wanted the job. “I don’t”, he replied. But I felt like a day in London, and you’ve already paid my train fare to come up here for the [5].`,o:'applied,applicant,applying,application;talking,making,listening,going;took,put,went,wore;warned,told,said,asked;interviewee,interviewer,interview,interviewing',k:'BCADC'},
+rd:{p:`Sally Gook wakes up every morning to a deep blue sky and blazing sun. For the last two years, she has been living on the tiny Greek island of Lipsi, which is only 16 square kilometers in size and has a population of just 650. But until a few years ago, she lived in London. “I was working for American Express and I had a good social life and earned a lot of money. But I had to get up very early every morning, often in horrible weather, and get a train or the tube to work.”
+Then one day she and a friend decided that they needed a relaxing holiday, and they came to Lipsi. “I loved it - the people, the mountains, the sun, and the delicious food. Suddenly I knew there was a different life waiting for me here.” A few months later, she applied for a job at a travel company which had organized her holiday. Since then she has been living on Lipsi and working as a tour guide. Her boyfriend, who is Greek, is a farmer. Sally said “I’ve only been back to London once, and I can’t imagine ever living there again.”`,k:'DCBCC',q:`Where is Sally Gook living now?|in London|in America|in her hometown|in Greece
+What was Sally’s life in London like?|She loved the food there.|She didn’t earn much money.|She had to wake up early every day.|She went to work by car.
+Sally got to know about Lipsi island during her ___.|business trip|holiday trip|wedding in Lipsi Island|visits to her boyfriend’s home
+What is Sally’s job now?|a farmer|a transporter|a tour guide|an event organizer
+What seems to be Sally’s feeling towards life in London?|She loved living in London.|She wanted to go back to London.|She disliked living in London.|She enjoyed her life in London.`},
+ra:[[`too|candies|night.|many|shouldn't|Children|eat|at`,`Children shouldn't eat too many candies at night.`],[`his small field.|in|a few|My grandfather|grows|vegetables`,`My grandfather grows a few vegetables in his small field.`],[`his exam.|The traffic was|so|noisy|he couldn't|concentrate|that|on`,`The traffic was so noisy that he couldn't concentrate on his exam.`],[`living|it|boring.|the countryside|is|She|because|in|hates`,`She hates living in the countryside because it is boring.`]],
+rw:[[`The black car is cheaper than the red one.`,`The red car`,[`The red car is more expensive than the black one is.`,`The red car is more expensive than the black one.`,`The red car is not as cheap as the black one is.`,`The red car is not as cheap as the black one.`]],[`"I want a camera for my birthday", he said.`,`He said that`,[`He said that he wanted a camera for his birthday.`]],[`If I could swim, I would go scuba diving with Terry. (BECAUSE)`,``,[`I don't go scuba diving with Terry because I can't swim.`,`I am not going scuba diving with Terry because I can't swim.`,`I am not going to go scuba diving with Terry because I can't swim.`,`I will not go scuba diving with Terry because I can't swim.`,`Because I can't swim, I don't go scuba diving with Terry.`,`Because I can't swim, I am not going scuba diving with Terry.`,`Because I can't swim, I am not going to go scuba diving with Terry.`,`Because I can't swim, I will not go scuba diving with Terry.`]],[`I live in a city. It is in the south of Vietnam. (WHICH)`,``,[`I live in a city which is in the south of Vietnam.`]]]},
+{n:'Đề 5',k:'BADDBABDADAADCCDCAACDC',mc:`|n~oo~n|d~oo~r|c~oo~l|m~oo~n
+|defeat~ed~|develop~ed~|look~ed~|finish~ed~
+|happy|hobby|region|agree
+|important|informal|inactive|impolite
+Can you ___ me the apple, please?|move|pass|have|turn
+Can you ___ the tables and chairs ___ the next room? There are some more students.|move – to|take – in|move – in|take – on
+Daisy is very ___ to take a test. She has been already well-prepared for the exam.|kind|confident|friendly|talkative
+Diana is in the art club. She likes to paint pictures, and everyone enjoys them. She is very ___.|different|obedient|funny|creative
+It is very important to make a good impression ___ your interviewer.|on|for|of|to
+Next summer I am working as a ___ teacher in a village near Hoa Binh City.|profession|suitable|favorite|volunteer
+On Saturday Tom’s parents ___ him ___ London to see the new film.|are taking – to|is taking – to|are taking – in|take – to
+Our class is going to ___ a picnic at the zoo on Saturday. Would you like to come with me?|have|make|pass|go
+Please turn ___ the lights. The room is so dark.|with|at|in|on
+She is always ___ at school and helps other students with their homework.|hard|hardly|hard-working|work hard
+Her room is very large. She is dreaming of a ___.|wooden big round table|round big wooden table|big round wooden table|big wooden round table
+The start of the film was good, but I soon got ___.|excited|exciting|boring|bored
+My neighbors are all ~friendly~ people and I enjoy living here so much.|very strict|difficult to make friends with|easy to make friends with|like old friends
+Nam was happy because his father gave him a toy car as a ~present~ for his birthday.|gift|problem|job|journey
+There are some ~drawbacks~ on the trip to America.|advantages|disadvantages|difficulty|trouble
+Sarah was unhappy as she did ~badly~ in her exams.|hard|carelessly|well|quickly
+Jenny: "Good afternoon, Miss. How are you?" Teacher: "___. And you?"|I'm going home|I'm leaving now|I'm thirty years old|Fine, thank you
+“How do you like your steak done?” - “___.”|I don’t like it|Very little|Well done|Very much`,
+cz:{p:`Newquay is a small town [1] the Atlantic coast in the south of England. It has got great beaches and is the [2] place to surf in the UK.
+In Newquay, there are lots of other things to do as [3] as surfing. If you like water sports, you can go kayaking, water-skiing or coasteering. Coasteering is different because it is rock climbing, jumping into the sea and swimming in the same activity, but you should always go with a special instructor.
+If you like animals, you can also visit the Blue Reef Aquarium and [4] a lot of different fish and even sharks. You can also go [5] on the beach or visit Newquay Zoo. Come and see for yourself!`,o:'on,in,to,at;goodest,gooder,best,better;well,soon,far,much;look,see,get,like;horse ride,ride horse,horse riding,riding horse',k:'ACABC'},
+rd:{p:`English is my mother tongue. Besides, I can speak French and Spanish. I studied the two languages when I was in high school. Now, I am still learning Spanish at the University. As for me, mastering a foreign language is not easy. After studying a language, practice is very necessary and useful. Traveling to the country where the target language is spoken is very helpful, but if you cannot speak the language well enough you will certainly have troubles. I also frequently go to the movies, watch television, listen to the radio in the language I am trying to learn. Reading is another good way to learn. Books are good, but I personally think newspapers and magazines are better. However, getting some knowledge of the language is the most important thing. Grammar and vocabulary should be mastered first.`,k:'CBABD',q:`How many languages can the writer speak?|1|2|3|4
+The writer has learned Spanish ___.|in Spain|at school|in other countries|when travelling
+Travelling may cause troubles if ___.|you cannot speak the language well enough|you can speak the language well enough|you can speak the language badly enough|you can communicate in the target language
+The most important thing is ___.|mastering grammar and vocabulary|getting some knowledge of the language|practicing speaking|reading books and newspapers
+___ is NOT a useful way to practice your target language.|listening to the radio in the language|reading books in the language|seeing films in the language|watching TV in mother tongue`},
+ra:[[`school.|enjoys|Clara|watching|after|cartoons`,`Clara enjoys watching cartoons after school.`],[`the world.|of|one|in|cities|the|is|Mexico city|biggest`,`Mexico city is one of the biggest cities in the world.`],[`we|across it.|a large river|that|such|swim|is|cannot|It`,`It is such a large river that we cannot swim across it.`],[`Nobody|you|will|notice|make|if|a mistake.`,`Nobody will notice if you make a mistake.`]],
+rw:[[`I started to play basketball 2 years ago.`,`I have`,[`I have played basketball for 2 years.`,`I have played basketball for two years.`]],[`How long is the Great Wall of China?`,`What is`,[`What is the length of the Great Wall of China?`]],[`He feels sorry that he can’t come to his brother’s wedding. (WISHES)`,``,[`He wishes that he could come to his brother's wedding.`,`He wishes he could come to his brother's wedding.`]],[`It took him two days to decorate the living room. (SPENT)`,``,[`He spent two days decorating the living room.`]]]}
+];
+const norm=s=>s.toLowerCase().replace(/[’‘]/g,"'").replace(/'/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+function mcq(i,n,l){const p=l.split('|'),o=p.slice(1);return `<div class="q" data-n="${n}"><p><b>${n}.</b> ${U(p[0])}</p>${o.map((x,j)=>`<label><input type="radio" name="e${i}q${n}" value="${j}"> ${L[j]}. ${U(x)}</label>`).join('')}<div class="fb"></div></div>`}
+function build(i){const e=D[i];let h='',n=1;
+e.mc.split('\n').forEach(l=>{if(H[n])h+=`<h3>${H[n]}</h3>`;h+=mcq(i,n,l);n++});
+const os=e.cz.o.split(';');
+h+=`<h3>Câu 23. Đọc đoạn văn và chọn đáp án đúng cho mỗi chỗ trống.</h3><div class="q" data-n="23"><div class="ps" style="border:0;padding:0;background:none">${e.cz.p.replace(/\[(\d)\]/g,(m,d)=>`<select name="e${i}c${d}"><option value="">(${d})</option>${os[d-1].split(',').map((o,j)=>`<option value="${j}">${L[j]}. ${o}</option>`).join('')}</select>`)}</div><div class="fb"></div></div>`;
+h+=`<h3>Câu 24–28. Đọc đoạn văn và chọn đáp án đúng.</h3>${e.rd.t?`<p><b>${e.rd.t}</b></p>`:''}<div class="ps">${e.rd.p}</div>`;
+n=24;e.rd.q.split('\n').forEach(l=>{h+=mcq(i,n,l);n++});
+h+=`<h3>Câu 29–32. Sắp xếp các từ/cụm từ thành câu hoàn chỉnh (gõ cả câu).</h3>`;
+e.ra.forEach((r,j)=>{const m=29+j;h+=`<div class="q" data-n="${m}"><p><b>${m}.</b> ${r[0].split('|').map(w=>`<span class="chip">${w}</span>`).join('')}</p><input type="text" name="e${i}t${m}" autocomplete="off"><div class="fb"></div></div>`});
+h+=`<h3>Câu 33–36. Viết lại câu cho cùng nghĩa (gõ phần còn thiếu hoặc cả câu).</h3>`;
+e.rw.forEach((r,j)=>{const m=33+j;h+=`<div class="q" data-n="${m}"><p><b>${m}.</b> ${r[0]}</p><p>⇒ ${r[1]}</p><input type="text" name="e${i}t${m}" autocomplete="off"><div class="fb"></div></div>`});
+h+=`<button class="sub" onclick="grade(${i})">Nộp bài &amp; chấm điểm</button><button class="act g" onclick="build(${i});window.scrollTo(0,0)">Làm lại</button><div class="res"></div>`;
+$('#p'+i).innerHTML=h}
+const HKEY='dethianh6cg_history_v1';
+function saveHistory(name,score,total,wrong){
+ try{var a=JSON.parse(localStorage.getItem(HKEY)||'[]');if(!Array.isArray(a))a=[];
+  a.push({ts:Date.now(),topic:name,score:score,total:total,wrong:wrong});
+  if(a.length>300)a=a.slice(-300);localStorage.setItem(HKEY,JSON.stringify(a));}catch(e){}
+}
+function grade(i){const e=D[i],P=$('#p'+i);let s=0;const wr=[];
+const rad=(n,k)=>{const q=P.querySelector(`[data-n="${n}"]`),c=q.querySelector('input:checked'),a=L.indexOf(k);
+q.querySelectorAll('label').forEach((l,j)=>{if(j==a)l.classList.add('ok');else if(c&&+c.value==j)l.classList.add('no')});
+if(c&&+c.value==a)s++;else{q.querySelector('.fb').textContent=(c?'Sai':'Chưa làm')+'. Đáp án đúng: '+L[a];
+ wr.push({q:'Câu '+n,your:(c?L[+c.value]:''),correct:L[a]})}};
+[...e.k].forEach((k,j)=>rad(j+1,k));[...e.rd.k].forEach((k,j)=>rad(24+j,k));
+const q=P.querySelector('[data-n="23"]'),w=[];
+[...e.cz.k].forEach((k,j)=>{const sel=q.querySelector(`select[name="e${i}c${j+1}"]`),ok=sel.value!==''&&+sel.value==L.indexOf(k);sel.classList.add(ok?'ok':'no');if(ok)s+=.2;else{w.push(`(${j+1}) ${k}`);
+ wr.push({q:'Câu 23 – chỗ trống ('+(j+1)+')',your:(sel.value!==''?L[+sel.value]:''),correct:k})}});
+if(w.length)q.querySelector('.fb').textContent='Đáp án đúng: '+w.join(', ');
+const txt=(m,vs,p)=>{const qq=P.querySelector(`[data-n="${m}"]`),inp=qq.querySelector('input'),v=inp.value,ok=v.trim()&&vs.some(x=>norm(x)==norm(v)||(p&&norm(x)==norm(p+' '+v)));
+inp.classList.add(ok?'ok':'no');if(ok)s++;else{qq.querySelector('.fb').textContent='Đáp án: '+vs.join('  /  ');
+ wr.push({q:'Câu '+m,your:(v.trim()||''),correct:(p?p+' '+vs[0]:vs[0])})}};
+e.ra.forEach((r,j)=>txt(29+j,[r[1]]));e.rw.forEach((r,j)=>txt(33+j,r[2],r[1]));
+P.querySelectorAll('input,select,button.sub').forEach(x=>x.disabled=true);
+const sc=Math.round(s*100)/100,R=P.querySelector('.res');
+R.innerHTML=`<div class="score">Kết quả: ${sc}/36 câu đúng → ${(s*10/36).toFixed(2)}/10 điểm</div>`;
+saveHistory(e.n,sc,36,wr);
+$('#t'+i).textContent=e.n+' · '+(s*10/36).toFixed(1);R.scrollIntoView({behavior:'smooth',block:'center'})}
+D.forEach((e,i)=>{const b=document.createElement('button');b.id='t'+i;b.textContent=e.n;b.onclick=()=>show(i);$('#tabs').append(b);const d=document.createElement('div');d.id='p'+i;$('#panels').append(d);build(i)});
+function show(i){D.forEach((_,j)=>{$('#p'+j).hidden=j!=i;$('#t'+j).classList.toggle('on',j==i)});window.scrollTo(0,0)}
+show(0);
+</script></main></body></html>
